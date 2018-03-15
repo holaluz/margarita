@@ -1,0 +1,47 @@
+{
+  "name": "margarita",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "test": "vue-cli-service test",
+    "e2e": "vue-cli-service e2e",
+    "lint": "vue-cli-service lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "register-service-worker": "^1.0.0",
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^3.4.0-rc.2",
+    "@storybook/addon-centered": "^3.4.0-rc.2",
+    "@storybook/addon-knobs": "^3.4.0-rc.2",
+    "@storybook/addon-links": "^3.4.0-rc.2",
+    "@storybook/addon-notes": "^3.4.0-rc.2",
+    "@storybook/addon-viewport": "^3.3.15",
+    "@storybook/addons": "^3.4.0-rc.2",
+    "@storybook/vue": "^3.4.0-rc.2",
+    "@vue/cli-plugin-babel": "^3.0.0-beta.6",
+    "@vue/cli-plugin-e2e-nightwatch": "^3.0.0-beta.6",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
+    "@vue/cli-plugin-pwa": "^3.0.0-beta.6",
+    "@vue/cli-plugin-unit-mocha": "^3.0.0-beta.6",
+    "@vue/cli-service": "^3.0.0-beta.6",
+    "@vue/eslint-config-standard": "^3.0.0-beta.6",
+    "@vue/test-utils": "^1.0.0-beta.10",
+    "babel-core": "^6.26.0 | ^7.0.0-0",
+    "chai": "^4.1.2",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
