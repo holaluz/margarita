@@ -1,0 +1,50 @@
+// @import '../src/assets/stylesheets/app.scss';
+//
+// #root {
+//   @extend body;
+//   // font-family: 'Avenir', Helvetica, Arial, sans-serif;
+//   // -webkit-font-smoothing: antialiased;
+//   // -moz-osx-font-smoothing: grayscale;
+//   // color: #2c3e50;
+// }
+
+@import "../src/assets/stylesheets/variables";
+@import "../src/assets/stylesheets/bootstrap-overrides";
+
+/*
+ * Vendor
+ */
+@import "~sass-rem/rem";
+@import "~sass-mq/mq";
+@import "../src/assets/stylesheets/vendor/bootstrap/bootstrap";
+
+/*
+ * Vendor variables
+ */
+@import "../src/assets/stylesheets/sass-mq";
+
+
+/*
+ * Mixins
+ */
+@import "../src/assets/stylesheets/mixins/arrow-container";
+@import "../src/assets/stylesheets/mixins/background-gradient";
+@import "../src/assets/stylesheets/mixins/bem";
+@import "../src/assets/stylesheets/mixins/border-gradient";
+@import "../src/assets/stylesheets/mixins/box-shadow";
+@import "../src/assets/stylesheets/mixins/forms";
+@import "../src/assets/stylesheets/mixins/font-face";
+@import "../src/assets/stylesheets/mixins/font-size";
+@import "../src/assets/stylesheets/mixins/font-smoothing";
+@import "../src/assets/stylesheets/mixins/font-weight";
+@import "../src/assets/stylesheets/mixins/input-placeholder";
+@import "../src/assets/stylesheets/mixins/select2-size";
+
+/*
+ * Fonts
+ */
+@import "../src/assets/stylesheets/fonts/ciutadella";
+
+body {
+  font-family: $font-family-base;
+}

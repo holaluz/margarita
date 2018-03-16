@@ -1,0 +1,16 @@
+@mixin select2-size($height: 3rem, $line-heigth: 3rem, $arrow-line-height: 3.5rem, $border: 0) {
+
+  .select,
+  .select2-container {
+    border: $border;
+    height: $height;
+
+    .select2-selection__rendered {
+      line-height: $line-heigth;
+    }
+
+    .select2__arrow--custom {
+      line-height: $arrow-line-height;
+    }
+  }
+}

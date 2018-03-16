@@ -1,0 +1,10 @@
+@mixin form-control-validation-state($state) {
+  .form-control {
+    .was-validated &:#{$state} {
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}

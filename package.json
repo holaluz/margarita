@@ -12,7 +12,10 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
     "register-service-worker": "^1.0.0",
+    "sass-mq": "^4.0.2",
+    "sass-rem": "^2.0.1",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

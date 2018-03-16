@@ -1,0 +1,15 @@
+@mixin border-gradient($direction, $color-start, $color-end, $width, $repeat: repeat-x) {
+  &:before {
+    position: absolute;
+    top: -$width;
+    right: 0;
+    left: 0;
+
+    background-image: linear-gradient($direction, $color-start 0%, $color-end 100%);
+    background-repeat: $repeat;
+
+    height: $width;
+
+    content: "";
+  }
+}

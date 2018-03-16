@@ -1,5 +1,5 @@
 import { addDecorator, configure } from '@storybook/vue'
-import './styles.css'
+import './styles.scss'
 
 import centered from '@storybook/addon-centered'
 

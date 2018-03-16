@@ -1,0 +1,114 @@
+// Color system
+
+$theme-colors: (
+  primary: $color-dark-hot-pink
+);
+
+
+// Body
+
+$body-color: $color-tundora;
+
+
+// Links
+
+$link-hover-decoration:     none;
+
+
+// Grid breakpoints
+
+$grid-breakpoints: (
+  xs: 0px,
+  ss: 340px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+
+// Grid columns
+
+$grid-gutter-width: 24px;
+
+
+// Components
+
+$border-radius: 0;
+$border-radius-lg: .3rem;
+$border-radius-sm: .2rem;
+
+
+// Fonts
+
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 2;
+$h2-font-size: $font-size-base * 1.5;
+$h3-font-size: $font-size-base * 1.25;
+$h4-font-size: $font-size-base * 1.25;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+$kbd-box-shadow: none;
+
+$list-inline-padding: $gutter-s;
+
+
+// Buttons
+
+$input-btn-focus-width: 0;
+$input-btn-focus-box-shadow: none;
+
+$btn-font-weight: 600;
+$btn-box-shadow: none;
+$btn-active-box-shadow: none;
+
+
+// Forms
+
+$input-disabled-bg: $color-concrete;
+
+$input-color: $color-tundora;
+$input-border-color: $color-alto;
+$input-box-shadow: none;
+
+$form-group-margin-bottom: .75rem;
+
+$custom-control-indicator-bg: $color-white;
+$custom-control-indicator-box-shadow: none;
+$custom-control-indicator-focus-box-shadow: none;
+
+$custom-select-focus-box-shadow: none;
+
+$custom-file-focus-box-shadow: none;
+$custom-file-box-shadow: none;
+
+
+// Dropdowns
+
+$dropdown-box-shadow: none;
+
+
+// Popovers
+
+$popover-box-shadow: none;
+
+
+// Modals
+
+$modal-inner-padding: 12px;
+
+$modal-content-box-shadow-xs: none;
+$modal-content-box-shadow-sm-up: none;
+
+$modal-header-padding: 12px;
+
+
+// Progress bars
+
+$progress-box-shadow: none;
+
+
+// Image thumbnails
+
+$thumbnail-box-shadow: none;

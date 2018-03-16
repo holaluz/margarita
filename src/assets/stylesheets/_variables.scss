@@ -1,0 +1,103 @@
+/*
+ * Defaults
+ */
+$rem-baseline: 16px;
+
+/*
+ * Fonts
+ */
+$font-family-base: "Ciutadella", sans-serif !default;
+
+/*
+ * Colors
+ *
+ * Names from http://chir.ag/projects/name-that-color
+ */
+$color-alto: rgba(220, 220, 220, 1);
+$color-black: rgba(0, 0, 0, 1);
+$color-buttercup: rgba(245, 166, 35, 1);
+$color-concrete: rgba(243, 243, 243, 1);
+$color-crimson: rgba(234, 24, 64, 1);
+$color-dark-hot-pink: rgba(230, 0, 125, 1);
+$color-gray: rgba(135, 135, 135, 1);
+$color-japanese-laurel: rgba(38, 135, 0, 1);
+$color-lima: rgba(112, 186, 32, 1);
+$color-picton-blue: rgba(84, 173, 236, 1);
+$color-pippin: rgba(255, 221, 220, 1);
+$color-peach-cream: rgba(255, 242, 220, 1);
+$color-primrose: rgba(226, 243, 173, 1);
+$color-rice-flower: rgba(237, 255, 218, 1);
+$color-school-bus-yellow: rgba(255, 220, 0, 1);
+$color-solitude: rgba(231, 246, 255, 1);
+$color-tundora: rgba(74, 74, 74, 1);
+$color-white: rgba(255, 255, 255, 1);
+
+$gradient-vertical: linear-gradient(to bottom, $color-dark-hot-pink, $color-school-bus-yellow) 1 100%;
+$gradient-horizontal: linear-gradient(to right, $color-dark-hot-pink, $color-school-bus-yellow);
+
+
+/*
+ * Images
+ */
+$image-svg-sprite: "/images/icons.svg";
+$image-svg-logo: "/images/logo.svg";
+$image-svg-logo-white: "/images/logo-white.svg";
+$image-container-background: "/images/background.jpg";
+
+/*
+ * Buttons
+ */
+$button-mask-border-width: 2px;
+$button-mask-height: 12px / $rem-baseline * 1rem;
+$button-mask-width: $button-mask-border-width * 3;
+$button-mask-color: $color-white;
+
+/*
+ * Spacings
+ */
+$component-margin: 2rem auto;
+$component-fluid-padding: 2rem 1rem;
+$gutter-xs: 0.5rem;
+$gutter-s: 0.75rem;
+$gutter-m: $gutter-s * 2;
+$gutter-l: $gutter-m * 2;
+$gutter-xl: $gutter-l + $gutter-m;
+
+/*
+ * Custom SVGs
+ */
+$pink-down-arrow: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 9'%3E%3Cpath fill='%23E6007D' d='M14.597 0L8.56 5.896 2.523 0H0l8.56 8.36L17.12 0z'/%3E%3C/svg%3E";
+$pink-check-mark: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23e6007d' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E";
+$pink-circle: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23e6007d'/%3E%3C/svg%3E";
+$white-check-mark: "data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23ffffff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E";
+
+/*
+ * Corner sizes
+ */
+$min-layout-size: 20rem;
+$max-layout-size: 75rem;
+
+/*
+ * Borders
+ */
+$thick-dark-pink-border-bottom: 4px solid $color-dark-hot-pink;
+$thin-silver-border-bottom: 2px solid $color-alto;
+$silver-border: 1px solid $color-alto;
+
+/*
+ * Hamburgers config
+ */
+$hamburger-padding-x: 1.5rem;
+$hamburger-padding-y: 1.5rem;
+$hamburger-layer-width: 1.75rem;
+$hamburger-layer-height: .25rem;
+$hamburger-layer-spacing: .3rem;
+$hamburger-layer-color: $color-black;
+$hamburger-layer-border-radius: 0;
+$hamburger-hover-opacity: 0.7;
+$hamburger-hover-transition-duration: 0.15s;
+$hamburger-hover-transition-timing-function: linear;
+$hamburger-hover-use-filter: false;
+$hamburger-hover-filter: opacity(50%);
+
+$hamburger-types: (slider);

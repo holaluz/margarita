@@ -1,0 +1,20 @@
+@mixin arrow-container($height, $bg-color, $arrow-color) {
+  height: $height;
+
+  &:first-child::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: $height/2 solid transparent;
+    border-bottom: $height/2 solid transparent;
+    border-left: $height/2 solid $arrow-color;
+    background-color: $bg-color;
+    width: 0;
+    height: 0;
+    content: "";
+  }
+
+  &:last-child {
+    background-color: $bg-color;
+  }
+}
