@@ -1,5 +1,5 @@
-<label v-bind:for="id" class="c-checkbox">
-  <input v-bind:id="id" v-bind:name="group" type="checkbox" class="c-checkbox__input c-form__control" />
+<label :for="id" class="c-checkbox">
+  <input :id="id" :name="group" type="checkbox" :checked="checked" :disabled="disabled" class="c-checkbox__input c-form__control" />
   <span class="c-checkbox__indicator"></span>
   <span class="c-checkbox__label">
     <h4 class="c-checkbox__name">{{ name }}</h4>
