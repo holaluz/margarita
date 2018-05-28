@@ -11,19 +11,23 @@ describe('MLogo', () => {
     const wrapper = shallowMount(MLogo)
 
     expect(wrapper.classes()).toContain('m-logo')
-    expect(wrapper.classes()).toContain('m-logo--color')
   })
 
-  it('should render the default slot', () => {
+  it('should add the wanted class names', () => {
     const wrapper = shallowMount(MLogo, {
       context: Object.assign({
-        props: {
-          color: false
+        class: {
+          'test-class': true
         }
       })
     })
 
     expect(wrapper.classes()).toContain('m-logo')
-    expect(wrapper.classes()).not.toContain('m-logo--color')
+    expect(wrapper.classes()).toContain('test-class')
+  })
+
+  it('should add a src attr', () => {
+    const wrapper = shallowMount(MLogo)
+    expect(wrapper.attributes()).toHaveProperty('src', '')
   })
 })
