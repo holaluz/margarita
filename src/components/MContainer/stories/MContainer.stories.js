@@ -1,193 +1,83 @@
-import './stories.scss'
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, boolean, select } from '@storybook/addon-knobs/vue'
-import { withMarkdownNotes } from '@storybook/addon-notes'
 
-import GridNestedNotes from '../notes/GridNested.md'
-import GridOffsetNotes from '../notes/GridOffset.md'
-import GridOrderNotes from '../notes/GridOrder.md'
-import GridSystemNotes from '../notes/GridSystem.md'
+const tags = [
+  'div',
+  'header',
+  'aside',
+  'article',
+  'section'
+]
 
-import MContainer from '../MContainer.vue'
-import MRow from '../../MRow/MRow.vue'
-import MCol from '../../MCol/MCol.vue'
+const gutterSizes = {
+  'none': 'none',
+  'grid-list-xs': 'xs',
+  'grid-list-sm': 'sm',
+  'grid-list-md': 'md',
+  'grid-list-lg': 'lg',
+  'grid-list-xl': 'xl'
+}
+
+const defaults = {
+  gutterSize: 'grid-list-md',
+  tag: 'div'
+}
 
 storiesOf('Grid System', module)
   .addDecorator(withKnobs)
-  .add('Usage', withMarkdownNotes(GridSystemNotes)(() => {
-    const fluid = boolean('Fluid layout', false)
-    const tag = select('Tag', [ 'div', 'header', 'aside', 'article', 'section' ], 'div')
-    const noGutters = boolean('No gutters', false)
+  .add('Usage', () => {
+    const fluid = boolean('Fluid Layout', false)
+    const containerTag = select('Container Tag', tags, defaults.tag)
+    const gutterSize = select('Gutter Size', gutterSizes, defaults.gutterSize)
+    const layoutTag = select('Layout Tag', tags, defaults.tag)
 
     return ({
-      components: { MContainer, MRow, MCol },
       template: `
-        <MContainer :fluid="fluid" :tag="tag" class="grid-example">
-          <MRow :noGutters="noGutters">
-            <MCol v-for="col in 1" :key="col" class="m-col--12">
-              <div class="content px0">12</div>
-            </MCol>
-          </MRow>
-          <MRow :noGutters="noGutters">
-            <MCol v-for="col in 2" :key="col" class="m-col--6">
-              <div class="content px0">6</div>
-            </MCol>
-          </MRow>
-          <MRow :noGutters="noGutters">
-            <MCol v-for="col in 3" :key="col" class="m-col--4">
-              <div class="content px0">4</div>
-            </MCol>
-          </MRow>
-          <MRow :noGutters="noGutters">
-            <MCol v-for="col in 4" :key="col" class="m-col--3">
-              <div class="content px0">3</div>
-            </MCol>
-          </MRow>
-          <MRow :noGutters="noGutters">
-            <MCol v-for="col in 6" :key="col" class="m-col--2">
-              <div class="content px0">2</div>
-            </MCol>
-          </MRow>
-          <MRow :noGutters="noGutters">
-            <MCol v-for="col in 12" :key="col" class="m-col--1">
-              <div class="content px0">1</div>
-            </MCol>
-          </MRow>
-        </MContainer>
+        <v-app>
+          <v-container :fluid="fluid" :tag="containerTag" :class="gutterSize" text-xs-center>
+            <v-layout :tag="layoutTag" row wrap>
+              <v-flex xs12>
+                <v-card dark color="primary">
+                  <v-card-text class="px-0">12</v-card-text>
+                </v-card>
+              </v-flex>
+              <v-flex v-for="i in 2" :key="1 + i" xs6>
+                <v-card dark color="secondary">
+                  <v-card-text class="px-0">6</v-card-text>
+                </v-card>
+              </v-flex>
+              <v-flex v-for="i in 3" :key="10 + i" xs4>
+                <v-card dark color="primary">
+                  <v-card-text class="px-0">4</v-card-text>
+                </v-card>
+              </v-flex>
+              <v-flex v-for="i in 4" :key="20 + i" xs3>
+                <v-card dark color="secondary">
+                  <v-card-text class="px-0">3</v-card-text>
+                </v-card>
+              </v-flex>
+              <v-flex v-for="i in 6" :key="30 + i" xs2>
+                <v-card dark color="primary">
+                  <v-card-text class="px-0">2</v-card-text>
+                </v-card>
+              </v-flex>
+              <v-flex v-for="i in 12" :key="40 + i" xs1>
+                <v-card dark color="secondary">
+                  <v-card-text class="px-0">1</v-card-text>
+                </v-card>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-app>
       `,
 
       data () {
         return {
           fluid: fluid,
-          tag: tag,
-          noGutters: noGutters
+          containerTag: containerTag,
+          gutterSize: gutterSize,
+          layoutTag: layoutTag
         }
       }
     })
-  }))
-  .add('Offset', withMarkdownNotes(GridOffsetNotes)(() => {
-    const fluid = boolean('fluid', false)
-    const noGutters = boolean('noGutters', false)
-
-    return ({
-      components: { MContainer, MRow, MCol },
-      template: `
-        <MContainer :fluid="fluid" class="grid-example">
-          <MRow :noGutters="noGutters">
-            <MCol class="m-col--10 m-col--offset-2">
-              <div class="content">m-col--10 m-col--offset-2</div>
-            </MCol>
-            <MCol class="m-col--4 m-col--offset-5 m-col--md-offset-3">
-              <div class="content">m-col--4 m-col--(offset-5 | md-offset-3)</div>
-            </MCol>
-            <MCol class="m-col--12 m-col--md-4 m-col--md-offset-1">
-              <div class="content">m-col--12 m-col--md-4 m-col--md-offset-1</div>
-            </MCol>
-            <MCol class="m-col--12 m-col--sm-6 m-col--md-7 m-col--sm-offset-1">
-              <div class="content">m-col--12 m-col--(sm-6 | md-7) m-col--sm-offset-1</div>
-            </MCol>
-          </MRow>
-        </MContainer>
-      `,
-
-      data () {
-        return {
-          fluid: fluid,
-          noGutters: noGutters
-        }
-      }
-    })
-  }))
-  .add('Order', withMarkdownNotes(GridOrderNotes)(() => {
-    const fluid = boolean('fluid', false)
-    const noGutters = boolean('noGutters', false)
-
-    return ({
-      components: { MContainer, MRow, MCol },
-      template: `
-        <MContainer :fluid="fluid" class="grid-example">
-          <MRow :noGutters="noGutters">
-            <MCol class="m-col--6 m-col--lg-order-2">
-              <div class="content">#1</div>
-            </MCol>
-            <MCol class="m-col--6">
-              <div class="content">#2</div>
-            </MCol>
-          </MRow>
-          <MRow :noGutters="noGutters">
-            <MCol class="m-col--4 m-col--md-order-2 m-col--order-1">
-              <div class="content">#1</div>
-            </MCol>
-            <MCol class="m-col--4 m-col--md-order-3 m-col--order-2">
-              <div class="content">#2</div>
-            </MCol>
-            <MCol class="m-col--4 m-col--md-order-1 m-col--order-3">
-              <div class="content">#3</div>
-            </MCol>
-          </MRow>
-          <MRow :noGutters="noGutters">
-            <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-4 m-col--sm-order-2">
-              <div class="content">#1</div>
-            </MCol>
-            <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-3 m-col--sm-order-1">
-              <div class="content">#2</div>
-            </MCol>
-            <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-2 m-col--sm-order-4">
-              <div class="content">#3</div>
-            </MCol>
-            <MCol class="m-col--12 m-col--sm-6 m-col--md-3 m-col--md-order-1 m-col--sm-order-3">
-              <div class="content">#4</div>
-            </MCol>
-          </MRow>
-        </MContainer>
-      `,
-
-      data () {
-        return {
-          fluid: fluid,
-          noGutters: noGutters
-        }
-      }
-    })
-  }))
-  .add('Nested', withMarkdownNotes(GridNestedNotes)(() => {
-    const fluid = boolean('fluid', false)
-    const noGutters = boolean('noGutters', false)
-
-    return ({
-      components: { MContainer, MRow, MCol },
-      template: `
-        <MContainer :fluid="fluid" class="grid-example">
-          <MRow :noGutters="noGutters">
-            <MCol class="m-col--12 m-col--sm-6 m-col--md-4">
-              <div class="content">{{ lorem }}</div>
-            </MCol>
-            <MCol class="m-col--12 m-col--sm-6 m-col--md-3">
-              <MRow :noGutters="noGutters">
-                <MCol>
-                  <div class="content">{{ lorem.slice(0, 70) }}</div>
-                </MCol>
-                <MCol v-for="i in 2" :key="i" class="m-col--12">
-                  <div class="content">{{ lorem.slice(0, 40) }}</div>
-                </MCol>
-              </MRow>
-            </MCol>
-            <MCol class="m-col--12 m-col--sm-6 m-col--md-2">
-              <div class="content">{{ lorem.slice(0, 90) }}</div>
-            </MCol>
-            <MCol class="m-col--12 m-col--sm-6 m-col--md-3">
-              <div class="content">{{ lorem.slice(0, 100) }}</div>
-            </MCol>
-          </MRow>
-        </MContainer>
-      `,
-
-      data () {
-        return {
-          fluid: fluid,
-          noGutters: noGutters,
-          lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
-        }
-      }
-    })
-  }))
+  })

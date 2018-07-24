@@ -8,6 +8,11 @@ module.exports = (baseConfig, env, defaultConfig) => {
     include: path.resolve(__dirname, '../src')
   })
 
+  defaultConfig.module.rules.push({
+    test: /\.styl$/,
+    loaders: [ 'style-loader', 'css-loader', 'stylus-loader' ]
+  })
+
   // Replacing the markdown one
   defaultConfig.module.rules[2] = {
     test: /\.md$/,

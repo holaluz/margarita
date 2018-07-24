@@ -18,18 +18,18 @@
     "unit:watch": "jest --watchAll --config test/unit/jest.conf.js"
   },
   "dependencies": {
-    "vue": "^2.5.2",
-    "vuex": "^3.0.1"
+    "vue": "^2.5.16",
+    "vuetify": "^1.1.8"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.3",
-    "@storybook/addon-knobs": "^3.4.3",
-    "@storybook/addon-links": "^3.4.3",
-    "@storybook/addon-notes": "^3.4.3",
-    "@storybook/addon-viewport": "^3.4.3",
-    "@storybook/addons": "^3.4.3",
-    "@storybook/vue": "^3.4.3",
-    "@vue/test-utils": "^1.0.0-beta.16",
+    "@storybook/addon-actions": "^3.4.8",
+    "@storybook/addon-knobs": "^3.4.8",
+    "@storybook/addon-links": "^3.4.8",
+    "@storybook/addon-notes": "^3.4.8",
+    "@storybook/addon-viewport": "^3.4.8",
+    "@storybook/addons": "^3.4.8",
+    "@storybook/vue": "^3.4.8",
+    "@vue/test-utils": "^1.0.0-beta.21",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.1",
     "babel-jest": "^21.0.2",
@@ -52,6 +52,8 @@
     "pug-loader": "^2.4.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.0.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "vue-jest": "^1.0.2",
     "vue-loader": "^14.2.2",
     "vue-style-loader": "^3.0.1",
