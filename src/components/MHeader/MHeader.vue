@@ -87,7 +87,7 @@
           <v-tab
             v-for="item in languages"
             :key="item.label"
-            @click="null"
+            @click="() => false"
           >
             {{ item.label }}
           </v-tab>
@@ -113,7 +113,7 @@
               <v-list-tile
                 v-for="subitem in item.items"
                 :key="subitem.title"
-                @click="null"
+                @click="() => false"
               >
                 <v-list-tile-content>
                   <v-list-tile-title style="padding-left: 12px;">
@@ -126,7 +126,7 @@
             <v-list-tile
               v-else
               :key="item.title"
-              @click="null"
+              @click="() => false"
             >
               <v-list-tile-content>
                 <v-list-tile-title>
