@@ -1,3 +1,4 @@
+import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/src/stylus/theme.styl'
 import 'vuetify/src/stylus/main.styl'
 
@@ -11,6 +12,8 @@ function loadStories () {
   req.keys().forEach((filename) => req(filename))
 }
 
-vue.use(vuetify)
+vue.use(vuetify, {
+  iconfont: 'mdi'
+})
 
 configure(loadStories, module)
