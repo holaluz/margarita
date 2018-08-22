@@ -1,0 +1,14 @@
+@import './settings/_theme.styl'
+
+app($component)
+  div.application
+    &.theme--light
+      $component($material-light)
+
+theme($component, $name)
+  light($component, $name)
+
+light($component, $name)
+  div.theme--light .{$name},
+  div.application .theme--light.{$name}
+    $component($material-light)
