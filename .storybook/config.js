@@ -1,10 +1,9 @@
 import '@mdi/font/css/materialdesignicons.css'
-import 'vuetify/src/stylus/theme.styl'
-import 'vuetify/src/stylus/main.styl'
+import '../src/stylus/main.styl'
 
 import { addDecorator, configure } from '@storybook/vue'
-import vue from 'vue'
-import vuetify from 'vuetify'
+import Vue from 'vue'
+import Vuetify from 'vuetify'
 
 const req = require.context('../src/components', true, /.stories.js$/)
 
@@ -12,7 +11,7 @@ function loadStories () {
   req.keys().forEach((filename) => req(filename))
 }
 
-vue.use(vuetify, {
+Vue.use(Vuetify, {
   iconfont: 'mdi'
 })
 
