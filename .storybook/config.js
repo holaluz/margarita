@@ -1,5 +1,5 @@
 import '@mdi/font/css/materialdesignicons.css'
-import '../src/stylus/main.styl'
+// import '../src/stylus/main.styl'
 
 import { addDecorator, configure } from '@storybook/vue'
 import Vue from 'vue'
