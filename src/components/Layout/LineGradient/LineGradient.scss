@@ -1,0 +1,21 @@
+@import "../../../scss/margarita";
+
+$color-gradient: linear-gradient(90deg,#e6007d,#ffdc00);
+
+.line-gradient {
+  height: 8px;
+  width: 100%;
+  background-image: $color-gradient;
+
+  &--small {
+    height: rem(1px);
+  }
+
+  &--medium {
+    height: rem(8px);
+  }
+
+  &--large {
+    height: rem(24px);
+  }
+}
