@@ -16,9 +16,7 @@
       :disabled="disabled"
       :class="computedClass"
       class="text-input__field"
-      @blur="emit"
-      @change="emit"
-      @input="emit"
+      v-on="inputListeners"
       @keyup.enter="removeFocus"
     >
     <div
@@ -89,9 +87,16 @@ export default {
     }
   },
 
-  watch: {
-    value (newValue) {
-      this.lazyValue = newValue
+    inputListeners () {
+      return Object.assign({},
+        this.$listeners,
+        {
+          input: (evt) => {
+            // If we want to add some mask stuff, we can do it here
+            this.$emit('input', evt.target.value)
+          }
+        }
+      )
     }
   },
 
