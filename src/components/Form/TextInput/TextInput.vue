@@ -9,9 +9,8 @@
     />
     <input
       :id="id"
+      v-bind="$attrs"
       :class="computedClass"
-      :disabled="disabled"
-      :placeholder="placeholder"
       :type="type"
       :value="value"
       class="text-input__field"
@@ -30,12 +29,9 @@
 export default {
   name: 'TextInput',
 
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false
-    },
+  inheritAttrs: false,
 
+  props: {
     errorMessage: {
       type: String,
       default: 'Error message'
@@ -54,11 +50,6 @@ export default {
     label: {
       type: String,
       required: true
-    },
-
-    placeholder: {
-      type: String,
-      default: ''
     },
 
     type: {
