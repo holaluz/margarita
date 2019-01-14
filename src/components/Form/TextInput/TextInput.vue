@@ -59,14 +59,8 @@ export default {
       required: true
     },
 
-    mask: {
-      type: Function,
-      default: () => {}
-    },
-
     placeholder: {
       type: String,
-      required: false,
       default: ''
     },
 
@@ -77,7 +71,8 @@ export default {
 
     value: {
       type: [ String, Number ],
-      default: ''
+      default: '',
+      required: true
     }
   },
 
