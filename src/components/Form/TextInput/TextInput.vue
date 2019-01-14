@@ -14,6 +14,7 @@
       :type="type"
       :placeholder="placeholder"
       :disabled="disabled"
+      :class="computedClass"
       class="text-input__field"
       @blur="emit"
       @change="emit"
@@ -29,10 +30,6 @@
 </template>
 
 <script>
-const INPUT_CLASSES = {
-  hasError: 'text-input__field--error'
-}
-
 export default {
   name: 'TextInput',
 
@@ -91,12 +88,9 @@ export default {
   },
 
   computed: {
-    getComputedClass () {
-      const propKeys = Object.keys(INPUT_CLASSES)
-
-      return propKeys
-        .filter(this._filterByExistProp)
-        .map(this._getClassNameByProp)
+    computedClass () {
+      return {
+        'text-input__field--error': this.hasError
     }
   },
 
@@ -113,14 +107,6 @@ export default {
 
     removeFocus () {
       this.$el.querySelector('input').blur()
-    },
-
-    _filterByExistProp (className) {
-      return !!this[className]
-    },
-
-    _getClassNameByProp (className) {
-      return INPUT_CLASSES[className]
     }
   }
 }
