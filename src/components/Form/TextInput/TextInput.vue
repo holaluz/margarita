@@ -9,12 +9,11 @@
     />
     <input
       :id="id"
-      v-model="lazyValue"
-      :class="getComputedClass"
-      :type="type"
-      :placeholder="placeholder"
-      :disabled="disabled"
       :class="computedClass"
+      :disabled="disabled"
+      :placeholder="placeholder"
+      :type="type"
+      :value="value"
       class="text-input__field"
       v-on="inputListeners"
       @keyup.enter="removeFocus"
@@ -74,18 +73,12 @@ export default {
     }
   },
 
-  data () {
-    return {
-      lazyValue: this.value
-    }
-  },
-
   computed: {
     computedClass () {
       return {
         'text-input__field--error': this.hasError
-    }
-  },
+      }
+    },
 
     inputListeners () {
       return Object.assign({},
@@ -101,10 +94,6 @@ export default {
   },
 
   methods: {
-    emit (e) {
-      this.$emit(e.type, this.lazyValue)
-    },
-
     removeFocus () {
       this.$el.querySelector('input').blur()
     }
