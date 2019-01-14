@@ -10,9 +10,6 @@ import TextInputNotes from './notes/TextInput.md'
 
 const GRID_ARRAY = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 
-const TRIGGERED_MSG = 'Triggered event:'
-const CHANGED_MSG = 'Changed property:'
-
 storiesOf('Form Components', module)
   .addDecorator(withKnobs)
   .add('Text Input', withMarkdownNotes(TextInputNotes)(() => {
@@ -38,18 +35,18 @@ storiesOf('Form Components', module)
             :label="label"
             :placeholder="placeholder"
             @blur="onBlur"
-            @input="onInput"
+            @input.native="onInput"
+            @change="onChange"
             v-model="value"
           />
         </GridColumn>`,
 
       computed: {
         getClass () {
-          const classes = [ `grid-col--${this.size}` ]
-          const offset = Number(this.offset)
-
-          if (offset) classes.push(`grid-col--offset-${offset}`)
-          return classes
+          return {
+            [`grid-col--${this.size}`]: this.size,
+            [`grid-col--offset-${this.offset}`]: this.offset
+          }
         }
       },
 
@@ -59,21 +56,21 @@ storiesOf('Form Components', module)
           errorMessage,
           hasError,
           label,
-          placeholder,
           offset,
+          placeholder,
           size,
           value
         }
       },
 
       methods: {
-        onInput: action(`${TRIGGERED_MSG} 'input'`),
-
-        onBlur: action(`${TRIGGERED_MSG} blur`)
+        onInput: action('Triggered event: input'),
+        onChange: action('Triggered event: change'),
+        onBlur: action('Triggered event: blur')
       },
 
       watch: {
-        value: action(`${CHANGED_MSG} value`)
+        value: action('Changed property: value')
       }
     })
   }))
