@@ -54,6 +54,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.1.0",
+    "eslint-plugin-vue-a11y": "0.0.31",
     "highlight-loader": "^0.7.3",
     "html-loader": "^0.5.5",
     "husky": "^1.0.0-rc.9",

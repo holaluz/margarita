@@ -17,9 +17,12 @@ module.exports = {
     // Treat prettier errors as linting errors
     // Disable certain rules that interfere with prettier
     'plugin:prettier/recommended',
+    'plugin:vue-a11y/recommended',
+    // 'plugin:vue-a11y/base',
   ],
   plugins: [
     'vue',
+    'vue-a11y',
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
