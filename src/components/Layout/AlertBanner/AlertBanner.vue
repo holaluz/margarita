@@ -2,9 +2,9 @@
 
 <template>
   <div :class="getClasses" class="alert-banner">
-    <span v-if="showAlertIcon" class="alert-banner__icon" />
-    <div :class="computedContentClass">
-      <p v-if="alertWithTitle" class="alert-banner__title" v-text="title" />
+    <span class="alert-banner__icon" />
+    <div class="alert-banner__content">
+      <p v-if="title" class="alert-banner__title" v-text="title" />
       <slot>
         <p class="alert-banner__text" v-text="text" />
       </slot>
@@ -51,33 +51,10 @@ export default {
     getClasses() {
       const classes = []
 
-      if (this.alertWithTitle() && !this.hasIcon) {
-        classes.push('alert-banner--with-title')
-      }
       classes.push(`alert-banner--${this.size}`)
       classes.push(`alert-banner--${this.type}`)
 
       return classes
-    },
-
-    showAlertIcon() {
-      return this.hasIcon && (this.size === 'medium' || this.size === 'large')
-    },
-
-    hasIcon() {
-      return this.type === 'error' || this.type === 'warning'
-    },
-
-    computedContentClass() {
-      return {
-        'large-with-icon': this.showAlertIcon,
-      }
-    },
-  },
-
-  methods: {
-    alertWithTitle() {
-      return this.size === 'large' && this.title !== ''
     },
   },
 }
