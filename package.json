@@ -32,7 +32,7 @@
     "@storybook/addon-links": "^5.0.6",
     "@storybook/addon-notes": "^5.0.6",
     "@storybook/addon-viewport": "^5.0.6",
-    "@testing-library/vue": "^1.0.3",
+    "@testing-library/vue": "^1.1.0",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-plugin-unit-jest": "^3.8.0",
