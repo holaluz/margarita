@@ -43,7 +43,7 @@ describe('Button', () => {
       props: { loading: true },
     })
 
-    expect(getByRole('button').disabled).toBeTruthy()
+    expect(getByRole('button').disabled).toBe(true)
     getByTestId('button-spinner')
   })
 })
