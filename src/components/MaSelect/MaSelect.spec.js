@@ -121,4 +121,26 @@ describe('Select', () => {
     const placeholder = getByText(/placeholder text/i)
     expect(placeholder.disabled).toBe(true)
   })
+
+  it('displays properly formatted options', () => {
+    const options = [
+      { potato: 'Pataton', something: 'blabla', active: true },
+      { potato: 'Pataton2', something: 'bleble' },
+    ]
+
+    const { getByText } = SelectBuilder({
+      options,
+      formatter: o => ({
+        label: o.potato,
+        text: o.potato,
+        value: o.something,
+        disabled: !o.active,
+      }),
+    })
+
+    options.forEach(o => {
+      const option = getByText(o.potato)
+      expect(option.disabled).toBe(!o.active)
+    })
+  })
 })

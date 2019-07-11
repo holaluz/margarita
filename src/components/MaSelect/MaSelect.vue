@@ -16,7 +16,7 @@
       class="ma-select__field"
     >
       <option
-        v-for="(option, index) in options"
+        v-for="(option, index) in formattedOptions"
         :key="index"
         :label="option.label"
         :value="option.value"
@@ -80,6 +80,16 @@ export default {
       default: false,
     },
 
+    formatter: {
+      type: Function,
+      default: o => ({
+        disabled: o.disabled,
+        label: o.label,
+        text: o.text,
+        value: o.value,
+      }),
+    },
+
     fieldClass: {
       type: String,
       default: '',
@@ -102,6 +112,10 @@ export default {
       set(newVal) {
         this.$emit('change', newVal)
       },
+    },
+
+    formattedOptions() {
+      return this.options.map(this.formatter)
     },
 
     computedClass() {
