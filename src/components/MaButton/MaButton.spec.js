@@ -10,7 +10,6 @@ describe('Button', () => {
     })
 
     getByText(/Hello World/i)
-    getByRole('button')
     expect(getByRole('button').type).toEqual('submit')
   })
 
