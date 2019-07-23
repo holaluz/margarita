@@ -9,12 +9,8 @@ describe('Alert', () => {
     const slotDefault = 'This is a slot'
 
     const { getByText } = render(MaAlert, {
-      props: {
-        title,
-      },
-      slots: {
-        default: slotDefault,
-      },
+      props: { title },
+      slots: { default: slotDefault },
     })
 
     getByText(title)
@@ -25,9 +21,7 @@ describe('Alert', () => {
     const text = 'This is a text'
 
     const { getByText } = render(MaAlert, {
-      props: {
-        text,
-      },
+      props: { text },
     })
 
     getByText(text)
@@ -38,12 +32,8 @@ describe('Alert', () => {
     const slotDefault = 'This is a slot'
 
     const { getByText, queryByText } = render(MaAlert, {
-      props: {
-        text,
-      },
-      slots: {
-        default: slotDefault,
-      },
+      props: { text },
+      slots: { default: slotDefault },
     })
 
     getByText(slotDefault)
