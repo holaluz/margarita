@@ -23,7 +23,14 @@
       />
       <slot name="inputSibling" />
     </div>
-    <div v-if="hasError" class="ma-text__error-message" v-text="errorMessage" />
+    <div
+      v-if="hasError"
+      class="ma-text__error-message"
+      aria-live="polite"
+      aria-atomic="true"
+      role="alert"
+      v-text="errorMessage"
+    />
   </div>
 </template>
 
