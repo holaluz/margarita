@@ -5,7 +5,6 @@
     <input
       :id="id"
       v-model="isChecked"
-      :checked="checked"
       :disabled="disabled"
       type="checkbox"
       class="ma-checkbox__input"
