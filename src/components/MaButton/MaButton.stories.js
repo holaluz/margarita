@@ -12,7 +12,7 @@ import notes from './MaButton.md'
 import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaGridRow from '@margarita/components/MaGridRow'
 import MaButton from '@margarita/components/MaButton'
-import MaIcon from '@margarita/components/MaIcon'
+import MaIcon, { AVAILABLE_ICONS } from '@margarita/components/MaIcon'
 
 const BUTTON_CATEGORIES = [
   'primary',
@@ -20,26 +20,6 @@ const BUTTON_CATEGORIES = [
   'tertiary',
   'gradient',
   'no-background',
-]
-const ICONS_BUTTON = [
-  'AddContract',
-  'Arrow',
-  'ArrowToEnd',
-  'BulbOn',
-  'Close',
-  'DetailsContract',
-  'DownloadContract',
-  'EditContract',
-  'Exit',
-  'Gas',
-  'Link',
-  'Logo',
-  'LongArrow',
-  'Invoices',
-  'None',
-  'Phone',
-  'Plug',
-  'User',
 ]
 
 const HTML_TAGS = ['button', 'a']
@@ -52,7 +32,7 @@ storiesOf('Button', module)
       const category = select('Categories', BUTTON_CATEGORIES, 'primary')
       const textButton = text('Text', 'Click me')
       const loading = boolean('Loading', false)
-      const icon = select('Icons', ICONS_BUTTON, 'None')
+      const icon = select('Icons', AVAILABLE_ICONS, 'None')
       const iconSize = number('Icon height size in px', 18)
       const fluid = boolean('Fluid', false)
       const rounded = boolean('Rounded', false)

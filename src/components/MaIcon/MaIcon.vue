@@ -20,25 +20,7 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
-const AVAILABLE_ICONS = [
-  'AddContract',
-  'Arrow',
-  'ArrowToEnd',
-  'BulbOn',
-  'Close',
-  'DetailsContract',
-  'DownloadContract',
-  'EditContract',
-  'Exit',
-  'Gas',
-  'Invoices',
-  'Link',
-  'Logo',
-  'LongArrow',
-  'Phone',
-  'Plug',
-  'User',
-]
+import { AVAILABLE_ICONS } from './index'
 
 export default {
   name: 'ma-icon',
