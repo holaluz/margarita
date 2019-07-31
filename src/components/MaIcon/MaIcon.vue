@@ -31,6 +31,7 @@ const AVAILABLE_ICONS = [
   'EditContract',
   'Exit',
   'Gas',
+  'Invoices',
   'Link',
   'Logo',
   'LongArrow',

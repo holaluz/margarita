@@ -35,6 +35,7 @@ const ICONS_BUTTON = [
   'Link',
   'Logo',
   'LongArrow',
+  'Invoices',
   'None',
   'Phone',
   'Plug',
