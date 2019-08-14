@@ -17,6 +17,7 @@ export const AVAILABLE_ICONS = [
   'LongArrow',
   'Phone',
   'Plug',
+  'UploadContract',
   'User',
 ]
 
