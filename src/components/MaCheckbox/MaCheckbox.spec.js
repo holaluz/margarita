@@ -47,10 +47,11 @@ describe('Checkbox', () => {
 
     await fireEvent.click(getByLabelText(/checkbox label/i))
 
-    expect(emitted().input[0]).toContain(true)
+    expect(emitted()).toHaveProperty('input')
+    expect(emitted().input[0][0]).toEqual(true)
 
     await fireEvent.click(getByLabelText(/checkbox label/i))
 
-    expect(emitted().input[1]).toContain(false)
+    expect(emitted().input[1][0]).toEqual(false)
   })
 })

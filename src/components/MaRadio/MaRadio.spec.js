@@ -38,7 +38,7 @@ describe('Radio', () => {
     expect(input.checked).toBe(true)
   })
 
-  it('should emit change event on click', async () => {
+  it('emits event on click', async () => {
     const value = 'checkboxvalue'
     const { input, emitted } = RadioBuilder({
       value,
@@ -47,7 +47,7 @@ describe('Radio', () => {
     await fireEvent.click(input)
 
     expect(emitted()).toHaveProperty('change')
-    expect(emitted().change[0]).toEqual([value])
+    expect(emitted().change[0][0]).toEqual(value)
     expect(input.checked).toBe(true)
   })
 
@@ -60,7 +60,7 @@ describe('Radio', () => {
 
     await fireEvent.update(input)
 
-    expect(emitted().change).toBeUndefined()
+    expect(emitted()).toEqual({})
   })
 
   it('toggles value between related checkboxes', async () => {

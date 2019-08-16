@@ -29,7 +29,7 @@ const SelectBuilder = customProps =>
   })
 
 describe('Select', () => {
-  it('should have multiple options', () => {
+  it('renders multiple options', () => {
     const { getByText } = SelectBuilder()
 
     getByText(/option1/i)
@@ -37,18 +37,18 @@ describe('Select', () => {
     getByText(/option3/i)
   })
 
-  it('should have change its value when selected option changes', async () => {
+  it('changes its value when selected option changes', async () => {
     const { queryByDisplayValue, getByDisplayValue } = SelectBuilder()
 
     const select = getByDisplayValue(/option1/i)
 
-    await fireEvent.change(select, { target: { value: 'option2' } })
+    await fireEvent.update(select, 'option2')
 
     expect(queryByDisplayValue(/option1/i)).toBe(null)
     getByDisplayValue(/option2/i)
   })
 
-  it('should have error with custom error message', () => {
+  it('displays error', () => {
     const { getByText } = SelectBuilder({
       hasError: true,
       errorMessage: 'Something went wrong',
@@ -57,7 +57,7 @@ describe('Select', () => {
     getByText(/Something went wrong/i)
   })
 
-  it('should have bold class', () => {
+  it('renders bold class', () => {
     const { getByDisplayValue } = SelectBuilder({
       weight: 'bold',
     })
@@ -67,7 +67,7 @@ describe('Select', () => {
     expect(select.classList.contains('ma-select__field--bold')).toBeTruthy()
   })
 
-  it('should have custom class', () => {
+  it('renders custom class', () => {
     const customClass = 'my-custom-class'
     const { getByDisplayValue } = SelectBuilder({
       fieldClass: customClass,
@@ -78,7 +78,7 @@ describe('Select', () => {
     expect(select.classList.contains(customClass)).toBeTruthy()
   })
 
-  it('should have aria-label attr and hidden label', () => {
+  it('adds aria-label attr and hidden label', () => {
     const { queryByDisplayValue, getByDisplayValue } = SelectBuilder({
       'aria-label': 'test',
     })
@@ -94,7 +94,7 @@ describe('Select', () => {
     expect(queryByDisplayValue(/Test Select label/i)).toBe(null)
   })
 
-  it('should have a placeholder text', () => {
+  it('renders a placeholder text', () => {
     const { getByDisplayValue } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
@@ -102,7 +102,7 @@ describe('Select', () => {
     getByDisplayValue(/placeholder text/i)
   })
 
-  it(`shouldn't show placeholder text after change value`, async () => {
+  it(`doesn't show placeholder text after change value`, async () => {
     const { getByDisplayValue } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
@@ -113,7 +113,7 @@ describe('Select', () => {
     getByDisplayValue(/option1/i)
   })
 
-  it('placeholder option should be disabled', () => {
+  it('renders disabled placeholder option', () => {
     const { getByText } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })

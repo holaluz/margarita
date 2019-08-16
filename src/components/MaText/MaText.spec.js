@@ -13,19 +13,19 @@ const TextBuilder = (customProps, customParams) =>
   })
 
 describe('Text', () => {
-  it('should render an input element with a label', () => {
+  it('renders an input element with a label', () => {
     const { getByLabelText } = TextBuilder()
 
     expect(getByLabelText(/input label/i).type).toEqual('text')
   })
 
-  it('should render a button element with a label', () => {
+  it('renders a button element with a label', () => {
     const { getByLabelText } = TextBuilder({ type: 'button ' })
 
     expect(getByLabelText(/input label/i).type.trim()).toEqual('button')
   })
 
-  it('should have error CSS class', () => {
+  it('renders error CSS class', () => {
     const { getByText, getByLabelText } = TextBuilder({
       hasError: true,
       errorMessage: 'Something went wrong',
@@ -38,56 +38,55 @@ describe('Text', () => {
     expect(getByText(/Something went wrong/i))
   })
 
-  it('should be disabled', () => {
+  it('renders a disabled input', () => {
     const { getByLabelText } = TextBuilder({ disabled: true })
 
     expect(getByLabelText(/input label/i).disabled).toBeTruthy()
   })
 
-  it('should have custom id', () => {
-    const { getByLabelText, getByText } = TextBuilder({ id: 'customId' })
+  it('renders custom id', () => {
+    const { getByLabelText } = TextBuilder({ id: 'customId' })
 
-    expect(getByText(/input label/i).getAttribute('for')).toBe('customId')
     expect(getByLabelText(/input label/i).id).toBe('customId')
   })
 
-  it('should have initial value', () => {
+  it('renders initial value', () => {
     const { getByDisplayValue } = TextBuilder({ value: 'initial value' })
 
     getByDisplayValue(/initial value/i)
   })
 
-  it('should trigger input event with its value when typing', async () => {
+  it('triggers input event with its value when typing', async () => {
     const { getByDisplayValue, getByLabelText, emitted } = TextBuilder({
       value: 'initial value',
     })
 
-    await fireEvent.input(getByLabelText(/input label/i), {
-      target: { value: '42' },
-    })
+    const newValue = '42'
+
+    await fireEvent.update(getByLabelText(/input label/i), newValue)
 
     getByDisplayValue(/42/i)
-    expect(emitted().input).toBeTruthy()
-    expect(emitted().input[0]).toContain('42')
+    expect(emitted()).toHaveProperty('input')
+    expect(emitted().input[0][0]).toEqual(newValue)
   })
 
-  it('should trigger change event with its value when typing', async () => {
+  it('triggers change event with its value when typing', async () => {
     const { getByLabelText, emitted } = TextBuilder()
 
     await fireEvent.change(getByLabelText(/input label/i))
 
-    expect(emitted().change).toBeTruthy()
+    expect(emitted()).toHaveProperty('change')
   })
 
-  it('should emit its value on blur', async () => {
+  it('emits value on blur', async () => {
     const { getByLabelText, emitted } = TextBuilder()
 
     await fireEvent.blur(getByLabelText(/input label/i))
 
-    expect(emitted().blur).toBeTruthy()
+    expect(emitted()).toHaveProperty('blur')
   })
 
-  it('should emit its value on Enter', async () => {
+  it('emits value on enter', async () => {
     const { getByLabelText, emitted } = TextBuilder()
 
     await fireEvent.keyUp(getByLabelText(/input label/i), {
@@ -95,28 +94,28 @@ describe('Text', () => {
       code: 13,
     })
 
-    expect(emitted().enter).toBeTruthy()
+    expect(emitted()).toHaveProperty('enter')
   })
 
-  it('should render the inputSibling slot if provided', () => {
-    const SLOT_CONTENT = 'Test slot'
+  it('renders the inputSibling slot if provided', () => {
+    const inputSibling = 'Test slot'
     const { getByText } = TextBuilder(null, {
       slots: {
-        inputSibling: SLOT_CONTENT,
+        inputSibling,
       },
     })
 
-    getByText(SLOT_CONTENT)
+    getByText(inputSibling)
   })
 
-  it('should render the labelSibling slot if provided', () => {
-    const SLOT_CONTENT = 'Test slot'
+  it('renders the labelSibling slot if provided', () => {
+    const labelSibling = 'Test slot'
     const { getByText } = TextBuilder(null, {
       slots: {
-        labelSibling: SLOT_CONTENT,
+        labelSibling,
       },
     })
 
-    getByText(SLOT_CONTENT)
+    getByText(labelSibling)
   })
 })
