@@ -64,7 +64,7 @@ describe('Select', () => {
 
     const select = getByDisplayValue(/option1/i)
 
-    expect(select.classList.contains('ma-select__field--bold')).toBeTruthy()
+    expect(select.classList).toContain('ma-select__field--bold')
   })
 
   it('renders custom class', () => {
@@ -75,7 +75,7 @@ describe('Select', () => {
 
     const select = getByDisplayValue(/option1/i)
 
-    expect(select.classList.contains(customClass)).toBeTruthy()
+    expect(select.classList).toContain(customClass)
   })
 
   it('adds aria-label attr and hidden label', () => {
@@ -102,14 +102,14 @@ describe('Select', () => {
     getByDisplayValue(/placeholder text/i)
   })
 
-  it(`doesn't show placeholder text after change value`, async () => {
+  it('overrides placeholder with selected value', async () => {
     const { getByDisplayValue } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
 
     const select = getByDisplayValue(/placeholder text/i)
 
-    await fireEvent.change(select, { target: { value: 'option1' } })
+    await fireEvent.update(select, 'option1')
     getByDisplayValue(/option1/i)
   })
 
