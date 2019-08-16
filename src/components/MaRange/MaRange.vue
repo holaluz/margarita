@@ -17,7 +17,6 @@
         v-model="selectedValue"
         :max="stepsAmount - 1"
         class="ma-range__native-element"
-        data-testid="ma-range__native-element"
         type="range"
         min="0"
         step="1"
