@@ -7,8 +7,8 @@
     height="18px"
     viewBox="0 0 66 66"
     xmlns="http://www.w3.org/2000/svg"
-    data-testid="button-spinner"
   >
+    <title>Loading</title>
     <circle
       class="ma-button-spinner__path"
       fill="none"

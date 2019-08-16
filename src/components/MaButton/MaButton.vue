@@ -5,7 +5,6 @@
     :is="tag"
     :disabled="loading || disabled"
     :class="[getClasses, 'ma-button']"
-    data-testid="button"
     @click="handleClick"
   >
     <span>
