@@ -1,66 +1,62 @@
-import { shallowMount } from '@vue/test-utils'
+import { render } from '@testing-library/vue'
 import MaGridContainer from './MaGridContainer'
 
+const ContainerBuilder = options => {
+  const utils = render(MaGridContainer, {
+    attrs: {
+      'data-testid': 'container',
+    },
+    ...options,
+  })
+
+  return {
+    gridContainer: utils.getByTestId('container'),
+    ...utils,
+  }
+}
+
 describe('GridContainer', () => {
-  it('should render correct contents', () => {
-    const wrapper = shallowMount(MaGridContainer)
-    expect(wrapper.is(MaGridContainer)).toBe(true)
-  })
-
-  it('should use the specified tag', () => {
-    const wrapper = shallowMount(MaGridContainer, {
-      context: Object.assign({
-        props: {
-          tag: 'section',
-        },
-      }),
-    })
-
-    expect(wrapper.contains('section')).toBe(true)
-  })
-
-  it('should add a class based in a prop', () => {
-    const wrapper = shallowMount(MaGridContainer, {
-      context: Object.assign({
-        props: {
-          fluid: true,
-        },
-      }),
-    })
-
-    expect(wrapper.classes()).toContain('ma-grid-container--fluid')
-
-    const wrapper1 = shallowMount(MaGridContainer, {
-      context: Object.assign({
-        props: {
-          fluid: false,
-        },
-      }),
-    })
-
-    expect(wrapper1.classes()).not.toContain('ma-grid-container--fluid')
-  })
-
-  it('should add the wanted class names', () => {
-    const wrapper = shallowMount(MaGridContainer, {
-      context: Object.assign({
-        class: {
-          'test-class': true,
-        },
-      }),
-    })
-
-    expect(wrapper.classes()).toContain('ma-grid-container')
-    expect(wrapper.classes()).toContain('test-class')
-  })
-
-  it('should render the default slot', () => {
-    const wrapper = shallowMount(MaGridContainer, {
-      slots: {
-        default: '<span>Example</span>',
+  it('renders the DOM element specified in the prop', () => {
+    const { gridContainer } = ContainerBuilder({
+      props: {
+        tag: 'section',
       },
     })
 
-    expect(wrapper.find('span').text()).toBe('Example')
+    expect(gridContainer.nodeName).toBe('SECTION')
+  })
+
+  it('adds a class based in a prop', () => {
+    const { gridContainer } = ContainerBuilder({
+      props: {
+        fluid: true,
+      },
+    })
+
+    expect(gridContainer.classList).toContain('ma-grid-container--fluid')
+  })
+
+  it('adds the passed class names', () => {
+    const { gridContainer } = ContainerBuilder({
+      context: {
+        class: {
+          'test-class': true,
+        },
+      },
+    })
+
+    expect(gridContainer.classList).toContain('ma-grid-container')
+    expect(gridContainer.classList).toContain('test-class')
+  })
+
+  it('renders the default slot', () => {
+    const defaultSlot = 'default slot text'
+    const { getByText } = ContainerBuilder({
+      slots: {
+        default: defaultSlot,
+      },
+    })
+
+    getByText(defaultSlot)
   })
 })

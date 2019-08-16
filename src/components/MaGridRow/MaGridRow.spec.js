@@ -2,7 +2,7 @@ import { render } from '@testing-library/vue'
 import MaGridRow from './MaGridRow'
 
 describe('GridRow', () => {
-  it('should render content from slot', () => {
+  it('renders content from default slot', () => {
     const { getByText } = render(MaGridRow, {
       slots: { default: 'Hello World' },
     })
@@ -10,16 +10,16 @@ describe('GridRow', () => {
     getByText(/Hello World/i)
   })
 
-  it('should render the specified tag', () => {
+  it('renders the specified tag', () => {
     const { getByTestId } = render(MaGridRow, {
-      slots: { default: 'asdasd' },
       props: { tag: 'span' },
+      attrs: { 'data-testid': 'row' },
     })
 
-    expect(getByTestId('ma-grid-row').nodeName).toBe('SPAN')
+    expect(getByTestId('row').nodeName).toBe('SPAN')
   })
 
-  it('should add a class based in a prop', async () => {
+  it('adds a class based in a prop', async () => {
     const { getByTestId } = render(MaGridRow, {
       props: {
         noGutters: true,
@@ -27,17 +27,16 @@ describe('GridRow', () => {
         directionColumn: true,
         hasMarginTop: true,
       },
+      attrs: {
+        'data-testid': 'row',
+      },
     })
 
-    const gridRowClasses = getByTestId('ma-grid-row').classList
+    const gridRowClasses = getByTestId('row').classList
 
-    expect(gridRowClasses.contains('ma-grid-row--no-gutters')).toBeTruthy()
-    expect(gridRowClasses.contains('ma-grid-row--has-margin-top')).toBeTruthy()
-    expect(
-      gridRowClasses.contains('ma-grid-row--no-margin-bottom')
-    ).toBeTruthy()
-    expect(
-      gridRowClasses.contains('ma-grid-row--direction-column')
-    ).toBeTruthy()
+    expect(gridRowClasses).toContain('ma-grid-row--no-gutters')
+    expect(gridRowClasses).toContain('ma-grid-row--has-margin-top')
+    expect(gridRowClasses).toContain('ma-grid-row--no-margin-bottom')
+    expect(gridRowClasses).toContain('ma-grid-row--direction-column')
   })
 })
