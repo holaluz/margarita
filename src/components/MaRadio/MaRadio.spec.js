@@ -24,13 +24,13 @@ const RadioBuilder = customProps => {
 }
 
 describe('Radio', () => {
-  it('should render an unchecked radio element by default', () => {
+  it('renders an unchecked radio element by default', () => {
     const { input } = RadioBuilder()
 
     expect(input.checked).toBe(false)
   })
 
-  it('should render an checked radio element if checked key matches own label', () => {
+  it('renders an checked radio element if checked key matches own label', () => {
     const { input } = RadioBuilder({
       value: CHECKED_VALUE,
     })
@@ -46,12 +46,12 @@ describe('Radio', () => {
 
     await fireEvent.click(input)
 
-    expect(emitted().change).toBeTruthy()
+    expect(emitted()).toHaveProperty('change')
     expect(emitted().change[0]).toEqual([value])
     expect(input.checked).toBe(true)
   })
 
-  it('should not emit events if input is disabled', async () => {
+  it(`doesn't emit events if input is disabled`, async () => {
     const { input, emitted } = RadioBuilder({
       disabled: true,
     })
@@ -61,10 +61,9 @@ describe('Radio', () => {
     await fireEvent.update(input)
 
     expect(emitted().change).toBeUndefined()
-    expect(input.checked).toBe(false)
   })
 
-  it('should toggle value between related checkboxes', async () => {
+  it('toggles value between related checkboxes', async () => {
     const { getByLabelText } = render({
       components: { MaRadio },
       template: `
