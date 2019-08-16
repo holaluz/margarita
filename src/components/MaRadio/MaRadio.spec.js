@@ -31,18 +31,14 @@ describe('Radio', () => {
   })
 
   it('renders an checked radio element if checked key matches own label', () => {
-    const { input } = RadioBuilder({
-      value: CHECKED_VALUE,
-    })
+    const { input } = RadioBuilder({ value: CHECKED_VALUE })
 
     expect(input.checked).toBe(true)
   })
 
   it('emits event on click', async () => {
     const value = 'checkboxvalue'
-    const { input, emitted } = RadioBuilder({
-      value,
-    })
+    const { input, emitted } = RadioBuilder({ value })
 
     await fireEvent.click(input)
 
@@ -52,9 +48,7 @@ describe('Radio', () => {
   })
 
   it(`doesn't emit events if input is disabled`, async () => {
-    const { input, emitted } = RadioBuilder({
-      disabled: true,
-    })
+    const { input, emitted } = RadioBuilder({ disabled: true })
 
     expect(input.disabled).toBe(true)
 
