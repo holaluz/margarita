@@ -18,8 +18,10 @@ const ContainerBuilder = options => {
 describe('GridContainer', () => {
   it('renders the DOM element specified in the prop', () => {
     const { gridContainer } = ContainerBuilder({
-      props: {
-        tag: 'section',
+      context: {
+        props: {
+          tag: 'section',
+        },
       },
     })
 
@@ -28,8 +30,10 @@ describe('GridContainer', () => {
 
   it('adds a class based in a prop', () => {
     const { gridContainer } = ContainerBuilder({
-      props: {
-        fluid: true,
+      context: {
+        props: {
+          fluid: true,
+        },
       },
     })
 
