@@ -5,6 +5,7 @@ export const AVAILABLE_ICONS = [
   'Arrow',
   'ArrowToEnd',
   'BulbOn',
+  'Chevron',
   'Close',
   'DetailsContract',
   'DownloadContract',
