@@ -1,6 +1,6 @@
 {
   "name": "@holaluz/margarita",
-  "version": "0.0.0-development",
+  "version": "0.0.0-semantically-released",
   "main": "dist/margarita.umd.js",
   "browser": "dist/margarita.common.js",
   "unpkg": "dist/margarita.umd.min.js",
