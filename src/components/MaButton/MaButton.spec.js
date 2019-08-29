@@ -1,7 +1,5 @@
-import { render, fireEvent, cleanup } from '@testing-library/vue'
+import { render, fireEvent } from '@testing-library/vue'
 import MaButton from './MaButton'
-
-afterEach(cleanup)
 
 describe('Button', () => {
   it('renders a button element by default', () => {

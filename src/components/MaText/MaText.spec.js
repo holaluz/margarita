@@ -1,7 +1,5 @@
-import { render, fireEvent, cleanup } from '@testing-library/vue'
+import { render, fireEvent } from '@testing-library/vue'
 import MaText from './MaText'
-
-afterEach(cleanup)
 
 const TextBuilder = (customProps, customParams) => {
   const label = 'input label'

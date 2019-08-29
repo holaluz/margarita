@@ -1,7 +1,5 @@
-import { render, fireEvent, cleanup } from '@testing-library/vue'
+import { render, fireEvent } from '@testing-library/vue'
 import MaSelect from './MaSelect'
-
-afterEach(cleanup)
 
 const OPTIONS = [
   { label: 'Option1', text: 'Option1', value: 'option1' },

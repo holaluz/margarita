@@ -1,7 +1,5 @@
-import { render, cleanup } from '@testing-library/vue'
+import { render } from '@testing-library/vue'
 import MaAlert from './MaAlert'
-
-afterEach(cleanup)
 
 describe('Alert', () => {
   it(`renders a title and slot's content`, () => {

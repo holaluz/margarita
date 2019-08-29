@@ -1,7 +1,5 @@
-import { render, fireEvent, cleanup } from '@testing-library/vue'
+import { render, fireEvent } from '@testing-library/vue'
 import MaRange from './MaRange'
-
-afterEach(cleanup)
 
 const RangeBuilder = customProps =>
   render(MaRange, {

@@ -1,7 +1,5 @@
-import { render, fireEvent, cleanup } from '@testing-library/vue'
+import { render, fireEvent } from '@testing-library/vue'
 import MaRadio from './MaRadio'
-
-afterEach(cleanup)
 
 const CHECKED_VALUE = '1'
 const SLOT_TEXT = 'text slot'

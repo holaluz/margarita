@@ -1,7 +1,5 @@
-import { render, fireEvent, cleanup } from '@testing-library/vue'
+import { render, fireEvent } from '@testing-library/vue'
 import MaCheckbox from './MaCheckbox'
-
-afterEach(cleanup)
 
 const CheckboxBuilder = customProps =>
   render(MaCheckbox, {
