@@ -1,17 +1,17 @@
 {
-  "stylelint.enable": true,
-  "eslint.validate": [
-    {
-      "language": "vue",
-      "autoFix": true
-    },
-    {
-      "language": "javascript",
-      "autoFix": true
-    }
-  ],
-  "eslint.autoFixOnSave": true,
-  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[scss]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.disableLanguages": [],
   "vetur.format.defaultFormatter.html": "js-beautify-html",
   "vetur.validation.template": false
 }

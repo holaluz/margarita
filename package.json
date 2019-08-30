@@ -28,6 +28,7 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@holaluz/npm-scripts": "^1.0.1",
     "@storybook/addon-a11y": "^5.1.11",
     "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-knobs": "^5.1.11",
@@ -64,14 +65,14 @@
     "pre-push": "^0.1.1",
     "prettier": "^1.17.0",
     "sass-loader": "^7.3.1",
+    "semantic-release": "^15.13.24",
     "stylelint": "^10.0.1",
     "stylelint-config-concentric-order": "^3.4.1",
     "stylelint-config-prettier": "^5.1.0",
     "stylelint-prettier": "^1.1.0",
     "vue-cli-plugin-storybook": "^0.6.1",
     "vue-functional-data-merge": "^2.0.7",
-    "vue-template-compiler": "^2.6.10",
-    "semantic-release": "^15.13.24"
+    "vue-template-compiler": "^2.6.10"
   },
   "husky": {
     "hooks": {
