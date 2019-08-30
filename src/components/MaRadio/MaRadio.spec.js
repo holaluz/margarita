@@ -41,7 +41,7 @@ describe('Radio', () => {
     await fireEvent.click(input)
 
     expect(emitted()).toHaveProperty('change')
-    expect(emitted().change[0][0]).toEqual(value)
+    expect(emitted().change[0][0]).toStrictEqual(value)
     expect(input.checked).toBe(true)
   })
 
@@ -52,7 +52,7 @@ describe('Radio', () => {
 
     await fireEvent.update(input)
 
-    expect(emitted()).toEqual({})
+    expect(emitted()).toMatchObject({})
   })
 
   it('toggles value between related checkboxes', async () => {

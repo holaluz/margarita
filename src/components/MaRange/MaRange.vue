@@ -43,7 +43,7 @@ import uuid from '@margarita/utils/uuid'
 const REQUIRED_STEP_KEYS = ['value', 'text']
 
 export default {
-  name: 'ma-range',
+  name: 'MaRange',
 
   props: {
     value: {

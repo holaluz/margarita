@@ -23,7 +23,7 @@ import uuid from '@margarita/utils/uuid'
 import { AVAILABLE_ICONS } from './index'
 
 export default {
-  name: 'ma-icon',
+  name: 'MaIcon',
 
   props: {
     icon: {

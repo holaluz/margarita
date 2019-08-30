@@ -22,14 +22,14 @@ describe('Text', () => {
     const { input, getByRole } = TextBuilder()
 
     getByRole('textbox')
-    expect(input.type).toEqual('text')
+    expect(input.type).toStrictEqual('text')
   })
 
   it('renders a button element with a label', () => {
     const { input, getByRole } = TextBuilder({ type: 'button' })
 
     getByRole('textbox')
-    expect(input.type).toEqual('button')
+    expect(input.type).toStrictEqual('button')
   })
 
   it('renders error CSS class', () => {
@@ -41,7 +41,7 @@ describe('Text', () => {
 
     expect(input.classList).toContain('ma-text__field--error')
 
-    expect(getByText(errorMessage))
+    getByText(errorMessage)
   })
 
   it('renders a disabled input', () => {
@@ -74,7 +74,7 @@ describe('Text', () => {
 
     getByDisplayValue(/42/i)
     expect(emitted()).toHaveProperty('input')
-    expect(emitted().input[0][0]).toEqual(newValue)
+    expect(emitted().input[0][0]).toStrictEqual(newValue)
   })
 
   it('triggers change event with its value when typing', async () => {
@@ -92,7 +92,7 @@ describe('Text', () => {
     await fireEvent.blur(input)
 
     expect(emitted()).toHaveProperty('blur')
-    expect(emitted().blur[0][0]).toEqual(value)
+    expect(emitted().blur[0][0]).toStrictEqual(value)
   })
 
   it('emits value on enter', async () => {
@@ -105,7 +105,7 @@ describe('Text', () => {
     })
 
     expect(emitted()).toHaveProperty('enter')
-    expect(emitted().enter[0][0]).toEqual(value)
+    expect(emitted().enter[0][0]).toStrictEqual(value)
   })
 
   it('renders the inputSibling slot if provided', () => {

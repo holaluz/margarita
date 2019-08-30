@@ -16,7 +16,7 @@ const SLIDE_DIRECTIONS = ['left', 'right']
 const DRAWER_TYPES = ['attached', 'fixed']
 
 export default {
-  name: 'ma-sidebar',
+  name: 'MaSidebar',
 
   props: {
     type: {

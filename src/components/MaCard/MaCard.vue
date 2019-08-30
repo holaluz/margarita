@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'ma-card',
+  name: 'MaCard',
 
   props: {
     color: {

@@ -23,6 +23,6 @@
 
 <script>
 export default {
-  name: 'ma-button-spinner',
+  name: 'MaButtonSpinner',
 }
 </script>

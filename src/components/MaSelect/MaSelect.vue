@@ -38,7 +38,7 @@ import uuid from '@margarita/utils/uuid'
 const AVAILABLE_WEIGHTS = ['bold', 'semibold', 'medium', 'regular']
 
 export default {
-  name: 'ma-select',
+  name: 'MaSelect',
 
   inheritAttrs: false,
 

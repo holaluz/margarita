@@ -18,7 +18,7 @@
 import uuid from '@margarita/utils/uuid'
 
 export default {
-  name: 'ma-checkbox',
+  name: 'MaCheckbox',
 
   props: {
     checked: {

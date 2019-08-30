@@ -27,12 +27,12 @@ describe('Range', () => {
     const { getByRole, getByText, emitted } = RangeBuilder()
 
     expect(getByRole('textbox').value).toBe('0')
-    expect(emitted()).toEqual({})
+    expect(emitted()).toMatchObject({})
 
     await fireEvent.click(getByText(/second value/i))
 
     expect(emitted()).toHaveProperty('input')
-    expect(emitted().input[0][0]).toEqual('value2')
+    expect(emitted().input[0][0]).toStrictEqual('value2')
   })
 
   it('renders a label if prop is passed', () => {

@@ -26,7 +26,7 @@ const AVAILABLE_CATEGORIES = [
 ]
 
 export default {
-  name: 'ma-button',
+  name: 'MaButton',
 
   components: {
     MaButtonSpinner,

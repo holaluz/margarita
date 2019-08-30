@@ -17,7 +17,7 @@ const AVAILABLE_SIZES = ['small', 'medium', 'large']
 const AVAILABLE_TYPES = ['error', 'info', 'success', 'warning']
 
 export default {
-  name: 'ma-alert',
+  name: 'MaAlert',
 
   props: {
     size: {

@@ -53,7 +53,7 @@ import MaButton from '@margarita/components/MaButton'
 import MaIcon from '@margarita/components/MaIcon'
 
 export default {
-  name: 'ma-pagination',
+  name: 'MaPagination',
 
   components: {
     MaIcon,

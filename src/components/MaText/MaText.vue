@@ -35,7 +35,7 @@ const INPUT_CLASSES = {
 }
 
 export default {
-  name: 'ma-text',
+  name: 'MaText',
 
   props: {
     disabled: {

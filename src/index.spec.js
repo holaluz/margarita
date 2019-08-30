@@ -1,4 +1,5 @@
 import { createLocalVue } from '@vue/test-utils'
+import camelCase from 'lodash.camelCase'
 import isVueComponent from 'is-vue-component'
 
 import * as Margarita from './index'
@@ -18,10 +19,12 @@ describe('Margarita install function', () => {
     const localVue = createLocalVue()
     localVue.use(defaultExport)
 
-    const installedComponents = Object.keys(localVue.options.components)
-    const componentNames = Object.values(Margarita).map(m => m.name)
+    const installedComponents = Object.keys(localVue.options.components).map(
+      camelCase
+    )
+    const componentNames = Object.values(Margarita).map(m => camelCase(m.name))
 
-    expect(installedComponents).toEqual(componentNames)
+    expect(installedComponents).toStrictEqual(componentNames)
   })
 })
 

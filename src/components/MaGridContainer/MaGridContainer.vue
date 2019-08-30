@@ -4,7 +4,7 @@
 import { mergeData } from 'vue-functional-data-merge'
 
 export default {
-  name: 'ma-grid-container',
+  name: 'MaGridContainer',
 
   functional: true,
 

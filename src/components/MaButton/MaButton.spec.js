@@ -8,7 +8,7 @@ describe('Button', () => {
     })
 
     getByText(/Hello World/i)
-    expect(getByRole('button').type).toEqual('submit')
+    expect(getByRole('button').type).toStrictEqual('submit')
   })
 
   it('renders a link element on passing the right prop', () => {

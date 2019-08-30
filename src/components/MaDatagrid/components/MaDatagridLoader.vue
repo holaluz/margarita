@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'ma-datagrid-loader',
+  name: 'MaDatagridLoader',
 
   computed: {
     numberOfLoaders() {

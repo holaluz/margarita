@@ -10,7 +10,7 @@
 const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark']
 
 export default {
-  name: 'ma-pill',
+  name: 'MaPill',
 
   props: {
     color: {

@@ -22,7 +22,7 @@
 import uuid from '@margarita/utils/uuid'
 
 export default {
-  name: 'ma-radio',
+  name: 'MaRadio',
 
   inheritAttrs: false,
 
