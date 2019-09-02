@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils'
-import camelCase from 'lodash.camelCase'
+import camelCase from 'lodash.camelcase'
 import isVueComponent from 'is-vue-component'
 
 import * as Margarita from './index'
