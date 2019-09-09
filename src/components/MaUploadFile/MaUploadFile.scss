@@ -1,0 +1,56 @@
+.upload-file {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #e6007d 45%, #fff 0%) top/10px 1px
+      repeat-x,
+    linear-gradient(#e6007d 45%, #fff 0%) right/1px 12px repeat-y,
+    linear-gradient(to right, #e6007d 45%, #fff 0%) bottom/12px 1px repeat-x,
+    linear-gradient(#e6007d 45%, #fff 0%) left/1px 10px repeat-y;
+
+  padding: rem(16px) rem(24px);
+  width: 100%;
+  max-width: 600px;
+
+  a {
+    text-decoration: underline;
+    color: get-color('dark-hot-pink');
+  }
+
+  &__icon {
+    margin-right: rem(24px);
+  }
+
+  &__content {
+    color: get-color('tundora');
+
+    > p {
+      margin: 0;
+    }
+  }
+
+  &__file-name {
+    display: flex;
+  }
+
+  &__file-input {
+    display: none;
+  }
+
+  &__delete-button {
+    margin-left: rem(16px);
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .error {
+    color: get-color('dark-hot-pink');
+  }
+}

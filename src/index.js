@@ -14,6 +14,7 @@ import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
 import MaSidebar from './components/MaSidebar'
 import MaText from './components/MaText'
+import MaUploadFile from './components/MaUploadFile'
 
 export {
   MaAlert,
@@ -32,6 +33,7 @@ export {
   MaSelect,
   MaSidebar,
   MaText,
+  MaUploadFile,
 }
 
 function install(Vue) {
@@ -51,6 +53,7 @@ function install(Vue) {
   Vue.component('ma-select', MaSelect)
   Vue.component('ma-sidebar', MaSidebar)
   Vue.component('ma-text', MaText)
+  Vue.component('ma-upload-file', MaUploadFile)
 }
 
 export default { install }
