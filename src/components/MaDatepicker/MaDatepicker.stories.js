@@ -1,18 +1,11 @@
 import { storiesOf } from '@storybook/vue'
-import {
-  withKnobs,
-  select,
-  text,
-  boolean,
-  date,
-} from '@storybook/addon-knobs'
+import { withKnobs, select, text, boolean, date } from '@storybook/addon-knobs'
 
 import notes from './MaDatepicker.md'
 import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaGridRow from '@margarita/components/MaGridRow'
 import MaDatepicker from './MaDatepicker'
 import MaText from '../MaText'
-
 
 storiesOf('Datepicker', module)
   .addDecorator(withKnobs)
@@ -56,16 +49,16 @@ storiesOf('Datepicker', module)
             default: isRange,
           },
           startDate: {
-            default: startDate ? new Date(startDate) : null
+            default: startDate ? new Date(startDate) : null,
           },
           endDate: {
-            default: endDate ? new Date(endDate) : null
-          }
+            default: endDate ? new Date(endDate) : null,
+          },
         },
 
         data() {
           return {
-            value: new Date()
+            value: new Date(),
           }
         },
       }

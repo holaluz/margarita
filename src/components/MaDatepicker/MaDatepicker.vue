@@ -7,7 +7,7 @@ import MaText from '../MaText'
 import locales from './locales'
 
 export default {
-  name: "ma-datepicker",
+  name: 'ma-datepicker',
 
   components: { MaText },
 
@@ -63,14 +63,18 @@ export default {
       this.pikaday.setMaxDate(newVal)
       this.updateRangesIfIsRange()
     },
-    locale(newVal) {
+    locale() {
       this.pikaday.destroy()
       this.initPikaday()
-    }
+    },
   },
 
   mounted() {
     this.initPikaday()
+  },
+
+  beforeDestroy() {
+    this.pikaday.destroy()
   },
 
   methods: {
