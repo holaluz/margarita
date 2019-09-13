@@ -51,6 +51,7 @@ function install(Vue) {
   Vue.component('ma-select', MaSelect)
   Vue.component('ma-sidebar', MaSidebar)
   Vue.component('ma-text', MaText)
+  Vue.component('ma-datepicker', MaDatepicker)
 }
 
 export default { install }

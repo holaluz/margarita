@@ -1,0 +1,86 @@
+@import '~pikaday/css/pikaday.css';
+@import '../../scss/margarita';
+
+.pika-single {
+  margin: 0.2rem 0 0 0.4rem;
+}
+
+.pika-lendar {
+  font-family: 'Ciutadella', sans-serif;
+
+  .pika-title {
+    color: get-color('tundora');
+  }
+
+  .pika-title .pika-label {
+    font-size: 16px;
+  }
+
+  .pika-day {
+    margin: auto;
+    border-radius: 50%;
+    background: get-color('white');
+    width: 25px;
+    text-align: center;
+    color: get-color('mine-shaft');
+    font-size: 14px;
+
+    &:hover {
+      background: get-color('alto');
+      color: get-color('dark-hot-pink');
+    }
+  }
+
+  .is-disabled .pika-day {
+    opacity: 0.15;
+  }
+
+  .is-selected .pika-day {
+    background: get-color('dark-hot-pink');
+    color: get-color('white');
+
+    &:hover {
+      color: get-color('wild-sand');
+    }
+  }
+
+  .is-inrange {
+    .pika-day {
+      border-radius: 0;
+      background: lighten(get-color('dark-hot-pink'), 50%);
+      width: 100%;
+    }
+  }
+
+  .is-startrange,
+  .is-endrange {
+    position: relative;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 50%;
+      z-index: -1;
+      background: lighten(get-color('dark-hot-pink'), 50%);
+      content: '';
+    }
+    .pika-day {
+      background: get-color('dark-hot-pink');
+      color: get-color('white');
+      font-weight: normal;
+    }
+  }
+
+  .is-endrange:before {
+    right: 50%;
+    left: 0;
+  }
+
+  .pika-table abbr {
+    cursor: none;
+    text-decoration: none;
+    color: get-color('gray');
+  }
+}
