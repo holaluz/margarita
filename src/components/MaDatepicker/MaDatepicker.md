@@ -1,6 +1,8 @@
 # Datepicker
 
-Margarita has two types of datepickers. The single datepicker that lets you pick a random date, and a range datepicker, for date ranges.
+Margarita has two types of datepickers: 
+ - Single datepicker: lets you pick a date.
+ - Range datepicker: lets you pick a date range.
 
 ## Props
 
