@@ -1,8 +1,12 @@
 <template>
-  <ma-text ref="field" :label="label" :placeholder="placeholder" />
+  <div ref="pikadayContainer">
+    <ma-text ref="field" :label="label" :placeholder="placeholder" />
+  </div>
 </template>
+
 <script>
 import Pikaday from 'pikaday'
+import dayjs from 'dayjs'
 import MaText from '../MaText'
 import locales from './locales'
 
@@ -74,7 +78,7 @@ export default {
   },
 
   beforeDestroy() {
-    this.pikaday.destroy()
+    if (this.pikaday) this.pikaday.destroy()
   },
 
   methods: {
@@ -82,6 +86,7 @@ export default {
       // Configuration for Pikaday: https://github.com/Pikaday/Pikaday#configuration
       this.pikaday = new Pikaday({
         field: this.$refs.field.$el.querySelector('input'),
+        container: this.$refs.pikadayContainer,
         onSelect: dateSelected => {
           if (
             (dateSelected &&
@@ -92,6 +97,8 @@ export default {
             return
           this.$emit('input', dateSelected)
         },
+        toString: (date, format) => dayjs(date).format(format),
+        parse: date => dayjs(date).toDate(),
         maxDate: this.endDate,
         minDate: this.startDate,
         defaultDate: this.value,

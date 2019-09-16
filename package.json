@@ -24,6 +24,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
+    "dayjs": "^1.8.16",
     "pikaday": "^1.8.0",
     "sass-mq": "^5.0.0",
     "vue": "^2.6.10"

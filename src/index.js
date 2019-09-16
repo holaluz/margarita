@@ -14,6 +14,7 @@ import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
 import MaSidebar from './components/MaSidebar'
 import MaText from './components/MaText'
+import MaDatepicker from './components/MaDatepicker'
 
 export {
   MaAlert,
