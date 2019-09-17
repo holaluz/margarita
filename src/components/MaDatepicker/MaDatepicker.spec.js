@@ -5,17 +5,19 @@ import locales from './locales'
 const es = 'es-ES'
 const en = 'en-US'
 const defaultDate = '08-01-2010'
+const defaultLabel = 'Label text'
 
 const renderDatepicker = props => {
   const methods = render(MaDatepicker, {
     props: {
       value: new Date(defaultDate),
+      label: defaultLabel,
       locale: es,
       ...props,
     },
   })
   methods.openDatepicker = () =>
-    fireEvent.click(methods.getByPlaceholderText(locales[es].format))
+    fireEvent.click(methods.getByLabelText(defaultLabel))
   return methods
 }
 
@@ -25,16 +27,22 @@ describe('Datepicker', () => {
     await openDatepicker()
     getAllByText('Agosto')
   })
-  it('has a working label & placeholder', () => {
-    const label = 'Label text'
-    const { getByText } = renderDatepicker({ label })
-    getByText(label)
+  it('has a working label', () => {
+    const { getByLabelText } = renderDatepicker()
+    getByLabelText(defaultLabel)
   })
   it('has a working locale', async () => {
-    const { getByPlaceholderText, updateProps } = renderDatepicker()
+    const {
+      getAllByText,
+      getByPlaceholderText,
+      updateProps,
+      openDatepicker,
+    } = renderDatepicker()
     getByPlaceholderText(locales[es].format)
     await updateProps({ locale: en })
     getByPlaceholderText(locales[en].format)
+    await openDatepicker()
+    getAllByText('August')
   }),
     it('has a working v-model', async () => {
       const {
