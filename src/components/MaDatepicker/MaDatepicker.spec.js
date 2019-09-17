@@ -54,10 +54,15 @@ describe('Datepicker', () => {
       getByDisplayValue,
       openDatepicker,
       getByText,
+      emitted
     } = renderDatepicker()
-    getByDisplayValue(format(new Date(defaultDate), locales[es].format))
+
     await openDatepicker()
-    await fireEvent.click(getByText('26'))
-    //getByDisplayValue('26/08/2010') FIXME -> this doesn't work
+    await fireEvent.mouseDown(getByText('26'))
+
+    const selectedDate = format(emitted().input[0][0], locales[es].format)
+    const expectedDate = format(new Date('08-26-2010'), locales[es].format)
+    expect(selectedDate).toStrictEqual(expectedDate)
+    getByDisplayValue(selectedDate)
   })
 })
