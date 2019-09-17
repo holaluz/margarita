@@ -1,6 +1,7 @@
 import { render, fireEvent, getByText } from '@testing-library/vue'
 import MaDatepicker from './MaDatepicker'
 import locales from './locales'
+import { format, parse } from 'date-fns'
 
 const es = 'es-ES'
 const en = 'en-US'
@@ -22,15 +23,18 @@ const renderDatepicker = props => {
 }
 
 describe('Datepicker', () => {
+
   it('renders pikaday', async () => {
     const { getAllByText, openDatepicker } = renderDatepicker()
     await openDatepicker()
     getAllByText('Agosto')
   })
+
   it('has a working label', () => {
     const { getByLabelText } = renderDatepicker()
     getByLabelText(defaultLabel)
   })
+
   it('has a working locale', async () => {
     const {
       getAllByText,
@@ -43,16 +47,17 @@ describe('Datepicker', () => {
     getByPlaceholderText(locales[en].format)
     await openDatepicker()
     getAllByText('August')
-  }),
-    it('has a working v-model', async () => {
-      const {
-        getByDisplayValue,
-        openDatepicker,
-        getByText,
-      } = renderDatepicker()
-      getByDisplayValue('01/08/2010')
-      await openDatepicker()
-      await fireEvent.click(getByText('26'))
-      //getByDisplayValue('26/08/2010') FIXME -> this doesn't work
-    })
+  })
+
+  it('has a working v-model', async () => {
+    const {
+      getByDisplayValue,
+      openDatepicker,
+      getByText,
+    } = renderDatepicker()
+    getByDisplayValue(format(new Date(defaultDate), locales[es].format))
+    await openDatepicker()
+    await fireEvent.click(getByText('26'))
+    //getByDisplayValue('26/08/2010') FIXME -> this doesn't work
+  })
 })
