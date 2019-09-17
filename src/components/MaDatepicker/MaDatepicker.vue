@@ -35,6 +35,7 @@ export default {
     locale: {
       type: String,
       default: 'es-ES',
+      validator: value => Object.keys(locales).includes(value),
     },
     isRange: {
       type: Boolean,

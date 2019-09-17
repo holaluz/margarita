@@ -5,5 +5,5 @@ import enUS from './en-US'
 export default {
   'ca-ES': caES,
   'es-ES': esES,
-  'en-US': enUS
+  'en-US': enUS,
 }
