@@ -6,7 +6,7 @@
 
 <script>
 import Pikaday from 'pikaday'
-import dayjs from 'dayjs'
+import { format, parse } from 'date-fns'
 import MaText from '../MaText'
 import locales from './locales'
 
@@ -85,6 +85,7 @@ export default {
   methods: {
     initPikaday() {
       // Configuration for Pikaday: https://github.com/Pikaday/Pikaday#configuration
+      // The date format string will be: https://date-fns.org/v2.2.1/docs/format
       this.pikaday = new Pikaday({
         field: this.$refs.field.$el.querySelector('input'),
         container: this.$refs.pikadayContainer,
@@ -98,8 +99,8 @@ export default {
             return
           this.$emit('input', dateSelected)
         },
-        toString: (date, format) => dayjs(date).format(format),
-        parse: date => dayjs(date).toDate(),
+        toString: (date, formatStr) => format(date, formatStr),
+        parse: (date, formatStr) => parse(date, formatStr),
         maxDate: this.endDate,
         minDate: this.startDate,
         defaultDate: this.value,

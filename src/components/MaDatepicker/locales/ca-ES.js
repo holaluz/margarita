@@ -1,5 +1,5 @@
 export default {
-  format: 'DD/MM/YYYY',
+  format: 'dd/MM/yyyy',
   firstDay: 1,
   previousMonth: 'Mes següent',
   nextMonth: 'Mes anterior',
