@@ -16,6 +16,7 @@ import MaSelect from './components/MaSelect'
 import MaSidebar from './components/MaSidebar'
 import MaText from './components/MaText'
 import markdown from './directives/markdown'
+import MaPopupModal from './components/MaPopupModal'
 
 export {
   MaAlert,
@@ -38,6 +39,7 @@ export {
 function install(Vue) {
   Vue.component('ma-alert', MaAlert)
   Vue.component('ma-button', MaButton)
+  Vue.component('ma-popup-modal', MaPopupModal)
   Vue.component('ma-card', MaCard)
   Vue.component('ma-datagrid', MaDatagrid)
   Vue.component('ma-grid-column', MaGridColumn)

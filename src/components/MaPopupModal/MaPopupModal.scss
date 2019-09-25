@@ -1,0 +1,116 @@
+@import '../../scss/margarita';
+
+.fade-in-leave-active,
+.fade-in-enter {
+  .modal__container {
+    transform: translateY(-100%);
+  }
+}
+
+.modal {
+  &__overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    z-index: 9998;
+    background-color: get-alpha-color('black', 0.5);
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  &__container {
+    position: relative;
+    top: rem(48px);
+    transition: transform 0.4s;
+    margin: 0 auto rem(48px);
+    border-radius: rem(3px);
+    box-shadow: 0 rem(2px) rem(8px) get-alpha-color('black', 0.67);
+    background-color: get-color('white');
+    width: calc(100% - #{rem(32px)});
+    max-width: rem(500px);
+    color: get-color('tundora');
+
+    &--lg {
+      max-width: rem(800px);
+    }
+  }
+
+  &__header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    padding: rem(24px);
+
+    &--gradient-bk {
+      border: 0;
+      background-image: linear-gradient(
+        to right,
+        get-color('dark-hot-pink'),
+        get-color('tango') 85%,
+        get-color('selective-yellow')
+      );
+      color: get-color('white');
+    }
+  }
+
+  &__title {
+    @include font-weight(bold);
+    margin: 0 rem(60px) 0 rem(40px);
+    text-align: center;
+    line-height: 1.5;
+    font-size: rem(24px);
+  }
+
+  &__close {
+    position: absolute;
+    top: rem(24px);
+    right: rem(24px);
+    transition: color 0.3s, border-color 0.3s;
+    border: 1px solid get-color('white');
+    background-color: transparent;
+    cursor: pointer;
+    width: rem(36px);
+    height: rem(36px);
+    line-height: 2.45;
+    color: get-color('white');
+
+    &:hover {
+      opacity: 0.4;
+    }
+
+    &--pink {
+      border-color: #E6007D;
+      color: #E6007D;
+
+      &:hover {
+        opacity: 1;
+        border-color: #B30061;
+        color: #B30061;
+      }
+    }
+  }
+
+  &__body {
+    padding: rem(24px);
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    padding: rem(24px);
+  }
+
+  &__button-close {
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: rem(48.19px);
+
+    @include mq($from: sm) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+}
