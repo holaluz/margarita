@@ -17,7 +17,6 @@ storiesOf('Popup Modal', module)
       const bkTitle = boolean('Bk Title', false)
       const footerButton = boolean('Footer Button', true)
       const buttonText = text('Button Text', 'Close')
-      const ariaClose = text('Aria close', 'Close popup')
 
       return {
         components: { MaButton, MaGridColumn, MaGridRow, MaPopupModal },
@@ -35,7 +34,6 @@ storiesOf('Popup Modal', module)
                 :bkTitle="bkTitle"
                 :footerButton="footerButton"
                 :buttonText="buttonText"
-                :ariaClose="ariaClose"
                 @close="show = false"
               >
                 Hello world.
@@ -58,9 +56,6 @@ storiesOf('Popup Modal', module)
           },
           buttonText: {
             default: buttonText,
-          },
-          ariaClose: {
-            default: ariaClose,
           },
         },
 

@@ -13,7 +13,7 @@
           <button
             class="modal__close"
             :class="iconColorClass"
-            :aria-label="ariaClose"
+            :aria-label="buttonText"
             @click="$emit('close')"
           >
             <ma-icon icon="Close" />
@@ -77,11 +77,6 @@ export default {
     buttonText: {
       type: String,
       required: true,
-    },
-
-    ariaClose: {
-      type: String,
-      default: 'Close popup',
     },
   },
 

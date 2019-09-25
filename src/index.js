@@ -11,12 +11,12 @@ import MaIcon from './components/MaIcon'
 import MaOption from './components/MaOption'
 import MaPagination from './components/MaPagination'
 import MaPill from './components/MaPill'
+import MaPopupModal from './components/MaPopupModal'
 import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
 import MaSidebar from './components/MaSidebar'
 import MaText from './components/MaText'
 import markdown from './directives/markdown'
-import MaPopupModal from './components/MaPopupModal'
 
 export {
   MaAlert,
@@ -30,6 +30,7 @@ export {
   MaOption,
   MaPagination,
   MaPill,
+  MaPopupModal,
   MaRange,
   MaSelect,
   MaSidebar,
@@ -39,7 +40,6 @@ export {
 function install(Vue) {
   Vue.component('ma-alert', MaAlert)
   Vue.component('ma-button', MaButton)
-  Vue.component('ma-popup-modal', MaPopupModal)
   Vue.component('ma-card', MaCard)
   Vue.component('ma-datagrid', MaDatagrid)
   Vue.component('ma-grid-column', MaGridColumn)
@@ -49,6 +49,7 @@ function install(Vue) {
   Vue.component('ma-option', MaOption)
   Vue.component('ma-pagination', MaPagination)
   Vue.component('ma-pill', MaPill)
+  Vue.component('ma-popup-modal', MaPopupModal)
   Vue.component('ma-range', MaRange)
   Vue.component('ma-select', MaSelect)
   Vue.component('ma-sidebar', MaSidebar)

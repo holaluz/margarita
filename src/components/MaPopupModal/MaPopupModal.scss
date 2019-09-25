@@ -82,13 +82,13 @@
     }
 
     &--pink {
-      border-color: #E6007D;
-      color: #E6007D;
+      border-color: get-color('dark-hot-pink');
+      color: get-color('dark-hot-pink');
 
       &:hover {
         opacity: 1;
-        border-color: #B30061;
-        color: #B30061;
+        border-color: darken(get-color('dark-hot-pink'), 20%);
+        color: darken(get-color('dark-hot-pink'), 20%);
       }
     }
   }
