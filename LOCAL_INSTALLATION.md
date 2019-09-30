@@ -20,11 +20,23 @@ Margarita to.
 Margarita:
 
 ```bash
-npm-link-shared path/to/margarita/ path/to/project/ @holaluz/margarita
+npm-link-shared path/to/folder/where/margarita/lives/ path/to/project/ @holaluz/margarita
 ```
 
 This will create a link between `path/to/project/node_modules/margarita/` and
-`path/to/margarita/`.
+`path/to/folder/where/margarita/lives/margarita`.
+
+> Notice how we don't specify the path to Margarita, but the path where Margarita is located!
+
+Example:
+
+```bash
+# /Users/me/projects
+#   /margarita
+#   /my-project
+  
+npm-link-shared /Users/me/projects /Users/me/projects/my-project @holaluz/margarita
+```
 
 2. That's it! Now every time you update margarita (by running `npm run build`)
 your project will react to the changes, simplifying the development process.
