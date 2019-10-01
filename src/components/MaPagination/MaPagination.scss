@@ -11,23 +11,31 @@
     display: flex;
   }
 
-  &--invisible {
+  &--hidden {
     visibility: hidden;
   }
 
   &__current {
-    padding: 0 rem(16px);
-    min-width: rem(210px);
+    display: flex;
     text-align: center;
     color: get-color('tundora');
   }
 
   &__icon {
     margin: 0 rem(8px);
+    box-shadow: 0 2px 3px 2px get-color('shadow-light');
+    width: 32px;
 
-    &--back,
-    &--start {
+    &--backwards {
       transform: scaleX(-1);
     }
+  }
+
+  &__separator {
+    align-self: flex-end;
+    padding-bottom: rem(8px);
+    width: rem(32px);
+    text-align: center;
+    color: get-color('tundora');
   }
 }
