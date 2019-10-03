@@ -76,10 +76,6 @@
       }
     }
 
-    .ma-grid-col#{$infix}-auto {
-      @extend %grid-column;
-    }
-
     @include media-breakpoint-up($breakpoint, $breakpoints) {
       // Provide basic `.ma-grid-col--{bp}` classes for equal-width flexbox columns
       @if ($infix == '-') {
@@ -125,6 +121,10 @@
         width: auto;
         max-width: none; // Reset earlier grid tiers
       }
+    }
+
+    .ma-grid-col#{$infix}-auto {
+      @extend %grid-column;
     }
   }
   // Common properties for all breakpoints
