@@ -15,7 +15,7 @@
     -webkit-appearance: none;
     transition: border 0.2s ease;
     border: 1px solid get-color('alto');
-    -webkit-border-radius: 0;
+    border-radius: 0;
     background-color: get-color('white');
     background-image: url('../../assets/icons/arrow.svg');
     background-position: calc(100% - 12px) 50%;
