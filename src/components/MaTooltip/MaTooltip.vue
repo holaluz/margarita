@@ -1,7 +1,7 @@
 <template>
   <div>
-    <slot name="content"></slot>
-    <slot name="trigger"></slot>
+    <div><slot name="content"></slot></div>
+    <div><slot name="trigger"></slot></div>
   </div>
 </template>
 
