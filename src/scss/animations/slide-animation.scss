@@ -1,12 +1,4 @@
 @mixin slide-animation($timeout: 0, $origin: -100%, $dest: 0) {
-  &.slide-animation-enter-active {
-    animation: slide-animation $timeout;
-  }
-
-  &.slide-animation-leave-active {
-    animation: slide-animation $timeout reverse;
-  }
-
   @keyframes slide-animation {
     0% {
       transform: translateX($origin);
@@ -15,5 +7,12 @@
     100% {
       transform: translateX($dest);
     }
+  }
+  &.slide-animation-enter-active {
+    animation: slide-animation $timeout;
+  }
+
+  &.slide-animation-leave-active {
+    animation: slide-animation $timeout reverse;
   }
 }

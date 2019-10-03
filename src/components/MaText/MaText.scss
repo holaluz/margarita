@@ -31,12 +31,6 @@
     height: 100%;
     font-size: rem(16px);
 
-    &:active,
-    &:hover {
-      outline: none;
-      border: 1px solid get-color('dark-hot-pink');
-    }
-
     &:focus {
       outline: 2px solid get-color('classic-rose');
       outline-offset: 0;
@@ -47,6 +41,12 @@
       background-color: get-color('concrete');
       color: get-color('gray');
       pointer-events: none;
+    }
+
+    &:active,
+    &:hover {
+      outline: none;
+      border: 1px solid get-color('dark-hot-pink');
     }
 
     &--error {

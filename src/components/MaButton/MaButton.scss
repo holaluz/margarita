@@ -63,15 +63,15 @@
     background-color: get-color('dark-hot-pink');
     color: get-color('white');
 
+    &:focus {
+      outline: 2px solid get-color('classic-rose');
+      outline-offset: 0;
+    }
+
     &:hover:not(:disabled),
     &:active:not(:disabled) {
       background-color: darken(get-color('dark-hot-pink'), 10%);
       color: get-color('white');
-    }
-
-    &:focus {
-      outline: 2px solid get-color('classic-rose');
-      outline-offset: 0;
     }
 
     &.ma-button--rounded {
@@ -84,15 +84,15 @@
     background-color: transparent;
     color: get-color('dark-hot-pink');
 
+    &:focus {
+      outline: 2px solid get-color('classic-rose');
+      outline-offset: 0;
+    }
+
     &:hover:not(:disabled),
     &:active:not(:disabled) {
       background-color: get-color('dark-hot-pink');
       color: get-color('white');
-    }
-
-    &:focus {
-      outline: 2px solid get-color('classic-rose');
-      outline-offset: 0;
     }
 
     &.ma-button--rounded {
@@ -115,15 +115,15 @@
     background-color: transparent;
     color: get-color('white');
 
+    &:focus {
+      outline: 2px solid get-color('classic-rose');
+      outline-offset: 0;
+    }
+
     &:hover:not(:disabled),
     &:active:not(:disabled) {
       background-color: get-color('tango');
       color: get-color('white');
-    }
-
-    &:focus {
-      outline: 2px solid get-color('classic-rose');
-      outline-offset: 0;
     }
 
     &.ma-button--rounded {
@@ -152,14 +152,14 @@
     background-size: 200% auto;
     color: get-color('white');
 
-    &:hover:not(:disabled),
-    &:active:not(:disabled) {
-      background-position: right center;
-    }
-
     &:focus {
       outline: 2px solid get-color('classic-rose');
       outline-offset: 0;
+    }
+
+    &:hover:not(:disabled),
+    &:active:not(:disabled) {
+      background-position: right center;
     }
   }
 }
