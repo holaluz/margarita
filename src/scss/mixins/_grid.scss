@@ -44,8 +44,8 @@
 }
 
 @mixin make-col-offset($size, $columns: $grid-columns) {
-  margin-left: if($num == 0, 0, percentage($num));
   $num: $size / $columns;
+  margin-left: if($num == 0, 0, percentage($num));
 }
 
 // Used only by Bootstrap to generate the correct number of grid classes given
