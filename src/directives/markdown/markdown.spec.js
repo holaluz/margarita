@@ -4,7 +4,7 @@ import './markdown'
 const markdown = `
 # title
 **bold**
-__italic__
+_italic_
 [anchor](url.com)<<.class>>
 `
 
@@ -19,10 +19,17 @@ describe('Markdown directive', () => {
   it('renders title, bold, italic, anchors and classes', () => {
     const { getByText } = render(component)
 
-    getByText('title')
-    getByText('bold')
-    getByText('italic')
-    const { classList } = getByText('anchor')
+    const titleNode = getByText('title').nodeName
+    expect(titleNode).toBe('H1')
+
+    const boldNode = getByText('bold').nodeName
+    expect(boldNode).toBe('STRONG')
+
+    const italicNode = getByText('italic').nodeName
+    expect(italicNode).toBe('EM')
+
+    const { classList, nodeName } = getByText('anchor')
+    expect(nodeName).toBe('A')
     expect(classList.contains('class')).toBe(true)
   })
 })
