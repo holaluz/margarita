@@ -1,7 +1,7 @@
 import { render } from '@testing-library/vue'
-import './markdown'
+import markdown from './'
 
-const markdown = `
+const markdownText = `
 # title
 **bold**
 _italic_
@@ -9,9 +9,12 @@ _italic_
 `
 
 const component = {
-  template: `<div v-markdown="markdown" />`,
+  template: `<div v-markdown="markdownText" />`,
+  directives: {
+    markdown,
+  },
   data() {
-    return { markdown }
+    return { markdownText }
   },
 }
 
