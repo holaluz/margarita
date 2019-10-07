@@ -5,7 +5,7 @@ const markdown = `
 # title
 **bold**
 __italic__
-[anchor](url.com){.class}
+[anchor](url.com)<<.class>>
 `
 
 const component = {
