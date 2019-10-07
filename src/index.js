@@ -14,6 +14,7 @@ import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
 import MaSidebar from './components/MaSidebar'
 import MaText from './components/MaText'
+import markdown from './directives/markdown'
 
 export {
   MaAlert,
@@ -51,6 +52,7 @@ function install(Vue) {
   Vue.component('ma-select', MaSelect)
   Vue.component('ma-sidebar', MaSidebar)
   Vue.component('ma-text', MaText)
+  Vue.directive('markdown', markdown)
 }
 
 export default { install }
