@@ -167,7 +167,7 @@ button {
 
   &:not(.ma-button--rounded) {
     .ma-button-spinner {
-      margin-left: 0.5rem;
+      margin-left: rem(8px);
     }
   }
 }
