@@ -7,10 +7,8 @@
     :class="[getClasses, 'ma-button']"
     @click="handleClick"
   >
-    <span>
-      <slot v-if="!loading || !rounded" />
-      <ma-button-spinner v-if="loading" />
-    </span>
+    <slot v-if="!loading || !rounded" />
+    <ma-button-spinner v-if="loading" />
   </component>
 </template>
 
