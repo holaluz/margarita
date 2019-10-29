@@ -2,46 +2,42 @@
 
 <template>
   <div class="ma-pagination">
-    <div
-      class="ma-pagination__left"
-      :class="{ 'ma-pagination--hidden': isStart }"
-    >
+    <div v-if="!isStart" class="ma-pagination__left">
       <ma-button
         category="secondary"
         aria-label="Go back icon"
-        class="ma-pagination__icon ma-pagination__icon--backwards"
+        class="ma-pagination__button ma-pagination__button--backwards"
         @click="pagination(currentPage - 1)"
       >
         <ma-icon icon="Arrow" width="16" height="16" />
       </ma-button>
     </div>
-    <div class="ma-pagination__current">
-      <template v-for="(page, index) in displayedPages">
+
+    <template v-for="(page, index) in displayedPages">
+      <div :key="page" class="ma-pagination__element">
         <ma-button
           :key="page"
           :category="isActive(page)"
           :aria-label="`Go to page ${page}`"
-          class="ma-pagination__icon ma-pagination__icon--number"
+          class="ma-pagination__button ma-pagination__button"
           @click="pagination(page)"
           v-text="page"
         />
-        <span
-          v-if="displaySeparator(index)"
-          :key="`${page}-separator`"
-          class="ma-pagination__separator"
-        >
-          ...
-        </span>
-      </template>
-    </div>
-    <div
-      class="ma-pagination__right"
-      :class="{ 'ma-pagination--hidden': isEnd }"
-    >
+      </div>
+      <div
+        v-if="displaySeparator(index)"
+        :key="`${page}-separator`"
+        class="ma-pagination__separator"
+      >
+        ...
+      </div>
+    </template>
+
+    <div v-if="!isEnd" class="ma-pagination__right">
       <ma-button
         category="secondary"
         aria-label="Go forward icon"
-        class="ma-pagination__icon ma-pagination__icon--forward"
+        class="ma-pagination__button ma-pagination__button--forward"
         @click="pagination(currentPage + 1)"
       >
         <ma-icon icon="Arrow" width="16" height="16" />
