@@ -27,6 +27,14 @@
     }
   }
 
+  > span {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: rem(8px);
+    align-items: center;
+    pointer-events: none;
+  }
+
   &--fluid {
     flex-grow: 0;
     padding: rem(11px);
@@ -165,10 +173,4 @@ button {
   cursor: pointer;
   padding: 0;
   color: inherit;
-
-  &:not(.ma-button--rounded) {
-    .ma-button-spinner {
-      margin-left: rem(8px);
-    }
-  }
 }
