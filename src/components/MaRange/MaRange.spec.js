@@ -14,7 +14,7 @@ const RangeBuilder = customProps =>
   })
 
 describe('Range', () => {
-  it('renders a range input element', () => {
+  test('renders a range input element', () => {
     const { getByRole, getByText } = RangeBuilder()
 
     getByText(/step value/i)
@@ -23,7 +23,7 @@ describe('Range', () => {
     expect(getByRole('textbox').value).toBe('0')
   })
 
-  it('selects the clicked element', async () => {
+  test('selects the clicked element', async () => {
     const { getByRole, getByText, emitted } = RangeBuilder()
 
     expect(getByRole('textbox').value).toBe('0')
@@ -35,7 +35,7 @@ describe('Range', () => {
     expect(emitted().input[0][0]).toStrictEqual('value2')
   })
 
-  it('renders a label if prop is passed', () => {
+  test('renders a label if prop is passed', () => {
     const { getByLabelText } = RangeBuilder({
       label: 'Custom Label',
     })

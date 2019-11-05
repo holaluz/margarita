@@ -27,7 +27,7 @@ const SelectBuilder = customProps =>
   })
 
 describe('Select', () => {
-  it('renders multiple options', () => {
+  test('renders multiple options', () => {
     const { getByText } = SelectBuilder()
 
     getByText(/option1/i)
@@ -35,7 +35,7 @@ describe('Select', () => {
     getByText(/option3/i)
   })
 
-  it('changes its value when selected option changes', async () => {
+  test('changes its value when selected option changes', async () => {
     const { queryByDisplayValue, getByDisplayValue } = SelectBuilder()
 
     const select = getByDisplayValue(/option1/i)
@@ -46,7 +46,7 @@ describe('Select', () => {
     getByDisplayValue(/option2/i)
   })
 
-  it('displays error', () => {
+  test('displays error', () => {
     const { getByText } = SelectBuilder({
       hasError: true,
       errorMessage: 'Something went wrong',
@@ -55,7 +55,7 @@ describe('Select', () => {
     getByText(/Something went wrong/i)
   })
 
-  it('renders bold class', () => {
+  test('renders bold class', () => {
     const { getByDisplayValue } = SelectBuilder({
       weight: 'bold',
     })
@@ -65,7 +65,7 @@ describe('Select', () => {
     expect(select.classList).toContain('ma-select__field--bold')
   })
 
-  it('renders custom class', () => {
+  test('renders custom class', () => {
     const customClass = 'my-custom-class'
     const { getByDisplayValue } = SelectBuilder({
       fieldClass: customClass,
@@ -76,7 +76,7 @@ describe('Select', () => {
     expect(select.classList).toContain(customClass)
   })
 
-  it('adds aria-label attr and hidden label', () => {
+  test('adds aria-label attr and hidden label', () => {
     const { queryByDisplayValue, getByDisplayValue } = SelectBuilder({
       'aria-label': 'test',
     })
@@ -92,7 +92,7 @@ describe('Select', () => {
     expect(queryByDisplayValue(/Test Select label/i)).toBe(null)
   })
 
-  it('renders a placeholder text', () => {
+  test('renders a placeholder text', () => {
     const { getByDisplayValue } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
@@ -100,7 +100,7 @@ describe('Select', () => {
     getByDisplayValue(/placeholder text/i)
   })
 
-  it('overrides placeholder with selected value', async () => {
+  test('overrides placeholder with selected value', async () => {
     const { getByDisplayValue } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
@@ -111,7 +111,7 @@ describe('Select', () => {
     getByDisplayValue(/option1/i)
   })
 
-  it('renders disabled placeholder option', () => {
+  test('renders disabled placeholder option', () => {
     const { getByText } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
@@ -120,7 +120,7 @@ describe('Select', () => {
     expect(placeholder.disabled).toBe(true)
   })
 
-  it('displays properly formatted options', () => {
+  test('displays properly formatted options', () => {
     const options = [
       { potato: 'Pataton', something: 'blabla', active: true },
       { potato: 'Pataton2', something: 'bleble' },

@@ -2,7 +2,7 @@ import { render } from '@testing-library/vue'
 import MaAlert from './MaAlert'
 
 describe('Alert', () => {
-  it(`renders a title and slot's content`, () => {
+  test(`renders a title and slot's content`, () => {
     const title = 'This is a title'
     const slotDefault = 'This is a slot'
 
@@ -15,7 +15,7 @@ describe('Alert', () => {
     getByText(slotDefault)
   })
 
-  it('renders the provided text', () => {
+  test('renders the provided text', () => {
     const text = 'This is a text'
 
     const { getByText } = render(MaAlert, {
@@ -25,7 +25,7 @@ describe('Alert', () => {
     getByText(text)
   })
 
-  it(`doesn't render the provided text if a slot is provided`, () => {
+  test(`doesn't render the provided text if a slot is provided`, () => {
     const text = 'This is a text'
     const slotDefault = 'This is a slot'
 

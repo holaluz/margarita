@@ -18,21 +18,21 @@ const TextBuilder = (customProps, customParams) => {
 }
 
 describe('Text', () => {
-  it('renders an input element with a label', () => {
+  test('renders an input element with a label', () => {
     const { input, getByRole } = TextBuilder()
 
     getByRole('textbox')
     expect(input.type).toStrictEqual('text')
   })
 
-  it('renders a button element with a label', () => {
+  test('renders a button element with a label', () => {
     const { input, getByRole } = TextBuilder({ type: 'button' })
 
     getByRole('textbox')
     expect(input.type).toStrictEqual('button')
   })
 
-  it('renders error CSS class', () => {
+  test('renders error CSS class', () => {
     const errorMessage = 'Something went wrong'
     const { getByText, input } = TextBuilder({
       hasError: true,
@@ -44,26 +44,26 @@ describe('Text', () => {
     getByText(errorMessage)
   })
 
-  it('renders a disabled input', () => {
+  test('renders a disabled input', () => {
     const { input } = TextBuilder({ disabled: true })
 
     expect(input.disabled).toBe(true)
   })
 
-  it('renders custom id', () => {
+  test('renders custom id', () => {
     const { input } = TextBuilder({ id: 'customId' })
 
     expect(input.id).toBe('customId')
   })
 
-  it('renders initial value', () => {
+  test('renders initial value', () => {
     const value = 'initial value'
     const { getByDisplayValue } = TextBuilder({ value })
 
     getByDisplayValue(value)
   })
 
-  it('emits its value after typing', async () => {
+  test('emits its value after typing', async () => {
     const { getByDisplayValue, input, emitted } = TextBuilder({
       value: 'initial value',
     })
@@ -77,7 +77,7 @@ describe('Text', () => {
     expect(emitted().input[0][0]).toStrictEqual(newValue)
   })
 
-  it('triggers change event with its value when typing', async () => {
+  test('triggers change event with its value when typing', async () => {
     const { input, emitted } = TextBuilder()
 
     await fireEvent.change(input)
@@ -85,7 +85,7 @@ describe('Text', () => {
     expect(emitted()).toHaveProperty('change')
   })
 
-  it('emits value on blur', async () => {
+  test('emits value on blur', async () => {
     const value = '42'
     const { input, emitted } = TextBuilder({ value })
 
@@ -95,7 +95,7 @@ describe('Text', () => {
     expect(emitted().blur[0][0]).toStrictEqual(value)
   })
 
-  it('emits value on enter', async () => {
+  test('emits value on enter', async () => {
     const value = '42'
     const { input, emitted } = TextBuilder({ value })
 
@@ -108,7 +108,7 @@ describe('Text', () => {
     expect(emitted().enter[0][0]).toStrictEqual(value)
   })
 
-  it('renders the inputSibling slot if provided', () => {
+  test('renders the inputSibling slot if provided', () => {
     const inputSibling = 'Test slot'
     const { getByText } = TextBuilder(null, {
       slots: {
@@ -119,7 +119,7 @@ describe('Text', () => {
     getByText(inputSibling)
   })
 
-  it('renders the labelSibling slot if provided', () => {
+  test('renders the labelSibling slot if provided', () => {
     const labelSibling = 'Test slot'
     const { getByText } = TextBuilder(null, {
       slots: {

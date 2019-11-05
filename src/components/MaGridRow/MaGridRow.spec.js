@@ -2,7 +2,7 @@ import { render } from '@testing-library/vue'
 import MaGridRow from './MaGridRow'
 
 describe('GridRow', () => {
-  it('renders content from default slot', () => {
+  test('renders content from default slot', () => {
     const { getByText } = render(MaGridRow, {
       slots: { default: 'Hello World' },
     })
@@ -10,7 +10,7 @@ describe('GridRow', () => {
     getByText(/Hello World/i)
   })
 
-  it('renders the specified tag', () => {
+  test('renders the specified tag', () => {
     const { getByTestId } = render(MaGridRow, {
       props: { tag: 'span' },
       attrs: { 'data-testid': 'row' },
@@ -19,7 +19,7 @@ describe('GridRow', () => {
     expect(getByTestId('row').nodeName).toBe('SPAN')
   })
 
-  it('adds a class based in a prop', async () => {
+  test('adds a class based in a prop', async () => {
     const { getByTestId } = render(MaGridRow, {
       props: {
         noGutters: true,

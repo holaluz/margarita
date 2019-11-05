@@ -16,7 +16,7 @@ const ContainerBuilder = options => {
 }
 
 describe('GridContainer', () => {
-  it('renders the DOM element specified in the prop', () => {
+  test('renders the DOM element specified in the prop', () => {
     const { gridContainer } = ContainerBuilder({
       context: {
         props: {
@@ -28,7 +28,7 @@ describe('GridContainer', () => {
     expect(gridContainer.nodeName).toBe('SECTION')
   })
 
-  it('adds a class based in a prop', () => {
+  test('adds a class based in a prop', () => {
     const { gridContainer } = ContainerBuilder({
       context: {
         props: {
@@ -40,7 +40,7 @@ describe('GridContainer', () => {
     expect(gridContainer.classList).toContain('ma-grid-container--fluid')
   })
 
-  it('adds the passed class names', () => {
+  test('adds the passed class names', () => {
     const { gridContainer } = ContainerBuilder({
       context: {
         class: {
@@ -53,7 +53,7 @@ describe('GridContainer', () => {
     expect(gridContainer.classList).toContain('test-class')
   })
 
-  it('renders the default slot', () => {
+  test('renders the default slot', () => {
     const defaultSlot = 'default slot text'
     const { getByText } = ContainerBuilder({
       slots: {

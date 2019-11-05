@@ -2,7 +2,7 @@ import { render, fireEvent } from '@testing-library/vue'
 import MaButton from './MaButton'
 
 describe('Button', () => {
-  it('renders a button element by default', () => {
+  test('renders a button element by default', () => {
     const { getByText, getByRole } = render(MaButton, {
       slots: { default: 'Hello World' },
     })
@@ -11,7 +11,7 @@ describe('Button', () => {
     expect(getByRole('button').type).toStrictEqual('submit')
   })
 
-  it('renders a link element on passing the right prop', () => {
+  test('renders a link element on passing the right prop', () => {
     const href = 'http://link.com/'
 
     const { getByRole } = render(MaButton, {
@@ -21,7 +21,7 @@ describe('Button', () => {
     expect(getByRole('link').href).toBe(href)
   })
 
-  it('emits on click', async () => {
+  test('emits on click', async () => {
     const { emitted, getByRole } = render(MaButton)
 
     await fireEvent.click(getByRole('button'))
@@ -30,7 +30,7 @@ describe('Button', () => {
     expect(emitted().click).toHaveLength(1)
   })
 
-  it('renders a disabled button if disabled prop is passed', () => {
+  test('renders a disabled button if disabled prop is passed', () => {
     const { getByRole } = render(MaButton, {
       props: { disabled: true },
     })
@@ -38,7 +38,7 @@ describe('Button', () => {
     expect(getByRole('button').disabled).toBe(true)
   })
 
-  it('renders a loading state if loading prop is passed', () => {
+  test('renders a loading state if loading prop is passed', () => {
     const { getByTitle, getByRole } = render(MaButton, {
       props: { loading: true },
     })

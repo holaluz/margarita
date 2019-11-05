@@ -10,13 +10,13 @@ const CheckboxBuilder = customProps =>
   })
 
 describe('Checkbox', () => {
-  it('renders a checkbox element with its label', () => {
+  test('renders a checkbox element with its label', () => {
     const { getByLabelText } = CheckboxBuilder()
 
     getByLabelText(/checkbox label/i)
   })
 
-  it('renders a disabled checkbox', async () => {
+  test('renders a disabled checkbox', async () => {
     const { getByLabelText, emitted } = CheckboxBuilder({ disabled: true })
 
     expect(getByLabelText(/checkbox label/i).disabled).toBe(true)
@@ -26,13 +26,13 @@ describe('Checkbox', () => {
     expect(emitted()).toMatchObject({})
   })
 
-  it('renders a checked checkbox', () => {
+  test('renders a checked checkbox', () => {
     const { getByLabelText } = CheckboxBuilder({ checked: true })
 
     expect(getByLabelText(/checkbox label/i).checked).toBe(true)
   })
 
-  it('renders a custom id', () => {
+  test('renders a custom id', () => {
     const { getByLabelText } = CheckboxBuilder({
       id: 'customId',
     })
@@ -40,7 +40,7 @@ describe('Checkbox', () => {
     expect(getByLabelText(/checkbox label/i).id).toBe('customId')
   })
 
-  it('emits event when checked', async () => {
+  test('emits event when checked', async () => {
     const { getByLabelText, emitted } = CheckboxBuilder()
 
     await fireEvent.click(getByLabelText(/checkbox label/i))
