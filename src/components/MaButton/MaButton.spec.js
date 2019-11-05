@@ -3,12 +3,12 @@ import MaButton from './MaButton'
 
 describe('Button', () => {
   test('renders a button element by default', () => {
-    const { getByText, getByRole } = render(MaButton, {
+    const { queryByText, queryByRole } = render(MaButton, {
       slots: { default: 'Hello World' },
     })
 
-    getByText(/Hello World/i)
-    expect(getByRole('button').type).toStrictEqual('submit')
+    expect(queryByText(/Hello World/i)).toBeInTheDocument()
+    expect(queryByRole('button')).toBeInTheDocument()
   })
 
   test('renders a link element on passing the right prop', () => {
@@ -18,7 +18,7 @@ describe('Button', () => {
       props: { tag: 'a', href },
     })
 
-    expect(getByRole('link').href).toBe(href)
+    expect(getByRole('link')).toHaveAttribute('href', href)
   })
 
   test('emits on click', async () => {
@@ -35,15 +35,15 @@ describe('Button', () => {
       props: { disabled: true },
     })
 
-    expect(getByRole('button').disabled).toBe(true)
+    expect(getByRole('button')).toBeDisabled()
   })
 
   test('renders a loading state if loading prop is passed', () => {
-    const { getByTitle, getByRole } = render(MaButton, {
+    const { queryByTitle, getByRole } = render(MaButton, {
       props: { loading: true },
     })
 
-    expect(getByRole('button').disabled).toBe(true)
-    getByTitle(/loading/i)
+    expect(getByRole('button')).toBeDisabled()
+    expect(queryByTitle(/loading/i)).toBeInTheDocument()
   })
 })

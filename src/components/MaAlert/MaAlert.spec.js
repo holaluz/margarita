@@ -6,35 +6,35 @@ describe('Alert', () => {
     const title = 'This is a title'
     const slotDefault = 'This is a slot'
 
-    const { getByText } = render(MaAlert, {
+    const { queryByText } = render(MaAlert, {
       props: { title },
       slots: { default: slotDefault },
     })
 
-    getByText(title)
-    getByText(slotDefault)
+    expect(queryByText(title)).toBeInTheDocument()
+    expect(queryByText(slotDefault)).toBeInTheDocument()
   })
 
   test('renders the provided text', () => {
     const text = 'This is a text'
 
-    const { getByText } = render(MaAlert, {
+    const { queryByText } = render(MaAlert, {
       props: { text },
     })
 
-    getByText(text)
+    expect(queryByText(text)).toBeInTheDocument()
   })
 
   test(`doesn't render the provided text if a slot is provided`, () => {
     const text = 'This is a text'
     const slotDefault = 'This is a slot'
 
-    const { getByText, queryByText } = render(MaAlert, {
+    const { queryByText } = render(MaAlert, {
       props: { text },
       slots: { default: slotDefault },
     })
 
-    getByText(slotDefault)
-    expect(queryByText(text)).toBeNull()
+    expect(queryByText(slotDefault)).toBeInTheDocument()
+    expect(queryByText(text)).not.toBeInTheDocument()
   })
 })

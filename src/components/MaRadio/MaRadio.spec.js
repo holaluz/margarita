@@ -25,13 +25,13 @@ describe('Radio', () => {
   test('renders an unchecked radio element by default', () => {
     const { input } = RadioBuilder()
 
-    expect(input.checked).toBe(false)
+    expect(input).not.toBeChecked()
   })
 
   test('renders an checked radio element if checked key matches own label', () => {
     const { input } = RadioBuilder({ value: CHECKED_VALUE })
 
-    expect(input.checked).toBe(true)
+    expect(input).toBeChecked()
   })
 
   test('emits event on click', async () => {
@@ -41,14 +41,15 @@ describe('Radio', () => {
     await fireEvent.click(input)
 
     expect(emitted()).toHaveProperty('change')
+    expect(emitted().change).toHaveLength(1)
     expect(emitted().change[0][0]).toStrictEqual(value)
-    expect(input.checked).toBe(true)
+    expect(input).toBeChecked()
   })
 
   test(`doesn't emit events if input is disabled`, async () => {
     const { input, emitted } = RadioBuilder({ disabled: true })
 
-    expect(input.disabled).toBe(true)
+    expect(input).toBeDisabled()
 
     await fireEvent.update(input)
 
@@ -70,12 +71,12 @@ describe('Radio', () => {
     const radio1 = getByLabelText('radio1')
     const radio2 = getByLabelText('radio2')
 
-    expect(radio1.checked).toBe(true)
-    expect(radio2.checked).toBe(false)
+    expect(radio1).toBeChecked()
+    expect(radio2).not.toBeChecked()
 
     await fireEvent.click(radio2)
 
-    expect(radio1.checked).toBe(false)
-    expect(radio2.checked).toBe(true)
+    expect(radio1).not.toBeChecked()
+    expect(radio2).toBeChecked()
   })
 })

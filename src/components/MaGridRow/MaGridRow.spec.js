@@ -3,11 +3,11 @@ import MaGridRow from './MaGridRow'
 
 describe('GridRow', () => {
   test('renders content from default slot', () => {
-    const { getByText } = render(MaGridRow, {
+    const { queryByText } = render(MaGridRow, {
       slots: { default: 'Hello World' },
     })
 
-    getByText(/Hello World/i)
+    expect(queryByText(/Hello World/i)).toBeInTheDocument()
   })
 
   test('renders the specified tag', () => {
@@ -32,11 +32,11 @@ describe('GridRow', () => {
       },
     })
 
-    const gridRowClasses = getByTestId('row').classList
+    const row = getByTestId('row')
 
-    expect(gridRowClasses).toContain('ma-grid-row--no-gutters')
-    expect(gridRowClasses).toContain('ma-grid-row--has-margin-top')
-    expect(gridRowClasses).toContain('ma-grid-row--no-margin-bottom')
-    expect(gridRowClasses).toContain('ma-grid-row--direction-column')
+    expect(row).toHaveClass('ma-grid-row--no-gutters')
+    expect(row).toHaveClass('ma-grid-row--has-margin-top')
+    expect(row).toHaveClass('ma-grid-row--no-margin-bottom')
+    expect(row).toHaveClass('ma-grid-row--direction-column')
   })
 })

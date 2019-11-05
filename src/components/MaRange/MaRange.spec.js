@@ -15,31 +15,31 @@ const RangeBuilder = customProps =>
 
 describe('Range', () => {
   test('renders a range input element', () => {
-    const { getByRole, getByText } = RangeBuilder()
+    const { getByRole, queryByText } = RangeBuilder()
 
-    getByText(/step value/i)
-    getByText(/second value/i)
+    expect(queryByText(/step value/i)).toBeInTheDocument()
+    expect(queryByText(/second value/i)).toBeInTheDocument()
 
-    expect(getByRole('textbox').value).toBe('0')
+    expect(getByRole('textbox')).toHaveValue('0')
   })
 
   test('selects the clicked element', async () => {
     const { getByRole, getByText, emitted } = RangeBuilder()
 
-    expect(getByRole('textbox').value).toBe('0')
-    expect(emitted()).toMatchObject({})
+    expect(getByRole('textbox')).toHaveValue('0')
 
     await fireEvent.click(getByText(/second value/i))
 
     expect(emitted()).toHaveProperty('input')
+    expect(emitted().input).toHaveLength(1)
     expect(emitted().input[0][0]).toStrictEqual('value2')
   })
 
   test('renders a label if prop is passed', () => {
-    const { getByLabelText } = RangeBuilder({
+    const { queryByLabelText } = RangeBuilder({
       label: 'Custom Label',
     })
 
-    getByLabelText(/custom label/i)
+    expect(queryByLabelText(/custom label/i)).toBeInTheDocument()
   })
 })

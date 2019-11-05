@@ -37,7 +37,7 @@ describe('GridContainer', () => {
       },
     })
 
-    expect(gridContainer.classList).toContain('ma-grid-container--fluid')
+    expect(gridContainer).toHaveClass('ma-grid-container--fluid')
   })
 
   test('adds the passed class names', () => {
@@ -49,18 +49,17 @@ describe('GridContainer', () => {
       },
     })
 
-    expect(gridContainer.classList).toContain('ma-grid-container')
-    expect(gridContainer.classList).toContain('test-class')
+    expect(gridContainer).toHaveClass('test-class')
   })
 
   test('renders the default slot', () => {
     const defaultSlot = 'default slot text'
-    const { getByText } = ContainerBuilder({
+    const { queryByText } = ContainerBuilder({
       slots: {
         default: defaultSlot,
       },
     })
 
-    getByText(defaultSlot)
+    expect(queryByText(defaultSlot)).toBeInTheDocument()
   })
 })

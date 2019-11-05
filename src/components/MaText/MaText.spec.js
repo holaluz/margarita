@@ -19,52 +19,53 @@ const TextBuilder = (customProps, customParams) => {
 
 describe('Text', () => {
   test('renders an input element with a label', () => {
-    const { input, getByRole } = TextBuilder()
+    const { input, queryByRole } = TextBuilder()
 
-    getByRole('textbox')
-    expect(input.type).toStrictEqual('text')
+    expect(queryByRole('textbox')).toBeInTheDocument()
+    expect(input).toHaveAttribute('type', 'text')
   })
 
   test('renders a button element with a label', () => {
-    const { input, getByRole } = TextBuilder({ type: 'button' })
+    const { input, queryByRole } = TextBuilder({ type: 'button' })
 
-    getByRole('textbox')
-    expect(input.type).toStrictEqual('button')
+    expect(queryByRole('textbox')).toBeInTheDocument()
+    expect(input).toHaveAttribute('type', 'button')
   })
 
   test('renders error CSS class', () => {
     const errorMessage = 'Something went wrong'
-    const { getByText, input } = TextBuilder({
+    const { queryByText, input } = TextBuilder({
       hasError: true,
       errorMessage,
     })
 
-    expect(input.classList).toContain('ma-text__field--error')
+    expect(input).toHaveClass('ma-text__field--error')
 
-    getByText(errorMessage)
+    expect(queryByText(errorMessage)).toBeInTheDocument()
   })
 
   test('renders a disabled input', () => {
     const { input } = TextBuilder({ disabled: true })
 
-    expect(input.disabled).toBe(true)
+    expect(input).toBeDisabled()
   })
 
   test('renders custom id', () => {
-    const { input } = TextBuilder({ id: 'customId' })
+    const id = 'customId'
+    const { input } = TextBuilder({ id })
 
-    expect(input.id).toBe('customId')
+    expect(input).toHaveAttribute('id', id)
   })
 
   test('renders initial value', () => {
     const value = 'initial value'
-    const { getByDisplayValue } = TextBuilder({ value })
+    const { queryByDisplayValue } = TextBuilder({ value })
 
-    getByDisplayValue(value)
+    expect(queryByDisplayValue(value)).toBeInTheDocument()
   })
 
   test('emits its value after typing', async () => {
-    const { getByDisplayValue, input, emitted } = TextBuilder({
+    const { queryByDisplayValue, input, emitted } = TextBuilder({
       value: 'initial value',
     })
 
@@ -72,8 +73,9 @@ describe('Text', () => {
 
     await fireEvent.update(input, newValue)
 
-    getByDisplayValue(/42/i)
+    expect(queryByDisplayValue(/42/i)).toBeInTheDocument()
     expect(emitted()).toHaveProperty('input')
+    expect(emitted().input).toHaveLength(1)
     expect(emitted().input[0][0]).toStrictEqual(newValue)
   })
 
@@ -92,6 +94,7 @@ describe('Text', () => {
     await fireEvent.blur(input)
 
     expect(emitted()).toHaveProperty('blur')
+    expect(emitted().blur).toHaveLength(1)
     expect(emitted().blur[0][0]).toStrictEqual(value)
   })
 
@@ -105,18 +108,19 @@ describe('Text', () => {
     })
 
     expect(emitted()).toHaveProperty('enter')
+    expect(emitted().enter).toHaveLength(1)
     expect(emitted().enter[0][0]).toStrictEqual(value)
   })
 
   test('renders the inputSibling slot if provided', () => {
     const inputSibling = 'Test slot'
-    const { getByText } = TextBuilder(null, {
+    const { queryByText } = TextBuilder(null, {
       slots: {
         inputSibling,
       },
     })
 
-    getByText(inputSibling)
+    expect(queryByText(inputSibling)).toBeInTheDocument()
   })
 
   test('renders the labelSibling slot if provided', () => {
@@ -127,6 +131,6 @@ describe('Text', () => {
       },
     })
 
-    getByText(labelSibling)
+    expect(getByText(labelSibling)).toBeInTheDocument()
   })
 })
