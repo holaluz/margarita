@@ -17,15 +17,6 @@ const OPTIONS_WITH_PLACEHOLDER = [
   ...OPTIONS,
 ]
 
-const SelectBuilder = customProps =>
-  render(MaSelect, {
-    props: {
-      label: 'Test Select label',
-      options: OPTIONS,
-      ...customProps,
-    },
-  })
-
 describe('Select', () => {
   test('renders multiple options', () => {
     const { queryByText } = SelectBuilder()
@@ -142,3 +133,13 @@ describe('Select', () => {
     })
   })
 })
+
+function SelectBuilder(customProps) {
+  return render(MaSelect, {
+    props: {
+      label: 'Test Select label',
+      options: OPTIONS,
+      ...customProps,
+    },
+  })
+}

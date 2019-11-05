@@ -4,23 +4,6 @@ import MaRadio from './MaRadio'
 const CHECKED_VALUE = '1'
 const SLOT_TEXT = 'text slot'
 
-const RadioBuilder = customProps => {
-  const utils = render(MaRadio, {
-    props: {
-      checked: CHECKED_VALUE,
-      ...customProps,
-    },
-    slots: {
-      default: SLOT_TEXT,
-    },
-  })
-
-  return {
-    ...utils,
-    input: utils.getByLabelText(SLOT_TEXT),
-  }
-}
-
 describe('Radio', () => {
   test('renders an unchecked radio element by default', () => {
     const { input } = RadioBuilder()
@@ -80,3 +63,20 @@ describe('Radio', () => {
     expect(radio2).toBeChecked()
   })
 })
+
+function RadioBuilder(customProps) {
+  const utils = render(MaRadio, {
+    props: {
+      checked: CHECKED_VALUE,
+      ...customProps,
+    },
+    slots: {
+      default: SLOT_TEXT,
+    },
+  })
+
+  return {
+    ...utils,
+    input: utils.getByLabelText(SLOT_TEXT),
+  }
+}

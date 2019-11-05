@@ -1,20 +1,6 @@
 import { render } from '@testing-library/vue'
 import MaGridContainer from './MaGridContainer'
 
-const ContainerBuilder = options => {
-  const utils = render(MaGridContainer, {
-    attrs: {
-      'data-testid': 'container',
-    },
-    ...options,
-  })
-
-  return {
-    gridContainer: utils.getByTestId('container'),
-    ...utils,
-  }
-}
-
 describe('GridContainer', () => {
   test('renders the DOM element specified in the prop', () => {
     const { gridContainer } = ContainerBuilder({
@@ -63,3 +49,17 @@ describe('GridContainer', () => {
     expect(queryByText(defaultSlot)).toBeInTheDocument()
   })
 })
+
+function ContainerBuilder(options) {
+  const utils = render(MaGridContainer, {
+    attrs: {
+      'data-testid': 'container',
+    },
+    ...options,
+  })
+
+  return {
+    gridContainer: utils.getByTestId('container'),
+    ...utils,
+  }
+}

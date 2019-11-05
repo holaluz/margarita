@@ -1,22 +1,6 @@
 import { render, fireEvent } from '@testing-library/vue'
 import MaText from './MaText'
 
-const TextBuilder = (customProps, customParams) => {
-  const label = 'input label'
-  const utils = render(MaText, {
-    props: {
-      label,
-      ...customProps,
-    },
-    ...customParams,
-  })
-
-  return {
-    input: utils.getByLabelText(label),
-    ...utils,
-  }
-}
-
 describe('Text', () => {
   test('renders an input element with a label', () => {
     const { input, queryByRole } = TextBuilder()
@@ -134,3 +118,19 @@ describe('Text', () => {
     expect(getByText(labelSibling)).toBeInTheDocument()
   })
 })
+
+function TextBuilder(customProps, customParams) {
+  const label = 'input label'
+  const utils = render(MaText, {
+    props: {
+      label,
+      ...customProps,
+    },
+    ...customParams,
+  })
+
+  return {
+    input: utils.getByLabelText(label),
+    ...utils,
+  }
+}

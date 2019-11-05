@@ -1,18 +1,6 @@
 import { render, fireEvent } from '@testing-library/vue'
 import MaRange from './MaRange'
 
-const RangeBuilder = customProps =>
-  render(MaRange, {
-    props: {
-      value: 'value1',
-      steps: [
-        { value: 'value1', text: 'step value' },
-        { value: 'value2', text: 'second value' },
-      ],
-      ...customProps,
-    },
-  })
-
 describe('Range', () => {
   test('renders a range input element', () => {
     const { getByRole, queryByText } = RangeBuilder()
@@ -43,3 +31,16 @@ describe('Range', () => {
     expect(queryByLabelText(/custom label/i)).toBeInTheDocument()
   })
 })
+
+function RangeBuilder(customProps) {
+  return render(MaRange, {
+    props: {
+      value: 'value1',
+      steps: [
+        { value: 'value1', text: 'step value' },
+        { value: 'value2', text: 'second value' },
+      ],
+      ...customProps,
+    },
+  })
+}

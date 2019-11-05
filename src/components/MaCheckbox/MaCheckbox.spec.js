@@ -1,14 +1,6 @@
 import { render, fireEvent } from '@testing-library/vue'
 import MaCheckbox from './MaCheckbox'
 
-const CheckboxBuilder = customProps =>
-  render(MaCheckbox, {
-    props: {
-      label: 'checkbox label',
-      ...customProps,
-    },
-  })
-
 describe('Checkbox', () => {
   test('renders a checkbox element with its label', () => {
     const { queryByLabelText } = CheckboxBuilder()
@@ -54,3 +46,12 @@ describe('Checkbox', () => {
     expect(emitted().input[1][0]).toStrictEqual(false)
   })
 })
+
+function CheckboxBuilder(customProps) {
+  return render(MaCheckbox, {
+    props: {
+      label: 'checkbox label',
+      ...customProps,
+    },
+  })
+}
