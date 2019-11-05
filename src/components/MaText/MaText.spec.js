@@ -96,27 +96,19 @@ describe('Text', () => {
     expect(emitted().enter[0][0]).toStrictEqual(value)
   })
 
-  test('renders the inputSibling slot if provided', () => {
-    const inputSibling = 'Test slot'
-    const { queryByText } = TextBuilder(null, {
-      slots: {
-        inputSibling,
-      },
-    })
+  test.each(['inputSibling', 'labelSibling'])(
+    'renders provided %s slot',
+    slotName => {
+      const slotText = 'Test slot'
+      const { queryByText } = TextBuilder(null, {
+        slots: {
+          [slotName]: slotText,
+        },
+      })
 
-    expect(queryByText(inputSibling)).toBeInTheDocument()
-  })
-
-  test('renders the labelSibling slot if provided', () => {
-    const labelSibling = 'Test slot'
-    const { getByText } = TextBuilder(null, {
-      slots: {
-        labelSibling,
-      },
-    })
-
-    expect(getByText(labelSibling)).toBeInTheDocument()
-  })
+      expect(queryByText(slotText)).toBeInTheDocument()
+    }
+  )
 })
 
 function TextBuilder(customProps, customParams) {

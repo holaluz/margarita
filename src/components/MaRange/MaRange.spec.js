@@ -12,9 +12,7 @@ describe('Range', () => {
   })
 
   test('selects the clicked element', async () => {
-    const { getByRole, getByText, emitted } = RangeBuilder()
-
-    expect(getByRole('textbox')).toHaveValue('0')
+    const { getByText, emitted } = RangeBuilder()
 
     await fireEvent.click(getByText(/second value/i))
 
@@ -23,7 +21,7 @@ describe('Range', () => {
     expect(emitted().input[0][0]).toStrictEqual('value2')
   })
 
-  test('renders a label if prop is passed', () => {
+  test('renders label if prop is passed', () => {
     const { queryByLabelText } = RangeBuilder({
       label: 'Custom Label',
     })

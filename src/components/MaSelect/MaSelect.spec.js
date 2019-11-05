@@ -27,17 +27,15 @@ describe('Select', () => {
   })
 
   test('changes its value when selected option changes', async () => {
-    const { queryByDisplayValue, getByDisplayValue } = SelectBuilder()
+    const { queryByDisplayValue, getSelect } = SelectBuilder()
 
-    const select = getByDisplayValue(/option1/i)
-
-    await fireEvent.update(select, 'option2')
+    await fireEvent.update(getSelect(), 'option2')
 
     expect(queryByDisplayValue(/option1/i)).not.toBeInTheDocument()
     expect(queryByDisplayValue(/option2/i)).toBeInTheDocument()
   })
 
-  test('displays error', () => {
+  test('displays error message', () => {
     const { queryByText } = SelectBuilder({
       hasError: true,
       errorMessage: 'Something went wrong',
@@ -47,39 +45,26 @@ describe('Select', () => {
   })
 
   test('renders bold class', () => {
-    const { getByDisplayValue } = SelectBuilder({
-      weight: 'bold',
-    })
+    const { getSelect } = SelectBuilder({ weight: 'bold' })
 
-    const select = getByDisplayValue(/option1/i)
-
-    expect(select).toHaveClass('ma-select__field--bold')
+    expect(getSelect()).toHaveClass('ma-select__field--bold')
   })
 
   test('renders custom class', () => {
-    const customClass = 'my-custom-class'
-    const { getByDisplayValue } = SelectBuilder({
-      fieldClass: customClass,
-    })
+    const fieldClass = 'my-custom-class'
+    const { getSelect } = SelectBuilder({ fieldClass })
 
-    const select = getByDisplayValue(/option1/i)
-
-    expect(select).toHaveClass(customClass)
+    expect(getSelect()).toHaveClass(fieldClass)
   })
 
-  test('adds aria-label attr and hidden label', () => {
-    const { queryByDisplayValue, getByDisplayValue } = SelectBuilder({
-      'aria-label': 'test',
+  test('adds aria-label attr and hids label element', () => {
+    const ariaLabel = 'test'
+    const { queryByDisplayValue, getSelect } = SelectBuilder({
+      'aria-label': ariaLabel,
     })
 
-    const select = getByDisplayValue(/option1/i)
+    expect(getSelect()).toHaveAttribute('aria-label', ariaLabel)
 
-    const { name, value } = select.attributes[1]
-
-    expect(name).toBe('aria-label')
-    expect(value).toBe('test')
-
-    // If we provide an aria-label, the <label> element should not be there
     expect(queryByDisplayValue(/Test Select label/i)).not.toBeInTheDocument()
   })
 
@@ -135,11 +120,18 @@ describe('Select', () => {
 })
 
 function SelectBuilder(customProps) {
-  return render(MaSelect, {
+  const utils = render(MaSelect, {
     props: {
       label: 'Test Select label',
       options: OPTIONS,
       ...customProps,
     },
   })
+
+  const getSelect = () => utils.getByDisplayValue(/option1/i)
+
+  return {
+    ...utils,
+    getSelect,
+  }
 }

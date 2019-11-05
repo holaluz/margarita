@@ -2,7 +2,7 @@ import { render } from '@testing-library/vue'
 import MaGridContainer from './MaGridContainer'
 
 describe('GridContainer', () => {
-  test('renders the DOM element specified in the prop', () => {
+  test('renders DOM element specified in the prop', () => {
     const { gridContainer } = ContainerBuilder({
       context: {
         props: {
@@ -14,7 +14,7 @@ describe('GridContainer', () => {
     expect(gridContainer.nodeName).toBe('SECTION')
   })
 
-  test('adds a class based in a prop', () => {
+  test('renders fluid class', () => {
     const { gridContainer } = ContainerBuilder({
       context: {
         props: {
@@ -26,19 +26,20 @@ describe('GridContainer', () => {
     expect(gridContainer).toHaveClass('ma-grid-container--fluid')
   })
 
-  test('adds the passed class names', () => {
+  test('renders custom class', () => {
+    const customClass = 'test-class'
     const { gridContainer } = ContainerBuilder({
       context: {
         class: {
-          'test-class': true,
+          [customClass]: true,
         },
       },
     })
 
-    expect(gridContainer).toHaveClass('test-class')
+    expect(gridContainer).toHaveClass(customClass)
   })
 
-  test('renders the default slot', () => {
+  test('renders default slot', () => {
     const defaultSlot = 'default slot text'
     const { queryByText } = ContainerBuilder({
       slots: {
@@ -59,7 +60,7 @@ function ContainerBuilder(options) {
   })
 
   return {
-    gridContainer: utils.getByTestId('container'),
     ...utils,
+    gridContainer: utils.getByTestId('container'),
   }
 }
