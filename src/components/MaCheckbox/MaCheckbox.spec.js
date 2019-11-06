@@ -1,6 +1,8 @@
 import { render, fireEvent } from '@testing-library/vue'
 import MaCheckbox from './MaCheckbox'
 
+const SLOT_TEXT = 'text slot'
+
 describe('Checkbox', () => {
   test('renders a checkbox element with its label', () => {
     const { checkbox } = CheckboxBuilder()
@@ -50,15 +52,15 @@ describe('Checkbox', () => {
 function CheckboxBuilder(customProps) {
   const utils = render(MaCheckbox, {
     props: {
-      label: 'checkbox label',
       ...customProps,
+    },
+    slots: {
+      default: SLOT_TEXT,
     },
   })
 
-  const checkbox = utils.getByLabelText(/checkbox label/i)
-
   return {
     ...utils,
-    checkbox,
+    checkbox: utils.getByLabelText(SLOT_TEXT),
   }
 }

@@ -1,7 +1,7 @@
 <style scoped lang="scss" src="./MaCheckbox.scss"></style>
 
 <template>
-  <label class="ma-checkbox">
+  <label :class="checkboxClass">
     <input
       :id="id"
       v-model="isChecked"
@@ -9,8 +9,10 @@
       type="checkbox"
       class="ma-checkbox__input"
     />
-    <span class="ma-checkbox__description">{{ label }}</span>
     <span class="ma-checkbox__indicator" />
+    <span class="ma-checkbox__description">
+      <slot />
+    </span>
   </label>
 </template>
 
@@ -36,9 +38,9 @@ export default {
       default: uuid,
     },
 
-    label: {
-      type: String,
-      required: true,
+    card: {
+      type: Boolean,
+      default: false,
     },
   },
 
@@ -51,6 +53,10 @@ export default {
       set(checkedValue) {
         this.$emit('input', checkedValue)
       },
+    },
+
+    checkboxClass() {
+      return this.card ? 'ma-checkbox-card' : 'ma-checkbox'
     },
   },
 }
