@@ -1,7 +1,7 @@
 @import '../../scss/margarita';
 
 .ma-checkbox {
-  display: block;
+  display: flex;
   position: relative;
   cursor: pointer;
   padding-left: rem(22px);
@@ -12,7 +12,7 @@
     border: 1px solid get-color('dark-hot-pink');
   }
 
-  &__indicator {
+  .ma-checkbox__indicator {
     position: absolute;
     top: rem(2px);
     left: 0;
@@ -23,7 +23,7 @@
     height: rem(16px);
   }
 
-  &__input {
+  .ma-checkbox__input {
     position: absolute;
     opacity: 0;
     width: 0;
@@ -50,5 +50,99 @@
     &:disabled ~ .ma-checkbox__description {
       cursor: not-allowed;
     }
+  }
+}
+
+.ma-checkbox-card {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+
+  .ma-checkbox__input {
+    display: none;
+
+    &:disabled {
+      & ~ .ma-checkbox__description,
+      & ~ .ma-checkbox__indicator {
+        cursor: not-allowed;
+      }
+
+      & ~ .ma-checkbox__description {
+        border-color: get-color('alto');
+        background-color: get-color('wild-sand');
+        color: get-color('scorpion');
+      }
+    }
+
+    &:not(:disabled) {
+      & ~ .ma-checkbox__description {
+        transition: border 0.2s ease;
+      }
+
+      &:hover,
+      &:focus,
+      &:checked {
+        & ~ .ma-checkbox__description {
+          border-color: get-color('dark-hot-pink');
+        }
+      }
+
+      &:checked ~ .ma-checkbox__indicator {
+        &::before {
+          display: block;
+          position: absolute;
+          top: rem(5px);
+          right: rem(5px);
+          z-index: 1;
+          background-image: url('../../assets/icons/tick.svg');
+          background-size: $indicator-svg-size $indicator-svg-size;
+          width: $indicator-svg-size;
+          height: $indicator-svg-size;
+          content: ' ';
+        }
+
+        &::after {
+          border-color: transparent;
+          border-right-color: get-color('dark-hot-pink');
+        }
+        $indicator-svg-size: rem(13px);
+      }
+    }
+  }
+
+  .ma-checkbox__indicator {
+    position: absolute;
+    right: 0;
+    transition: border-color 0.33s, border-width 0.33s, background-color 0.33s;
+    border: 0 solid transparent;
+    border-radius: rem(8px);
+    background-color: transparent;
+    width: $indicator-size;
+    height: $indicator-size;
+    overflow: hidden;
+    user-select: none;
+
+    &::after {
+      position: absolute;
+      top: rem(-1px);
+      right: rem(-1px);
+      transition: border-color 0.33s;
+      border-width: 0 $indicator-size $indicator-size 0;
+      border-style: solid;
+      border-color: transparent;
+      width: 0;
+      height: 0;
+      content: ' ';
+    }
+    $indicator-size: 2.5rem;
+  }
+
+  .ma-checkbox__description {
+    flex: 1;
+    border: 1px solid get-color('alto');
+    border-radius: rem(8px);
+    box-shadow: 0 0 8px 6px get-color('shadow-light');
+    background-color: get-color('white');
+    padding: rem(24px);
   }
 }

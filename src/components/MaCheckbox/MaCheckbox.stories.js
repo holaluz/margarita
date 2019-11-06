@@ -10,23 +10,23 @@ storiesOf('Checkbox', module)
   .addDecorator(withKnobs)
 
   .add('Checkbox', () => {
+    const card = boolean('Card', true)
     const checked = boolean('Checked', false)
-    const label = text('Label', 'Click to check the checkbox')
     const size = select('Size', GRID_ARRAY, 3)
     const offset = select('Offset', [0, ...GRID_ARRAY], 4)
     const disabled = boolean('Disabled', false)
+    const textSlot = text('Text checkbox ', 'My first checkbox')
 
     return {
       components: { MaCheckbox, MaGridColumn },
 
       template: `
         <ma-grid-column :class="getClass">
-          <ma-checkbox
-            :label="label"
-            :checked="checked"
-            :disabled="disabled"
-          />
-        </ma-grid-column>`,
+          <ma-checkbox :checked="checked" :card="card" :disabled="disabled">
+            {{ textSlot }}
+          </ma-checkbox>
+        </ma-grid-column>
+      `,
 
       computed: {
         getClass() {
@@ -38,14 +38,17 @@ storiesOf('Checkbox', module)
       },
 
       props: {
+        card: {
+          default: card,
+        },
         checked: {
           default: checked,
         },
         disabled: {
           default: disabled,
         },
-        label: {
-          default: label,
+        textSlot: {
+          default: textSlot,
         },
         offset: {
           default: offset,
