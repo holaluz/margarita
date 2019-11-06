@@ -88,6 +88,8 @@
       }
 
       &:checked ~ .ma-checkbox__indicator {
+        $indicator-svg-size: rem(13px);
+
         &::before {
           display: block;
           position: absolute;
@@ -105,12 +107,13 @@
           border-color: transparent;
           border-right-color: get-color('dark-hot-pink');
         }
-        $indicator-svg-size: rem(13px);
       }
     }
   }
 
   .ma-checkbox__indicator {
+    $indicator-size: 2.5rem;
+
     position: absolute;
     right: 0;
     transition: border-color 0.33s, border-width 0.33s, background-color 0.33s;
