@@ -1,9 +1,10 @@
 import { storiesOf } from '@storybook/vue'
 import MaIcon from './MaIcon'
-import availableIcons from './availableIcons'
+import icons from './availableIcons'
 
 storiesOf('Icons', module).add('Icons', () => ({
   components: { MaIcon },
+
   template: `
     <div :style="containerStyle">
       <div v-for="icon in icons" :key="icon" :style="iconStyle">
@@ -12,9 +13,10 @@ storiesOf('Icons', module).add('Icons', () => ({
       </div>
     </div>
   `,
+
   data() {
     return {
-      icons: availableIcons,
+      icons,
       containerStyle: {
         display: 'grid',
         gridGap: '1.5em',
