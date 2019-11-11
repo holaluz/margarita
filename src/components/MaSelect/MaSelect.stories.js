@@ -39,8 +39,7 @@ storiesOf('Select', module)
     const fieldClass = text('Additional class', '')
     const options = object('Options', DEFAULT_OPTIONS)
 
-    const size = select('Size', GRID_ARRAY, 3)
-    const offset = select('Offset', [0, ...GRID_ARRAY], 4)
+    const size = select('Size', GRID_ARRAY, 4)
 
     return {
       components: { MaGridColumn, MaSelect },
@@ -80,9 +79,6 @@ storiesOf('Select', module)
         options: {
           default: options,
         },
-        offset: {
-          default: offset,
-        },
         size: {
           default: size,
         },
@@ -107,7 +103,6 @@ storiesOf('Select', module)
         getClass() {
           return {
             [`ma-grid-col--${this.size}`]: this.size,
-            [`ma-grid-col--offset-${this.offset}`]: this.offset,
           }
         },
       },
