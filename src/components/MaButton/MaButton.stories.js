@@ -12,7 +12,8 @@ import notes from './MaButton.md'
 import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaGridRow from '@margarita/components/MaGridRow'
 import MaButton from '@margarita/components/MaButton'
-import MaIcon, { AVAILABLE_ICONS } from '@margarita/components/MaIcon'
+import MaIcon from '@margarita/components/MaIcon'
+import availableIcons from '@margarita/components/MaIcon/availableIcons'
 
 const BUTTON_CATEGORIES = [
   'primary',
@@ -32,7 +33,7 @@ storiesOf('Button', module)
       const category = select('Categories', BUTTON_CATEGORIES, 'primary')
       const textButton = text('Text', 'Click me')
       const loading = boolean('Loading', false)
-      const icon = select('Icons', AVAILABLE_ICONS, 'None')
+      const icon = select('Icons', availableIcons, 'None')
       const iconSize = number('Icon height size in px', 18)
       const fluid = boolean('Fluid', false)
       const rounded = boolean('Rounded', false)
