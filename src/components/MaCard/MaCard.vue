@@ -1,13 +1,10 @@
 <style lang="scss" src="./MaCard.scss"></style>
 
 <template>
-  <div v-if="hasPaddingTop" :class="spacingClasses">
-    <div :class="getColorClass" class="ma-card">
+  <div :class="{ 'ma-card--has-padding-top': hasPaddingTop }">
+    <div :class="`ma-card--${color}`" class="ma-card">
       <slot />
     </div>
-  </div>
-  <div v-else :class="getColorClass" class="ma-card">
-    <slot />
   </div>
 </template>
 
@@ -24,18 +21,6 @@ export default {
     hasPaddingTop: {
       type: Boolean,
       default: false,
-    },
-  },
-
-  computed: {
-    getColorClass() {
-      return `ma-card--${this.color}`
-    },
-
-    spacingClasses() {
-      return {
-        'ma-card--has-padding-top': this.hasPaddingTop,
-      }
     },
   },
 }
