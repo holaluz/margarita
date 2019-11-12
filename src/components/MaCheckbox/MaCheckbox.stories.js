@@ -20,22 +20,12 @@ storiesOf('Checkbox', module)
       components: { MaCheckbox, MaGridColumn },
 
       template: `
-        <ma-grid-column :class="getClass">
-          <ma-checkbox
-            :label="label"
-            :checked="checked"
-            :disabled="disabled"
-          />
-        </ma-grid-column>`,
-
-      computed: {
-        getClass() {
-          return {
-            [`ma-grid-col--${this.size}`]: this.size,
-            [`ma-grid-col--offset-${this.offset}`]: this.offset,
-          }
-        },
-      },
+        <ma-checkbox
+          :label="label"
+          :checked="checked"
+          :disabled="disabled"
+        />
+      `,
 
       props: {
         checked: {

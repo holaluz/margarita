@@ -4,6 +4,10 @@
 
 Margarita is the UI Library from Holaluz.
 
+The storybook with component examples is available [here](https://holaluz.github.io/margarita/).
+
+The NPM package is available [here](https://www.npmjs.com/package/@holaluz/margarita/).
+
 
 ## About Margarita
 
