@@ -27,9 +27,8 @@
   },
   "dependencies": {
     "sass-mq": "^5.0.0",
-    "vue": "^2.6.10",
-    "markdown-it": "^10.0.0",
-    "markdown-it-attrs": "^3.0.1"
+    "snarkdown": "^1.2.2",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@holaluz/npm-scripts": "^1.1.0",

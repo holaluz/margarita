@@ -9,7 +9,7 @@ storiesOf('Markdown', module)
   .add(
     'v-markdown',
     () => {
-      const markdownText = text('Markdown', 'this is your **markdown**')
+      const markdownText = text('Markdown', 'this is your **markdown**<<.meh>>')
 
       return {
         directives: { markdown },
@@ -18,7 +18,7 @@ storiesOf('Markdown', module)
 
         template: `
           <ma-grid-container>
-            <div v-markdown="markdownText" />
+            <p v-markdown="markdownText" />
           </ma-grid-container>
         `,
 

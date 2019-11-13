@@ -5,7 +5,7 @@ const markdownText = `
 # title
 **bold**
 _italic_
-[anchor](url.com)<<.class>>
+[anchor](url.com)<<.class #id-name>>
 `
 
 const component = {
@@ -31,8 +31,9 @@ describe('Markdown directive', () => {
     const italicNode = getByText('italic').nodeName
     expect(italicNode).toBe('EM')
 
-    const { classList, nodeName } = getByText('anchor')
+    const { classList, id, nodeName } = getByText('anchor')
     expect(nodeName).toBe('A')
     expect(classList.contains('class')).toBe(true)
+    expect(id).toBe('id-name')
   })
 })
