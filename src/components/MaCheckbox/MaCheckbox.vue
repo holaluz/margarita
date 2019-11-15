@@ -1,26 +1,31 @@
 <style scoped lang="scss" src="./MaCheckbox.scss"></style>
 
 <template>
-  <label :class="checkboxClass">
+  <ma-selector-card :card="card" class="ma-checkbox">
     <input
       :id="id"
       v-model="isChecked"
       :disabled="disabled"
       type="checkbox"
-      class="ma-checkbox__input"
+      class="input"
     />
-    <span class="ma-checkbox__indicator" />
-    <span class="ma-checkbox__description">
+    <span class="indicator" />
+    <span class="description">
       <slot />
     </span>
-  </label>
+  </ma-selector-card>
 </template>
 
 <script>
 import uuid from '@margarita/utils/uuid'
+import MaSelectorCard from '@margarita/components/MaSelectorCard/MaSelectorCard.vue'
 
 export default {
   name: 'MaCheckbox',
+
+  components: {
+    MaSelectorCard,
+  },
 
   props: {
     checked: {
