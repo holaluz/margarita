@@ -1,28 +1,33 @@
 <style scoped lang="scss" src="./MaRadio.scss"></style>
 
 <template>
-  <label :class="radioClass">
+  <ma-selector-card :card="card" class="ma-radio">
     <input
       :id="id"
       v-model="model"
       :value="value"
       :disabled="disabled"
-      class="ma-radio__input visually-hidden"
+      class="input visually-hidden"
       type="radio"
       v-bind="$attrs"
     />
-    <span class="ma-radio__indicator" />
-    <span class="ma-radio__description">
+    <span class="indicator" />
+    <span class="description">
       <slot />
     </span>
-  </label>
+  </ma-selector-card>
 </template>
 
 <script>
 import uuid from '@margarita/utils/uuid'
+import MaSelectorCard from '@margarita/components/MaSelectorCard/MaSelectorCard.vue'
 
 export default {
   name: 'MaRadio',
+
+  components: {
+    MaSelectorCard,
+  },
 
   inheritAttrs: false,
 
@@ -71,10 +76,6 @@ export default {
 
         this.$emit('change', this.value)
       },
-    },
-
-    radioClass() {
-      return this.card ? 'ma-radio-card' : 'ma-radio'
     },
   },
 }
