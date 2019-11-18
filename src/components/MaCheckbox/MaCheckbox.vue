@@ -18,7 +18,7 @@
 
 <script>
 import uuid from '@margarita/utils/uuid'
-import MaSelectorCard from '@margarita/components/MaSelectorCard/MaSelectorCard.vue'
+import MaSelectorCard from '@margarita/components/MaSelectorCard'
 
 export default {
   name: 'MaCheckbox',
