@@ -1,37 +1,34 @@
-<style scoped lang="scss" src="./MaRadio.scss"></style>
+<style scoped lang="scss" src="./MaOption.scss"></style>
 
 <template>
-  <ma-selector-card :card="card" class="ma-radio">
+  <label :class="computedClass">
     <input
       :id="id"
       v-model="model"
       :value="value"
       :disabled="disabled"
       class="input visually-hidden"
-      type="radio"
+      :type="type"
       v-bind="$attrs"
     />
     <span class="indicator" />
     <span class="description">
       <slot />
     </span>
-  </ma-selector-card>
+  </label>
 </template>
 
 <script>
 import uuid from '@margarita/utils/uuid'
-import MaSelectorCard from '@margarita/components/MaSelectorCard'
+
+const AVAILABLE_TYPES = ['radio', 'checkbox']
 
 export default {
-  name: 'MaRadio',
-
-  components: {
-    MaSelectorCard,
-  },
+  name: 'MaOption',
 
   inheritAttrs: false,
 
-  // Per docs: radio buttons use checked property and change event
+  // Per docs: radio buttons and checkbox use checked property and change event
   // Source: https://vuejs.org/v2/guide/forms.html#Basic-Usage
   model: {
     prop: 'checked',
@@ -40,7 +37,7 @@ export default {
 
   props: {
     checked: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       required: true,
     },
 
@@ -51,7 +48,7 @@ export default {
 
     value: {
       type: String,
-      default: '',
+      default: null,
     },
 
     disabled: {
@@ -63,6 +60,14 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    type: {
+      type: String,
+      default: 'radio',
+      validator(v) {
+        return AVAILABLE_TYPES.includes(v)
+      },
+    },
   },
 
   computed: {
@@ -71,11 +76,18 @@ export default {
         return this.checked
       },
 
-      set() {
+      set(newValue) {
         if (this.disabled) return false
 
-        this.$emit('change', this.value)
+        this.$emit('change', newValue)
       },
+    },
+
+    computedClass() {
+      return {
+        'ma-option': true,
+        'ma-selector-card': this.card,
+      }
     },
   },
 }

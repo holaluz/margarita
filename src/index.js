@@ -11,7 +11,7 @@ import MaGridRow from './components/MaGridRow'
 import MaIcon from './components/MaIcon'
 import MaPagination from './components/MaPagination'
 import MaPill from './components/MaPill'
-import MaRadio from './components/MaRadio'
+import MaOption from './components/MaOption'
 import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
 import MaSidebar from './components/MaSidebar'
@@ -30,7 +30,7 @@ export {
   MaIcon,
   MaPagination,
   MaPill,
-  MaRadio,
+  MaOption,
   MaRange,
   MaSelect,
   MaSidebar,
@@ -49,7 +49,7 @@ function install(Vue) {
   Vue.component('ma-icon', MaIcon)
   Vue.component('ma-pagination', MaPagination)
   Vue.component('ma-pill', MaPill)
-  Vue.component('ma-radio', MaRadio)
+  Vue.component('ma-option', MaOption)
   Vue.component('ma-range', MaRange)
   Vue.component('ma-select', MaSelect)
   Vue.component('ma-sidebar', MaSidebar)

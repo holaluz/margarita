@@ -1,25 +1,25 @@
 import { render, fireEvent } from '@testing-library/vue'
-import MaRadio from './MaRadio'
+import MaOption from './MaOption'
 
 const CHECKED_VALUE = '1'
 const SLOT_TEXT = 'text slot'
 
-describe('Radio', () => {
+describe('Option', () => {
   test('renders an unchecked radio element by default', () => {
-    const { input } = RadioBuilder()
+    const { input } = OptionRadioBuilder()
 
     expect(input).not.toBeChecked()
   })
 
   test('renders an checked radio element if checked key matches own label', () => {
-    const { input } = RadioBuilder({ value: CHECKED_VALUE })
+    const { input } = OptionRadioBuilder({ value: CHECKED_VALUE })
 
     expect(input).toBeChecked()
   })
 
   test('emits event on click', async () => {
     const value = 'checkboxvalue'
-    const { input, emitted } = RadioBuilder({ value })
+    const { input, emitted } = OptionRadioBuilder({ value })
 
     await fireEvent.click(input)
 
@@ -30,7 +30,7 @@ describe('Radio', () => {
   })
 
   test(`doesn't emit events if input is disabled`, async () => {
-    const { input, emitted } = RadioBuilder({ disabled: true })
+    const { input, emitted } = OptionRadioBuilder({ disabled: true })
 
     expect(input).toBeDisabled()
 
@@ -41,11 +41,11 @@ describe('Radio', () => {
 
   test('toggles value between related checkboxes', async () => {
     const { getByLabelText } = render({
-      components: { MaRadio },
+      components: { MaOption },
       template: `
         <div>
-          <ma-radio v-model="selected" value="id1">radio1</ma-radio>
-          <ma-radio v-model="selected" value="id2">radio2</ma-radio>
+          <ma-option v-model="selected" value="id1">radio1</ma-option>
+          <ma-option v-model="selected" value="id2">radio2</ma-option>
         </div>
       `,
       data: () => ({ selected: 'id1' }),
@@ -64,8 +64,8 @@ describe('Radio', () => {
   })
 })
 
-function RadioBuilder(customProps) {
-  const utils = render(MaRadio, {
+function OptionRadioBuilder(customProps) {
+  const utils = render(MaOption, {
     props: {
       checked: CHECKED_VALUE,
       ...customProps,
