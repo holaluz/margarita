@@ -3,7 +3,6 @@ import './scss/_margarita.scss'
 import MaAlert from './components/MaAlert'
 import MaButton from './components/MaButton'
 import MaCard from './components/MaCard'
-import MaCheckbox from './components/MaCheckbox'
 import MaDatagrid from './components/MaDatagrid'
 import MaGridColumn from './components/MaGridColumn'
 import MaGridContainer from './components/MaGridContainer'
@@ -22,7 +21,6 @@ export {
   MaAlert,
   MaButton,
   MaCard,
-  MaCheckbox,
   MaDatagrid,
   MaGridColumn,
   MaGridContainer,
@@ -41,7 +39,6 @@ function install(Vue) {
   Vue.component('ma-alert', MaAlert)
   Vue.component('ma-button', MaButton)
   Vue.component('ma-card', MaCard)
-  Vue.component('ma-checkbox', MaCheckbox)
   Vue.component('ma-datagrid', MaDatagrid)
   Vue.component('ma-grid-column', MaGridColumn)
   Vue.component('ma-grid-container', MaGridContainer)
