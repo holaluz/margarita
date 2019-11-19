@@ -40,7 +40,6 @@ storiesOf('Text', module)
       const errorMessage = text('Error msg', 'You have an error')
       const hasError = boolean('Has error', false)
       const label = text('Label', 'Label')
-      const offset = select('Offset', [0, ...GRID_ARRAY], 4)
       const placeholder = text('Placeholder', 'Placeholder')
       const size = select('Size', GRID_ARRAY, 4)
       const value = text('Value', '')
@@ -84,11 +83,7 @@ storiesOf('Text', module)
 
         computed: {
           getClass() {
-            const classes = [`ma-grid-col--${this.size}`]
-            const offset = Number(this.offset)
-
-            if (offset) classes.push(`grid-col--offset-${offset}`)
-            return classes
+            return [`ma-grid-col--${this.size}`]
           },
         },
 
@@ -107,9 +102,6 @@ storiesOf('Text', module)
           },
           placeholder: {
             default: placeholder,
-          },
-          offset: {
-            default: offset,
           },
           size: {
             default: size,

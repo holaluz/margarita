@@ -20,7 +20,7 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
-import { AVAILABLE_ICONS } from './index'
+import availableIcons from './availableIcons'
 
 export default {
   name: 'MaIcon',
@@ -31,7 +31,7 @@ export default {
       default: '',
       validator: function(value) {
         if (!value) return true
-        return AVAILABLE_ICONS.includes(value)
+        return availableIcons.includes(value)
       },
     },
 
