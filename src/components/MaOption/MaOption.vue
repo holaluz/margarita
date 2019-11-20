@@ -28,7 +28,7 @@ export default {
 
   inheritAttrs: false,
 
-  // Per docs: radio buttons and checkbox use checked property and change event
+  // Per docs: radio buttons and checkboxes use checked property and change event
   // Source: https://vuejs.org/v2/guide/forms.html#Basic-Usage
   model: {
     prop: 'checked',
