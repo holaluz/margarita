@@ -2,10 +2,11 @@
 
 <template>
   <div class="ma-pagination">
-    <div v-if="!isStart" class="ma-pagination__left">
+    <div v-show="!isStart" class="ma-pagination__left">
       <ma-button
         category="secondary"
-        aria-label="Go back icon"
+        data-testid="previous-page"
+        aria-label="Previous page icon"
         class="ma-pagination__button ma-pagination__button--backwards"
         @click="pagination(currentPage - 1)"
       >
@@ -14,12 +15,11 @@
     </div>
 
     <template v-for="(page, index) in displayedPages">
-      <div :key="page" class="ma-pagination__element">
+      <div :key="index" class="ma-pagination__element">
         <ma-button
-          :key="page"
           :category="isActive(page)"
           :aria-label="`Go to page ${page}`"
-          class="ma-pagination__button ma-pagination__button"
+          class="ma-pagination__button ma-pagination__button--number"
           @click="pagination(page)"
           v-text="page"
         />
@@ -33,11 +33,12 @@
       </div>
     </template>
 
-    <div v-if="!isEnd" class="ma-pagination__right">
+    <div v-show="!isEnd" class="ma-pagination__right">
       <ma-button
         category="secondary"
-        aria-label="Go forward icon"
-        class="ma-pagination__button ma-pagination__button--forward"
+        data-testid="next-page"
+        aria-label="Next page icon"
+        class="ma-pagination__button ma-pagination__button--forwards"
         @click="pagination(currentPage + 1)"
       >
         <ma-icon icon="Arrow" width="16" height="16" />
@@ -61,12 +62,12 @@ export default {
   props: {
     totalItems: {
       type: Number,
-      default: 0,
+      required: true,
     },
 
     itemsPerPage: {
       type: Number,
-      default: 10,
+      required: true,
     },
 
     startPage: {
@@ -92,14 +93,6 @@ export default {
 
     isStart() {
       return this.currentPage === 1
-    },
-
-    from() {
-      return this.currentPage * this.itemsPerPage - (this.itemsPerPage - 1)
-    },
-
-    to() {
-      return Math.min(this.currentPage * this.itemsPerPage, this.totalItems)
     },
 
     displayedPages() {

@@ -1,28 +1,36 @@
 @import '../../scss/margarita';
 
 .ma-pagination {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(1rem, 2.3rem));
-  grid-auto-rows: auto;
-  grid-column-gap: 1rem;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  &__button {
-    box-shadow: 0 2px 3px 2px get-color('shadow-light');
-    // width: 2.3rem;
-    // height: 2.3rem;
-    width: 100%;
+.ma-pagination__button {
+  box-shadow: 0 2px 3px 2px get-color('shadow-light');
+  width: 2.3rem;
+  height: 2.3rem;
+}
 
-    &--backwards {
-      transform: scaleX(-1);
-    }
-  }
+.ma-pagination__button--number {
+  margin: 0 0.5rem;
+}
 
-  &__separator {
-    align-self: flex-end;
-    justify-content: center;
-    padding-bottom: rem(8px);
-    text-align: center;
-    color: get-color('tundora');
-  }
+.ma-pagination__button--backwards {
+  transform: scaleX(-1);
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+.ma-pagination__button--forwards {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+.ma-pagination__separator {
+  align-self: flex-end;
+  justify-content: center;
+  padding-bottom: rem(8px);
+  text-align: center;
+  color: get-color('tundora');
 }

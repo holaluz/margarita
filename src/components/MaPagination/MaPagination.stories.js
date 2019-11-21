@@ -9,7 +9,6 @@ storiesOf('Pagination', module)
   .add('Pagination', () => {
     const totalItems = number('Total items', 500)
     const itemsPerPage = number('Items per page', 25)
-    const currentPage = number('Current page', 1)
 
     return {
       components: { MaPagination },
@@ -17,7 +16,6 @@ storiesOf('Pagination', module)
       template: `
         <div>
           <ma-pagination
-            :current-page="currentPage"
             :items-per-page="itemsPerPage"
             :total-items="totalItems"
             @pagination="changePage"
@@ -31,9 +29,6 @@ storiesOf('Pagination', module)
         },
         totalItems: {
           default: totalItems,
-        },
-        currentPage: {
-          default: currentPage,
         },
       },
 
