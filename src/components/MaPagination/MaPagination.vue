@@ -5,8 +5,7 @@
     <div v-show="!isStart" class="ma-pagination__left">
       <ma-button
         category="secondary"
-        data-testid="previous-page"
-        aria-label="Previous page icon"
+        :aria-label="leftButtonAria"
         class="ma-pagination__button ma-pagination__button--backwards"
         @click="pagination(currentPage - 1)"
       >
@@ -18,7 +17,7 @@
       <div :key="index" class="ma-pagination__element">
         <ma-button
           :category="isActive(page)"
-          :aria-label="`Go to page ${page}`"
+          :aria-label="`${numberButtonAria} ${page}`"
           class="ma-pagination__button ma-pagination__button--number"
           @click="pagination(page)"
           v-text="page"
@@ -36,8 +35,7 @@
     <div v-show="!isEnd" class="ma-pagination__right">
       <ma-button
         category="secondary"
-        data-testid="next-page"
-        aria-label="Next page icon"
+        :aria-label="rightButtonAria"
         class="ma-pagination__button ma-pagination__button--forwards"
         @click="pagination(currentPage + 1)"
       >
@@ -73,6 +71,21 @@ export default {
     startPage: {
       type: Number,
       default: 1,
+    },
+
+    leftButtonAria: {
+      type: String,
+      default: 'Previous page',
+    },
+
+    rightButtonAria: {
+      type: String,
+      default: 'Next page',
+    },
+
+    numberButtonAria: {
+      type: String,
+      default: 'Page number',
     },
   },
 
