@@ -1,9 +1,9 @@
 import { render, fireEvent } from '@testing-library/vue'
 import MaPagination from './MaPagination'
 
-describe('Pagination', () => {
+describe('MaPagination', () => {
   test('shows arrow buttons properly when current page is the first page', () => {
-    const { getByLabelText } = PaginationBuilder(1)
+    const { getByLabelText } = PaginationBuilder()
     const leftButton = getByLabelText('Previous page')
     const rightButton = getByLabelText('Next page')
 
@@ -13,7 +13,7 @@ describe('Pagination', () => {
   })
 
   test('shows arrow buttons properly when current page is a middle page', () => {
-    const { getByLabelText } = PaginationBuilder(2)
+    const { getByLabelText } = PaginationBuilder({ startPage: 2 })
     const leftButton = getByLabelText('Previous page')
     const rightButton = getByLabelText('Next page')
 
@@ -22,7 +22,7 @@ describe('Pagination', () => {
   })
 
   test('shows arrow buttons properly when current page is the last page', () => {
-    const { getByLabelText } = PaginationBuilder(3)
+    const { getByLabelText } = PaginationBuilder({ startPage: 3 })
     const leftButton = getByLabelText('Previous page')
     const rightButton = getByLabelText('Next page')
 
@@ -32,7 +32,7 @@ describe('Pagination', () => {
   })
 
   test('emits proper value when clicking left arrow button', async () => {
-    const { getByLabelText, emitted } = PaginationBuilder(2)
+    const { getByLabelText, emitted } = PaginationBuilder({ startPage: 2 })
     const leftButton = getByLabelText('Previous page')
 
     await fireEvent.click(leftButton)
@@ -43,7 +43,7 @@ describe('Pagination', () => {
   })
 
   test('emits proper value when clicking right arrow button', async () => {
-    const { getByLabelText, emitted } = PaginationBuilder(2)
+    const { getByLabelText, emitted } = PaginationBuilder({ startPage: 2 })
     const rightButton = getByLabelText('Next page')
 
     await fireEvent.click(rightButton)
@@ -54,7 +54,7 @@ describe('Pagination', () => {
   })
 
   test('emits proper value when clicking a number button', async () => {
-    const { getByLabelText, emitted } = PaginationBuilder(1)
+    const { getByLabelText, emitted } = PaginationBuilder()
     const numberButton = getByLabelText(`Page number 1`)
 
     await fireEvent.click(numberButton)
@@ -70,10 +70,31 @@ describe('Pagination', () => {
 
     expect(numberButton).toHaveClass('ma-button--primary')
   })
+
+  test('does not display any pagination button if there there are no items', async () => {
+    const { queryAllByRole } = PaginationBuilder({ totalItems: 0 })
+    const paginationButtons = queryAllByRole(`button`)
+
+    expect(paginationButtons.length).toBe(0)
+  })
+
+  test('uses proper amount of pagination buttons when end page is minor than set property', async () => {
+    const { queryByLabelText } = PaginationBuilder({
+      totalItems: 1,
+      itemsPerPage: 1,
+      buttonsNumber: 3,
+    })
+
+    const firstPage = queryByLabelText(`Page number 1`)
+    const secondPage = queryByLabelText(`Page number 2`)
+
+    expect(firstPage).toBeInTheDocument()
+    expect(secondPage).not.toBeInTheDocument()
+  })
 })
 
-function PaginationBuilder(startPage) {
+function PaginationBuilder(props) {
   return render(MaPagination, {
-    props: { startPage, totalItems: 15, itemsPerPage: 5 },
+    props: { totalItems: 15, itemsPerPage: 5, ...props },
   })
 }
