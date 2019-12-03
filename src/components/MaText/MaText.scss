@@ -43,8 +43,8 @@
       pointer-events: none;
     }
 
-    &:active,
-    &:hover {
+    &:active:not(:disabled),
+    &:hover:not(:disabled) {
       outline: none;
       border: 1px solid get-color('dark-hot-pink');
     }
