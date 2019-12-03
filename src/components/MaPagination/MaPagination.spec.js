@@ -75,7 +75,7 @@ describe('MaPagination', () => {
     const { queryAllByRole } = PaginationBuilder({ totalItems: 0 })
     const paginationButtons = queryAllByRole(`button`)
 
-    expect(paginationButtons.length).toBe(0)
+    expect(paginationButtons).toHaveLength(0)
   })
 
   test('uses proper amount of pagination buttons when end page is minor than set property', async () => {
