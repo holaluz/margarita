@@ -1,13 +1,13 @@
 <style lang="scss" src="./MaPagination.scss" scoped></style>
 
 <template>
-  <div class="ma-pagination">
+  <div v-if="totalItems" class="ma-pagination">
     <div v-show="!isStart" class="ma-pagination__left">
       <ma-button
         category="secondary"
         :aria-label="leftButtonAria"
         class="ma-pagination__button ma-pagination__button--backwards"
-        @click="pagination(currentPage - 1)"
+        @click="onButtonClick(currentPage - 1)"
       >
         <ma-icon icon="Arrow" width="16" height="16" />
       </ma-button>
@@ -16,15 +16,15 @@
     <template v-for="(page, index) in displayedPages">
       <div :key="index" class="ma-pagination__element">
         <ma-button
-          :category="isActive(page)"
+          :category="computedPageCategory(page)"
           :aria-label="`${numberButtonAria} ${page}`"
           class="ma-pagination__button ma-pagination__button--number"
-          @click="pagination(page)"
+          @click="onButtonClick(page)"
           v-text="page"
         />
       </div>
       <div
-        v-if="displaySeparator(index)"
+        v-if="shouldDisplaySeparator(index)"
         :key="`${page}-separator`"
         class="ma-pagination__separator"
       >
@@ -37,7 +37,7 @@
         category="secondary"
         :aria-label="rightButtonAria"
         class="ma-pagination__button ma-pagination__button--forwards"
-        @click="pagination(currentPage + 1)"
+        @click="onButtonClick(currentPage + 1)"
       >
         <ma-icon icon="Arrow" width="16" height="16" />
       </ma-button>
@@ -58,6 +58,12 @@ export default {
   },
 
   props: {
+    buttonsNumber: {
+      type: Number,
+      default: 5,
+      validator: value => 3 <= value,
+    },
+
     totalItems: {
       type: Number,
       required: true,
@@ -66,11 +72,6 @@ export default {
     itemsPerPage: {
       type: Number,
       required: true,
-    },
-
-    startPage: {
-      type: Number,
-      default: 1,
     },
 
     leftButtonAria: {
@@ -87,6 +88,12 @@ export default {
       type: String,
       default: 'Page number',
     },
+
+    startPage: {
+      type: Number,
+      default: 1,
+      validator: value => 1 <= value,
+    },
   },
 
   data() {
@@ -96,6 +103,31 @@ export default {
   },
 
   computed: {
+    displayedPages() {
+      let count = 0
+      let result = new Set()
+
+      if (!this.endPage) return []
+
+      result.add(1)
+      result.add(this.endPage)
+
+      while (result.size < this.numberOfButtonsToDisplay) {
+        if (this.currentPage - count > 1) result.add(this.currentPage - count)
+        if (this.currentPage + count < this.endPage)
+          result.add(this.currentPage + count)
+
+        ++count
+      }
+
+      return [...result].sort((a, b) => a - b)
+    },
+
+    numberOfButtonsToDisplay() {
+      if (this.endPage < this.buttonsNumber) return this.endPage
+      return this.buttonsNumber
+    },
+
     endPage() {
       return Math.ceil(this.totalItems / this.itemsPerPage)
     },
@@ -107,51 +139,22 @@ export default {
     isStart() {
       return this.currentPage === 1
     },
+  },
 
-    displayedPages() {
-      let pages = [1]
-
-      if (this.isEnd) {
-        pages.push(this.currentPage - 2)
-      }
-
-      if (this.currentPage > 2) {
-        pages.push(this.currentPage - 1)
-      }
-
-      if (!this.isStart) {
-        pages.push(this.currentPage)
-      }
-
-      if (!this.isEnd) {
-        pages.push(this.currentPage + 1)
-      }
-
-      if (this.isStart) {
-        pages.push(this.currentPage + 2)
-      }
-
-      if (!this.isEnd && this.currentPage + 1 !== this.endPage) {
-        pages.push(this.endPage)
-      }
-
-      return pages
-    },
+  created() {
+    if (this.endPage < this.currentPage) this.currentPage = this.endPage
   },
 
   methods: {
-    isActive(page) {
+    computedPageCategory(page) {
       return this.currentPage === page ? 'primary' : 'secondary'
     },
 
-    displaySeparator(index) {
-      if (this.displayedPages[index + 1] - this.displayedPages[index] > 1)
-        return true
-
-      return false
+    shouldDisplaySeparator(index) {
+      return this.displayedPages[index + 1] - this.displayedPages[index] > 1
     },
 
-    pagination(page) {
+    onButtonClick(page) {
       this.currentPage = page
       this.$emit('pagination', page)
     },
