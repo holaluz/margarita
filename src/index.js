@@ -8,9 +8,9 @@ import MaGridColumn from './components/MaGridColumn'
 import MaGridContainer from './components/MaGridContainer'
 import MaGridRow from './components/MaGridRow'
 import MaIcon from './components/MaIcon'
+import MaOption from './components/MaOption'
 import MaPagination from './components/MaPagination'
 import MaPill from './components/MaPill'
-import MaOption from './components/MaOption'
 import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
 import MaSidebar from './components/MaSidebar'
@@ -26,9 +26,9 @@ export {
   MaGridContainer,
   MaGridRow,
   MaIcon,
+  MaOption,
   MaPagination,
   MaPill,
-  MaOption,
   MaRange,
   MaSelect,
   MaSidebar,
@@ -44,9 +44,9 @@ function install(Vue) {
   Vue.component('ma-grid-container', MaGridContainer)
   Vue.component('ma-grid-row', MaGridRow)
   Vue.component('ma-icon', MaIcon)
+  Vue.component('ma-option', MaOption)
   Vue.component('ma-pagination', MaPagination)
   Vue.component('ma-pill', MaPill)
-  Vue.component('ma-option', MaOption)
   Vue.component('ma-range', MaRange)
   Vue.component('ma-select', MaSelect)
   Vue.component('ma-sidebar', MaSidebar)
