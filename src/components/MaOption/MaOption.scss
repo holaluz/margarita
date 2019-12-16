@@ -113,7 +113,6 @@
       margin-top: 1px;
       border: 1px solid get-color('gray');
       border-radius: 50%;
-      border-color: get-color('dark-hot-pink');
       background-color: get-color('white');
       cursor: pointer;
       width: rem(16px);
@@ -135,6 +134,15 @@
     }
 
     &:not(:disabled) {
+      &:hover,
+      &:active,
+      &:checked,
+      &:focus {
+        ~ .indicator {
+          border-color: get-color('dark-hot-pink');
+        }
+      }
+
       &:active,
       &:checked,
       &:focus {
