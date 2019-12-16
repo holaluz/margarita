@@ -37,5 +37,8 @@ function addNodeAttr(node, attribute = '') {
     node.classList.add(attr.replace('.', ''))
   } else if (attr.match(ID_REGEX)) {
     node.id = attr.replace('#', '')
+  } else if (attr === 'blank') {
+    node.setAttribute('target', '_blank')
+    node.setAttribute('rel', 'noopener,nofollow')
   }
 }
