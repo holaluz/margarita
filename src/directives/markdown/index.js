@@ -3,6 +3,11 @@ import snarkdown from 'snarkdown'
 const ATTR_REGEX = /<<(.*)>>/g
 const CLASS_REGEX = /^\.[\w-]+$/
 const ID_REGEX = /^#[\w-]+$/
+const BLANK = 'blank'
+const BLANK_ATTRS = [
+  { key: 'target', value: '_blank' },
+  { key: 'rel', value: 'noopener,nofollow' },
+]
 
 export default (el, { value }) => {
   el.innerHTML = snarkdown(value)
@@ -30,15 +35,14 @@ function setMarkdownAttributes({ childNodes }) {
   }
 }
 
-// Adds class or id to an HTML node
+// Adds attributes to html node
 function addNodeAttr(node, attribute = '') {
   const attr = attribute.trim()
   if (attr.match(CLASS_REGEX)) {
     node.classList.add(attr.replace('.', ''))
   } else if (attr.match(ID_REGEX)) {
     node.id = attr.replace('#', '')
-  } else if (attr === 'blank') {
-    node.setAttribute('target', '_blank')
-    node.setAttribute('rel', 'noopener,nofollow')
+  } else if (attr === BLANK) {
+    BLANK_ATTRS.forEach(a => node.setAttribute(a.key, a.value))
   }
 }
