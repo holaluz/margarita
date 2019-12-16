@@ -64,9 +64,7 @@ export default {
     type: {
       type: String,
       default: 'radio',
-      validator(v) {
-        return AVAILABLE_TYPES.includes(v)
-      },
+      validator: v => AVAILABLE_TYPES.includes(v),
     },
   },
 
