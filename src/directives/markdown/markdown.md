@@ -5,7 +5,7 @@ A directive to render markdown.
 ## Usage
 This:
 ```html
-<div v-markdown="'**bold** _italic_ [anchor](url.com){.class}'" />
+<div v-markdown="'**bold** _italic_ [anchor](url.com)<<.class>>'" />
 ```
 Will render this:
 ```html
