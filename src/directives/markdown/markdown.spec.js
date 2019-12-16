@@ -1,39 +1,44 @@
 import { render } from '@testing-library/vue'
 import markdown from './'
 
-const markdownText = `
-# title
-**bold**
-_italic_
-[anchor](url.com)<<.class #id-name>>
-`
-
-const component = {
-  template: `<div v-markdown="markdownText" />`,
-  directives: {
-    markdown,
-  },
-  data() {
-    return { markdownText }
-  },
-}
-
 describe('Markdown directive', () => {
-  it('renders title, bold, italic, anchors and classes', () => {
-    const { getByText } = render(component)
+  test.each`
+    type        | markdown               | nodeName
+    ${'title'}  | ${'# title'}           | ${'H1'}
+    ${'bold'}   | ${'**bold**'}          | ${'STRONG'}
+    ${'italic'} | ${'_italic_'}          | ${'EM'}
+    ${'anchor'} | ${'[anchor](url.com)'} | ${'A'}
+  `(
+    'renders $type with $nodeName as node name',
+    ({ type, markdown, nodeName }) => {
+      const { getByText } = componentBuilder(markdown)
 
-    const titleNode = getByText('title').nodeName
-    expect(titleNode).toBe('H1')
+      const node = getByText(type).nodeName
+      expect(node).toBe(nodeName)
+    }
+  )
 
-    const boldNode = getByText('bold').nodeName
-    expect(boldNode).toBe('STRONG')
+  test('renders anchor with correct attributes', () => {
+    const { getByText } = componentBuilder(
+      '[anchor](https://url.com)<<.class-name #id-name>>'
+    )
 
-    const italicNode = getByText('italic').nodeName
-    expect(italicNode).toBe('EM')
+    const anchor = getByText('anchor')
 
-    const { classList, id, nodeName } = getByText('anchor')
-    expect(nodeName).toBe('A')
-    expect(classList.contains('class')).toBe(true)
-    expect(id).toBe('id-name')
+    expect(anchor).toHaveClass('class-name')
+    expect(anchor).toHaveAttribute('id', 'id-name')
+    expect(anchor).toHaveAttribute('href', 'https://url.com')
   })
 })
+
+const componentBuilder = markdownText => {
+  return render({
+    template: `<div v-markdown="markdownText" />`,
+    directives: {
+      markdown,
+    },
+    data() {
+      return { markdownText }
+    },
+  })
+}
