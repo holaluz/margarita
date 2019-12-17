@@ -14,7 +14,7 @@ storiesOf('Option', module)
 
   .add('Radio', () => {
     const card = boolean('Card', false)
-    const disabled = boolean('Disabled', true)
+    const disabled = boolean('Disabled', false)
     const text1 = text('Text radio 1', 'My first radio')
     const text2 = text('Text radio 2', 'Second radio button')
 
@@ -24,7 +24,7 @@ storiesOf('Option', module)
       template: `
         <ma-grid-row>
           <ma-grid-column class="ma-grid-col--3 ma-grid-col--offset-3">
-            <ma-option name="patata" v-model="selected" :card="card" value="id1" type="radio" @change="onChange">
+            <ma-option v-model="selected" :card="card" value="id1" type="radio" @change="onChange">
               {{ text1 }}
             </ma-option>
           </ma-grid-column>
@@ -75,7 +75,7 @@ storiesOf('Option', module)
       template: `
         <ma-grid-row>
           <ma-grid-column class="ma-grid-col--3 ma-grid-col--offset-3">
-            <ma-option name="patata" v-model="selected" :card="card" type="checkbox" :disabled="disabled" @change="onChange">
+            <ma-option v-model="checked" :card="card" type="checkbox" :disabled="disabled" @change="onChange">
               {{ text1 }}
             </ma-option>
           </ma-grid-column>
