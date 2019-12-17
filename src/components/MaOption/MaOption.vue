@@ -83,8 +83,9 @@ export default {
 
     computedClass() {
       return {
-        'ma-option': true,
         'ma-selector-card': this.card,
+        'ma-option': !this.card,
+        [`ma-option--${this.type}`]: !this.card,
       }
     },
   },
