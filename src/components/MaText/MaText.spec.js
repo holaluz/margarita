@@ -105,6 +105,19 @@ describe('Text', () => {
     expect(queryByText('input label')).toHaveClass('visually-hidden')
   })
 
+  test('has type input if provided', () => {
+    const { input } = TextBuilder(null, { attrs: { type: 'number' } })
+
+    expect(input).toHaveAttribute('type', 'number')
+  })
+
+  test('has type placeholder if provided', () => {
+    const placeholder = 'A placeholder'
+    const { input } = TextBuilder(null, { attrs: { placeholder } })
+
+    expect(input).toHaveAttribute('placeholder', placeholder)
+  })
+
   test.each(['inputSibling', 'labelSibling'])(
     'renders provided %s slot',
     slotName => {
