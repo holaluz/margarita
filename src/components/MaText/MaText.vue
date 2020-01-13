@@ -13,9 +13,7 @@
         v-bind="$attrs"
         :class="getComputedClass"
         class="ma-text__field"
-        @blur="emit"
-        @change="emit"
-        @input="emit"
+        v-on="inputListeners"
         @keyup.enter="removeFocus"
       />
       <slot name="inputSibling" />
@@ -77,11 +75,14 @@ export default {
         'ma-text__label': true,
         'visually-hidden': this.$attrs['aria-label'],
       }
-  },
+    },
 
-  watch: {
-    value(newValue) {
-      this.lazyValue = newValue
+    inputListeners() {
+      return Object.assign({}, this.$listeners, {
+        input: e => this.emit(e),
+        change: e => this.emit(e),
+        blur: e => this.emit(e),
+      })
     },
   },
 
