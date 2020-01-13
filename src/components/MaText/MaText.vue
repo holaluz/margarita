@@ -12,9 +12,6 @@
         v-model="lazyValue"
         v-bind="$attrs"
         :class="getComputedClass"
-        :type="type"
-        :placeholder="placeholder"
-        :disabled="disabled"
         class="ma-text__field"
         @blur="emit"
         @change="emit"
@@ -30,19 +27,12 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
-const INPUT_CLASSES = {
-  hasError: 'ma-text__field--error',
-}
-
 export default {
   name: 'MaText',
 
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+  inheritAttrs: false,
 
+  props: {
     errorMessage: {
       type: String,
       default: 'Error message',
@@ -61,22 +51,6 @@ export default {
     label: {
       type: String,
       required: true,
-    },
-
-    mask: {
-      type: Function,
-      default: () => {},
-    },
-
-    placeholder: {
-      type: String,
-      required: false,
-      default: '',
-    },
-
-    type: {
-      type: String,
-      default: 'text',
     },
 
     value: {
