@@ -3,7 +3,7 @@
 <template>
   <div class="ma-text">
     <div class="ma-text__label-wrapper">
-      <label :for="id" class="ma-text__label" v-text="label" />
+      <label :for="id" :class="getLabelClass" v-text="label" />
       <slot name="labelSibling" />
     </div>
     <div class="ma-text__field-wrapper">
@@ -72,10 +72,11 @@ export default {
       }
     },
 
-      return propKeys
-        .filter(this._filterByExistProp)
-        .map(this._getClassNameByProp)
-    },
+    getLabelClass() {
+      return {
+        'ma-text__label': true,
+        'visually-hidden': this.$attrs['aria-label'],
+      }
   },
 
   watch: {
