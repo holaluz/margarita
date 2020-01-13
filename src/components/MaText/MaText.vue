@@ -3,7 +3,7 @@
 <template>
   <div class="ma-text">
     <div class="ma-text__label-wrapper">
-      <label :for="id" :class="getLabelClass" v-text="label" />
+      <label :for="id" :class="labelClasses" v-text="label" />
       <slot name="labelSibling" />
     </div>
     <div class="ma-text__field-wrapper">
@@ -11,7 +11,7 @@
         :id="id"
         v-model="lazyValue"
         v-bind="$attrs"
-        :class="getComputedClass"
+        :class="inputClasses"
         class="ma-text__field"
         v-on="inputListeners"
         @keyup.enter="removeFocus"
@@ -64,13 +64,13 @@ export default {
   },
 
   computed: {
-    getComputedClass() {
+    inputClasses() {
       return {
         'ma-text__field--error': this.hasError,
       }
     },
 
-    getLabelClass() {
+    labelClasses() {
       return {
         'ma-text__label': true,
         'visually-hidden': this.$attrs['aria-label'],
