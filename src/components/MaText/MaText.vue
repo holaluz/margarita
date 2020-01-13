@@ -67,7 +67,10 @@ export default {
 
   computed: {
     getComputedClass() {
-      const propKeys = Object.keys(INPUT_CLASSES)
+      return {
+        'ma-text__field--error': this.hasError,
+      }
+    },
 
       return propKeys
         .filter(this._filterByExistProp)
@@ -89,14 +92,6 @@ export default {
     removeFocus() {
       this.$emit('enter', this.lazyValue)
       this.$el.querySelector('input').blur()
-    },
-
-    _filterByExistProp(className) {
-      return !!this[className]
-    },
-
-    _getClassNameByProp(className) {
-      return INPUT_CLASSES[className]
     },
   },
 }
