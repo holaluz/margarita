@@ -111,7 +111,7 @@ describe('Text', () => {
     expect(input).toHaveAttribute('type', 'number')
   })
 
-  test('has type placeholder if provided', () => {
+  test('has placeholder if provided', () => {
     const placeholder = 'A placeholder'
     const { input } = TextBuilder(null, { attrs: { placeholder } })
 
