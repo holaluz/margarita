@@ -1,3 +1,5 @@
+import './scss/_margarita.scss'
+
 import MaAlert from './components/MaAlert'
 import MaButton from './components/MaButton'
 import MaCard from './components/MaCard'

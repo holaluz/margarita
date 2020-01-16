@@ -1,18 +1,14 @@
-@import '~sass-mq';
+// Load Ciutadella font
+@import 'margarita-tokens';
 
-@import 'variables/colors';
-@import 'variables/fonts';
-@import 'variables/grid';
+// Apply normalize browsers stuff
+@import 'normalize';
 
-@import 'animations/slide-animation';
-@import 'animations/horizontal-slide-animation';
+// Add transitions
+@import 'transitions/slide-fade';
 
-@import 'functions/colors';
-@import 'functions/rem';
+// Utils
+@import 'utils/visually-hidden';
 
-@import 'mixins/breakpoints';
-@import 'mixins/grid';
-@import 'mixins/font-mixin';
-@import 'mixins/font-weight';
-@import 'mixins/gradient-image';
-@import 'mixins/sass-mq';
+// Load fonts
+@import 'ciutadella-loader';
