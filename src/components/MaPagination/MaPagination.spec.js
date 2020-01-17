@@ -31,38 +31,24 @@ describe('MaPagination', () => {
     expect(rightButton).not.toBeVisible()
   })
 
-  test('emits proper value when clicking left arrow button', async () => {
-    const { getByLabelText, emitted } = PaginationBuilder({ startPage: 2 })
-    const leftButton = getByLabelText('Previous page')
+  test.each`
+    button             | startPage | expectedPage
+    ${'Previous page'} | ${2}      | ${1}
+    ${'Next page'}     | ${2}      | ${3}
+    ${'Page number 1'} | ${2}      | ${1}
+  `(
+    'emits proper value when clicking $button button',
+    async ({ button, startPage, expectedPage }) => {
+      const { getByLabelText, emitted } = PaginationBuilder({ startPage })
+      const leftButton = getByLabelText(button)
 
-    await fireEvent.click(leftButton)
+      await fireEvent.click(leftButton)
 
-    expect(emitted()).toHaveProperty('pagination')
-    expect(emitted().pagination).toHaveLength(1)
-    expect(emitted().pagination[0][0]).toBe(1)
-  })
-
-  test('emits proper value when clicking right arrow button', async () => {
-    const { getByLabelText, emitted } = PaginationBuilder({ startPage: 2 })
-    const rightButton = getByLabelText('Next page')
-
-    await fireEvent.click(rightButton)
-
-    expect(emitted()).toHaveProperty('pagination')
-    expect(emitted().pagination).toHaveLength(1)
-    expect(emitted().pagination[0][0]).toBe(3)
-  })
-
-  test('emits proper value when clicking a number button', async () => {
-    const { getByLabelText, emitted } = PaginationBuilder()
-    const numberButton = getByLabelText(`Page number 1`)
-
-    await fireEvent.click(numberButton)
-
-    expect(emitted()).toHaveProperty('pagination')
-    expect(emitted().pagination).toHaveLength(1)
-    expect(emitted().pagination[0][0]).toBe(1)
-  })
+      expect(emitted()).toHaveProperty('pagination')
+      expect(emitted().pagination).toHaveLength(1)
+      expect(emitted().pagination[0][0]).toBe(expectedPage)
+    }
+  )
 
   test('sets page 1 by default if property is not passed to component', async () => {
     const { getByLabelText } = PaginationBuilder()
@@ -71,7 +57,7 @@ describe('MaPagination', () => {
     expect(numberButton).toHaveClass('ma-button--primary')
   })
 
-  test('does not display any pagination button if there there are no items', async () => {
+  test('does not display any pagination button if there are no items', async () => {
     const { queryAllByRole } = PaginationBuilder({ totalItems: 0 })
     const paginationButtons = queryAllByRole(`button`)
 
