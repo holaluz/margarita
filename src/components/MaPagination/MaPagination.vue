@@ -104,7 +104,6 @@ export default {
 
   computed: {
     displayedPages() {
-      let count = 0
       let result = new Set()
 
       if (!this.endPage) return []
@@ -112,12 +111,10 @@ export default {
       result.add(1)
       result.add(this.endPage)
 
-      while (result.size < this.numberOfButtonsToDisplay) {
-        if (this.currentPage - count > 1) result.add(this.currentPage - count)
-        if (this.currentPage + count < this.endPage)
-          result.add(this.currentPage + count)
-
-        ++count
+      for (let i = 0; result.size < this.numberOfButtonsToDisplay; ++i) {
+        if (this.currentPage - i > 1) result.add(this.currentPage - i)
+        if (this.currentPage + i < this.endPage)
+          result.add(this.currentPage + i)
       }
 
       return [...result].sort((a, b) => a - b)
