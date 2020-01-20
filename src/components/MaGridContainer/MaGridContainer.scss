@@ -1,5 +1,3 @@
-@import '../../scss/margarita';
-
 .ma-grid-container {
   @include make-container();
   @include make-container-max-widths();

@@ -3,10 +3,9 @@ import MaText from './MaText'
 
 describe('Text', () => {
   test('renders an input element with a label', () => {
-    const { input, queryByRole } = TextBuilder()
+    const { queryByRole } = TextBuilder()
 
     expect(queryByRole('textbox')).toBeInTheDocument()
-    expect(input).toHaveAttribute('type', 'text')
   })
 
   test('renders a button element with a label', () => {
@@ -94,6 +93,26 @@ describe('Text', () => {
     expect(emitted()).toHaveProperty('enter')
     expect(emitted().enter).toHaveLength(1)
     expect(emitted().enter[0][0]).toStrictEqual(value)
+  })
+
+  test('hides label if aria-label is provided', () => {
+    const ariaLabel = 'Aria Label'
+    const { input, queryByText } = TextBuilder(null, {
+      attrs: { 'aria-label': ariaLabel },
+    })
+
+    expect(input).toHaveAttribute('aria-label', ariaLabel)
+    expect(queryByText('input label')).toHaveClass('visually-hidden')
+  })
+
+  test('input has provided attrs', () => {
+    const type = 'number'
+    const placeholder = 'A placeholder'
+
+    const { input } = TextBuilder(null, { attrs: { type, placeholder } })
+
+    expect(input).toHaveAttribute('type', 'number')
+    expect(input).toHaveAttribute('placeholder', placeholder)
   })
 
   test.each(['inputSibling', 'labelSibling'])(

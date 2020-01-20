@@ -12,7 +12,7 @@
   "scripts": {
     "prepare": "npm run build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
-    "deploy" : "gh-pages -d storybook-static",
+    "deploy": "gh-pages -d storybook-static",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint 'src/**/*.{js,vue}'",
     "lint:css": "stylelint 'src/**/*.scss'",
@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "sass-mq": "^5.0.0",
+    "snarkdown": "^1.2.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {

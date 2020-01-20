@@ -3,7 +3,12 @@
 <template>
   <div class="ma-text">
     <div class="ma-text__label-wrapper">
-      <label :for="id" class="ma-text__label" v-text="label" />
+      <label
+        :for="id"
+        :class="labelClasses"
+        class="ma-text__label"
+        v-text="label"
+      />
       <slot name="labelSibling" />
     </div>
     <div class="ma-text__field-wrapper">
@@ -11,14 +16,9 @@
         :id="id"
         v-model="lazyValue"
         v-bind="$attrs"
-        :class="getComputedClass"
-        :type="type"
-        :placeholder="placeholder"
-        :disabled="disabled"
+        :class="inputClasses"
         class="ma-text__field"
-        @blur="emit"
-        @change="emit"
-        @input="emit"
+        v-on="inputListeners"
         @keyup.enter="removeFocus"
       />
       <slot name="inputSibling" />
@@ -30,19 +30,12 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
-const INPUT_CLASSES = {
-  hasError: 'ma-text__field--error',
-}
-
 export default {
   name: 'MaText',
 
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+  inheritAttrs: false,
 
+  props: {
     errorMessage: {
       type: String,
       default: 'Error message',
@@ -63,22 +56,6 @@ export default {
       required: true,
     },
 
-    mask: {
-      type: Function,
-      default: () => {},
-    },
-
-    placeholder: {
-      type: String,
-      required: false,
-      default: '',
-    },
-
-    type: {
-      type: String,
-      default: 'text',
-    },
-
     value: {
       type: [String, Number],
       default: '',
@@ -92,12 +69,24 @@ export default {
   },
 
   computed: {
-    getComputedClass() {
-      const propKeys = Object.keys(INPUT_CLASSES)
+    inputClasses() {
+      return {
+        'ma-text__field--error': this.hasError,
+      }
+    },
 
-      return propKeys
-        .filter(this._filterByExistProp)
-        .map(this._getClassNameByProp)
+    labelClasses() {
+      return {
+        'visually-hidden': this.$attrs['aria-label'],
+      }
+    },
+
+    inputListeners() {
+      return Object.assign({}, this.$listeners, {
+        input: e => this.emit(e),
+        change: e => this.emit(e),
+        blur: e => this.emit(e),
+      })
     },
   },
 
@@ -115,14 +104,6 @@ export default {
     removeFocus() {
       this.$emit('enter', this.lazyValue)
       this.$el.querySelector('input').blur()
-    },
-
-    _filterByExistProp(className) {
-      return !!this[className]
-    },
-
-    _getClassNameByProp(className) {
-      return INPUT_CLASSES[className]
     },
   },
 }

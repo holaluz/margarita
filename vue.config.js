@@ -11,16 +11,17 @@ module.exports = {
     plugins: [
       new CopyWebpackPlugin([
         {
-          from: 'src/assets/fonts',
-          to: 'fonts',
-        },
-      ]),
-      new CopyWebpackPlugin([
-        {
           from: 'src/scss',
           to: 'scss',
         },
       ]),
     ],
+  },
+  css: {
+    loaderOptions: {
+      scss: {
+        data: `@import "~@/scss/margarita-tokens.scss";`,
+      },
+    },
   },
 }
