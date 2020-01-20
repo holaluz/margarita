@@ -40,6 +40,7 @@ storiesOf('Text', module)
       const errorMessage = text('Error msg', 'You have an error')
       const hasError = boolean('Has error', false)
       const label = text('Label', 'Label')
+      const ariaLabel = text('ARIA Label', '')
       const placeholder = text('Placeholder', 'Placeholder')
       const size = select('Size', GRID_ARRAY, 4)
       const value = text('Value', '')
@@ -56,6 +57,7 @@ storiesOf('Text', module)
             :disabled="disabled"
             :hasError="hasError"
             :label="label"
+            :aria-label="ariaLabel"
             :placeholder="placeholder"
             v-model="value"
             @blur="onBlur"
@@ -99,6 +101,9 @@ storiesOf('Text', module)
           },
           label: {
             default: label,
+          },
+          ariaLabel: {
+            default: ariaLabel,
           },
           placeholder: {
             default: placeholder,
