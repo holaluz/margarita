@@ -3,69 +3,102 @@
   flex-direction: column;
   width: 100%;
   color: get-color('tundora');
+}
 
-  &__label-wrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: rem(4px);
+.ma-text__label-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: rem(4px);
+}
+
+.ma-text__label {
+  flex: auto;
+}
+
+.ma-text__field-wrapper {
+  display: flex;
+  height: rem(36px);
+}
+
+.ma-text__field {
+  flex: 0 1 100%;
+  transition: border 0.2s ease;
+  border: 1px solid get-color('alto');
+  background-color: get-color('white');
+  padding: 0 rem(8px);
+  max-width: 100%;
+  height: 100%;
+  font-size: rem(16px);
+
+  &:focus {
+    outline: 2px solid get-color('classic-rose');
+    outline-offset: 0;
+    border: 1px solid get-color('dark-hot-pink');
   }
 
-  &__label {
-    flex: auto;
+  &:disabled {
+    background-color: get-color('concrete');
+    color: get-color('gray');
+    pointer-events: none;
   }
 
-  &__field-wrapper {
-    display: flex;
-    height: rem(36px);
+  &:active:not(:disabled),
+  &:hover:not(:disabled) {
+    outline: none;
+    border: 1px solid get-color('dark-hot-pink');
   }
+}
 
-  &__field {
-    flex: 0 1 100%;
-    transition: border 0.2s ease;
-    border: 1px solid get-color('alto');
-    background-color: get-color('white');
-    padding: 0 rem(8px);
-    max-width: 100%;
-    height: 100%;
-    font-size: rem(16px);
+.ma-text__field--error {
+  border-color: get-color('crimson');
+  background-color: get-color('white');
+  background-image: url('../../assets/icons/alert-error.svg');
+  background-position: calc(100% - 8px) center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-right: rem(40px);
 
-    &:focus {
-      outline: 2px solid get-color('classic-rose');
-      outline-offset: 0;
-      border: 1px solid get-color('dark-hot-pink');
-    }
-
-    &:disabled {
-      background-color: get-color('concrete');
-      color: get-color('gray');
-      pointer-events: none;
-    }
-
-    &:active:not(:disabled),
-    &:hover:not(:disabled) {
-      outline: none;
-      border: 1px solid get-color('dark-hot-pink');
-    }
-
-    &--error {
-      border-color: get-color('crimson');
-      background-color: get-color('white');
-      background-image: url('../../assets/icons/alert-error.svg');
-      background-position: calc(100% - 8px) center;
-      background-repeat: no-repeat;
-      background-size: 20px;
-      padding-right: rem(40px);
-
-      &:focus,
-      &:active {
-        border: 1px solid get-color('crimson');
-      }
-    }
+  &:focus,
+  &:active {
+    border: 1px solid get-color('crimson');
   }
+}
 
-  &__error-message {
-    margin-top: rem(4px);
-    color: get-color('crimson');
-    font-size: rem(14px);
+.ma-text__field--success {
+  border-color: get-color('japanese-laurel');
+  background-color: get-color('white');
+  background-image: url('../../assets/icons/rounded-tick.svg');
+  background-position: calc(100% - 8px) center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-right: rem(40px);
+
+  &:focus,
+  &:active {
+    border: 1px solid get-color('japanese-laurel');
   }
+}
+
+.ma-text__error-message {
+  margin-top: rem(4px);
+  color: get-color('crimson');
+  font-size: rem(14px);
+}
+
+.ma-text__error-high-contrast {
+  background-color: get-color('thunderbird');
+  padding: 0.125rem 0.5rem;
+  color: get-color('white');
+}
+
+.ma-text__success-message {
+  margin-top: rem(4px);
+  color: get-color('japanese-laurel');
+  font-size: rem(14px);
+}
+
+.ma-text__success-high-contrast {
+  background-color: get-color('primrose');
+  padding: 0.125rem 0.5rem;
+  color: get-color('japanese-laurel');
 }

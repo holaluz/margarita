@@ -23,7 +23,11 @@
       />
       <slot name="inputSibling" />
     </div>
-    <div v-if="hasError" class="ma-text__error-message" v-text="errorMessage" />
+    <div
+      v-if="hasSucceed || hasError"
+      :class="messageClasses"
+      v-text="messageText"
+    />
   </div>
 </template>
 
@@ -51,9 +55,24 @@ export default {
       default: false,
     },
 
+    hasSucceed: {
+      type: Boolean,
+      default: false,
+    },
+
+    highContrast: {
+      type: Boolean,
+      default: false,
+    },
+
     label: {
       type: String,
       required: true,
+    },
+
+    successMessage: {
+      type: String,
+      default: 'Success message',
     },
 
     value: {
@@ -72,6 +91,7 @@ export default {
     inputClasses() {
       return {
         'ma-text__field--error': this.hasError,
+        'ma-text__field--success': this.hasSucceed,
       }
     },
 
@@ -81,12 +101,27 @@ export default {
       }
     },
 
+    messageClasses() {
+      return {
+        'ma-text__error-message': this.hasError,
+        'ma-text__error-high-contrast': this.hasError && this.highContrast,
+        'ma-text__success-message': this.hasSucceed,
+        'ma-text__success-high-contrast': this.hasSucceed && this.highContrast,
+      }
+    },
+
     inputListeners() {
       return Object.assign({}, this.$listeners, {
         input: e => this.emit(e),
         change: e => this.emit(e),
         blur: e => this.emit(e),
       })
+    },
+
+    messageText() {
+      if (this.hasSucceed) return this.successMessage
+
+      return this.errorMessage
     },
   },
 
