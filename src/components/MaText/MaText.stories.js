@@ -38,7 +38,10 @@ storiesOf('Text', module)
     () => {
       const disabled = boolean('Disable', false)
       const errorMessage = text('Error msg', 'You have an error')
+      const successMessage = text('Success msg', 'You have succeed')
       const hasError = boolean('Has error', false)
+      const hasSucceed = boolean('Has succeed', false)
+      const highContrast = boolean('Enable message high contrast', false)
       const label = text('Label', 'Label')
       const ariaLabel = text('ARIA Label', '')
       const placeholder = text('Placeholder', 'Placeholder')
@@ -54,8 +57,11 @@ storiesOf('Text', module)
         <ma-grid-column :class="getClass">
           <ma-text
             :errorMessage="errorMessage"
+            :successMessage="successMessage"
             :disabled="disabled"
             :hasError="hasError"
+            :hasSucceed="hasSucceed"
+            :highContrast="highContrast"
             :label="label"
             :aria-label="ariaLabel"
             :placeholder="placeholder"
@@ -98,6 +104,15 @@ storiesOf('Text', module)
           },
           hasError: {
             default: hasError,
+          },
+          successMessage: {
+            default: successMessage,
+          },
+          hasSucceed: {
+            default: hasSucceed,
+          },
+          highContrast: {
+            default: highContrast,
           },
           label: {
             default: label,
