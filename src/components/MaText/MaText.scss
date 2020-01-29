@@ -80,12 +80,8 @@
 }
 
 .ma-text__message {
-  --text-color: #{get-color('tundora')};
-  --text-background-color: #{get-color('white')};
-
   margin-top: rem(4px);
-  background-color: var(--text-background-color);
-  color: var(--text-color);
+  background-color: get-color('white');
   font-size: rem(14px);
 }
 
@@ -94,19 +90,19 @@
 }
 
 .ma-text__message--success {
-  --text-color: #{get-color('japanese-laurel')};
+  color: get-color('japanese-laurel');
 }
 
 .ma-text__message--error {
-  --text-color: #{get-color('crimson')};
+  color: get-color('crimson');
 }
 
 .ma-text__message--success.ma-text--high-contrast {
-  --text-color: #{get-color('japanese-laurel')};
-  --text-background-color: #{get-color('primrose')};
+  background-color: get-color('primrose');
+  color: get-color('japanese-laurel');
 }
 
 .ma-text__message--error.ma-text--high-contrast {
-  --text-color: #{get-color('white')};
-  --text-background-color: #{get-color('thunderbird')};
+  background-color: get-color('thunderbird');
+  color: get-color('white');
 }
