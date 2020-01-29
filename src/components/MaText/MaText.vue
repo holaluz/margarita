@@ -24,7 +24,8 @@
       <slot name="inputSibling" />
     </div>
     <div
-      v-if="hasSucceed || hasError"
+      v-if="displayMessage"
+      class="ma-text__message"
       :class="messageClasses"
       v-text="messageText"
     />
@@ -34,30 +35,23 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
+const ERROR = 'error'
+const SUCCESS = 'success'
+
 export default {
   name: 'MaText',
 
   inheritAttrs: false,
 
   props: {
-    errorMessage: {
-      type: String,
-      default: 'Error message',
-    },
-
-    id: {
-      type: String,
-      default: uuid,
-    },
-
-    hasError: {
+    displayMessage: {
       type: Boolean,
       default: false,
     },
 
-    hasSucceed: {
-      type: Boolean,
-      default: false,
+    messageText: {
+      type: String,
+      default: 'This is a message',
     },
 
     highContrast: {
@@ -65,14 +59,20 @@ export default {
       default: false,
     },
 
+    id: {
+      type: String,
+      default: uuid,
+    },
+
     label: {
       type: String,
       required: true,
     },
 
-    successMessage: {
+    messageType: {
       type: String,
-      default: 'Success message',
+      default: 'error',
+      validator: type => [ERROR, SUCCESS].includes(type),
     },
 
     value: {
@@ -90,8 +90,7 @@ export default {
   computed: {
     inputClasses() {
       return {
-        'ma-text__field--error': this.hasError,
-        'ma-text__field--success': this.hasSucceed,
+        [`ma-text__field--${this.messageType}`]: this.displayMessage,
       }
     },
 
@@ -103,10 +102,8 @@ export default {
 
     messageClasses() {
       return {
-        'ma-text__error-message': this.hasError,
-        'ma-text__error-high-contrast': this.hasError && this.highContrast,
-        'ma-text__success-message': this.hasSucceed,
-        'ma-text__success-high-contrast': this.hasSucceed && this.highContrast,
+        [`ma-text__message--${this.messageType}`]: true,
+        'ma-text--high-contrast': this.highContrast,
       }
     },
 
@@ -116,12 +113,6 @@ export default {
         change: e => this.emit(e),
         blur: e => this.emit(e),
       })
-    },
-
-    messageText() {
-      if (this.hasSucceed) return this.successMessage
-
-      return this.errorMessage
     },
   },
 

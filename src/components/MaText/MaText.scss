@@ -79,26 +79,34 @@
   }
 }
 
-.ma-text__error-message {
+.ma-text__message {
+  --text-color: #{get-color('tundora')};
+  --text-background-color: #{get-color('white')};
+
   margin-top: rem(4px);
-  color: get-color('crimson');
+  background-color: var(--text-background-color);
+  color: var(--text-color);
   font-size: rem(14px);
 }
 
-.ma-text__error-high-contrast {
-  background-color: get-color('thunderbird');
+.ma-text--high-contrast {
   padding: 0.125rem 0.5rem;
-  color: get-color('white');
 }
 
-.ma-text__success-message {
-  margin-top: rem(4px);
-  color: get-color('japanese-laurel');
-  font-size: rem(14px);
+.ma-text__message--success {
+  --text-color: #{get-color('japanese-laurel')};
 }
 
-.ma-text__success-high-contrast {
-  background-color: get-color('primrose');
-  padding: 0.125rem 0.5rem;
-  color: get-color('japanese-laurel');
+.ma-text__message--error {
+  --text-color: #{get-color('crimson')};
+}
+
+.ma-text__message--success.ma-text--high-contrast {
+  --text-color: #{get-color('japanese-laurel')};
+  --text-background-color: #{get-color('primrose')};
+}
+
+.ma-text__message--error.ma-text--high-contrast {
+  --text-color: #{get-color('white')};
+  --text-background-color: #{get-color('thunderbird')};
 }

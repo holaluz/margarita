@@ -15,57 +15,37 @@ describe('Text', () => {
     expect(input).toHaveAttribute('type', 'button')
   })
 
-  test('renders error CSS classes properly', () => {
-    const errorMessage = 'Something went wrong'
-    const { queryByText, input } = TextBuilder({
-      hasError: true,
-      errorMessage,
-    })
-    const messageElement = queryByText(errorMessage)
+  test.each(['error', 'success'])(
+    'renders %s CSS classes properly',
+    messageType => {
+      const messageText = 'Test message'
+      const { queryByText, input } = TextBuilder({
+        displayMessage: true,
+        messageText,
+        messageType,
+      })
+      const messageElement = queryByText(messageText)
 
-    expect(input).toHaveClass('ma-text__field--error')
-    expect(messageElement).toBeInTheDocument()
-    expect(messageElement).toHaveClass('ma-text__error-message')
-  })
+      expect(input).toHaveClass(`ma-text__field--${messageType}`)
+      expect(messageElement).toBeInTheDocument()
+      expect(messageElement).toHaveClass(`ma-text__message--${messageType}`)
+    }
+  )
 
-  test('renders success CSS classes properly', () => {
-    const successMessage = 'Wohoo! You succeed'
-    const { queryByText, input } = TextBuilder({
-      hasSucceed: true,
-      successMessage,
-    })
-    const messageElement = queryByText(successMessage)
+  test.each(['error', 'success'])(
+    'renders high contrast CSS class whith %s message',
+    messageType => {
+      const messageText = 'Wohoo! You succeed'
+      const { queryByText } = TextBuilder({
+        highContrast: true,
+        displayMessage: true,
+        messageText,
+        messageType,
+      })
 
-    expect(input).toHaveClass('ma-text__field--success')
-    expect(messageElement).toBeInTheDocument()
-    expect(messageElement).toHaveClass('ma-text__success-message')
-  })
-
-  test('renders high contrast CSS class when hasSucceed', () => {
-    const successMessage = 'Wohoo! You succeed'
-    const { queryByText } = TextBuilder({
-      hasSucceed: true,
-      highContrast: true,
-      successMessage,
-    })
-
-    expect(queryByText(successMessage)).toHaveClass(
-      'ma-text__success-high-contrast'
-    )
-  })
-
-  test('renders high contrast CSS class when hasError', () => {
-    const errorMessage = 'Something went wrong'
-    const { queryByText } = TextBuilder({
-      hasError: true,
-      highContrast: true,
-      errorMessage,
-    })
-
-    expect(queryByText(errorMessage)).toHaveClass(
-      'ma-text__error-high-contrast'
-    )
-  })
+      expect(queryByText(messageText)).toHaveClass(`ma-text--high-contrast`)
+    }
+  )
 
   test('renders a disabled input', () => {
     const { input } = TextBuilder({ disabled: true })

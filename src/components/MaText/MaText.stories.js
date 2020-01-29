@@ -10,6 +10,7 @@ import MaText from './MaText'
 import notes from './MaText.md'
 
 const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+const MSG_TYPES = ['error', 'success']
 const ICONS = [
   'AddContract',
   'Arrow',
@@ -37,10 +38,9 @@ storiesOf('Text', module)
     'Text',
     () => {
       const disabled = boolean('Disable', false)
-      const errorMessage = text('Error msg', 'You have an error')
-      const successMessage = text('Success msg', 'You have succeed')
-      const hasError = boolean('Has error', false)
-      const hasSucceed = boolean('Has succeed', false)
+      const messageText = text('Message text', 'This is a text')
+      const displayMessage = boolean('Display msg', false)
+      const messageType = select('Message type', MSG_TYPES, 'error')
       const highContrast = boolean('Enable message high contrast', false)
       const label = text('Label', 'Label')
       const ariaLabel = text('ARIA Label', '')
@@ -56,11 +56,10 @@ storiesOf('Text', module)
         template: `
         <ma-grid-column :class="getClass">
           <ma-text
-            :errorMessage="errorMessage"
-            :successMessage="successMessage"
+            :displayMessage="displayMessage"
+            :messageType="messageType"
             :disabled="disabled"
-            :hasError="hasError"
-            :hasSucceed="hasSucceed"
+            :messageText="messageText"
             :highContrast="highContrast"
             :label="label"
             :aria-label="ariaLabel"
@@ -99,17 +98,14 @@ storiesOf('Text', module)
           disabled: {
             default: disabled,
           },
-          errorMessage: {
-            default: errorMessage,
+          messageType: {
+            default: messageType,
           },
-          hasError: {
-            default: hasError,
+          displayMessage: {
+            default: displayMessage,
           },
-          successMessage: {
-            default: successMessage,
-          },
-          hasSucceed: {
-            default: hasSucceed,
+          messageText: {
+            default: messageText,
           },
           highContrast: {
             default: highContrast,
