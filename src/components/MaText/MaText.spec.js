@@ -20,7 +20,6 @@ describe('Text', () => {
     messageType => {
       const messageText = 'Test message'
       const { queryByText, input } = TextBuilder({
-        displayMessage: true,
         messageText,
         messageType,
       })
@@ -38,7 +37,6 @@ describe('Text', () => {
       const messageText = 'Wohoo! You succeed'
       const { queryByText } = TextBuilder({
         highContrast: true,
-        displayMessage: true,
         messageText,
         messageType,
       })

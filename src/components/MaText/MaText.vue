@@ -44,14 +44,9 @@ export default {
   inheritAttrs: false,
 
   props: {
-    displayMessage: {
-      type: Boolean,
-      default: false,
-    },
-
     messageText: {
       type: String,
-      default: 'This is a message',
+      default: '',
     },
 
     highContrast: {
@@ -88,6 +83,10 @@ export default {
   },
 
   computed: {
+    displayMessage() {
+      return !!this.messageText
+    },
+
     inputClasses() {
       return {
         [`ma-text__field--${this.messageType}`]: this.displayMessage,

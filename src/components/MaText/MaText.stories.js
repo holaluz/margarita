@@ -39,7 +39,6 @@ storiesOf('Text', module)
     () => {
       const disabled = boolean('Disable', false)
       const messageText = text('Message text', 'This is a text')
-      const displayMessage = boolean('Display msg', false)
       const messageType = select('Message type', MSG_TYPES, 'error')
       const highContrast = boolean('Enable message high contrast', false)
       const label = text('Label', 'Label')
@@ -56,7 +55,6 @@ storiesOf('Text', module)
         template: `
         <ma-grid-column :class="getClass">
           <ma-text
-            :displayMessage="displayMessage"
             :messageType="messageType"
             :disabled="disabled"
             :messageText="messageText"
@@ -100,9 +98,6 @@ storiesOf('Text', module)
           },
           messageType: {
             default: messageType,
-          },
-          displayMessage: {
-            default: displayMessage,
           },
           messageText: {
             default: messageText,
