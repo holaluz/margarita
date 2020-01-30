@@ -36,7 +36,7 @@ describe('Text', () => {
     messageType => {
       const messageText = 'Wohoo! You succeed'
       const { queryByText } = TextBuilder({
-        highContrast: true,
+        hasHighContrastMsg: true,
         messageText,
         messageType,
       })

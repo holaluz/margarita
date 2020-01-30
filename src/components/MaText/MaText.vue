@@ -49,7 +49,7 @@ export default {
       default: '',
     },
 
-    highContrast: {
+    hasHighContrastMsg: {
       type: Boolean,
       default: false,
     },
@@ -102,7 +102,7 @@ export default {
     messageClasses() {
       return {
         [`ma-text__message--${this.messageType}`]: true,
-        'ma-text--high-contrast': this.highContrast,
+        'ma-text--high-contrast': this.hasHighContrastMsg,
       }
     },
 

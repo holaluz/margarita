@@ -40,7 +40,7 @@ storiesOf('Text', module)
       const disabled = boolean('Disable', false)
       const messageText = text('Message text', 'This is a text')
       const messageType = select('Message type', MSG_TYPES, 'error')
-      const highContrast = boolean('Enable message high contrast', false)
+      const hasHighContrastMsg = boolean('Enable message high contrast', false)
       const label = text('Label', 'Label')
       const ariaLabel = text('ARIA Label', '')
       const placeholder = text('Placeholder', 'Placeholder')
@@ -58,7 +58,7 @@ storiesOf('Text', module)
             :messageType="messageType"
             :disabled="disabled"
             :messageText="messageText"
-            :highContrast="highContrast"
+            :hasHighContrastMsg="hasHighContrastMsg"
             :label="label"
             :aria-label="ariaLabel"
             :placeholder="placeholder"
@@ -102,8 +102,8 @@ storiesOf('Text', module)
           messageText: {
             default: messageText,
           },
-          highContrast: {
-            default: highContrast,
+          hasHighContrastMsg: {
+            default: hasHighContrastMsg,
           },
           label: {
             default: label,
