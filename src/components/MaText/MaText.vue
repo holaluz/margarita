@@ -24,7 +24,7 @@
       <slot name="inputSibling" />
     </div>
     <div
-      v-if="displayMessage"
+      v-if="shouldDisplayMessage"
       class="ma-text__message"
       :class="messageClasses"
       v-text="messageText"
@@ -83,13 +83,13 @@ export default {
   },
 
   computed: {
-    displayMessage() {
+    shouldDisplayMessage() {
       return !!this.messageText
     },
 
     inputClasses() {
       return {
-        [`ma-text__field--${this.messageType}`]: this.displayMessage,
+        [`ma-text__field--${this.messageType}`]: this.shouldDisplayMessage,
       }
     },
 
