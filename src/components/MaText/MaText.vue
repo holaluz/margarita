@@ -66,7 +66,7 @@ export default {
 
     messageType: {
       type: String,
-      default: 'error',
+      default: ERROR,
       validator: type => [ERROR, SUCCESS].includes(type),
     },
 
