@@ -6,7 +6,7 @@ import MaGridColumn from '@margarita/components/MaGridColumn'
 import notes from './MaPill.md'
 import MaPill from './MaPill'
 
-const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark']
+const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark', 'blue']
 
 storiesOf('Pill', module)
   .addDecorator(withKnobs)
