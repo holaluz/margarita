@@ -2,12 +2,12 @@
 
 <template>
   <div>
-    <div :class="getClasses" class="ma-pill" v-text="text" />
+    <div :class="`ma-pill--${color}`" class="ma-pill" v-text="text" />
   </div>
 </template>
 
 <script>
-const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark']
+const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark', 'blue']
 
 export default {
   name: 'MaPill',
@@ -24,16 +24,6 @@ export default {
     text: {
       type: [Number, String],
       default: '',
-    },
-  },
-
-  computed: {
-    getClasses() {
-      const classes = []
-
-      classes.push(`ma-pill--${this.color}`)
-
-      return classes
     },
   },
 }
