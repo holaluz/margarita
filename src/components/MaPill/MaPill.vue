@@ -16,9 +16,7 @@ export default {
     color: {
       type: String,
       default: 'green',
-      validator: function(value) {
-        return AVAILABLE_COLORS.indexOf(value) !== -1
-      },
+      validator: color => AVAILABLE_COLORS.includes(color),
     },
 
     text: {
