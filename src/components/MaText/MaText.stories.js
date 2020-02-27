@@ -7,7 +7,6 @@ import MaButton from '@margarita/components/MaButton'
 import MaIcon from '@margarita/components/MaIcon'
 
 import MaText from './MaText'
-import notes from './MaText.md'
 
 const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const ICONS = [
@@ -33,24 +32,22 @@ const CHANGED_MSG = 'Changed property:'
 
 storiesOf('Text', module)
   .addDecorator(withKnobs)
-  .add(
-    'Text',
-    () => {
-      const disabled = boolean('Disable', false)
-      const errorMessage = text('Error msg', 'You have an error')
-      const hasError = boolean('Has error', false)
-      const label = text('Label', 'Label')
-      const ariaLabel = text('ARIA Label', '')
-      const placeholder = text('Placeholder', 'Placeholder')
-      const size = select('Size', GRID_ARRAY, 4)
-      const value = text('Value', '')
-      const icon = select('Icon', ['', ...ICONS], '')
-      const siblingLabel = text('Sibling label', '')
+  .add('Text', () => {
+    const disabled = boolean('Disable', false)
+    const errorMessage = text('Error msg', 'You have an error')
+    const hasError = boolean('Has error', false)
+    const label = text('Label', 'Label')
+    const ariaLabel = text('ARIA Label', '')
+    const placeholder = text('Placeholder', 'Placeholder')
+    const size = select('Size', GRID_ARRAY, 4)
+    const value = text('Value', '')
+    const icon = select('Icon', ['', ...ICONS], '')
+    const siblingLabel = text('Sibling label', '')
 
-      return {
-        components: { MaText, MaGridColumn, MaIcon, MaButton },
+    return {
+      components: { MaText, MaGridColumn, MaIcon, MaButton },
 
-        template: `
+      template: `
         <ma-grid-column :class="getClass">
           <ma-text
             :errorMessage="errorMessage"
@@ -83,62 +80,60 @@ storiesOf('Text', module)
           </ma-text>
         </ma-grid-column>`,
 
-        computed: {
-          getClass() {
-            return [`ma-grid-col--${this.size}`]
-          },
+      computed: {
+        getClass() {
+          return [`ma-grid-col--${this.size}`]
         },
+      },
 
-        props: {
-          disabled: {
-            default: disabled,
-          },
-          errorMessage: {
-            default: errorMessage,
-          },
-          hasError: {
-            default: hasError,
-          },
-          label: {
-            default: label,
-          },
-          ariaLabel: {
-            default: ariaLabel,
-          },
-          placeholder: {
-            default: placeholder,
-          },
-          size: {
-            default: size,
-          },
-          textValue: {
-            default: value,
-          },
-          icon: {
-            default: icon,
-          },
-          siblingLabel: {
-            default: siblingLabel,
-          },
+      props: {
+        disabled: {
+          default: disabled,
         },
+        errorMessage: {
+          default: errorMessage,
+        },
+        hasError: {
+          default: hasError,
+        },
+        label: {
+          default: label,
+        },
+        ariaLabel: {
+          default: ariaLabel,
+        },
+        placeholder: {
+          default: placeholder,
+        },
+        size: {
+          default: size,
+        },
+        textValue: {
+          default: value,
+        },
+        icon: {
+          default: icon,
+        },
+        siblingLabel: {
+          default: siblingLabel,
+        },
+      },
 
-        data() {
-          return {
-            value: this.textValue,
-          }
-        },
+      data() {
+        return {
+          value: this.textValue,
+        }
+      },
 
-        methods: {
-          onBlur: action(`${TRIGGERED_MSG} blur`),
-        },
+      methods: {
+        onBlur: action(`${TRIGGERED_MSG} blur`),
+      },
 
-        watch: {
-          textValue(newValue) {
-            this.value = newValue
-          },
-          value: action(`${CHANGED_MSG} value`),
+      watch: {
+        textValue(newValue) {
+          this.value = newValue
         },
-      }
-    },
-    { notes }
-  )
+        value: action(`${CHANGED_MSG} value`),
+      },
+    }
+  })

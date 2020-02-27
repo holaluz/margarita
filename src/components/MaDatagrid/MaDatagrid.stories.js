@@ -4,7 +4,6 @@ import { withKnobs, boolean } from '@storybook/addon-knobs'
 import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaPill from '@margarita/components/MaPill/'
 
-import notes from './MaDatagrid.md'
 import MaDatagrid from './MaDatagrid'
 
 const columns = [
@@ -73,18 +72,16 @@ const rowsSample = [
 
 storiesOf('Datagrid', module)
   .addDecorator(withKnobs)
-  .add(
-    'Datagrid',
-    () => {
-      const isLoading = boolean('Loading', false)
+  .add('Datagrid', () => {
+    const isLoading = boolean('Loading', false)
 
-      return {
-        components: {
-          MaDatagrid,
-          MaGridColumn,
-        },
+    return {
+      components: {
+        MaDatagrid,
+        MaGridColumn,
+      },
 
-        template: `
+      template: `
         <ma-grid-column>
           <ma-datagrid
             :columns="columns"
@@ -94,38 +91,36 @@ storiesOf('Datagrid', module)
           />
         </ma-grid-column>`,
 
-        props: {
-          columns: {
-            default: columns,
-          },
-          rowsSample: {
-            default: rowsSample,
-          },
-          isLoading: {
-            default: isLoading,
-          },
+      props: {
+        columns: {
+          default: columns,
+        },
+        rowsSample: {
+          default: rowsSample,
+        },
+        isLoading: {
+          default: isLoading,
+        },
+      },
+
+      methods: {
+        sortBy(key) {
+          const sortBy = key.column.value
+          const sortDirection = key.dir
+
+          this.rowsSample.sort(this.dynamicSort(sortBy, sortDirection))
         },
 
-        methods: {
-          sortBy(key) {
-            const sortBy = key.column.value
-            const sortDirection = key.dir
-
-            this.rowsSample.sort(this.dynamicSort(sortBy, sortDirection))
-          },
-
-          dynamicSort(key, sortDirection) {
-            let sortOrder = 1
-            if (sortDirection === 'DESC') {
-              sortOrder = -1
-            }
-            return function(a, b) {
-              let result = a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0
-              return result * sortOrder
-            }
-          },
+        dynamicSort(key, sortDirection) {
+          let sortOrder = 1
+          if (sortDirection === 'DESC') {
+            sortOrder = -1
+          }
+          return function(a, b) {
+            let result = a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0
+            return result * sortOrder
+          }
         },
-      }
-    },
-    { notes }
-  )
+      },
+    }
+  })
