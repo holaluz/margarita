@@ -36,7 +36,6 @@
     "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-knobs": "^5.1.11",
     "@storybook/addon-links": "^5.1.11",
-    "@storybook/addon-notes": "^5.1.11",
     "@storybook/addon-viewport": "^5.1.11",
     "@testing-library/jest-dom": "^4.2.3",
     "@testing-library/vue": "^2.1.0",
