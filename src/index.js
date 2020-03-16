@@ -1,5 +1,6 @@
 import './scss/_margarita.scss'
 
+import useCmbCmn from './components/CmbCmn'
 import MaAlert from './components/MaAlert'
 import MaButton from './components/MaButton'
 import MaCard from './components/MaCard'
@@ -19,6 +20,7 @@ import MaText from './components/MaText'
 import markdown from './directives/markdown'
 
 export {
+  useCmbCmn,
   MaAlert,
   MaButton,
   MaCard,

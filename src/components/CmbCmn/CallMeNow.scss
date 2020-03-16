@@ -1,0 +1,190 @@
+$base-height: rem(225px);
+
+.call-me-now {
+  display: flex;
+  position: fixed;
+  right: rem(16px);
+  bottom: 0;
+  left: rem(16px);
+  flex-direction: column;
+  z-index: 100;
+  border: rem(1px) solid get-color('alto');
+  border-radius: rem(5px) rem(5px) 0 0;
+  background-color: get-color('white');
+  padding: rem(16px);
+
+  @include mq($from: md) {
+    top: rem(165px);
+    right: 0;
+    bottom: auto;
+    left: auto;
+    flex-direction: row;
+    border-radius: rem(5px) 0 0 rem(5px);
+    max-width: rem(289px);
+    height: $base-height;
+  }
+
+  @include mq($from: lg) {
+    top: rem(235px);
+  }
+
+  &__box {
+    position: relative;
+  }
+
+  &__content {
+    width: 100%;
+    overflow: hidden;
+
+    @include mq($from: md) {
+      width: rem(255px);
+    }
+  }
+
+  &__title-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    width: 100%;
+
+    @include mq($from: md) {
+      width: auto;
+    }
+  }
+
+  &__title {
+    @include font-weight(semibold);
+    text-align: center;
+    font-size: 1.15rem;
+  }
+
+  &__toggle {
+    display: flex;
+    width: 100%;
+
+    @include mq($from: md) {
+      flex-direction: column;
+      width: rem(20px);
+      height: calc(#{$base-height} - #{rem(20px)});
+    }
+
+    .call-me-now__toggle-button {
+      order: 1;
+
+      @include mq($from: md) {
+        order: 0;
+      }
+    }
+
+    .call-me-now__title {
+      flex: 1 1 100%;
+      line-height: 1.5;
+      font-size: 0.875rem;
+
+      @include mq($from: md) {
+        transform: rotate(180deg);
+        writing-mode: vertical-lr;
+      }
+    }
+  }
+
+  &__toggle-button {
+    display: flex;
+    flex: 0 0 rem(20px);
+    align-items: center;
+    justify-content: center;
+    border: rem(1px) solid get-color('dark-hot-pink');
+    cursor: pointer;
+    width: rem(20px);
+    height: rem(20px);
+  }
+
+  &__button-icon {
+    color: get-color('dark-hot-pink');
+
+    &--open {
+      transform: rotate(-90deg);
+
+      @include mq($from: md) {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__form {
+    overflow: hidden;
+  }
+
+  &__description {
+    margin: 1rem 0 0;
+    color: get-color('gray');
+    font-size: rem(15px);
+  }
+
+  &__privacy {
+    margin-top: rem(10px);
+    color: get-color('gray');
+    font-size: rem(12px);
+  }
+
+  // TODO: remove this block when margarita handles this behaviour
+  // sass-lint:disable no-important property-units */
+  .ma-text {
+    .ma-text__label {
+      position: absolute !important;
+      border: 0 !important;
+      padding: 0 !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+    }
+  }
+  /* sass-lint:enable no-important property-units */
+
+  .collapse-horizontal-enter-active,
+  .collapse-horizontal-leave-active {
+    transition: max-width 0.6s, max-height 0.6s;
+
+    & > * {
+      transition: opacity 0.35s;
+    }
+  }
+
+  .collapse-horizontal-enter,
+  .collapse-horizontal-leave-to {
+    max-height: rem(7px);
+
+    @include mq($from: md) {
+      max-width: rem(20px);
+      max-height: 100%;
+    }
+
+    & > * {
+      opacity: 0;
+    }
+  }
+
+  .collapse-horizontal-enter-to,
+  .collapse-horizontal-leave {
+    max-height: rem(188px);
+
+    @include mq($from: md) {
+      max-width: rem(320px);
+      max-height: 100%;
+    }
+  }
+
+  .fade-cmn-enter-active,
+  .fade-cmn-leave-active {
+    position: absolute;
+    transition: opacity 0.5s, padding 0.5s;
+  }
+
+  .fade-cmn-enter,
+  .fade-cmn-leave-to {
+    position: absolute;
+    opacity: 0;
+    padding: 0;
+  }
+}

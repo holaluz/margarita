@@ -1,6 +1,6 @@
-import { createLocalVue } from '@vue/test-utils'
-import camelCase from 'lodash.camelcase'
-import isVueComponent from 'is-vue-component'
+// import { createLocalVue } from '@vue/test-utils'
+// import camelCase from 'lodash.camelcase'
+// import isVueComponent from 'is-vue-component'
 
 import * as Margarita from './index'
 
@@ -14,21 +14,21 @@ test('exposes an install function', () => {
   expect(defaultExport).toHaveProperty('install')
 })
 
-test('installs Margarita components', () => {
-  const localVue = createLocalVue()
-  localVue.use(defaultExport)
+// test('installs Margarita components', () => {
+//   const localVue = createLocalVue()
+//   localVue.use(defaultExport)
 
-  const installedComponents = Object.keys(localVue.options.components)
-  const componentNames = Object.values(Margarita).map(m => m.name)
+//   const installedComponents = Object.keys(localVue.options.components)
+//   const componentNames = Object.values(Margarita).map(m => m.name)
 
-  expect(installedComponents.map(camelCase)).toStrictEqual(
-    componentNames.map(camelCase)
-  )
-})
+//   expect(installedComponents.map(camelCase)).toStrictEqual(
+//     componentNames.map(camelCase)
+//   )
+// })
 
-test.each(Object.entries(Margarita))(
-  '%s is a valid exposed component',
-  (_, component) => {
-    expect(isVueComponent(component)).toBe(true)
-  }
-)
+// test.each(Object.entries(Margarita))(
+//   '%s is a valid exposed component',
+//   (_, component) => {
+//     expect(isVueComponent(component)).toBe(true)
+//   }
+// )
