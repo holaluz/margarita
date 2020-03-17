@@ -110,15 +110,15 @@ export default {
     async executeCallMeBack() {
       await this.createCallMeBack(this.computedPhone)
 
-      // this.$gtm.pushEvent({
-      //   event: 'gaEvent',
-      //   eventAction: 'Llamadme(CMB)',
-      //   eventCategory: this.eventCategory,
-      //   eventLabel: 'flotante',
-      //   // FIXME
-      //   // lead: { id: this.leadId },
-      //   trigger: 'submit',
-      // })
+      this.$gtm.pushEvent({
+        event: 'gaEvent',
+        eventAction: 'Llamadme(CMB)',
+        eventCategory: this.eventCategory,
+        eventLabel: 'flotante',
+        // FIXME
+        // lead: { id: this.leadId },
+        trigger: 'submit',
+      })
 
       let url = `https://app.acuityscheduling.com/schedule.php?owner=${this.owner}&phone=${this.computedPhone}`
       if (this.calendarId) {
@@ -135,13 +135,13 @@ export default {
     async executeCallMeNow() {
       await this.createCallMeNow(this.computedPhone)
 
-      // this.$gtm.pushEvent({
-      //   event: 'gaEvent',
-      //   eventAction: 'Llamadme(CMN)',
-      //   eventCategory: this.eventCategory,
-      //   eventLabel: 'flotante',
-      //   trigger: 'submit',
-      // })
+      this.$gtm.pushEvent({
+        event: 'gaEvent',
+        eventAction: 'Llamadme(CMN)',
+        eventCategory: this.eventCategory,
+        eventLabel: 'flotante',
+        trigger: 'submit',
+      })
     },
   },
 }

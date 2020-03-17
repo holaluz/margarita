@@ -18,9 +18,9 @@ export default {
     } else {
       setTimeout(() => {
         if (!this.hasUserInteracted) {
-          // this.$gtm.pushEvent({
-          //   event: 'GtmAbrirSegundos',
-          // })
+          this.$gtm.pushEvent({
+            event: 'GtmAbrirSegundos',
+          })
           this.toggleIsOpen()
         }
       }, OPEN_TIMEOUT_MS)
@@ -31,9 +31,9 @@ export default {
     handleScroll() {
       if (window.pageYOffset < MIN_Y_SCROLL) return
       if (!this.hasUserInteracted) {
-        // this.$gtm.pushEvent({
-        //   event: 'GtmAbrirScroll',
-        // })
+        this.$gtm.pushEvent({
+          event: 'GtmAbrirScroll',
+        })
         this.toggleIsOpen()
       }
       this.removeScrollListener()

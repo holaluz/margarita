@@ -1,11 +1,7 @@
 <template>
   <div class="call-me-now-feedback">
     <ma-alert :type="status">
-      <i18n
-        tag="p"
-        class="call-me-now-feedback__text"
-        :path="`callMeNow.status.${status}`"
-      >
+      <i18n tag="p" class="call-me-now-feedback__text" :path="status">
         <a
           slot="link"
           class="hl-link"
@@ -47,3 +43,12 @@ export default {
   }
 }
 </style>
+
+<i18n>
+{
+  "es": {
+    "success": "¡Recibido! Ahora mismo te llamamos",
+    "error": "¡Ups! Algo ha fallado. Por favor, inténtalo más tarde o llámanos gratis al {link}."
+  }
+}
+</i18n>

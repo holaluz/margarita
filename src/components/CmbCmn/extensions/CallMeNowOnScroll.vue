@@ -20,9 +20,9 @@ export default {
     // https://vuejs.org/v2/api/#vm-watch
     this.unwatchOpenWithScroll = this.$watch('isOpen', isOpen => {
       if (isOpen) {
-        // this.$gtm.pushEvent({
-        //   event: 'GtmAbrirScroll',
-        // })
+        this.$gtm.pushEvent({
+          event: 'GtmAbrirScroll',
+        })
         this.unwatchOpenWithScroll()
       }
     })
