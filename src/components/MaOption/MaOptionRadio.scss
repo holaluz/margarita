@@ -1,0 +1,57 @@
+.ma-option--radio {
+  padding: 0.75rem 0;
+
+  .indicator {
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 1px;
+    border: 1px solid get-color('gray');
+    border-radius: 50%;
+    background-color: get-color('white');
+    cursor: pointer;
+    width: rem(16px);
+    height: rem(16px);
+    user-select: none;
+  }
+
+  .description {
+    padding-left: rem(6px);
+  }
+
+  .input {
+    &:disabled ~ .description,
+    &:disabled ~ .indicator {
+      cursor: not-allowed;
+    }
+
+    &:disabled ~ .indicator {
+      background-color: get-color('concrete');
+    }
+
+    &:not(:disabled) {
+      &:hover,
+      &:active,
+      &:checked,
+      &:focus {
+        ~ .indicator {
+          border-color: get-color('dark-hot-pink');
+        }
+      }
+
+      &:active,
+      &:checked,
+      &:focus {
+        ~ .indicator::before {
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          bottom: 2px;
+          left: 2px;
+          border-radius: 50%;
+          background-color: get-color('dark-hot-pink');
+          content: '';
+        }
+      }
+    }
+  }
+}

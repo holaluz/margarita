@@ -1,0 +1,44 @@
+.ma-option--checkbox {
+  .indicator {
+    position: absolute;
+    top: rem(2px);
+    left: 0;
+    transition: border 0.4s, background-color 0.33s;
+    border: 1px solid get-color('alto');
+    background-color: get-color('white');
+    width: rem(16px);
+    height: rem(16px);
+  }
+
+  .description {
+    padding-left: rem(22px);
+  }
+
+  .input {
+    &:hover ~ .indicator {
+      border: 1px solid get-color('dark-hot-pink');
+    }
+
+    &:checked ~ .indicator,
+    &:disabled ~ .indicator {
+      border: 0;
+      background-image: url('../../assets/icons/tick.svg');
+      background-position: rem(3px) rem(3px);
+      background-repeat: no-repeat;
+      background-size: rem(10px) rem(10px);
+    }
+
+    &:checked ~ .indicator {
+      background-color: get-color('dark-hot-pink');
+    }
+
+    &:disabled ~ .indicator {
+      background-color: get-color('boulder');
+      cursor: not-allowed;
+    }
+
+    &:disabled ~ .description {
+      cursor: not-allowed;
+    }
+  }
+}
