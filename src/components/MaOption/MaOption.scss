@@ -5,7 +5,6 @@
   cursor: pointer;
 
   .input {
-    display: none;
     &:not(:disabled) {
       & ~ .description {
         transition: border 0.2s ease;
