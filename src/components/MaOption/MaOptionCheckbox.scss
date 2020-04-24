@@ -12,6 +12,8 @@
 
   .description {
     padding-left: rem(22px);
+    line-height: rem(22px);
+    color: get-color('tundora');
   }
 
   .input {
