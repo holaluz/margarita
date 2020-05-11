@@ -1,7 +1,7 @@
 <style lang="scss" src="./MaDatagridLoader.scss"></style>
 
 <template>
-  <tbody>
+  <tbody data-testid="datagrid-loader">
     <tr v-for="i in 3" :key="i" class="loader-row">
       <td v-for="columnsIndex in items" :key="columnsIndex">
         <span>
