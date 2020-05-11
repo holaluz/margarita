@@ -70,6 +70,7 @@
     "jest-watch-typeahead": "^0.4.0",
     "lint-staged": "^9.2.5",
     "lodash.camelcase": "^4.3.0",
+    "lodash.shuffle": "^4.2.0",
     "markdown-loader": "^5.1.0",
     "node-sass": "^4.9.0",
     "prettier": "^1.17.0",

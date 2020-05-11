@@ -1,102 +1,91 @@
+import shuffle from 'lodash.shuffle'
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean } from '@storybook/addon-knobs'
+import { withKnobs, boolean, object } from '@storybook/addon-knobs'
 
-import MaGridColumn from '@margarita/components/MaGridColumn'
+import MaGridContainer from '@margarita/components/MaGridContainer'
 import MaPill from '@margarita/components/MaPill/'
 
 import MaDatagrid from './MaDatagrid'
 
+// This would be a component from the project using Margarita
+const CustomPillComponent = {
+  template: `<ma-pill :text="status" :color="color" />`,
+  components: { MaPill },
+  props: ['status'],
+  computed: {
+    color() {
+      const options = {
+        success: 'green',
+        error: 'red',
+        warning: 'orange',
+      }
+      return options[this.status]
+    },
+  },
+}
+
 const columns = [
   {
-    title: 'Name',
+    name: 'User',
+    sortableBy: 'name',
+
+    // value can be a string…
     value: 'name',
-    sortable: true,
   },
   {
-    title: 'Age',
-    value: 'age',
-    sortable: true,
+    name: 'Age',
+    sortableBy: 'age',
+
+    // …it can also be a function (that receives the whole row)…
+    value: r => `${r.age} years old`,
   },
   {
-    title: 'Status',
-    value: 'status',
+    name: 'Status',
+
+    // …or we can provide a `component` which receives the whole row as props
+    component: CustomPillComponent,
   },
 ]
 
-const rowsSample = [
-  {
-    name: 'Biel',
-    age: 31,
-    status: {
-      component: MaPill,
-      componentData: {
-        color: 'red',
-        text: 'error',
-      },
-    },
-  },
-  {
-    name: 'Carlos',
-    age: 29,
-    status: {
-      component: MaPill,
-      componentData: {
-        color: 'red',
-        text: 'error',
-      },
-    },
-  },
-  {
-    name: 'Marina',
-    age: 23,
-    status: {
-      component: MaPill,
-      componentData: {
-        color: 'orange',
-        text: 'warning',
-      },
-    },
-  },
-  {
-    name: 'Estela',
-    age: 36,
-    status: {
-      component: MaPill,
-      componentData: {
-        color: 'orange',
-        text: 'warning',
-      },
-    },
-  },
+const rows = [
+  { name: 'Bob', age: 15, status: 'success' },
+  { age: 9, name: 'Angie', status: 'error' }, // Notice that key order is not important
+  { name: 'Charlie', age: 33, status: 'warning' },
 ]
 
 storiesOf('Datagrid', module)
   .addDecorator(withKnobs)
   .add('Datagrid', () => {
     const isLoading = boolean('Loading', false)
+    const computedRows = object('Rows', rows)
 
     return {
       components: {
         MaDatagrid,
-        MaGridColumn,
+        MaGridContainer,
       },
 
       template: `
-        <ma-grid-column>
+        <ma-grid-container>
           <ma-datagrid
             :columns="columns"
-            :rows="rowsSample"
-            @sort="sortBy"
+            :rows="rows"
             :isLoading="isLoading"
+            @sort="sortBy"
           />
-        </ma-grid-column>`,
+        </ma-grid-container>
+        `,
+
+      data() {
+        return {
+          // rows,
+          columns,
+        }
+      },
 
       props: {
-        columns: {
-          default: columns,
-        },
-        rowsSample: {
-          default: rowsSample,
+        rows: {
+          default: computedRows,
         },
         isLoading: {
           default: isLoading,
@@ -104,22 +93,14 @@ storiesOf('Datagrid', module)
       },
 
       methods: {
-        sortBy(key) {
-          const sortBy = key.column.value
-          const sortDirection = key.dir
+        sortBy({ column, dir }) {
+          // No, we are not sorting.
+          this.rows = shuffle(this.rows)
 
-          this.rowsSample.sort(this.dynamicSort(sortBy, sortDirection))
-        },
-
-        dynamicSort(key, sortDirection) {
-          let sortOrder = 1
-          if (sortDirection === 'DESC') {
-            sortOrder = -1
-          }
-          return function(a, b) {
-            let result = a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0
-            return result * sortOrder
-          }
+          // eslint-disable-next-line no-console
+          console.log(
+            `sort triggered in ${column.name} (sortable by '${column.sortableBy}') with direction ${dir}`
+          )
         },
       },
     }
