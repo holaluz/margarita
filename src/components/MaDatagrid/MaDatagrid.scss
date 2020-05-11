@@ -68,34 +68,13 @@
         & > * {
           vertical-align: middle;
         }
-      }
 
-      .sort-arrow {
-        display: inline-block;
-        background-image: url('../../assets/icons/sorting-arrow-neutral.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        width: rem(16px);
-        height: rem(16px);
-      }
-
-      .sort-cursor-pointer {
-        cursor: pointer;
-      }
-
-      .sort-arrow--asc {
-        font-weight: 700;
-
-        .sort-arrow {
-          background-image: url('../../assets/icons/sorting-arrow-up.svg');
+        &.ma-datagrid__column--sorted {
+          font-weight: 700;
         }
-      }
 
-      .sort-arrow--desc {
-        font-weight: 700;
-
-        .sort-arrow {
-          background-image: url('../../assets/icons/sorting-arrow-down.svg');
+        &.ma-datagrid__column--sortable {
+          cursor: pointer;
         }
       }
     }

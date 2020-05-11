@@ -4,48 +4,7 @@
   <div class="ma-datagrid">
     <div class="ma-datagrid__container">
       <keep-alive>
-        <div
-          v-if="hasItems === 0 && !isLoading"
-          class="ma-datagrid__no-results"
-          v-text="noResultsText"
-        />
-        <table v-else>
-          <thead>
-            <tr>
-              <th
-                v-for="column in columns"
-                :key="column.title"
-                :class="sortClass(column.value, column.sortable)"
-                @click="sort(column)"
-              >
-                <span class="column-title" v-text="column.title" />
-                <span v-if="column.sortable" class="sort-arrow" />
-              </th>
-            </tr>
-          </thead>
-          <tbody v-if="isLoading">
-            <tr
-              v-for="index in 3"
-              :key="index"
-              class="ma-datagrid__row--loader"
-            >
-              <td v-for="column in columns" :key="column.title">
-                <ma-datagrid-loader />
-              </td>
-            </tr>
-          </tbody>
-          <tbody v-else class="ma-datagrid__shadow">
-            <tr v-for="item in rows" :key="item.id">
-              <td v-for="rowCell in item" :key="rowCell.keyValue">
-                <span
-                  :is="rowCell.component"
-                  v-if="rowCell.component"
-                  v-bind="rowCell.componentData"
-                />
-                <span v-else v-text="rowCell" />
-              </td>
-            </tr>
-          </tbody>
+          <ma-datagrid-loader v-if="isLoading" :items="columns.length" />
         </table>
       </keep-alive>
     </div>
