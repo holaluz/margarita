@@ -4,20 +4,28 @@
   <div class="ma-datagrid">
     <div class="ma-datagrid__container">
       <keep-alive>
+        <table v-if="hasRows || isLoading">
+          <ma-datagrid-head :columns="columns" @sort="handleSort" />
           <ma-datagrid-loader v-if="isLoading" :items="columns.length" />
+          <ma-datagrid-body v-else :rows="rows" :columns="columns" />
         </table>
+        <div v-else class="ma-datagrid__no-results" v-text="noResultsText" />
       </keep-alive>
     </div>
   </div>
 </template>
 
 <script>
+import MaDatagridHead from './components/MaDatagridHead'
+import MaDatagridBody from './components/MaDatagridBody'
 import MaDatagridLoader from './components/MaDatagridLoader'
 
 export default {
   name: 'MaDatagrid',
 
   components: {
+    MaDatagridHead,
+    MaDatagridBody,
     MaDatagridLoader,
   },
 
@@ -30,6 +38,8 @@ export default {
     columns: {
       type: Array,
       required: true,
+      validator: v =>
+        v.every(column => column.name && (column.value || column.component)),
     },
 
     isLoading: {
@@ -43,42 +53,15 @@ export default {
     },
   },
 
-  data() {
-    return {
-      currentSort: '',
-      currentSortDir: 'ASC',
-    }
-  },
-
   computed: {
-    hasItems() {
-      return this.rows.length
+    hasRows() {
+      return !!this.rows.length
     },
   },
 
   methods: {
-    sort(column) {
-      if (!column.sortable) return
-      if (column === this.currentSort) {
-        this.currentSortDir = this.currentSortDir === 'ASC' ? 'DESC' : 'ASC'
-      } else {
-        this.currentSort = column
-        this.currentSortDir = 'ASC'
-      }
-      this.$emit('sort', { column: this.currentSort, dir: this.currentSortDir })
-    },
-
-    sortClass(value, isSortable) {
-      let sortableClass = ''
-      if (isSortable) {
-        sortableClass = 'sort-cursor-pointer'
-      }
-
-      if (this.currentSort.value === value) {
-        return `sort-arrow--${this.currentSortDir.toLowerCase()} ${sortableClass}`
-      }
-
-      return `sort-arrow--unsorted ${sortableClass}`
+    handleSort(sortPayload) {
+      this.$emit('sort', sortPayload)
     },
   },
 }
