@@ -77,10 +77,7 @@ storiesOf('Datagrid', module)
         `,
 
       data() {
-        return {
-          // rows,
-          columns,
-        }
+        return { columns }
       },
 
       props: {
