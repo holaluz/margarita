@@ -1,10 +1,5 @@
-.ma-datagrid table {
-  width: 350px;
-}
-
 .ma-datagrid {
   display: flex;
-  flex: auto;
   min-width: 100%;
   overflow-x: auto;
 
@@ -28,6 +23,11 @@
   table {
     flex: auto;
     z-index: 1;
+
+    width: 100%;
+    width: -moz-available; /* Mozilla */
+    width: -webkit-fill-available; /* Chrome */
+    width: stretch; /* Unprefixed */
   }
 
   thead {
