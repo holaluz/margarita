@@ -16,7 +16,6 @@
     padding: 0;
     vertical-align: baseline;
     color: get-color('tundora');
-    font: inherit;
     font-size: 100%;
   }
 
@@ -43,14 +42,6 @@
 
         & > * {
           vertical-align: middle;
-        }
-
-        &.ma-datagrid__column--sorted {
-          font-weight: 700;
-        }
-
-        &.ma-datagrid__column--sortable {
-          cursor: pointer;
         }
       }
     }

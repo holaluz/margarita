@@ -1,5 +1,5 @@
 <template>
-  <tbody class="body">
+  <tbody>
     <tr v-for="(row, i) in rows" :key="i">
       <td v-for="(column, k) in columns" :key="k">
         <template v-if="column.value">
@@ -34,8 +34,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.body::before {
+<style lang="scss" scoped>
+tbody::before {
   position: absolute;
   top: 1%;
   left: 2%;

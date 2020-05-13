@@ -87,10 +87,25 @@ export default {
 
     getColumnClasses(column) {
       return {
-        'ma-datagrid__column--sortable': !!column.sortableBy,
-        'ma-datagrid__column--sorted': this.isSortingColumn(column),
+        'ma-datagrid-head__column': true,
+        'ma-datagrid-head__column--sortable': !!column.sortableBy,
+        'ma-datagrid-head__column--sorted': this.isSortingColumn(column),
       }
     },
   },
 }
 </script>
+
+<style lang="scss">
+.ma-datagrid-head__column {
+  font-weight: normal;
+
+  &--sorted {
+    font-weight: 700;
+  }
+
+  &--sortable {
+    cursor: pointer;
+  }
+}
+</style>
