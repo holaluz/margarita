@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   display: inline-flex;
-  margin-left: 8px;
   flex-direction: column;
+  margin-left: 8px;
 }
 </style>

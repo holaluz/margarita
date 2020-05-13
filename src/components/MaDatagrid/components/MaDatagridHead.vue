@@ -8,7 +8,7 @@
         @click="sortBy(column)"
       >
         <span v-text="column.name" />
-        <ma-datagrid-arrow-wrapper
+        <ma-datagrid-arrows
           v-if="column.sortableBy"
           :sorting-direction="sortingDirection"
           :is-sorting="isSortingColumn(column)"
@@ -26,13 +26,13 @@ const SORT_DIRECTION = {
 
 const DEFAULT_SORTING_DIRECTION = SORT_DIRECTION.ASC
 
-import MaDatagridArrowWrapper from './MaDatagridArrowWrapper'
+import MaDatagridArrows from './MaDatagridArrows'
 
 export default {
   name: 'MaDatagridHead',
 
   components: {
-    MaDatagridArrowWrapper,
+    MaDatagridArrows,
   },
 
   props: {
