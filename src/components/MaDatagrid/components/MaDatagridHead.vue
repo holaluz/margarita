@@ -5,7 +5,7 @@
         v-for="column in columns"
         :key="column.name"
         :class="getColumnClasses(column)"
-        @click="sort(column)"
+        @click="sortBy(column)"
       >
         <span v-text="column.name" />
         <ma-datagrid-arrow-wrapper
@@ -53,7 +53,7 @@ export default {
   },
 
   methods: {
-    sort(column) {
+    sortBy(column) {
       if (!column.sortableBy) return
 
       if (this.isSortingColumn(column)) {
@@ -68,6 +68,12 @@ export default {
       })
     },
 
+    isSortingColumn(column) {
+      if (!this.sortingColumn) return false
+
+      return this.sortingColumn.name === column.name
+    },
+
     toggleSortingDirection() {
       this.sortingDirection = this.isSortedAsc
         ? SORT_DIRECTION.DESC
@@ -77,12 +83,6 @@ export default {
     setColumnAsSortingColumn(column) {
       this.sortingColumn = column
       this.sortingDirection = DEFAULT_SORTING_DIRECTION
-    },
-
-    isSortingColumn(column) {
-      if (!this.sortingColumn) return false
-
-      return this.sortingColumn.name === column.name
     },
 
     getColumnClasses(column) {
