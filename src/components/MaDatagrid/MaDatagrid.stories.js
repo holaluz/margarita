@@ -92,6 +92,8 @@ storiesOf('Datagrid', module)
       methods: {
         sortBy({ column, dir }) {
           // No, we are not sorting.
+          // Oh, and don't do this. We're mutating a prop here just for
+          // demonstration purposes.
           this.rows = shuffle(this.rows)
 
           // eslint-disable-next-line no-console
