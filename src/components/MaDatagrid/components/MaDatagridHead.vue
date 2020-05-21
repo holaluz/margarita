@@ -46,12 +46,6 @@ export default {
     }
   },
 
-  computed: {
-    isSortedAsc() {
-      return this.sortingDirection === SORT_DIRECTION.ASC
-    },
-  },
-
   methods: {
     sortBy(column) {
       if (!column.sortableBy) return
@@ -75,9 +69,10 @@ export default {
     },
 
     toggleSortingDirection() {
-      this.sortingDirection = this.isSortedAsc
-        ? SORT_DIRECTION.DESC
-        : SORT_DIRECTION.ASC
+      this.sortingDirection =
+        this.sortingDirection === SORT_DIRECTION.ASC
+          ? SORT_DIRECTION.DESC
+          : SORT_DIRECTION.ASC
     },
 
     setColumnAsSortingColumn(column) {
