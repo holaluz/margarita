@@ -57,8 +57,8 @@ export default {
       }
 
       this.$emit('sort', {
-        column: this.sortingColumn,
-        dir: this.sortingDirection,
+        sortingColumn: this.sortingColumn,
+        sortingDirection: this.sortingDirection,
       })
     },
 

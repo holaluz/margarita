@@ -3,11 +3,12 @@ import MaDatagrid from './MaDatagrid'
 
 describe('Datagrid', () => {
   test('renders no results label', () => {
+    const noResultsText = 'irrelevant string'
     const { queryByText } = render(MaDatagrid, {
-      props: { columns: [], rows: [] },
+      props: { columns: [], rows: [], noResultsText },
     })
 
-    expect(queryByText(/no results/i)).toBeInTheDocument()
+    expect(queryByText(noResultsText)).toBeInTheDocument()
   })
 
   test('renders loading state', () => {
@@ -19,7 +20,7 @@ describe('Datagrid', () => {
     expect(queryByTestId('datagrid-loader')).toBeInTheDocument()
   })
 
-  test('renders headers', () => {
+  test('renders table', () => {
     const { queryAllByRole, queryByRole } = render(MaDatagrid, {
       props: {
         columns: [{ name: 'Column 1', value: 'text' }],
@@ -32,7 +33,7 @@ describe('Datagrid', () => {
     expect(queryByRole('cell')).toHaveTextContent('cell content')
   })
 
-  test('emits sort event on click', async () => {
+  test('emits sort event when clicking a column header', async () => {
     const column = { name: 'Column 1', value: 'text', sortableBy: 'text' }
     const { queryByRole, emitted } = render(MaDatagrid, {
       props: {
@@ -48,15 +49,15 @@ describe('Datagrid', () => {
     expect(emitted()).toHaveProperty('sort')
     expect(emitted().sort).toHaveLength(1)
     expect(emitted().sort[0][0]).toStrictEqual({
-      column,
-      dir: 'ASC',
+      sortingColumn: column,
+      sortingDirection: 'ASC',
     })
 
     await fireEvent.click(columnHeader)
 
     expect(emitted().sort[1][0]).toStrictEqual({
-      column,
-      dir: 'DESC',
+      sortingColumn: column,
+      sortingDirection: 'DESC',
     })
   })
 })
