@@ -49,7 +49,7 @@ export default {
     },
 
     value: {
-      type: String,
+      type: [String, Number, Boolean],
       default: null,
     },
 
