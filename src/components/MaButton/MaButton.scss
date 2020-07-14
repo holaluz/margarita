@@ -25,14 +25,6 @@
     }
   }
 
-  > span {
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: rem(8px);
-    align-items: center;
-    pointer-events: none;
-  }
-
   &--fluid {
     flex-grow: 0;
     padding: rem(11px);

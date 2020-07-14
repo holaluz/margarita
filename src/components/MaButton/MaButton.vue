@@ -7,10 +7,8 @@
     :class="[getClasses, 'ma-button']"
     @click="handleClick"
   >
-    <span>
-      <slot v-if="!loading || !rounded" />
-      <ma-button-spinner v-if="loading" />
-    </span>
+    <slot v-if="!loading || !rounded" />
+    <ma-button-spinner v-if="loading" :style="getLoadingStyle()" />
   </component>
 </template>
 
@@ -79,6 +77,14 @@ export default {
   methods: {
     handleClick(event) {
       this.$emit('click', event)
+    },
+
+    getLoadingStyle() {
+      const needsMargin = !this.rounded && (this.$slots.default || [])[0]
+
+      return {
+        marginLeft: needsMargin ? '8px' : '0',
+      }
     },
   },
 }
