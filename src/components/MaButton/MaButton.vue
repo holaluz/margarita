@@ -80,7 +80,7 @@ export default {
     },
 
     getLoadingStyle() {
-      const needsMargin = !this.rounded && (this.$slots.default || [])[0]
+      const needsMargin = !this.rounded && this.$slots.default?.[0]
 
       return {
         marginLeft: needsMargin ? '8px' : '0',
