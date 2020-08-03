@@ -41,7 +41,7 @@ import MaButton from '@/components/MaButton'
 import MaIcon from '@/components/MaIcon'
 
 export default {
-  name: 'ma-popup-modal',
+  name: 'MaPopupModal',
 
   components: {
     MaButton,
