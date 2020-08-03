@@ -28,13 +28,12 @@ storiesOf('Popup Modal', module)
             >
               <ma-button @click="show = true">Open modal</ma-button>
               <ma-popup-modal
-                :show="show"
+                v-model="show"
                 :title="title"
                 :large="large"
                 :bkTitle="bkTitle"
                 :footerButton="footerButton"
                 :buttonText="buttonText"
-                @close="show = false"
               >
                 Hello world.
               </ma-popup-modal>

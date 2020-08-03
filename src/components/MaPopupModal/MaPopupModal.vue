@@ -48,6 +48,11 @@ export default {
     MaIcon,
   },
 
+  model: {
+    prop: 'show',
+    event: 'close',
+  },
+
   props: {
     show: {
       type: Boolean,
