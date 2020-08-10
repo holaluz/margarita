@@ -8,6 +8,7 @@ import * as Margarita from './index'
 const defaultExport = Margarita.default
 
 // ...and remove it from the object, so we have the list of imported comps.
+// eslint-disable-next-line no-import-assign
 delete Margarita.default
 
 test('exposes an install function', () => {
@@ -19,7 +20,7 @@ test('installs Margarita components', () => {
   localVue.use(defaultExport)
 
   const installedComponents = Object.keys(localVue.options.components)
-  const componentNames = Object.values(Margarita).map(m => m.name)
+  const componentNames = Object.values(Margarita).map((m) => m.name)
 
   expect(installedComponents.map(camelCase)).toStrictEqual(
     componentNames.map(camelCase)

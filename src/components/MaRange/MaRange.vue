@@ -54,10 +54,11 @@ export default {
     steps: {
       type: Array,
       required: true,
-      validator: propValue =>
-        propValue.every(step =>
-          REQUIRED_STEP_KEYS.every(key => step.hasOwnProperty(key))
-        ),
+      validator: (propValue) =>
+        propValue.every((step) => {
+          // eslint-disable-next-line no-prototype-builtins
+          return REQUIRED_STEP_KEYS.every((key) => step.hasOwnProperty(key))
+        }),
     },
 
     label: {
@@ -74,7 +75,7 @@ export default {
   computed: {
     selectedValue: {
       get() {
-        return this.steps.findIndex(step => step.value === this.value)
+        return this.steps.findIndex((step) => step.value === this.value)
       },
       set(newValue) {
         this.$emit('input', this.steps[newValue].value)

@@ -19,7 +19,7 @@ describe('GridRow', () => {
     expect(getByTestId('row').nodeName).toBe('SPAN')
   })
 
-  test('adds a class based in a prop', async () => {
+  test('adds a class based in a prop', () => {
     const { getByTestId } = render(MaGridRow, {
       props: {
         noGutters: true,

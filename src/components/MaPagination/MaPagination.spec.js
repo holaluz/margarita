@@ -50,21 +50,21 @@ describe('MaPagination', () => {
     }
   )
 
-  test('sets page 1 by default if property is not passed to component', async () => {
+  test('sets page 1 by default if property is not passed to component', () => {
     const { getByLabelText } = PaginationBuilder()
     const numberButton = getByLabelText(`Page number 1`)
 
     expect(numberButton).toHaveClass('ma-button--primary')
   })
 
-  test('does not display any pagination button if there are no items', async () => {
+  test('does not display any pagination button if there are no items', () => {
     const { queryAllByRole } = PaginationBuilder({ totalItems: 0 })
     const paginationButtons = queryAllByRole(`button`)
 
     expect(paginationButtons).toHaveLength(0)
   })
 
-  test('uses proper amount of pagination buttons when end page is minor than set property', async () => {
+  test('uses proper amount of pagination buttons when end page is minor than set property', () => {
     const { queryByLabelText } = PaginationBuilder({
       totalItems: 1,
       itemsPerPage: 1,

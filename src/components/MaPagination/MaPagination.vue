@@ -61,7 +61,7 @@ export default {
     buttonsNumber: {
       type: Number,
       default: 5,
-      validator: value => 3 <= value,
+      validator: (value) => value > 3,
     },
 
     totalItems: {
@@ -92,7 +92,7 @@ export default {
     startPage: {
       type: Number,
       default: 1,
-      validator: value => 1 <= value,
+      validator: (value) => value > 1,
     },
   },
 
@@ -104,7 +104,7 @@ export default {
 
   computed: {
     displayedPages() {
-      let result = new Set()
+      const result = new Set()
 
       if (!this.endPage) return []
 
