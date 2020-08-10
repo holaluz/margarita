@@ -6,12 +6,12 @@ describe('GridColumn', () => {
     const { queryByRole } = render(MaGridColumn, {
       context: Object.assign({
         props: {
-          tag: 'section',
+          tag: 'nav',
         },
       }),
     })
 
-    expect(queryByRole('region')).toBeInTheDocument()
+    expect(queryByRole('navigation')).toBeInTheDocument()
   })
 
   test('renders custom class', () => {

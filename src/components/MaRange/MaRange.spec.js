@@ -8,7 +8,7 @@ describe('Range', () => {
     expect(queryByText(/step value/i)).toBeInTheDocument()
     expect(queryByText(/second value/i)).toBeInTheDocument()
 
-    expect(getByRole('textbox')).toHaveValue('0')
+    expect(getByRole('slider')).toHaveValue('0')
   })
 
   test('selects the clicked element', async () => {
