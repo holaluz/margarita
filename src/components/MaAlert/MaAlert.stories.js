@@ -26,7 +26,7 @@ storiesOf('Alert', module)
                     :type="type"
                     :title="title"
                     :text="text"
-                >
+                />
                 </ma-grid-column>
             </ma-grid-row>
           </ma-grid-container>

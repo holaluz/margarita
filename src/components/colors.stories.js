@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import colors from '../scss/variables/_colors.scss'
+import colors from '../scss/_margarita.scss'
 
 storiesOf('Colors', module).add('colors', () => ({
   template: `
