@@ -61,7 +61,7 @@ export default {
     buttonsNumber: {
       type: Number,
       default: 5,
-      validator: (value) => value > 3,
+      validator: (value) => value >= 3,
     },
 
     totalItems: {
@@ -92,7 +92,7 @@ export default {
     startPage: {
       type: Number,
       default: 1,
-      validator: (value) => value > 1,
+      validator: (value) => value >= 1,
     },
   },
 

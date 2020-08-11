@@ -9,18 +9,15 @@ module.exports = {
       },
     },
     plugins: [
-      new CopyWebpackPlugin([
-        {
-          from: 'src/scss',
-          to: 'scss',
-        },
-      ]),
+      new CopyWebpackPlugin({
+        patterns: [{ from: 'src/scss', to: 'scss' }],
+      }),
     ],
   },
   css: {
     loaderOptions: {
       scss: {
-        data: `@import "~@/scss/margarita-tokens.scss";`,
+        additionalData: `@import "~@/scss/margarita-tokens.scss";`,
       },
     },
   },
