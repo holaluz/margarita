@@ -83,9 +83,9 @@ export default {
 
     inputListeners() {
       return Object.assign({}, this.$listeners, {
-        input: e => this.emit(e),
-        change: e => this.emit(e),
-        blur: e => this.emit(e),
+        input: (e) => this.emit(e),
+        change: (e) => this.emit(e),
+        blur: (e) => this.emit(e),
       })
     },
   },

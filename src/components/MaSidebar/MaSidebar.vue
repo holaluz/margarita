@@ -22,13 +22,13 @@ export default {
     type: {
       type: String,
       default: 'attached',
-      validator: value => DRAWER_TYPES.includes(value),
+      validator: (value) => DRAWER_TYPES.includes(value),
     },
 
     position: {
       type: String,
       default: 'left',
-      validator: value => SLIDE_DIRECTIONS.includes(value),
+      validator: (value) => SLIDE_DIRECTIONS.includes(value),
     },
 
     overlay: {

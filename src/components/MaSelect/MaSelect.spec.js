@@ -104,7 +104,7 @@ describe('Select', () => {
 
     const { getByText } = SelectBuilder({
       options,
-      formatter: o => ({
+      formatter: (o) => ({
         label: o.potato,
         text: o.potato,
         value: o.something,
@@ -112,7 +112,7 @@ describe('Select', () => {
       }),
     })
 
-    options.forEach(o => {
+    options.forEach((o) => {
       const option = getByText(o.potato)
       expect(option.disabled).toBe(!o.active)
     })

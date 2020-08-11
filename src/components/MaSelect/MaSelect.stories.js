@@ -27,7 +27,7 @@ storiesOf('Select', module)
   .add('Select', () => {
     const selectedValue = select(
       'Value',
-      ['', ...DEFAULT_OPTIONS.map(o => o.value)],
+      ['', ...DEFAULT_OPTIONS.map((o) => o.value)],
       ''
     )
     const label = text('Label', 'Label')

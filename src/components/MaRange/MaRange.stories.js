@@ -18,7 +18,7 @@ storiesOf('Range', module)
   .add('Range', () => {
     const selectedValue = select(
       'Value',
-      defaultSteps.map(s => s.value),
+      defaultSteps.map((s) => s.value),
       'medium'
     )
     const steps = object('Steps', defaultSteps)

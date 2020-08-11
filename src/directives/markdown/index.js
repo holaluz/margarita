@@ -17,7 +17,7 @@ function processAttributes(currentNode) {
   if (attrMatch) {
     // If there are markdown attributes, we add them to the previous HTML node.
     const previousNode = currentNode.previousSibling
-    attrMatch[1].split(' ').forEach(attr => addNodeAttr(previousNode, attr))
+    attrMatch[1].split(' ').forEach((attr) => addNodeAttr(previousNode, attr))
     // We remove the markdown attributes from the DOM
     currentNode.textContent = currentNode.textContent.replace(ATTR_REGEX, '')
   }

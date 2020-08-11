@@ -51,7 +51,7 @@ describe('Markdown directive', () => {
   })
 })
 
-const componentBuilder = markdownText => {
+const componentBuilder = (markdownText) => {
   return render({
     template: `<div v-markdown="markdownText" />`,
     directives: {

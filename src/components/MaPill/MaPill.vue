@@ -16,7 +16,7 @@ export default {
     color: {
       type: String,
       default: 'green',
-      validator: color => AVAILABLE_COLORS.includes(color),
+      validator: (color) => AVAILABLE_COLORS.includes(color),
     },
 
     text: {

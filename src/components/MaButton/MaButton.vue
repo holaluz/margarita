@@ -59,7 +59,7 @@ export default {
     category: {
       type: String,
       default: 'primary',
-      validator: v => AVAILABLE_CATEGORIES.includes(v),
+      validator: (v) => AVAILABLE_CATEGORIES.includes(v),
     },
   },
 

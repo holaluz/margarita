@@ -82,7 +82,7 @@ export default {
 
     formatter: {
       type: Function,
-      default: o => ({
+      default: (o) => ({
         disabled: o.disabled,
         label: o.label,
         text: o.text,
@@ -98,7 +98,7 @@ export default {
     weight: {
       type: String,
       default: '',
-      validator: value => !value || AVAILABLE_WEIGHTS.includes(value),
+      validator: (value) => !value || AVAILABLE_WEIGHTS.includes(value),
     },
   },
 

@@ -29,7 +29,7 @@ export default {
     icon: {
       type: String,
       default: '',
-      validator: function(value) {
+      validator: function (value) {
         if (!value) return true
         return availableIcons.includes(value)
       },

@@ -117,7 +117,7 @@ describe('Text', () => {
 
   test.each(['inputSibling', 'labelSibling'])(
     'renders provided %s slot',
-    slotName => {
+    (slotName) => {
       const slotText = 'Test slot'
       const { queryByText } = TextBuilder(null, {
         slots: {

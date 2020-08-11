@@ -38,8 +38,8 @@ export default {
     columns: {
       type: Array,
       required: true,
-      validator: v =>
-        v.every(column => column.name && (column.value || column.component)),
+      validator: (v) =>
+        v.every((column) => column.name && (column.value || column.component)),
     },
 
     isLoading: {

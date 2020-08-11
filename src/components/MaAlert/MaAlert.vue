@@ -23,7 +23,7 @@ export default {
     size: {
       default: 'medium',
       type: String,
-      validator: value => AVAILABLE_SIZES.includes(value),
+      validator: (value) => AVAILABLE_SIZES.includes(value),
     },
 
     text: {
@@ -39,7 +39,7 @@ export default {
     type: {
       type: String,
       default: 'info',
-      validator: value => AVAILABLE_TYPES.includes(value),
+      validator: (value) => AVAILABLE_TYPES.includes(value),
     },
   },
 

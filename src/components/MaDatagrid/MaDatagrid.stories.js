@@ -38,7 +38,7 @@ const columns = [
     sortableBy: 'age',
 
     // …it can also be a function (that receives the whole row)…
-    value: r => `${r.age} years old`,
+    value: (r) => `${r.age} years old`,
   },
   {
     name: 'Status',
