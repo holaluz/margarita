@@ -67,7 +67,7 @@
     "html-loader": "^1.1.0",
     "husky": "^3.1.0",
     "is-vue-component": "^1.0.0",
-    "jest-environment-jsdom-fourteen": "^1.0.1",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-watch-typeahead": "^0.6.0",
     "lint-staged": "^10.2.11",
     "lodash.camelcase": "^4.3.0",

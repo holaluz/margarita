@@ -120,15 +120,17 @@ describe('Select', () => {
 })
 
 function SelectBuilder(customProps) {
+  const label = 'Test Select label'
+
   const utils = render(MaSelect, {
     props: {
-      label: 'Test Select label',
+      label,
       options: OPTIONS,
       ...customProps,
     },
   })
 
-  const getSelect = () => utils.getByDisplayValue(/option1/i)
+  const getSelect = () => utils.getByLabelText(label)
 
   return {
     ...utils,

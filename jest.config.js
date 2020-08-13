@@ -12,7 +12,7 @@ module.exports = {
     '^@@/(.*)$': '<rootDir>/$1',
   },
   snapshotSerializers: ['jest-serializer-vue'],
-  testEnvironment: 'jest-environment-jsdom-fourteen',
+  testEnvironment: 'jest-environment-jsdom-sixteen',
   testMatch: ['**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'],
   testURL: 'http://localhost:6006',
   setupFilesAfterEnv: ['@holaluz/npm-scripts/jest.setup.js'],
