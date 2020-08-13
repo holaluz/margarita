@@ -10,7 +10,7 @@
     "src"
   ],
   "scripts": {
-    "prepare": "npm run build",
+    "prepublishOnly": "npm i && npm run build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "deploy": "gh-pages -d storybook-static",
     "lint": "npm run lint:js && npm run lint:css",
