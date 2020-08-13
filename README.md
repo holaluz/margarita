@@ -1,3 +1,7 @@
+[![npm](https://img.shields.io/npm/v/@holaluz/margarita.svg)](https://img.shields.io/npm/v/@holaluz/margarita.svg)
+[![deploy](https://github.com/holaluz/margarita/workflows/Build%20and%20Deploy/badge.svg)](https://github.com/holaluz/margarita/workflows/Build%20and%20Deploy/badge.svg)
+[![publish](https://github.com/holaluz/margarita/workflows/Publish%20NPM%20package/badge.svg)](https://github.com/holaluz/margarita/workflows/Publish%20NPM%20package/badge.svg)
+
 ![margarita](margarita.png)
 
 # Margarita
