@@ -33,6 +33,7 @@ export {
   MaSelect,
   MaSidebar,
   MaText,
+  markdown,
 }
 
 function install(Vue) {
