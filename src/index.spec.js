@@ -20,7 +20,9 @@ test('installs Margarita components', () => {
   localVue.use(defaultExport)
 
   const installedComponents = Object.keys(localVue.options.components)
-  const componentNames = Object.values(Margarita).map((m) => m.name)
+  const componentNames = Object.keys(Margarita)
+    .filter((key) => key !== 'markdown')
+    .map((key) => Margarita[key].name)
 
   expect(installedComponents.map(camelCase)).toStrictEqual(
     componentNames.map(camelCase)
@@ -29,7 +31,8 @@ test('installs Margarita components', () => {
 
 test.each(Object.entries(Margarita))(
   '%s is a valid exposed component',
-  (_, component) => {
+  (name, component) => {
+    if (name === 'markdown') return
     expect(isVueComponent(component)).toBe(true)
   }
 )
