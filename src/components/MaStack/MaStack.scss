@@ -1,0 +1,20 @@
+$stack-spacing: map-keys($spaces);
+$stack-alignment: (start, center, end);
+
+.stack {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+@each $space in $stack-spacing {
+  @debug $space;
+  .stack--space-#{$space} {
+    grid-gap: get-space($space);
+  }
+}
+
+@each $align in $stack-alignment {
+  .stack--align-#{$align} {
+    justify-items: $align;
+  }
+}

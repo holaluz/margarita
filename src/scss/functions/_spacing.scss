@@ -1,0 +1,14 @@
+/// Returns the spacing value for a given spacing name.
+///
+/// @param {String} $value - The spacing value.
+/// @return {value} The spacing value.
+
+@function get-space($value: base) {
+  $fetched-value: map-get($spaces, $value);
+
+  @if type-of($fetched-value) == number {
+    @return $fetched-value;
+  } @else {
+    @error 'Spacing `#{$value}` not found. Available spaces: #{available-names($spaces)}';
+  }
+}
