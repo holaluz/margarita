@@ -1,12 +1,14 @@
 @import '~sass-mq';
 
 @import 'variables/colors';
+@import 'variables/spacing';
 @import 'variables/fonts';
 @import 'variables/grid';
 
 @import 'animations/slide-animation';
 @import 'animations/horizontal-slide-animation';
 
+@import 'functions/spacing';
 @import 'functions/colors';
 @import 'functions/rem';
 
