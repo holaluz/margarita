@@ -8,10 +8,9 @@
 
 Margarita is the UI Library from Holaluz.
 
-The storybook with component examples is available [here](https://holaluz.github.io/margarita/).
+Check out [component examples](https://holaluz.github.io/margarita/).
 
-The NPM package is available [here](https://www.npmjs.com/package/@holaluz/margarita/).
-
+**WARNING**: While Margarita is open source, its purpose is to improve code quality, consistency, and cross-team collaboration at Holaluz. Thus, it’s likely that we will introduce breaking API changes more often than usual.
 
 ## About Margarita
 
@@ -20,7 +19,26 @@ The NPM package is available [here](https://www.npmjs.com/package/@holaluz/marga
 * Unit testing based on [Jest](https://jestjs.io/) and [Vue Testing Library](https://github.com/testing-library/vue-testing-library).
 
 
-## Installation
+## Installing Margarita in another project
+
+The NPM package is available [here](https://www.npmjs.com/package/@holaluz/margarita/).
+
+You can install Margarita as a dependency by running the following command in your Vue project:
+
+```bash
+$ npm install -D @holaluz/margarita
+```
+
+And then, use it as a plugin:
+
+```js
+import Vue from 'vue'
+import Margarita from '@holaluz/margarita'
+
+Vue.use(Margarita)
+```
+
+## Installing Margarita locally
 
 Clone the repo and install node dependencies:
 
@@ -28,11 +46,10 @@ Clone the repo and install node dependencies:
 $ npm install
 ```
 
-
-## Useful commands
+Then you can run several commands such as
 
 ```bash
-# run storybook
+# run storybook locally
 $ npm start
 
 # run unit tests
