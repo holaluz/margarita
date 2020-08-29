@@ -6,6 +6,10 @@ import MaStack, {
   validSpacing,
 } from '@margarita/components/MaStack'
 
+import MaButton from '@margarita/components/MaButton'
+import MaText from '@margarita/components/MaText'
+import MaAlert from '@margarita/components/MaAlert'
+
 storiesOf('Stack', module)
   .addDecorator(withKnobs)
   .add('Stack', () => {
@@ -41,19 +45,20 @@ storiesOf('Stack', module)
   })
   .add('Nested stack', () => {
     return {
-      components: { MaStack },
+      components: { MaStack, MaButton, MaText, MaAlert },
       template: `
-      <ma-stack space="medium" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
-        <ma-stack align="center" style="outline: 1px solid red">
+      <ma-stack space="large" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
+        <ma-stack space="medium" align="center" style="outline: 1px solid red">
           <span style="font-size: 2rem">Log In</span>
         </ma-stack>
         <ma-stack space="small" style="outline: 1px solid red">
-          <label>email <input /></label>
-          <label>password <input /></label>
+          <ma-text label="email" />
+          <ma-text label="password" />
           <span>reset my password</span>
-          <button>entrar</button>
+          <ma-button>entrar</ma-button>
         </ma-stack>
-      </ma-stack=>
+        <ma-alert text="wrong password!" type="error" />
+      </ma-stack>
       `,
     }
   })
