@@ -26,7 +26,7 @@ export default {
   props: {
     space: {
       type: String,
-      default: validSpacing.none,
+      required: true,
       validator: (p) => validSpacing.includes(p),
     },
 

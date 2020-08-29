@@ -2,60 +2,40 @@ import { render } from '@testing-library/vue'
 import MaStack from './MaStack'
 
 describe('Stack', () => {
-  test('renders slot', () => {
-    const slotContent = 'content'
-    const { queryByText } = renderComponent({
-      slots: {
-        default: slotContent,
-      },
-    })
-
-    expect(queryByText(slotContent)).toBeInTheDocument()
-  })
-
   test('adds spacing classes', () => {
-    const { component } = renderComponent({
-      props: {
-        space: 'small',
-      },
-    })
+    const { contentWrapper } = renderComponent({ space: 'large' })
 
-    expect(component).toHaveClass('stack--space-small')
+    expect(contentWrapper).toHaveClass('stack--space-large')
   })
 
   test('adds alignment classes', () => {
-    const { component } = renderComponent({
-      props: {
-        align: 'center',
-      },
-    })
+    const { contentWrapper } = renderComponent({ align: 'center' })
 
-    expect(component).toHaveClass('stack--align-center')
+    expect(contentWrapper).toHaveClass('stack--align-center')
   })
 
   test('custom wrapper element', () => {
-    const { queryByRole } = renderComponent({
-      props: {
-        component: 'ul',
-      },
-    })
+    const { queryByRole } = renderComponent({ component: 'ul' })
 
     expect(queryByRole('list')).toBeInTheDocument()
   })
 })
 
-function renderComponent(opts) {
+function renderComponent(props) {
   const utils = render(MaStack, {
-    ...opts,
+    props: {
+      space: 'small',
+      ...props,
+    },
     slots: {
       default: 'content',
     },
   })
 
-  const component = utils.getByText('content')
+  const contentWrapper = utils.getByText('content')
 
   return {
     ...utils,
-    component,
+    contentWrapper,
   }
 }
