@@ -18,7 +18,7 @@ export const validSpacing = [
   'xxlarge',
 ]
 
-export const validAlignments = ['start', 'center', 'end']
+export const validAlignment = ['start', 'center', 'end']
 
 export default {
   name: 'MaStack',
@@ -33,7 +33,7 @@ export default {
     align: {
       type: String,
       default: '',
-      validator: (p) => !p || validAlignments.includes(p),
+      validator: (p) => !p || validAlignment.includes(p),
     },
 
     component: {

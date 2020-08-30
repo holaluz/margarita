@@ -1,1 +1,1 @@
-export { default, validAlignments, validSpacing } from './MaStack'
+export { default, validAlignment, validSpacing } from './MaStack'
