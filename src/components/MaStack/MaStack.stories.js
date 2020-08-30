@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import { withKnobs, select } from '@storybook/addon-knobs'
 
 import MaStack, {
-  validAlignments,
+  validAlignment,
   validSpacing,
 } from '@margarita/components/MaStack'
 
@@ -14,7 +14,7 @@ storiesOf('Stack', module)
   .addDecorator(withKnobs)
   .add('Stack', () => {
     const space = select('Space', validSpacing, validSpacing.medium)
-    const align = select('Align', ['', ...validAlignments], '')
+    const align = select('Align', ['', ...validAlignment], '')
 
     return {
       components: { MaStack },
