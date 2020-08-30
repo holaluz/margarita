@@ -7,7 +7,6 @@ $stack-alignment: (start, center, end);
 }
 
 @each $space in $stack-spacing {
-  @debug $space;
   .stack--space-#{$space} {
     grid-gap: get-space($space);
   }
