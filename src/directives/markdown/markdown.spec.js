@@ -1,5 +1,5 @@
 import { render } from '@testing-library/vue'
-import markdown from './'
+import { markdown } from './'
 
 describe('Markdown directive', () => {
   test.each`

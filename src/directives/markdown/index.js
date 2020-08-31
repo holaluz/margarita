@@ -47,7 +47,15 @@ function setMarkdownAttributes({ childNodes }) {
   }
 }
 
-export default (el, { value }) => {
+export function markdown(el, { value }) {
   el.innerHTML = snarkdown(value)
   setMarkdownAttributes(el)
+}
+
+export function markdownSSR(vnode, directiveMeta) {
+  vnode.data.domProps = {
+    ...vnode.data.domProps,
+    childNodes: [],
+  }
+  markdown(vnode.data.domProps, directiveMeta)
 }

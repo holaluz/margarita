@@ -15,7 +15,7 @@ import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
 import MaSidebar from './components/MaSidebar'
 import MaText from './components/MaText'
-import markdown from './directives/markdown'
+import { markdown, markdownSSR } from './directives/markdown'
 
 export {
   MaAlert,
@@ -34,6 +34,7 @@ export {
   MaSidebar,
   MaText,
   markdown,
+  markdownSSR,
 }
 
 function install(Vue) {

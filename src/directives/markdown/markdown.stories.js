@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, text } from '@storybook/addon-knobs'
 import MaGridContainer from '@margarita/components/MaGridContainer'
-import markdown from './'
+import { markdown } from './'
 
 storiesOf('Markdown', module)
   .addDecorator(withKnobs)
