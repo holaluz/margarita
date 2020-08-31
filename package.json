@@ -74,6 +74,7 @@
     "lodash.camelcase": "^4.3.0",
     "lodash.merge": "^4.6.2",
     "lodash.shuffle": "^4.2.0",
+    "lodash.throttle": "^4.1.1",
     "markdown-loader": "^6.0.0",
     "node-sass": "^5.0.0",
     "prettier": "^2.1.2",
