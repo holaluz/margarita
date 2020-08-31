@@ -17,6 +17,7 @@ import MaSidebar from './components/MaSidebar'
 import MaStack from './components/MaStack'
 import MaText from './components/MaText'
 import { markdown, markdownSSR } from './directives/markdown'
+import responsive from './utils/responsivePlugin'
 
 export {
   MaAlert,
@@ -40,6 +41,7 @@ export {
 }
 
 function install(Vue) {
+  Vue.use(responsive)
   Vue.component('ma-alert', MaAlert)
   Vue.component('ma-button', MaButton)
   Vue.component('ma-card', MaCard)

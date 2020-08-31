@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, select } from '@storybook/addon-knobs'
+import { withKnobs, select, array } from '@storybook/addon-knobs'
 
 import MaStack, {
   validAlignment,
@@ -13,7 +13,7 @@ import MaAlert from '@margarita/components/MaAlert'
 storiesOf('Stack', module)
   .addDecorator(withKnobs)
   .add('Stack', () => {
-    const space = select('Space', validSpacing, validSpacing.medium)
+    const space = select('Space', validSpacing, validSpacing[5])
     const align = select('Align', ['', ...validAlignment], '')
 
     return {
@@ -24,12 +24,12 @@ storiesOf('Stack', module)
           :align="align"
           style="background-color:#f1f1f1"
         >
-          <span
-            v-for="i in [1,2,3]"
-            :key="i"
-            style="width:200px;background-color:#dcdcdc;text-align:center;color:#212121;padding:1rem 2rem;outline:1px solid #bbb">
-              {{i}}
-          </span>
+        <span
+          v-for="i in [1,2,3]"
+          :key="i"
+          style="width:200px;background-color:#dcdcdc;text-align:center;color:#212121;padding:1rem 2rem;outline:1px solid #bbb">
+            {{i}}
+        </span>
         </ma-stack>
       `,
 
@@ -60,5 +60,34 @@ storiesOf('Stack', module)
         <ma-alert text="wrong password!" type="error" />
       </ma-stack>
       `,
+    }
+  })
+  .add('Responsive space prop', () => {
+    const space = array('Space', ['small', 'medium', 'large'])
+
+    return {
+      components: { MaStack },
+      template: `
+      <div>
+        <p>current breakpoint: {{ $layout.currentBreakpoint }}</p>
+        <ma-stack
+          :space="space"
+          style="background-color:#f1f1f1"
+        >
+        <span
+          v-for="i in [1,2,3]"
+          :key="i"
+          style="width:200px;background-color:#dcdcdc;text-align:center;color:#212121;padding:1rem 2rem;outline:1px solid #bbb">
+            {{i}}
+        </span>
+        </ma-stack>
+      </div>
+      `,
+
+      props: {
+        space: {
+          default: space,
+        },
+      },
     }
   })
