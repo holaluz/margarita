@@ -18,7 +18,7 @@ const throttleMs = 200
 export default {
   install(vue) {
     vue.prototype.$layout = Vue.observable({
-      currentBreakpoint: breakpointsEnum.mobile,
+      currentBreakpoint: null,
     })
 
     if (process.server) return
