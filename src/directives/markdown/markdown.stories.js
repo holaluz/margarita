@@ -35,7 +35,7 @@ storiesOf('Markdown', module)
       template: `
           <ma-grid-container>
             <p v-markdown="markdownText" />
-            <ma-alert style="max-width: 700px; margin-top:3rem">
+            <ma-alert style="max-width: 700px; margin-top:3rem; overflow: auto">
               <p style="margin-top:0">
                 In order to render markdown in Nuxt <b>universal mode</b>, we need to add this property to
                 <b>nuxt.config.js</b>:
