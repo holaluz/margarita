@@ -7,18 +7,8 @@
 </template>
 
 <script>
-export const validSpacing = [
-  'none',
-  'xxsmall',
-  'xsmall',
-  'small',
-  'medium',
-  'large',
-  'xlarge',
-  'xxlarge',
-]
-
-export const validAlignment = ['start', 'center', 'end']
+import { responsivePropValidator } from '@margarita/utils/responsivePropValidator'
+import { spacing, alignment } from '../../tokens'
 
 export default {
   name: 'MaStack',
@@ -27,17 +17,13 @@ export default {
     space: {
       type: [Array, String],
       required: true,
-      validator: (value) => {
-        return Array.isArray(value)
-          ? value.every((v) => validSpacing.includes(v))
-          : validSpacing.includes(value)
-      },
+      validator: responsivePropValidator(spacing),
     },
 
     align: {
-      type: String,
-      default: '',
-      validator: (p) => !p || validAlignment.includes(p),
+      type: [Array, String],
+      default: alignment.start,
+      validator: responsivePropValidator(alignment),
     },
 
     component: {
