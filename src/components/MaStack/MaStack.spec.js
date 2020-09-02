@@ -12,11 +12,17 @@ describe('Stack', () => {
   test('adds spacing classes from array', () => {
     const { contentWrapper } = renderComponent({ space: ['small', 'large'] })
 
-    expect(contentWrapper).toHaveClass('stack--space-large')
+    expect(contentWrapper).toHaveClass('stack--space-small')
   })
 
   test('adds alignment classes', () => {
     const { contentWrapper } = renderComponent({ align: 'center' })
+
+    expect(contentWrapper).toHaveClass('stack--align-center')
+  })
+
+  test('adds alignment classes from array', () => {
+    const { contentWrapper } = renderComponent({ align: ['center', 'end'] })
 
     expect(contentWrapper).toHaveClass('stack--align-center')
   })
@@ -37,7 +43,7 @@ function renderComponent(props) {
     },
     (vue) => {
       vue.use(responsivePlugin)
-      // this.$layout.currentBreakpoint is 'desktop' by default
+      // this.$layout.currentBreakpoint is 'mobile' by default
     }
   )
 

@@ -1,20 +1,18 @@
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, select, array } from '@storybook/addon-knobs'
 
-import MaStack, {
-  validAlignment,
-  validSpacing,
-} from '@margarita/components/MaStack'
-
+import MaStack from '@margarita/components/MaStack'
 import MaButton from '@margarita/components/MaButton'
 import MaText from '@margarita/components/MaText'
 import MaAlert from '@margarita/components/MaAlert'
 
+import { alignment, spacing } from '@margarita/tokens'
+
 storiesOf('Stack', module)
   .addDecorator(withKnobs)
   .add('Stack', () => {
-    const space = select('Space', validSpacing, validSpacing[5])
-    const align = select('Align', ['', ...validAlignment], '')
+    const space = select('Space', spacing, spacing[5])
+    const align = select('Align', alignment, alignment[0])
 
     return {
       components: { MaStack },
