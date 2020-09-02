@@ -1,6 +1,6 @@
 import { render } from '@testing-library/vue'
 import MaStack from './MaStack'
-import responsivePlugin from '@margarita/utils/responsivePlugin'
+import responsivePlugin from '@margarita/plugins/responsivePlugin'
 
 describe('Stack', () => {
   test('adds spacing classes', () => {
