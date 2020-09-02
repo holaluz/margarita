@@ -6,7 +6,11 @@ export default {
     vue.prototype.$layout = Vue.observable({ currentBreakpoint: null })
     vue.prototype.$layout.getResponsivePropValue = getResponsivePropValue
 
-    if (process.server) return
+    // If we're on the server, let's set breakpoint to desktop and call it a day
+    if (process.server) {
+      vue.prototype.$layout.currentBreakpoint = breakpointsEnum.desktop
+      return
+    }
 
     const tabletQuery = minWidthQuery(breakpoint.tablet)
     const desktopQuery = minWidthQuery(breakpoint.desktop)
