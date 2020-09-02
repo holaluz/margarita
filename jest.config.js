@@ -15,7 +15,10 @@ module.exports = {
   testEnvironment: 'jest-environment-jsdom-sixteen',
   testMatch: ['**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'],
   testURL: 'http://localhost:6006',
-  setupFilesAfterEnv: ['@holaluz/npm-scripts/jest.setup.js'],
+  setupFilesAfterEnv: [
+    '@holaluz/npm-scripts/jest.setup.js',
+    '<rootDir>/jest.setup.js',
+  ],
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
