@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import responsive from '../../src/utils/responsivePlugin'
 import { configure, addDecorator, addParameters } from '@storybook/vue'
 import { withA11y } from '@storybook/addon-a11y'
 import holaluzTheme from './holaluzTheme'
+import responsivePlugin from '../../src/plugins/responsivePlugin'
 import '../../src/scss/_margarita.scss'
 
 function loadStories() {
@@ -10,7 +10,7 @@ function loadStories() {
   req.keys().forEach((filename) => req(filename))
 }
 
-Vue.use(responsive)
+Vue.use(responsivePlugin)
 
 addParameters({
   options: {

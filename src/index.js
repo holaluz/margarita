@@ -17,7 +17,7 @@ import MaSidebar from './components/MaSidebar'
 import MaStack from './components/MaStack'
 import MaText from './components/MaText'
 import { markdown, markdownSSR } from './directives/markdown'
-import responsivePlugin from './utils/responsivePlugin'
+import responsivePlugin from './plugins/responsivePlugin'
 
 export {
   MaAlert,
