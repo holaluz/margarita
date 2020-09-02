@@ -63,7 +63,7 @@ storiesOf('Stack', module)
     }
   })
   .add('Responsive space prop', () => {
-    const space = array('Space', ['small', 'medium', 'large'])
+    const space = array('Space', ['xxsmall', 'medium', 'xxlarge'])
 
     return {
       components: { MaStack },

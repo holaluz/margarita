@@ -20,8 +20,6 @@ export const validSpacing = [
 
 export const validAlignment = ['start', 'center', 'end']
 
-import { getResponsivePropValue } from '../../utils/getResponsivePropValue'
-
 export default {
   name: 'MaStack',
 
@@ -30,10 +28,9 @@ export default {
       type: [Array, String],
       required: true,
       validator: (value) => {
-        if (Array.isArray(value))
-          return value.every((v) => validSpacing.includes(v))
-
-        return validSpacing.includes(value)
+        return Array.isArray(value)
+          ? value.every((v) => validSpacing.includes(v))
+          : validSpacing.includes(value)
       },
     },
 
@@ -49,17 +46,20 @@ export default {
       validator: (p) => ['div', 'ol', 'ul'].includes(p),
     },
   },
+
   computed: {
+    computedSpace() {
+      return this.$layout.getResponsivePropValue(this.space)
+    },
+
+    computedAlign() {
+      return this.$layout.getResponsivePropValue(this.align)
+    },
+
     classes() {
       return {
-        [`stack--space-${getResponsivePropValue(
-          this.space,
-          this.$layout.currentBreakpoint
-        )}`]: true,
-        // [`stack--align-${getResponsivePropValue(
-        //   this.align,
-        //   this.$layout.currentBreakpoint
-        // )}`]: !!this.align,
+        [`stack--space-${this.computedSpace}`]: true,
+        [`stack--align-${this.computedAlign}`]: !!this.align,
       }
     },
   },
