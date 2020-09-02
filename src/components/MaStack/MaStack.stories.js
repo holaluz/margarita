@@ -62,6 +62,7 @@ storiesOf('Stack', module)
   })
   .add('Responsive space prop', () => {
     const space = array('Space', ['xxsmall', 'medium', 'xxlarge'])
+    const align = array('Align', ['center', 'left'])
 
     return {
       components: { MaStack },
@@ -70,6 +71,7 @@ storiesOf('Stack', module)
         <p>current breakpoint: {{ $layout.currentBreakpoint }}</p>
         <ma-stack
           :space="space"
+          :align="align"
           style="background-color:#f1f1f1"
         >
         <span
@@ -85,6 +87,9 @@ storiesOf('Stack', module)
       props: {
         space: {
           default: space,
+        },
+        align: {
+          default: align,
         },
       },
     }
