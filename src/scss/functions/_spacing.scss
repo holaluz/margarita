@@ -3,7 +3,7 @@
 /// @param {String} $value - The spacing value.
 /// @return {value} The spacing value.
 
-@function get-space($value: base) {
+@function get-space($value) {
   $fetched-value: map-get($spaces, $value);
 
   @if type-of($fetched-value) == number {
