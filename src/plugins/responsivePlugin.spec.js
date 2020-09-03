@@ -15,9 +15,11 @@ describe('getResponsivePropValue', () => {
   const getResponsivePropValue = vueStub.$layout.getResponsivePropValue
 
   describe('mobile', () => {
-    vueStub.$layout.currentBreakpoint = 'mobile'
+    beforeAll(() => {
+      vueStub.$layout.currentBreakpoint = 'mobile'
+    })
 
-    test('returns first value from string', () => {
+    test('returns value from string', () => {
       const input = 'small'
       const expectedOutput = 'small'
 
@@ -33,9 +35,11 @@ describe('getResponsivePropValue', () => {
   })
 
   describe('tablet', () => {
-    vueStub.$layout.currentBreakpoint = 'tablet'
+    beforeAll(() => {
+      vueStub.$layout.currentBreakpoint = 'tablet'
+    })
 
-    test('returns first value from string', () => {
+    test('returns value from string', () => {
       const input = 'small'
       const expectedOutput = 'small'
 
@@ -50,7 +54,7 @@ describe('getResponsivePropValue', () => {
     })
 
     test('returns second value from multi-valued array', () => {
-      const input = ['small', 'medium']
+      const input = ['small', 'medium', 'large']
       const expectedOutput = 'medium'
 
       expect(getResponsivePropValue(input)).toStrictEqual(expectedOutput)
@@ -58,9 +62,11 @@ describe('getResponsivePropValue', () => {
   })
 
   describe('desktop', () => {
-    vueStub.$layout.currentBreakpoint = 'desktop'
+    beforeAll(() => {
+      vueStub.$layout.currentBreakpoint = 'desktop'
+    })
 
-    test('returns first value from string', () => {
+    test('returns value from string', () => {
       const input = 'small'
       const expectedOutput = 'small'
 
