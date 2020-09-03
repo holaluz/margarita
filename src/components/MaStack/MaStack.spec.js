@@ -26,12 +26,6 @@ describe('Stack', () => {
 
     expect(contentWrapper).toHaveClass('stack--align-center')
   })
-
-  test('custom wrapper element', () => {
-    const { queryByRole } = renderComponent({ component: 'ul' })
-
-    expect(queryByRole('list')).toBeInTheDocument()
-  })
 })
 
 function renderComponent(props) {
