@@ -1,9 +1,9 @@
 <style lang="scss" src="./MaStack.scss" scoped></style>
 
 <template>
-  <component :is="component" :class="classes" class="stack">
+  <div :class="classes" class="stack">
     <slot />
-  </component>
+  </div>
 </template>
 
 <script>
@@ -25,27 +25,21 @@ export default {
       default: alignment[0],
       validator: responsivePropValidator(alignment),
     },
-
-    component: {
-      type: String,
-      default: 'div',
-      validator: (p) => ['div', 'ol', 'ul'].includes(p),
-    },
   },
 
   computed: {
-    computedSpace() {
+    responsiveSpace() {
       return this.$layout.getResponsivePropValue(this.space)
     },
 
-    computedAlign() {
+    responsiveAlign() {
       return this.$layout.getResponsivePropValue(this.align)
     },
 
     classes() {
       return [
-        `stack--space-${this.computedSpace}`,
-        `stack--align-${this.computedAlign}`,
+        `stack--space-${this.responsiveSpace}`,
+        `stack--align-${this.responsiveAlign}`,
       ]
     },
   },
