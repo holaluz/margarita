@@ -16,19 +16,19 @@ describe('Stack', () => {
   })
 
   test('adds alignment classes', () => {
-    const { contentWrapper } = renderComponent({ align: 'center' })
+    const { contentWrapper } = renderComponent({ align: 'right' })
 
-    expect(contentWrapper).toHaveClass('stack--align-center')
+    expect(contentWrapper).toHaveClass('stack--align-right')
   })
 
-  test('aligns at start by default', () => {
+  test('aligns to left by default', () => {
     const { contentWrapper } = renderComponent()
 
-    expect(contentWrapper).toHaveClass('stack--align-start')
+    expect(contentWrapper).toHaveClass('stack--align-left')
   })
 
   test('adds alignment classes from array', () => {
-    const { contentWrapper } = renderComponent({ align: ['center', 'end'] })
+    const { contentWrapper } = renderComponent({ align: ['center', 'right'] })
 
     expect(contentWrapper).toHaveClass('stack--align-center')
   })
