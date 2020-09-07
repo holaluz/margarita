@@ -7,6 +7,7 @@ import MaDatagrid from './components/MaDatagrid'
 import MaGridColumn from './components/MaGridColumn'
 import MaGridContainer from './components/MaGridContainer'
 import MaGridRow from './components/MaGridRow'
+import MaHidden from './components/MaHidden'
 import MaIcon from './components/MaIcon'
 import MaOption from './components/MaOption'
 import MaPagination from './components/MaPagination'
@@ -27,6 +28,7 @@ export {
   MaGridColumn,
   MaGridContainer,
   MaGridRow,
+  MaHidden,
   MaIcon,
   MaOption,
   MaPagination,
@@ -49,6 +51,7 @@ function install(Vue) {
   Vue.component('ma-grid-column', MaGridColumn)
   Vue.component('ma-grid-container', MaGridContainer)
   Vue.component('ma-grid-row', MaGridRow)
+  Vue.component('ma-hidden', MaHidden)
   Vue.component('ma-icon', MaIcon)
   Vue.component('ma-option', MaOption)
   Vue.component('ma-pagination', MaPagination)
