@@ -22,7 +22,7 @@ export default {
 
     align: {
       type: [Array, String],
-      default: alignment[0],
+      default: null,
       validator: responsivePropValidator(alignment),
     },
   },
@@ -37,10 +37,10 @@ export default {
     },
 
     classes() {
-      return [
-        `stack--space-${this.responsiveSpace}`,
-        `stack--align-${this.responsiveAlign}`,
-      ]
+      return {
+        [`stack--space-${this.responsiveSpace}`]: true,
+        [`stack--align-${this.responsiveAlign}`]: this.align,
+      }
     },
   },
 }
