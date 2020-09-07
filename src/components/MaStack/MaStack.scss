@@ -1,5 +1,4 @@
 $stack-spacing: map-keys($spaces);
-$stack-alignment: (start, center, end);
 
 .stack {
   display: grid;
@@ -12,8 +11,14 @@ $stack-alignment: (start, center, end);
   }
 }
 
-@each $align in $stack-alignment {
-  .stack--align-#{$align} {
-    justify-items: $align;
-  }
+.stack--align-left {
+  justify-items: flex-start;
+}
+
+.stack--align-center {
+  justify-items: center;
+}
+
+.stack--align-right {
+  justify-items: flex-end;
 }
