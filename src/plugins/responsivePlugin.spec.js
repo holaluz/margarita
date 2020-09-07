@@ -14,77 +14,24 @@ test('adds responsive plugin properties', () => {
 describe('getResponsivePropValue', () => {
   const getResponsivePropValue = vueStub.$layout.getResponsivePropValue
 
-  describe('mobile', () => {
-    beforeAll(() => {
-      vueStub.$layout.currentBreakpoint = 'mobile'
-    })
-
-    test('returns value from string', () => {
-      const input = 'small'
-      const expectedOutput = 'small'
-
-      expect(getResponsivePropValue(input)).toStrictEqual(expectedOutput)
-    })
-
-    test('returns value from single-valued array', () => {
-      const input = ['small']
-      const expectedOutput = 'small'
-
-      expect(getResponsivePropValue(input)).toStrictEqual(expectedOutput)
-    })
+  test('sets mobile as default current breakpoint', () => {
+    expect(vueStub.$layout.currentBreakpoint).toBe('mobile')
   })
 
-  describe('tablet', () => {
-    beforeAll(() => {
-      vueStub.$layout.currentBreakpoint = 'tablet'
-    })
-
-    test('returns value from string', () => {
-      const input = 'small'
-      const expectedOutput = 'small'
-
-      expect(getResponsivePropValue(input)).toStrictEqual(expectedOutput)
-    })
-
-    test('returns value from single-valued array', () => {
-      const input = ['small']
-      const expectedOutput = 'small'
-
-      expect(getResponsivePropValue(input)).toStrictEqual(expectedOutput)
-    })
-
-    test('returns second value from multi-valued array', () => {
-      const input = ['small', 'medium', 'large']
-      const expectedOutput = 'medium'
-
-      expect(getResponsivePropValue(input)).toStrictEqual(expectedOutput)
-    })
-  })
-
-  describe('desktop', () => {
-    beforeAll(() => {
-      vueStub.$layout.currentBreakpoint = 'desktop'
-    })
-
-    test('returns value from string', () => {
-      const input = 'small'
-      const expectedOutput = 'small'
-
-      expect(getResponsivePropValue(input)).toStrictEqual(expectedOutput)
-    })
-
-    test('returns value from single-valued array', () => {
-      const input = ['small']
-      const expectedOutput = 'small'
-
-      expect(getResponsivePropValue(input)).toStrictEqual(expectedOutput)
-    })
-
-    test('returns last value from multi-valued array', () => {
-      const input = ['small', 'medium', 'large']
-      const expectedOutput = 'large'
-
-      expect(getResponsivePropValue(input)).toStrictEqual(expectedOutput)
-    })
-  })
+  test.each`
+    currentBreakpoint | input                           | expected
+    ${'mobile'}       | ${'small'}                      | ${'small'}
+    ${'mobile'}       | ${['small']}                    | ${'small'}
+    ${'tablet'}       | ${['small']}                    | ${'small'}
+    ${'tablet'}       | ${['small', 'medium', 'large']} | ${'medium'}
+    ${'desktop'}      | ${['small']}                    | ${'small'}
+    ${'desktop'}      | ${['small', 'medium']}          | ${'medium'}
+    ${'desktop'}      | ${['small', 'medium', 'large']} | ${'large'}
+  `(
+    'returns $expected from $input when displaying on $currentBreakpoint',
+    ({ currentBreakpoint, input, expected }) => {
+      vueStub.$layout.currentBreakpoint = currentBreakpoint
+      expect(getResponsivePropValue(input)).toStrictEqual(expected)
+    }
+  )
 })
