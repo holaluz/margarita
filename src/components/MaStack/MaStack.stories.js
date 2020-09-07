@@ -12,7 +12,7 @@ storiesOf('Stack', module)
   .addDecorator(withKnobs)
   .add('Stack', () => {
     const space = select('Space', spacing, spacing[5])
-    const align = select('Align', alignment, alignment[0])
+    const align = select('Align', [null, ...alignment], alignment[0])
 
     return {
       components: { MaStack },
@@ -45,7 +45,7 @@ storiesOf('Stack', module)
     return {
       components: { MaStack, MaButton, MaText, MaAlert },
       template: `
-      <ma-stack space="large" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
+      <ma-stack space="xlarge" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
         <ma-stack space="medium" align="center" style="outline: 1px solid red">
           <span style="font-size: 2rem">Log In</span>
         </ma-stack>
@@ -53,7 +53,7 @@ storiesOf('Stack', module)
           <ma-text label="email" />
           <ma-text label="password" />
           <span>reset my password</span>
-          <ma-button>entrar</ma-button>
+          <ma-button>submit</ma-button>
         </ma-stack>
         <ma-alert text="wrong password!" type="error" />
       </ma-stack>
