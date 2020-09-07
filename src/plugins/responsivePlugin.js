@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { breakpoint, breakpointsEnum } from '../tokens'
+import { breakpoints, breakpointsEnum } from '../tokens'
 
 export default {
   install(vue) {
@@ -12,8 +12,8 @@ export default {
       return
     }
 
-    const tabletQuery = minWidthQuery(breakpoint.tablet)
-    const desktopQuery = minWidthQuery(breakpoint.desktop)
+    const tabletQuery = minWidthQuery(breakpoints.tablet)
+    const desktopQuery = minWidthQuery(breakpoints.desktop)
 
     // As per docs: https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList#Methods
     tabletQuery.addEventListener('change', updateCurrentBreakpoint)
