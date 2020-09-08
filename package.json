@@ -19,8 +19,8 @@
     "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
     "predeploy": "npm run storybook:build",
     "start": "npm run storybook:serve",
-    "storybook:build": "vue-cli-service storybook:build -c config/storybook",
-    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
+    "storybook:build": "vue-cli-service storybook:build -c .storybook",
+    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c .storybook",
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
     "semantic-release": "semantic-release"
