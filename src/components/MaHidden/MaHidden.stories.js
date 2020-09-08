@@ -22,14 +22,12 @@ storiesOf('Hidden', module)
       components: { MaHidden },
       template: `
         <p>
-          This is some placeholder content
-          <ma-hidden inline below="tablet">
-            <b>1. I'm hidden below tablet!</b>
-          </ma-hidden>
-          <ma-hidden inline above="mobile">
-            <b>3. I'm hidden above mobile!</b>
-          </ma-hidden>
-          to show how inline hidden elements wrap
+          Hidden
+            <b>
+              <ma-hidden inline below="tablet">below</ma-hidden>
+              <ma-hidden inline above="mobile">above</ma-hidden>
+            </b>
+          tablet.
         </p>
       `,
     }
