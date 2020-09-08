@@ -1,3 +1,5 @@
+// preview.js configures the "preview" iframe that renders your components
+
 export const parameters = {
   layout: 'padded',
 
