@@ -1,6 +1,5 @@
 import { create } from '@storybook/theming/create'
 import brandImage from './holaluz.svg'
-import './style.scss'
 
 export default create({
   base: 'light',

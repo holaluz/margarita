@@ -1,6 +1,6 @@
 import './stories.scss'
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, select, object } from '@storybook/addon-knobs'
+import { boolean, select, object } from '@storybook/addon-knobs'
 
 import MaGridContainer from '@margarita/components/MaGridContainer'
 import MaGridRow from '@margarita/components/MaGridRow'
@@ -10,7 +10,6 @@ import MaSelect from '@margarita/components/MaSelect'
 import MaCard from '@margarita/components/MaCard'
 
 storiesOf('Grid', module)
-  .addDecorator(withKnobs)
   .add('Grid', () => {
     const fluid = boolean('Fluid layout', false)
     const tag = select(

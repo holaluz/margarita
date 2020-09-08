@@ -1,6 +1,6 @@
 import shuffle from 'lodash.shuffle'
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, object } from '@storybook/addon-knobs'
+import { boolean, object } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import MaGridContainer from '@margarita/components/MaGridContainer'
@@ -54,19 +54,17 @@ const rows = [
   { name: 'Charlie', age: 33, status: 'warning' },
 ]
 
-storiesOf('Datagrid', module)
-  .addDecorator(withKnobs)
-  .add('Datagrid', () => {
-    const isLoading = boolean('Loading', false)
-    const computedRows = object('Rows', rows)
+storiesOf('Datagrid', module).add('Datagrid', () => {
+  const isLoading = boolean('Loading', false)
+  const computedRows = object('Rows', rows)
 
-    return {
-      components: {
-        MaDatagrid,
-        MaGridContainer,
-      },
+  return {
+    components: {
+      MaDatagrid,
+      MaGridContainer,
+    },
 
-      template: `
+    template: `
         <ma-grid-container>
           <ma-datagrid
             :columns="columns"
@@ -77,28 +75,28 @@ storiesOf('Datagrid', module)
         </ma-grid-container>
         `,
 
-      data() {
-        return { columns }
-      },
+    data() {
+      return { columns }
+    },
 
-      props: {
-        rows: {
-          default: computedRows,
-        },
-        isLoading: {
-          default: isLoading,
-        },
+    props: {
+      rows: {
+        default: computedRows,
       },
-
-      methods: {
-        sortBy(payload) {
-          // No, we are not sorting.
-          // Oh, and don't do this. We're mutating a prop here just for
-          // demonstration purposes.
-          this.rows = shuffle(this.rows)
-
-          action('sort')(payload)
-        },
+      isLoading: {
+        default: isLoading,
       },
-    }
-  })
+    },
+
+    methods: {
+      sortBy(payload) {
+        // No, we are not sorting.
+        // Oh, and don't do this. We're mutating a prop here just for
+        // demonstration purposes.
+        this.rows = shuffle(this.rows)
+
+        action('sort')(payload)
+      },
+    },
+  }
+})

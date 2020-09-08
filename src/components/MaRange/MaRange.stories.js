@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, select, object, text } from '@storybook/addon-knobs'
+import { select, object, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import MaGridColumn from '@margarita/components/MaGridColumn'
@@ -12,22 +12,19 @@ const defaultSteps = [
   { text: 'Alto', value: 'high' },
 ]
 
-storiesOf('Range', module)
-  .addDecorator(withKnobs)
+storiesOf('Range', module).add('Range', () => {
+  const selectedValue = select(
+    'Value',
+    defaultSteps.map((s) => s.value),
+    'medium'
+  )
+  const steps = object('Steps', defaultSteps)
+  const label = text('Label', 'Label')
 
-  .add('Range', () => {
-    const selectedValue = select(
-      'Value',
-      defaultSteps.map((s) => s.value),
-      'medium'
-    )
-    const steps = object('Steps', defaultSteps)
-    const label = text('Label', 'Label')
+  return {
+    components: { MaRange, MaGridColumn },
 
-    return {
-      components: { MaRange, MaGridColumn },
-
-      template: `
+    template: `
         <ma-grid-column>
           <ma-range
             :steps="steps"
@@ -36,29 +33,29 @@ storiesOf('Range', module)
           />
         </ma-grid-column>`,
 
-      props: {
-        steps: {
-          default: steps,
-        },
-        label: {
-          default: label,
-        },
-        selectedValue: {
-          default: selectedValue,
-        },
+    props: {
+      steps: {
+        default: steps,
       },
+      label: {
+        default: label,
+      },
+      selectedValue: {
+        default: selectedValue,
+      },
+    },
 
-      data() {
-        return {
-          value: this.selectedValue,
-        }
-      },
+    data() {
+      return {
+        value: this.selectedValue,
+      }
+    },
 
-      watch: {
-        selectedValue(newValue) {
-          this.value = newValue
-        },
-        value: action('value'),
+    watch: {
+      selectedValue(newValue) {
+        this.value = newValue
       },
-    }
-  })
+      value: action('value'),
+    },
+  }
+})

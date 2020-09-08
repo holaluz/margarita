@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs'
+import { boolean, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import MaGridColumn from '@margarita/components/MaGridColumn'
@@ -30,24 +30,22 @@ const ICONS = [
 const TRIGGERED_MSG = 'Triggered event:'
 const CHANGED_MSG = 'Changed property:'
 
-storiesOf('Text', module)
-  .addDecorator(withKnobs)
-  .add('Text', () => {
-    const disabled = boolean('Disable', false)
-    const errorMessage = text('Error msg', 'You have an error')
-    const hasError = boolean('Has error', false)
-    const label = text('Label', 'Label')
-    const ariaLabel = text('ARIA Label', '')
-    const placeholder = text('Placeholder', 'Placeholder')
-    const size = select('Size', GRID_ARRAY, 4)
-    const value = text('Value', '')
-    const icon = select('Icon', ['', ...ICONS], '')
-    const siblingLabel = text('Sibling label', '')
+storiesOf('Text', module).add('Text', () => {
+  const disabled = boolean('Disable', false)
+  const errorMessage = text('Error msg', 'You have an error')
+  const hasError = boolean('Has error', false)
+  const label = text('Label', 'Label')
+  const ariaLabel = text('ARIA Label', '')
+  const placeholder = text('Placeholder', 'Placeholder')
+  const size = select('Size', GRID_ARRAY, 4)
+  const value = text('Value', '')
+  const icon = select('Icon', ['', ...ICONS], '')
+  const siblingLabel = text('Sibling label', '')
 
-    return {
-      components: { MaText, MaGridColumn, MaIcon, MaButton },
+  return {
+    components: { MaText, MaGridColumn, MaIcon, MaButton },
 
-      template: `
+    template: `
         <ma-grid-column :class="getClass">
           <ma-text
             :errorMessage="errorMessage"
@@ -80,60 +78,60 @@ storiesOf('Text', module)
           </ma-text>
         </ma-grid-column>`,
 
-      computed: {
-        getClass() {
-          return [`ma-grid-col--${this.size}`]
-        },
+    computed: {
+      getClass() {
+        return [`ma-grid-col--${this.size}`]
       },
+    },
 
-      props: {
-        disabled: {
-          default: disabled,
-        },
-        errorMessage: {
-          default: errorMessage,
-        },
-        hasError: {
-          default: hasError,
-        },
-        label: {
-          default: label,
-        },
-        ariaLabel: {
-          default: ariaLabel,
-        },
-        placeholder: {
-          default: placeholder,
-        },
-        size: {
-          default: size,
-        },
-        textValue: {
-          default: value,
-        },
-        icon: {
-          default: icon,
-        },
-        siblingLabel: {
-          default: siblingLabel,
-        },
+    props: {
+      disabled: {
+        default: disabled,
       },
+      errorMessage: {
+        default: errorMessage,
+      },
+      hasError: {
+        default: hasError,
+      },
+      label: {
+        default: label,
+      },
+      ariaLabel: {
+        default: ariaLabel,
+      },
+      placeholder: {
+        default: placeholder,
+      },
+      size: {
+        default: size,
+      },
+      textValue: {
+        default: value,
+      },
+      icon: {
+        default: icon,
+      },
+      siblingLabel: {
+        default: siblingLabel,
+      },
+    },
 
-      data() {
-        return {
-          value: this.textValue,
-        }
-      },
+    data() {
+      return {
+        value: this.textValue,
+      }
+    },
 
-      methods: {
-        onBlur: action(`${TRIGGERED_MSG} blur`),
-      },
+    methods: {
+      onBlur: action(`${TRIGGERED_MSG} blur`),
+    },
 
-      watch: {
-        textValue(newValue) {
-          this.value = newValue
-        },
-        value: action(`${CHANGED_MSG} value`),
+    watch: {
+      textValue(newValue) {
+        this.value = newValue
       },
-    }
-  })
+      value: action(`${CHANGED_MSG} value`),
+    },
+  }
+})

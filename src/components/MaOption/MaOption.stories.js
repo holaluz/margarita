@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { withKnobs, boolean, text } from '@storybook/addon-knobs'
+import { boolean, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import MaGridRow from '@margarita/components/MaGridRow'
@@ -8,8 +8,6 @@ import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaOption from './MaOption'
 
 storiesOf('Option', module)
-  .addDecorator(withKnobs)
-
   .add('Radio', () => {
     const card = boolean('Card', false)
     const disabled = boolean('Disabled', false)

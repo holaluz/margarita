@@ -1,11 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import {
-  withKnobs,
-  select,
-  text,
-  boolean,
-  number,
-} from '@storybook/addon-knobs'
+import { select, text, boolean, number } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import MaGridColumn from '@margarita/components/MaGridColumn'
@@ -24,24 +18,22 @@ const BUTTON_CATEGORIES = [
 
 const HTML_TAGS = ['button', 'a']
 
-storiesOf('Button', module)
-  .addDecorator(withKnobs)
-  .add('Button', () => {
-    const category = select('Categories', BUTTON_CATEGORIES, 'primary')
-    const textButton = text('Text', 'Click me')
-    const loading = boolean('Loading', false)
-    const icon = select('Icons', availableIcons, 'None')
-    const iconSize = number('Icon height size in px', 18)
-    const fluid = boolean('Fluid', false)
-    const rounded = boolean('Rounded', false)
-    const ariaLabel = text('Aria Label', '')
-    const disabled = boolean('Disabled', false)
-    const tag = select('HTML tag', HTML_TAGS, 'button')
+storiesOf('Button', module).add('Button', () => {
+  const category = select('Categories', BUTTON_CATEGORIES, 'primary')
+  const textButton = text('Text', 'Click me')
+  const loading = boolean('Loading', false)
+  const icon = select('Icons', availableIcons, 'None')
+  const iconSize = number('Icon height size in px', 18)
+  const fluid = boolean('Fluid', false)
+  const rounded = boolean('Rounded', false)
+  const ariaLabel = text('Aria Label', '')
+  const disabled = boolean('Disabled', false)
+  const tag = select('HTML tag', HTML_TAGS, 'button')
 
-    return {
-      components: { MaButton, MaGridColumn, MaGridRow, MaIcon },
+  return {
+    components: { MaButton, MaGridColumn, MaGridRow, MaIcon },
 
-      template: `
+    template: `
       <div>
         <h2>Dynamic button:</h2>
         <ma-grid-row>
@@ -129,47 +121,47 @@ storiesOf('Button', module)
         </ma-grid-row>
       </div>`,
 
-      computed: {
-        getIcon() {
-          return this.icon === 'None' ? null : this.icon
-        },
+    computed: {
+      getIcon() {
+        return this.icon === 'None' ? null : this.icon
       },
+    },
 
-      props: {
-        ariaLabel: {
-          default: ariaLabel,
-        },
-        disabled: {
-          default: disabled,
-        },
-        fluid: {
-          default: fluid,
-        },
-        icon: {
-          default: icon,
-        },
-        iconSize: {
-          default: iconSize,
-        },
-        loading: {
-          default: loading,
-        },
-        rounded: {
-          default: rounded,
-        },
-        tag: {
-          default: tag,
-        },
-        text: {
-          default: textButton,
-        },
-        category: {
-          default: category,
-        },
+    props: {
+      ariaLabel: {
+        default: ariaLabel,
       },
+      disabled: {
+        default: disabled,
+      },
+      fluid: {
+        default: fluid,
+      },
+      icon: {
+        default: icon,
+      },
+      iconSize: {
+        default: iconSize,
+      },
+      loading: {
+        default: loading,
+      },
+      rounded: {
+        default: rounded,
+      },
+      tag: {
+        default: tag,
+      },
+      text: {
+        default: textButton,
+      },
+      category: {
+        default: category,
+      },
+    },
 
-      methods: {
-        action: action('clicked'),
-      },
-    }
-  })
+    methods: {
+      action: action('clicked'),
+    },
+  }
+})

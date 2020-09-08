@@ -1,11 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import {
-  withKnobs,
-  boolean,
-  object,
-  select,
-  text,
-} from '@storybook/addon-knobs'
+import { boolean, object, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import MaGridColumn from '@margarita/components/MaGridColumn'
@@ -21,30 +15,27 @@ const DEFAULT_OPTIONS = [
   { label: 'Option4', text: 'Option4', value: 'option4' },
 ]
 
-storiesOf('Select', module)
-  .addDecorator(withKnobs)
+storiesOf('Select', module).add('Select', () => {
+  const selectedValue = select(
+    'Value',
+    ['', ...DEFAULT_OPTIONS.map((o) => o.value)],
+    ''
+  )
+  const label = text('Label', 'Label')
+  const ariaLabel = text('ARIA Label', '')
+  const disabled = boolean('Disable', false)
+  const weight = select('Peso', ['', ...AVAILABLE_WEIGHTS], '')
+  const hasError = boolean('Has error', false)
+  const errorMessage = text('Error msg', 'You have an error')
+  const fieldClass = text('Additional class', '')
+  const options = object('Options', DEFAULT_OPTIONS)
 
-  .add('Select', () => {
-    const selectedValue = select(
-      'Value',
-      ['', ...DEFAULT_OPTIONS.map((o) => o.value)],
-      ''
-    )
-    const label = text('Label', 'Label')
-    const ariaLabel = text('ARIA Label', '')
-    const disabled = boolean('Disable', false)
-    const weight = select('Peso', ['', ...AVAILABLE_WEIGHTS], '')
-    const hasError = boolean('Has error', false)
-    const errorMessage = text('Error msg', 'You have an error')
-    const fieldClass = text('Additional class', '')
-    const options = object('Options', DEFAULT_OPTIONS)
+  const size = select('Size', GRID_ARRAY, 4)
 
-    const size = select('Size', GRID_ARRAY, 4)
+  return {
+    components: { MaGridColumn, MaSelect },
 
-    return {
-      components: { MaGridColumn, MaSelect },
-
-      template: `
+    template: `
         <ma-grid-column :class="getClass">
           <ma-select
             id="my-select-input"
@@ -60,58 +51,58 @@ storiesOf('Select', module)
           />
         </ma-grid-column>`,
 
-      props: {
-        ariaLabel: {
-          default: ariaLabel,
-        },
-        disabled: {
-          default: disabled,
-        },
-        errorMessage: {
-          default: errorMessage,
-        },
-        hasError: {
-          default: hasError,
-        },
-        label: {
-          default: label,
-        },
-        options: {
-          default: options,
-        },
-        size: {
-          default: size,
-        },
-        fieldClass: {
-          default: fieldClass,
-        },
-        weight: {
-          default: weight,
-        },
-        selectedValue: {
-          default: selectedValue,
-        },
+    props: {
+      ariaLabel: {
+        default: ariaLabel,
       },
+      disabled: {
+        default: disabled,
+      },
+      errorMessage: {
+        default: errorMessage,
+      },
+      hasError: {
+        default: hasError,
+      },
+      label: {
+        default: label,
+      },
+      options: {
+        default: options,
+      },
+      size: {
+        default: size,
+      },
+      fieldClass: {
+        default: fieldClass,
+      },
+      weight: {
+        default: weight,
+      },
+      selectedValue: {
+        default: selectedValue,
+      },
+    },
 
-      data() {
+    data() {
+      return {
+        value: this.selectedValue,
+      }
+    },
+
+    computed: {
+      getClass() {
         return {
-          value: this.selectedValue,
+          [`ma-grid-col--${this.size}`]: this.size,
         }
       },
+    },
 
-      computed: {
-        getClass() {
-          return {
-            [`ma-grid-col--${this.size}`]: this.size,
-          }
-        },
+    watch: {
+      selectedValue(newValue) {
+        this.value = newValue
       },
-
-      watch: {
-        selectedValue(newValue) {
-          this.value = newValue
-        },
-        value: action('value'),
-      },
-    }
-  })
+      value: action('value'),
+    },
+  }
+})
