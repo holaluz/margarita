@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/vue'
 import { boolean, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
@@ -30,7 +29,11 @@ const ICONS = [
 const TRIGGERED_MSG = 'Triggered event:'
 const CHANGED_MSG = 'Changed property:'
 
-storiesOf('Text', module).add('Text', () => {
+export default {
+  title: 'Components/Text',
+}
+
+export const Text = () => {
   const disabled = boolean('Disable', false)
   const errorMessage = text('Error msg', 'You have an error')
   const hasError = boolean('Has error', false)
@@ -134,4 +137,4 @@ storiesOf('Text', module).add('Text', () => {
       value: action(`${CHANGED_MSG} value`),
     },
   }
-})
+}

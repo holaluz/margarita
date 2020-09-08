@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/vue'
 import { boolean, select } from '@storybook/addon-knobs'
 
 import MaGridColumn from '@margarita/components/MaGridColumn'
@@ -7,7 +6,11 @@ import MaGridRow from '@margarita/components/MaGridRow'
 
 import MaCard from '@margarita/components/MaCard'
 
-storiesOf('Card', module).add('Card', () => {
+export default {
+  title: 'Components/Card',
+}
+
+export const Card = () => {
   const color = select('Color', ['white', 'gray'], 'white')
   const hasPaddingTop = boolean('Bottom cards have padding top', true)
 
@@ -45,4 +48,4 @@ storiesOf('Card', module).add('Card', () => {
       },
     },
   }
-})
+}

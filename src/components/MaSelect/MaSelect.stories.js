@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/vue'
 import { boolean, object, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
@@ -15,7 +14,11 @@ const DEFAULT_OPTIONS = [
   { label: 'Option4', text: 'Option4', value: 'option4' },
 ]
 
-storiesOf('Select', module).add('Select', () => {
+export default {
+  title: 'Components/Select',
+}
+
+export const Select = () => {
   const selectedValue = select(
     'Value',
     ['', ...DEFAULT_OPTIONS.map((o) => o.value)],
@@ -105,4 +108,4 @@ storiesOf('Select', module).add('Select', () => {
       value: action('value'),
     },
   }
-})
+}

@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/vue'
 import { text } from '@storybook/addon-knobs'
 import MaGridContainer from '@margarita/components/MaGridContainer'
 import MaAlert from '@margarita/components/MaAlert'
@@ -19,7 +18,11 @@ export default {
 }
 `
 
-storiesOf('Markdown', module).add('v-markdown', () => {
+export default {
+  title: 'Plugins/Markdown',
+}
+
+export const VMarkdown = () => {
   const markdownText = text(
     'Markdown',
     'text in **bold**. text in _italics_. and also [links](https://url.com)<<.class>> and [links with target blank](https://url.com)<<blank>>'
@@ -49,4 +52,6 @@ storiesOf('Markdown', module).add('v-markdown', () => {
       },
     },
   }
-})
+}
+
+VMarkdown.storyName = 'v-markdown'

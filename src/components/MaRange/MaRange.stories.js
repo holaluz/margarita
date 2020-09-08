@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/vue'
 import { select, object, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
@@ -12,7 +11,11 @@ const defaultSteps = [
   { text: 'Alto', value: 'high' },
 ]
 
-storiesOf('Range', module).add('Range', () => {
+export default {
+  title: 'Components/Range',
+}
+
+export const Range = () => {
   const selectedValue = select(
     'Value',
     defaultSteps.map((s) => s.value),
@@ -58,4 +61,4 @@ storiesOf('Range', module).add('Range', () => {
       value: action('value'),
     },
   }
-})
+}

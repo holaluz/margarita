@@ -1,8 +1,11 @@
-import { storiesOf } from '@storybook/vue'
 import MaIcon from './MaIcon'
 import icons from './availableIcons'
 
-storiesOf('Icons', module).add('Icons', () => ({
+export default {
+  title: 'Components/Icon',
+}
+
+export const Icons = () => ({
   components: { MaIcon },
 
   template: `
@@ -31,4 +34,4 @@ storiesOf('Icons', module).add('Icons', () => ({
       },
     }
   },
-}))
+})

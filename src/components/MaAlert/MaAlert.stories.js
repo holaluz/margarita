@@ -1,34 +1,27 @@
-import { storiesOf } from '@storybook/vue'
 import { select, text } from '@storybook/addon-knobs'
-
-import MaGridColumn from '@margarita/components/MaGridColumn'
-import MaGridContainer from '@margarita/components/MaGridContainer'
-import MaGridRow from '@margarita/components/MaGridRow'
 
 import MaAlert from '@margarita/components/MaAlert'
 
-storiesOf('Alert', module).add('Alert', () => {
+export default {
+  title: 'Components/Alert',
+}
+
+export const Alert = () => {
   const size = select('Size', ['small', 'medium', 'large'], 'small')
   const type = select('Type', ['info', 'error', 'success', 'warning'], 'info')
-  const alertTitle = text('Title', 'Title')
-  const alertText = text('Text', 'Text')
+  const title = text('Title', 'Title')
+  const content = text('Text', 'Text')
 
   return {
-    components: { MaAlert, MaGridContainer, MaGridRow, MaGridColumn },
+    components: { MaAlert },
     template: `
-        <ma-grid-container class="grid-example">
-            <ma-grid-row>
-                <ma-grid-column class="ma-grid-col--12">
-                <ma-alert
-                    :size="size"
-                    :type="type"
-                    :title="title"
-                    :text="text"
-                />
-                </ma-grid-column>
-            </ma-grid-row>
-          </ma-grid-container>
-      `,
+      <ma-alert
+          :size="size"
+          :type="type"
+          :title="title"
+          :text="text"
+      />
+    `,
 
     props: {
       size: {
@@ -38,11 +31,11 @@ storiesOf('Alert', module).add('Alert', () => {
         default: type,
       },
       title: {
-        default: alertTitle,
+        default: title,
       },
       text: {
-        default: alertText,
+        default: content,
       },
     },
   }
-})
+}

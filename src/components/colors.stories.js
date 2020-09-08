@@ -1,7 +1,10 @@
-import { storiesOf } from '@storybook/vue'
 import colors from '../scss/_margarita.scss'
 
-storiesOf('Colors', module).add('colors', () => ({
+export default {
+  title: 'Tokens/Colors',
+}
+
+export const Colors = () => ({
   template: `
     <div :style="containerStyle">
       <div
@@ -50,4 +53,4 @@ storiesOf('Colors', module).add('colors', () => ({
       }
     },
   },
-}))
+})

@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/vue'
 import { select, text } from '@storybook/addon-knobs'
 
 import MaGridColumn from '@margarita/components/MaGridColumn'
@@ -7,7 +6,11 @@ import MaPill from './MaPill'
 
 const AVAILABLE_COLORS = ['green', 'orange', 'red', 'gray', 'dark', 'blue']
 
-storiesOf('Pill', module).add('Pill', () => {
+export default {
+  title: 'Components/Pill',
+}
+
+export const Pill = () => {
   const color = select('Color', AVAILABLE_COLORS, 'green')
   const pillText = text('Pill Text', 'Active')
 
@@ -31,4 +34,4 @@ storiesOf('Pill', module).add('Pill', () => {
       },
     },
   }
-})
+}

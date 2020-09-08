@@ -1,5 +1,4 @@
 import './stories.scss'
-import { storiesOf } from '@storybook/vue'
 import { boolean, select, object } from '@storybook/addon-knobs'
 
 import MaGridContainer from '@margarita/components/MaGridContainer'
@@ -9,20 +8,23 @@ import MaText from '@margarita/components/MaText'
 import MaSelect from '@margarita/components/MaSelect'
 import MaCard from '@margarita/components/MaCard'
 
-storiesOf('Grid', module)
-  .add('Grid', () => {
-    const fluid = boolean('Fluid layout', false)
-    const tag = select(
-      'Tag',
-      ['div', 'header', 'aside', 'article', 'section'],
-      'div'
-    )
-    const noGutters = boolean('No gutters', false)
+export default {
+  title: 'Layout/Grid',
+}
 
-    return {
-      components: { MaGridContainer, MaGridRow, MaGridColumn },
+export const Grid = () => {
+  const fluid = boolean('Fluid layout', false)
+  const tag = select(
+    'Tag',
+    ['div', 'header', 'aside', 'article', 'section'],
+    'div'
+  )
+  const noGutters = boolean('No gutters', false)
 
-      template: `
+  return {
+    components: { MaGridContainer, MaGridRow, MaGridColumn },
+
+    template: `
         <ma-grid-container :fluid="fluid" :tag="tag" class="grid-example">
           <ma-grid-row :noGutters="noGutters">
             <ma-grid-column v-for="col in 1" :key="col" class="ma-grid-col--12">
@@ -57,27 +59,28 @@ storiesOf('Grid', module)
         </ma-grid-container>
       `,
 
-      props: {
-        fluid: {
-          default: fluid,
-        },
-        tag: {
-          default: tag,
-        },
-        noGutters: {
-          default: noGutters,
-        },
+    props: {
+      fluid: {
+        default: fluid,
       },
-    }
-  })
-  .add('Offset', () => {
-    const fluid = boolean('fluid', false)
-    const noGutters = boolean('noGutters', false)
+      tag: {
+        default: tag,
+      },
+      noGutters: {
+        default: noGutters,
+      },
+    },
+  }
+}
 
-    return {
-      components: { MaGridContainer, MaGridRow, MaGridColumn },
+export const Offset = () => {
+  const fluid = boolean('fluid', false)
+  const noGutters = boolean('noGutters', false)
 
-      template: `
+  return {
+    components: { MaGridContainer, MaGridRow, MaGridColumn },
+
+    template: `
         <ma-grid-container :fluid="fluid" class="grid-example">
           <ma-grid-row :noGutters="noGutters">
             <ma-grid-column class="ma-grid-col--10 ma-grid-col--offset-2">
@@ -96,24 +99,25 @@ storiesOf('Grid', module)
         </ma-grid-container>
       `,
 
-      props: {
-        fluid: {
-          default: fluid,
-        },
-        noGutters: {
-          default: noGutters,
-        },
+    props: {
+      fluid: {
+        default: fluid,
       },
-    }
-  })
-  .add('Order', () => {
-    const fluid = boolean('fluid', false)
-    const noGutters = boolean('noGutters', false)
+      noGutters: {
+        default: noGutters,
+      },
+    },
+  }
+}
 
-    return {
-      components: { MaGridContainer, MaGridRow, MaGridColumn },
+export const Order = () => {
+  const fluid = boolean('fluid', false)
+  const noGutters = boolean('noGutters', false)
 
-      template: `
+  return {
+    components: { MaGridContainer, MaGridRow, MaGridColumn },
+
+    template: `
         <ma-grid-container :fluid="fluid" class="grid-example">
           <ma-grid-row :noGutters="noGutters">
             <ma-grid-column class="ma-grid-col--6 ma-grid-col--lg-order-2">
@@ -151,28 +155,29 @@ storiesOf('Grid', module)
         </ma-grid-container>
       `,
 
-      props: {
-        fluid: {
-          default: fluid,
-        },
-        noGutters: {
-          default: noGutters,
-        },
+    props: {
+      fluid: {
+        default: fluid,
       },
-    }
-  })
-  .add('Nested', () => {
-    const fluid = boolean('fluid', false)
-    const noGutters = boolean('noGutters', false)
-    const directionColumn = boolean(
-      'Light blue row has flex direction column',
-      true
-    )
+      noGutters: {
+        default: noGutters,
+      },
+    },
+  }
+}
 
-    return {
-      components: { MaGridContainer, MaGridRow, MaGridColumn },
+export const Nested = () => {
+  const fluid = boolean('fluid', false)
+  const noGutters = boolean('noGutters', false)
+  const directionColumn = boolean(
+    'Light blue row has flex direction column',
+    true
+  )
 
-      template: `
+  return {
+    components: { MaGridContainer, MaGridRow, MaGridColumn },
+
+    template: `
         <ma-grid-container :fluid="fluid" class="grid-example">
           <ma-grid-row :noGutters="noGutters">
             <ma-grid-column class="ma-grid-col--12 ma-grid-col--sm-6 ma-grid-col--md-4">
@@ -200,54 +205,51 @@ storiesOf('Grid', module)
         </ma-grid-container>
       `,
 
-      props: {
-        fluid: {
-          default: fluid,
-        },
-        noGutters: {
-          default: noGutters,
-        },
-        directionColumn: {
-          default: directionColumn,
-        },
+    props: {
+      fluid: {
+        default: fluid,
       },
-
-      data() {
-        return {
-          lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
-        }
+      noGutters: {
+        default: noGutters,
       },
-    }
-  })
-
-  .add('Form', () => {
-    const defaultOptions = [
-      { text: 'Option1', value: 'option1' },
-      { text: 'Option2', value: 'option2' },
-      { text: 'Option3', value: 'option3' },
-      { text: 'Option4', value: 'option4' },
-    ]
-    const options = object('Options', defaultOptions)
-    const noMarginBottom = boolean(
-      'All col from last row dont have margin bottom',
-      true
-    )
-    const hasMarginTop = boolean(
-      'All cols from last row have margin top',
-      false
-    )
-
-    return {
-      components: {
-        MaGridContainer,
-        MaGridRow,
-        MaGridColumn,
-        MaText,
-        MaSelect,
-        MaCard,
+      directionColumn: {
+        default: directionColumn,
       },
+    },
 
-      template: `
+    data() {
+      return {
+        lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
+      }
+    },
+  }
+}
+
+export const Form = () => {
+  const defaultOptions = [
+    { text: 'Option1', value: 'option1' },
+    { text: 'Option2', value: 'option2' },
+    { text: 'Option3', value: 'option3' },
+    { text: 'Option4', value: 'option4' },
+  ]
+  const options = object('Options', defaultOptions)
+  const noMarginBottom = boolean(
+    'All col from last row dont have margin bottom',
+    true
+  )
+  const hasMarginTop = boolean('All cols from last row have margin top', false)
+
+  return {
+    components: {
+      MaGridContainer,
+      MaGridRow,
+      MaGridColumn,
+      MaText,
+      MaSelect,
+      MaCard,
+    },
+
+    template: `
         <ma-grid-container form>
           <ma-card>
             <ma-grid-row>
@@ -290,16 +292,16 @@ storiesOf('Grid', module)
         </ma-grid-container>
       `,
 
-      props: {
-        hasMarginTop: {
-          default: hasMarginTop,
-        },
-        noMarginBottom: {
-          default: noMarginBottom,
-        },
-        options: {
-          default: options,
-        },
+    props: {
+      hasMarginTop: {
+        default: hasMarginTop,
       },
-    }
-  })
+      noMarginBottom: {
+        default: noMarginBottom,
+      },
+      options: {
+        default: options,
+      },
+    },
+  }
+}

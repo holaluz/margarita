@@ -1,29 +1,10 @@
 import shuffle from 'lodash.shuffle'
-import { storiesOf } from '@storybook/vue'
 import { boolean, object } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaGridContainer from '@margarita/components/MaGridContainer'
 import MaPill from '@margarita/components/MaPill/'
 
 import MaDatagrid from './MaDatagrid'
-
-// This would be a component from the project using Margarita
-const CustomPillComponent = {
-  template: `<ma-pill :text="status" :color="color" />`,
-  components: { MaPill },
-  props: ['status'],
-  computed: {
-    color() {
-      const options = {
-        success: 'green',
-        error: 'red',
-        warning: 'orange',
-      }
-      return options[this.status]
-    },
-  },
-}
 
 const columns = [
   {
@@ -44,7 +25,17 @@ const columns = [
     name: 'Status',
 
     // …or we can provide a `component` which receives the whole row as props
-    component: CustomPillComponent,
+    component: {
+      template: `<ma-pill :text="status" :color="color" />`,
+      components: { MaPill },
+      props: ['status'],
+      computed: {
+        color() {
+          const options = { success: 'green', error: 'red', warning: 'orange' }
+          return options[this.status]
+        },
+      },
+    },
   },
 ]
 
@@ -54,26 +45,27 @@ const rows = [
   { name: 'Charlie', age: 33, status: 'warning' },
 ]
 
-storiesOf('Datagrid', module).add('Datagrid', () => {
+export default {
+  title: 'Components/Datagrid',
+}
+
+export const Datagrid = () => {
   const isLoading = boolean('Loading', false)
   const computedRows = object('Rows', rows)
 
   return {
     components: {
       MaDatagrid,
-      MaGridContainer,
     },
 
     template: `
-        <ma-grid-container>
-          <ma-datagrid
-            :columns="columns"
-            :rows="rows"
-            :isLoading="isLoading"
-            @sort="sortBy"
-          />
-        </ma-grid-container>
-        `,
+      <ma-datagrid
+        :columns="columns"
+        :rows="rows"
+        :isLoading="isLoading"
+        @sort="sortBy"
+      />
+    `,
 
     data() {
       return { columns }
@@ -99,4 +91,4 @@ storiesOf('Datagrid', module).add('Datagrid', () => {
       },
     },
   }
-})
+}

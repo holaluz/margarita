@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/vue'
 import { boolean, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
@@ -7,17 +6,20 @@ import MaGridColumn from '@margarita/components/MaGridColumn'
 
 import MaOption from './MaOption'
 
-storiesOf('Option', module)
-  .add('Radio', () => {
-    const card = boolean('Card', false)
-    const disabled = boolean('Disabled', false)
-    const text1 = text('Text radio 1', 'My first radio')
-    const text2 = text('Text radio 2', 'Second radio button')
+export default {
+  title: 'Components/Option',
+}
 
-    return {
-      components: { MaOption, MaGridRow, MaGridColumn },
+export const Radio = () => {
+  const card = boolean('Card', false)
+  const disabled = boolean('Disabled', false)
+  const text1 = text('Text radio 1', 'My first radio')
+  const text2 = text('Text radio 2', 'Second radio button')
 
-      template: `
+  return {
+    components: { MaOption, MaGridRow, MaGridColumn },
+
+    template: `
         <ma-grid-row>
           <ma-grid-column class="ma-grid-col--3 ma-grid-col--offset-3">
             <ma-option v-model="selected" :card="card" value="id1" type="radio" @change="onChange">
@@ -32,43 +34,43 @@ storiesOf('Option', module)
         </ma-grid-row>
       `,
 
-      props: {
-        card: {
-          default: card,
-        },
-        text1: {
-          default: text1,
-        },
-        text2: {
-          default: text2,
-        },
-        disabled: {
-          default: disabled,
-        },
+    props: {
+      card: {
+        default: card,
       },
-
-      data() {
-        return {
-          selected: 'id1',
-        }
+      text1: {
+        default: text1,
       },
-
-      methods: {
-        onChange: action(`Change`),
+      text2: {
+        default: text2,
       },
-    }
-  })
+      disabled: {
+        default: disabled,
+      },
+    },
 
-  .add('Checkbox', () => {
-    const card = boolean('Card', false)
-    const checked = boolean('Checked', false)
-    const disabled = boolean('Disabled', false)
-    const textSlot = text('Text checkbox ', 'My first checkbox')
+    data() {
+      return {
+        selected: 'id1',
+      }
+    },
 
-    return {
-      components: { MaOption, MaGridRow, MaGridColumn },
+    methods: {
+      onChange: action(`Change`),
+    },
+  }
+}
 
-      template: `
+export const Checkbox = () => {
+  const card = boolean('Card', false)
+  const checked = boolean('Checked', false)
+  const disabled = boolean('Disabled', false)
+  const textSlot = text('Text checkbox ', 'My first checkbox')
+
+  return {
+    components: { MaOption, MaGridRow, MaGridColumn },
+
+    template: `
         <ma-grid-row>
           <ma-grid-column class="ma-grid-col--3 ma-grid-col--offset-3">
             <ma-option v-model="checked" :card="card" type="checkbox" :disabled="disabled" @change="onChange">
@@ -78,29 +80,29 @@ storiesOf('Option', module)
         </ma-grid-row>
       `,
 
-      props: {
-        card: {
-          default: card,
-        },
-        text1: {
-          default: textSlot,
-        },
-        disabled: {
-          default: disabled,
-        },
-        checked: {
-          default: checked,
-        },
+    props: {
+      card: {
+        default: card,
       },
+      text1: {
+        default: textSlot,
+      },
+      disabled: {
+        default: disabled,
+      },
+      checked: {
+        default: checked,
+      },
+    },
 
-      data() {
-        return {
-          selected: true,
-        }
-      },
+    data() {
+      return {
+        selected: true,
+      }
+    },
 
-      methods: {
-        onChange: action(`Change`),
-      },
-    }
-  })
+    methods: {
+      onChange: action(`Change`),
+    },
+  }
+}
