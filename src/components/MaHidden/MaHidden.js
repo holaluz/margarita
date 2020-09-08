@@ -17,6 +17,11 @@ export default {
       validator: (v) =>
         [breakpointsEnum.mobile, breakpointsEnum.tablet, null].includes(v),
     },
+
+    inline: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   mounted() {
@@ -53,8 +58,10 @@ export default {
   },
 
   render(h) {
+    const component = this.inline ? 'span' : 'div'
+
     return this.shouldRenderContent && this.$slots.default
-      ? h('div', this.$slots.default)
+      ? h(component, this.$slots.default)
       : null
   },
 }

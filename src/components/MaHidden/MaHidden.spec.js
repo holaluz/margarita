@@ -27,12 +27,6 @@ describe('Hidden', () => {
     }
   )
 
-  test('wraps content with a non-semantic wrapper', () => {
-    const { querySlot } = renderComponent({ below: 'tablet' })
-
-    expect(querySlot.tagName).toBe('DIV')
-  })
-
   test('warns on missing props', () => {
     const originalWarn = console.warn
     console.warn = jest.fn()
@@ -42,6 +36,24 @@ describe('Hidden', () => {
     expect(console.warn).toHaveBeenCalledTimes(1)
 
     console.warn = originalWarn
+  })
+
+  describe('inline', () => {
+    beforeAll(() => {
+      setCurrentBreakpoint('desktop')
+    })
+
+    test('wraps content with a block non-semantic wrapper by default', () => {
+      const { querySlot } = renderComponent({ below: 'tablet' })
+
+      expect(querySlot.tagName).toBe('DIV')
+    })
+
+    test('wraps content with an inline non-semantic wrapper', () => {
+      const { querySlot } = renderComponent({ below: 'tablet', inline: true })
+
+      expect(querySlot.tagName).toBe('SPAN')
+    })
   })
 })
 
