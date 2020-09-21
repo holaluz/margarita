@@ -1,5 +1,4 @@
-import { storiesOf } from '@storybook/vue'
-import { withKnobs, select, array } from '@storybook/addon-knobs'
+import { select, array } from '@storybook/addon-knobs'
 
 import MaStack from '@margarita/components/MaStack'
 import MaButton from '@margarita/components/MaButton'
@@ -8,15 +7,17 @@ import MaAlert from '@margarita/components/MaAlert'
 
 import { alignment, spacing } from '@margarita/tokens'
 
-storiesOf('Stack', module)
-  .addDecorator(withKnobs)
-  .add('Stack', () => {
-    const space = select('Space', spacing, spacing[5])
-    const align = select('Align', [null, ...alignment], alignment[0])
+export default {
+  title: 'Layout/Stack',
+}
 
-    return {
-      components: { MaStack },
-      template: `
+export const Stack = () => {
+  const space = select('Space', spacing, spacing[5])
+  const align = select('Align', [null, ...alignment], alignment[0])
+
+  return {
+    components: { MaStack },
+    template: `
         <ma-stack
           :space="space"
           :align="align"
@@ -31,20 +32,21 @@ storiesOf('Stack', module)
         </ma-stack>
       `,
 
-      props: {
-        space: {
-          default: space,
-        },
-        align: {
-          default: align,
-        },
+    props: {
+      space: {
+        default: space,
       },
-    }
-  })
-  .add('Nested stack', () => {
-    return {
-      components: { MaStack, MaButton, MaText, MaAlert },
-      template: `
+      align: {
+        default: align,
+      },
+    },
+  }
+}
+
+export const NestedStack = () => {
+  return {
+    components: { MaStack, MaButton, MaText, MaAlert },
+    template: `
       <ma-stack space="xlarge" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
         <ma-stack space="medium" align="center" style="outline: 1px solid red">
           <span style="font-size: 2rem">Log In</span>
@@ -58,15 +60,20 @@ storiesOf('Stack', module)
         <ma-alert text="wrong password!" type="error" />
       </ma-stack>
       `,
-    }
-  })
-  .add('Responsive space prop', () => {
-    const space = array('Space', ['xxsmall', 'medium', 'xxlarge'])
-    const align = array('Align', ['center', 'left'])
+  }
+}
 
-    return {
-      components: { MaStack },
-      template: `
+NestedStack.story = {
+  name: 'Nested stack',
+}
+
+export const ResponsiveProps = () => {
+  const space = array('Space', ['xxsmall', 'medium', 'xxlarge'])
+  const align = array('Align', ['center', 'left'])
+
+  return {
+    components: { MaStack },
+    template: `
       <div>
         <p>current breakpoint: {{ $layout.currentBreakpoint }}</p>
         <ma-stack
@@ -84,13 +91,13 @@ storiesOf('Stack', module)
       </div>
       `,
 
-      props: {
-        space: {
-          default: space,
-        },
-        align: {
-          default: align,
-        },
+    props: {
+      space: {
+        default: space,
       },
-    }
-  })
+      align: {
+        default: align,
+      },
+    },
+  }
+}
