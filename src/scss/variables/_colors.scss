@@ -4,6 +4,34 @@ $colors: (
     base: #e6007d,
     dark: #b3005d,
   ),
+  green: (
+    light: #e2f3ad,
+    base: #237b01,
+    dark: #1f6d4a,
+  ),
+  yellow: (
+    light: #fdf6dd,
+    base: #f5d154,
+    dark: #ffba03,
+  ),
+  blue: (
+    light: #daf4fa,
+    base: #296c89,
+  ),
+  red: (
+    light: #ffdddc,
+    base: #cb1010,
+  ),
+  brown: (
+    light: #f9f8f3,
+    base: #c8c0ab,
+  ),
+  orange: (
+    base: #f06c17,
+  ),
+  turquoise: (
+    base: #24b578,
+  ),
   white: (
     base: #ffffff,
   ),
@@ -15,34 +43,6 @@ $colors: (
     base: #767676,
     dark: #4a4a4a,
     darker: #212121,
-  ),
-  green: (
-    light: #e2f3ad,
-    base: #237b01,
-    dark: #1f6d4a,
-  ),
-  blue: (
-    light: #daf4fa,
-    base: #296c89,
-  ),
-  turquoise: (
-    base: #24b578,
-  ),
-  yellow: (
-    light: #fdf6dd,
-    base: #f5d154,
-    dark: #ffba03,
-  ),
-  red: (
-    light: #ffdddc,
-    base: #cb1010,
-  ),
-  orange: (
-    base: #f06c17,
-  ),
-  brown: (
-    light: #f9f8f3,
-    base: #c8c0ab,
   ),
 );
 

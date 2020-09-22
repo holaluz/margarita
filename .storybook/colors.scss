@@ -1,0 +1,7 @@
+:export {
+  @each $name, $colorGroups in $colors {
+    @each $tone, $value in $colorGroups {
+      #{$name}-#{$tone}: $value;
+    }
+  }
+}

@@ -72,6 +72,7 @@
     "jest-watch-typeahead": "^0.6.1",
     "lint-staged": "^10.4.0",
     "lodash.camelcase": "^4.3.0",
+    "lodash.merge": "^4.6.2",
     "lodash.shuffle": "^4.2.0",
     "markdown-loader": "^5.1.0",
     "node-sass": "^4.14.1",
