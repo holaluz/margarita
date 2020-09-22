@@ -50,11 +50,3 @@ $colors: (
 $shadow-light: rgba(0, 0, 0, 0.027451);
 $shadow-medium: rgba(0, 0, 0, 0.0980392);
 $shadow-dark: rgba(0, 0, 0, 0.498);
-
-:export {
-  @each $name, $colorGroups in $colors {
-    @each $tone, $value in $colorGroups {
-      #{$name}-#{$tone}: $value;
-    }
-  }
-}
