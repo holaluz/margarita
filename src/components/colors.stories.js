@@ -25,12 +25,14 @@ export const Colors = () => ({
         <h2 :style="titleStyle">{{hue}}</h2>
         <div v-for="(hex, tone) in tones" :key="tone" :style="colorStyle">
           <div :style="getBoxStyle(hex)">
-            <p :style="colorNameStyle">{{hue}} {{tone}}</p>
-            <code v-text="hex" />
             <code v-text="getFunction(hue, tone)" />
           </div>
+          <p :style="colorNameStyle">
+            {{hue}} {{tone}}
+            <code v-text="hex" :style="hexStyle" />
+          </p>
         </div>
-        </div>
+      </div>
     </div>
   `,
 
@@ -40,38 +42,38 @@ export const Colors = () => ({
       titleStyle: {
         textAlign: 'center',
         textTransform: 'capitalize',
-        marginTop: '1.5rem',
-        fontSize: '1.5rem',
+        fontSize: '1.4rem',
         fontWeight: 'normal',
       },
       containerStyle: {
         display: 'grid',
-        gridGap: '1.5em',
-        gridTemplateColumns: 'repeat(3, minmax(100px,1fr))',
-        maxWidth: '800px',
+        gridGap: '4vw',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        maxWidth: '1400px',
         margin: '0 auto',
       },
       colorStyle: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         marginTop: '0.5rem',
-        textTransform: 'capitalize',
       },
       colorNameStyle: {
-        margin: '0 0 1rem 0',
-        fontSize: '1.2rem',
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        margin: '1rem 0 2rem 0',
+        fontWeight: 'bold',
+      },
+      hexStyle: {
+        fontWeight: 'normal',
+        fontSize: '0.8rem',
       },
       boxStyle: {
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '0.5rem',
-        width: '100%',
         height: '140px',
-        borderRadius: '2px',
+        borderRadius: '4px',
         boxShadow: '3px 2px 12px rgba(0,0,0,0.15)',
+        fontSize: '0.8rem',
       },
     }
   },
@@ -91,19 +93,15 @@ export const Colors = () => ({
         : `get-color(${hue}, ${tone})`
     },
 
-    getContrast(input) {
-      const color = input.startsWith('#') ? input.slice(1) : input
+    getContrast(color) {
+      const r = parseInt(color.substr(1, 2), 16)
+      const g = parseInt(color.substr(3, 2), 16)
+      const b = parseInt(color.substr(5, 2), 16)
 
-      // Convert to RGB value
-      const r = parseInt(color.substr(0, 2), 16)
-      const g = parseInt(color.substr(2, 2), 16)
-      const b = parseInt(color.substr(4, 2), 16)
+      // https://en.wikipedia.org/wiki/YIQ#From_RGB_to_YIQ
+      const yiqRatio = (r * 299 + g * 587 + b * 114) / 1000
 
-      // Get YIQ ratio
-      const yiq = (r * 299 + g * 587 + b * 114) / 1000
-
-      // Check contrast
-      return yiq >= 128 ? 'black' : 'white'
+      return yiqRatio >= 128 ? 'black' : 'white'
     },
   },
 })
