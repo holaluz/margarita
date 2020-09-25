@@ -5,8 +5,8 @@ export const breakpointsEnum = {
 }
 
 export const breakpoints = {
-  [breakpointsEnum.tablet]: 700,
-  [breakpointsEnum.desktop]: 900,
+  [breakpointsEnum.tablet]: 900,
+  [breakpointsEnum.desktop]: 1440,
 }
 
 export const spacing = [
@@ -18,6 +18,7 @@ export const spacing = [
   'large',
   'xlarge',
   'xxlarge',
+  'xxxlarge',
 ]
 
 export const alignment = ['left', 'center', 'right']

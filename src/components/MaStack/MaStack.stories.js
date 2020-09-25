@@ -47,11 +47,11 @@ export const NestedStack = () => {
   return {
     components: { MaStack, MaButton, MaText, MaAlert },
     template: `
-      <ma-stack space="xlarge" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
+      <ma-stack space="large" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
         <ma-stack space="medium" align="center" style="outline: 1px solid red">
           <span style="font-size: 2rem">Log In</span>
         </ma-stack>
-        <ma-stack space="small" style="outline: 1px solid red">
+        <ma-stack space="xxsmall" style="outline: 1px solid red">
           <ma-text label="email" />
           <ma-text label="password" />
           <span>reset my password</span>
@@ -61,10 +61,6 @@ export const NestedStack = () => {
       </ma-stack>
       `,
   }
-}
-
-NestedStack.story = {
-  name: 'Nested stack',
 }
 
 export const ResponsiveProps = () => {
