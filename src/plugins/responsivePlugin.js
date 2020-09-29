@@ -1,9 +1,8 @@
-import Vue from 'vue'
 import { breakpoints, breakpointsEnum } from '../tokens'
 
 export default {
   install(vue) {
-    vue.prototype.$layout = Vue.observable({ currentBreakpoint: null })
+    vue.prototype.$layout = vue.observable({ currentBreakpoint: null })
     vue.prototype.$layout.getResponsivePropValue = getResponsivePropValue
 
     // If we're on the server, let's set breakpoint to desktop and call it a day
