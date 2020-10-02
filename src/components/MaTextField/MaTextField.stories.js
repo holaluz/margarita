@@ -115,7 +115,6 @@ export const TextFieldWithSiblingLabel = () => {
 export const TextFieldWithIcon = () => {
   const disabled = boolean('Disable', false)
   const label = text('Label', 'Label')
-  const ariaLabel = text('ARIA Label', '')
   const placeholder = text('Placeholder', 'Placeholder')
   const value = text('Value', '')
   const icon = select('Icon', ICONS, ICONS[0])
@@ -128,7 +127,6 @@ export const TextFieldWithIcon = () => {
         <ma-text-field
           :disabled="disabled"
           :label="label"
-          :aria-label="ariaLabel"
           :placeholder="placeholder"
           v-model="value"
           @blur="onBlur"
@@ -147,7 +145,6 @@ export const TextFieldWithIcon = () => {
     props: {
       disabled: { default: disabled },
       label: { default: label },
-      ariaLabel: { default: ariaLabel },
       placeholder: { default: placeholder },
       textValue: { default: value },
       icon: { default: icon },
