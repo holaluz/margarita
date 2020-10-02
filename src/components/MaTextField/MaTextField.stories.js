@@ -7,7 +7,6 @@ import MaIcon from '@margarita/components/MaIcon'
 
 import MaTextField from './MaTextField'
 
-const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const ICONS = [
   'AddContract',
   'Arrow',
@@ -38,7 +37,6 @@ export const TextField = () => {
   const label = text('Label', 'Label')
   const ariaLabel = text('ARIA Label', '')
   const placeholder = text('Placeholder', 'Placeholder')
-  const size = select('Size', GRID_ARRAY, 4)
   const value = text('Value', '')
 
   return {
@@ -62,7 +60,6 @@ export const TextField = () => {
       label: { default: label },
       ariaLabel: { default: ariaLabel },
       placeholder: { default: placeholder },
-      size: { default: size },
       textValue: { default: value },
     },
 
