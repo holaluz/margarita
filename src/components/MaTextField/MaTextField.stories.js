@@ -35,89 +35,35 @@ export default {
 
 export const TextField = () => {
   const disabled = boolean('Disable', false)
-  const errorMessage = text('Error msg', 'You have an error')
-  const hasError = boolean('Has error', false)
   const label = text('Label', 'Label')
   const ariaLabel = text('ARIA Label', '')
   const placeholder = text('Placeholder', 'Placeholder')
   const size = select('Size', GRID_ARRAY, 4)
   const value = text('Value', '')
-  const icon = select('Icon', ['', ...ICONS], '')
-  const siblingLabel = text('Sibling label', '')
 
   return {
     components: { MaTextField, MaGridColumn, MaIcon, MaButton },
 
     template: `
-        <ma-grid-column :class="getClass">
-          <ma-text-field
-            :errorMessage="errorMessage"
-            :disabled="disabled"
-            :hasError="hasError"
-            :label="label"
-            :aria-label="ariaLabel"
-            :placeholder="placeholder"
-            v-model="value"
-            @blur="onBlur"
-          >
-            <ma-button
-              v-if="siblingLabel"
-              href="#"
-              category="no-background"
-              style="flex: 0 1 100%; margin-left: 1rem;"
-              slot="labelSibling"
-              v-text="siblingLabel"
-            />
-            <ma-button
-              v-if="icon"
-              slot="inputSibling"
-            >
-              <ma-icon
-                :icon="icon"
-                width="16"
-                height="16"
-              />
-            </ma-button>
-          </ma-text-field>
-        </ma-grid-column>`,
-
-    computed: {
-      getClass() {
-        return [`ma-grid-col--${this.size}`]
-      },
-    },
+      <ma-grid-column class="ma-grid-col--4">
+        <ma-text-field
+          :disabled="disabled"
+          :label="label"
+          :aria-label="ariaLabel"
+          :placeholder="placeholder"
+          v-model="value"
+          @blur="onBlur"
+        />
+      </ma-grid-column>
+    `,
 
     props: {
-      disabled: {
-        default: disabled,
-      },
-      errorMessage: {
-        default: errorMessage,
-      },
-      hasError: {
-        default: hasError,
-      },
-      label: {
-        default: label,
-      },
-      ariaLabel: {
-        default: ariaLabel,
-      },
-      placeholder: {
-        default: placeholder,
-      },
-      size: {
-        default: size,
-      },
-      textValue: {
-        default: value,
-      },
-      icon: {
-        default: icon,
-      },
-      siblingLabel: {
-        default: siblingLabel,
-      },
+      disabled: { default: disabled },
+      label: { default: label },
+      ariaLabel: { default: ariaLabel },
+      placeholder: { default: placeholder },
+      size: { default: size },
+      textValue: { default: value },
     },
 
     data() {
@@ -128,6 +74,136 @@ export const TextField = () => {
 
     methods: {
       onBlur: action(`${TRIGGERED_MSG} blur`),
+    },
+
+    watch: {
+      textValue(newValue) {
+        this.value = newValue
+      },
+      value: action(`${CHANGED_MSG} value`),
+    },
+  }
+}
+
+export const TextFieldWithSiblingLabel = () => {
+  const siblingLabel = text('Sibling label', 'additional label')
+
+  return {
+    components: { MaTextField, MaGridColumn },
+
+    template: `
+      <ma-grid-column class="ma-grid-col--4">
+        <ma-text-field v-model="value" @blur="onBlur" label="Label">
+          <span slot="labelSibling">{{siblingLabel}}</span>
+        </ma-text-field>
+      </ma-grid-column>
+    `,
+
+    data() {
+      return {
+        value: '',
+      }
+    },
+
+    props: {
+      siblingLabel: { default: siblingLabel },
+    },
+
+    methods: {
+      onBlur: action(`${TRIGGERED_MSG} blur`),
+    },
+  }
+}
+
+export const TextFieldWithIcon = () => {
+  const disabled = boolean('Disable', false)
+  const label = text('Label', 'Label')
+  const ariaLabel = text('ARIA Label', '')
+  const placeholder = text('Placeholder', 'Placeholder')
+  const value = text('Value', '')
+  const icon = select('Icon', ICONS, ICONS[0])
+
+  return {
+    components: { MaTextField, MaGridColumn, MaIcon, MaButton },
+
+    template: `
+      <ma-grid-column class="ma-grid-col--4">
+        <ma-text-field
+          :disabled="disabled"
+          :label="label"
+          :aria-label="ariaLabel"
+          :placeholder="placeholder"
+          v-model="value"
+          @blur="onBlur"
+        >
+          <ma-button slot="inputSibling">
+            <ma-icon
+              :icon="icon"
+              width="16"
+              height="16"
+            />
+          </ma-button>
+        </ma-text-field>
+      </ma-grid-column>
+    `,
+
+    props: {
+      disabled: { default: disabled },
+      label: { default: label },
+      ariaLabel: { default: ariaLabel },
+      placeholder: { default: placeholder },
+      textValue: { default: value },
+      icon: { default: icon },
+    },
+
+    data() {
+      return {
+        value: this.textValue,
+      }
+    },
+
+    methods: {
+      onBlur: action(`${TRIGGERED_MSG} blur`),
+    },
+
+    watch: {
+      textValue(newValue) {
+        this.value = newValue
+      },
+      value: action(`${CHANGED_MSG} value`),
+    },
+  }
+}
+
+export const ErroredTextField = () => {
+  const errorMessage = text('Error msg', 'You have an error')
+  const label = text('Label', 'Label')
+  const value = text('Value', 'some invalid value')
+
+  return {
+    components: { MaTextField, MaGridColumn, MaIcon, MaButton },
+
+    template: `
+      <ma-grid-column class="ma-grid-col--4">
+        <ma-text-field
+          :errorMessage="errorMessage"
+          :hasError="true"
+          :label="label"
+          v-model="value"
+        />
+      </ma-grid-column>
+    `,
+
+    props: {
+      errorMessage: { default: errorMessage },
+      label: { default: label },
+      textValue: { default: value },
+    },
+
+    data() {
+      return {
+        value: this.textValue,
+      }
     },
 
     watch: {
