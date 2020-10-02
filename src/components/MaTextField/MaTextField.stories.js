@@ -172,10 +172,9 @@ export const TextFieldWithIcon = () => {
 export const ErroredTextField = () => {
   const errorMessage = text('Error msg', 'You have an error')
   const label = text('Label', 'Label')
-  const value = text('Value', 'some invalid value')
 
   return {
-    components: { MaTextField, MaGridColumn, MaIcon, MaButton },
+    components: { MaTextField, MaGridColumn },
 
     template: `
       <ma-grid-column class="ma-grid-col--4">
@@ -191,20 +190,12 @@ export const ErroredTextField = () => {
     props: {
       errorMessage: { default: errorMessage },
       label: { default: label },
-      textValue: { default: value },
     },
 
     data() {
       return {
-        value: this.textValue,
+        value: '',
       }
-    },
-
-    watch: {
-      textValue(newValue) {
-        this.value = newValue
-      },
-      value: action(`${CHANGED_MSG} value`),
     },
   }
 }
