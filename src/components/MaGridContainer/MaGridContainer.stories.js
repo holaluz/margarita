@@ -4,7 +4,7 @@ import { boolean, select, object } from '@storybook/addon-knobs'
 import MaGridContainer from '@margarita/components/MaGridContainer'
 import MaGridRow from '@margarita/components/MaGridRow'
 import MaGridColumn from '@margarita/components/MaGridColumn'
-import MaText from '@margarita/components/MaText'
+import MaTextField from '@margarita/components/MaTextField'
 import MaSelect from '@margarita/components/MaSelect'
 import MaCard from '@margarita/components/MaCard'
 
@@ -244,7 +244,7 @@ export const Form = () => {
       MaGridContainer,
       MaGridRow,
       MaGridColumn,
-      MaText,
+      MaTextField,
       MaSelect,
       MaCard,
     },
@@ -254,7 +254,7 @@ export const Form = () => {
           <ma-card>
             <ma-grid-row>
               <ma-grid-column class="ma-grid-col--12 ma-grid-col--md-4">
-                <ma-text
+                <ma-text-field
                   :label="'Mobile col-12, Desktop col-4'"
                 />
               </ma-grid-column>
@@ -265,14 +265,14 @@ export const Form = () => {
                 />
               </ma-grid-column>
               <ma-grid-column class="ma-grid-col--12 ma-grid-col--md-4">
-                <ma-text
+                <ma-text-field
                   :label="'Mobile col-12, Desktop col-4'"
                 />
               </ma-grid-column>
             </ma-grid-row>
             <ma-grid-row :noMarginBottom="noMarginBottom" :hasMarginTop="hasMarginTop">
               <ma-grid-column class="ma-grid-col--12 ma-grid-col--md-3">
-                <ma-text
+                <ma-text-field
                   :label="'Mobile col-12, Desktop col-3'"
                 />
               </ma-grid-column>
@@ -283,7 +283,7 @@ export const Form = () => {
                 />
               </ma-grid-column>
               <ma-grid-column class="ma-grid-col--6 ma-grid-col--md-4">
-                <ma-text
+                <ma-text-field
                   :label="'Mobile col-6, Desktop col-4'"
                 />
               </ma-grid-column>

@@ -1,4 +1,4 @@
-.ma-text {
+.ma-text-field {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -14,12 +14,12 @@
     flex: auto;
   }
 
-  &__field-wrapper {
+  &__input-wrapper {
     display: flex;
     height: rem(36px);
   }
 
-  &__field {
+  &__input {
     flex: 0 1 100%;
     transition: border 0.2s ease;
     border: 1px solid get-color(gray, light);

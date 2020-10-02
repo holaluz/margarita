@@ -5,7 +5,7 @@ import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaButton from '@margarita/components/MaButton'
 import MaIcon from '@margarita/components/MaIcon'
 
-import MaText from './MaText'
+import MaTextField from './MaTextField'
 
 const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const ICONS = [
@@ -30,10 +30,10 @@ const TRIGGERED_MSG = 'Triggered event:'
 const CHANGED_MSG = 'Changed property:'
 
 export default {
-  title: 'Components/Text',
+  title: 'Components/TextField',
 }
 
-export const Text = () => {
+export const TextField = () => {
   const disabled = boolean('Disable', false)
   const errorMessage = text('Error msg', 'You have an error')
   const hasError = boolean('Has error', false)
@@ -46,11 +46,11 @@ export const Text = () => {
   const siblingLabel = text('Sibling label', '')
 
   return {
-    components: { MaText, MaGridColumn, MaIcon, MaButton },
+    components: { MaTextField, MaGridColumn, MaIcon, MaButton },
 
     template: `
         <ma-grid-column :class="getClass">
-          <ma-text
+          <ma-text-field
             :errorMessage="errorMessage"
             :disabled="disabled"
             :hasError="hasError"
@@ -78,7 +78,7 @@ export const Text = () => {
                 height="16"
               />
             </ma-button>
-          </ma-text>
+          </ma-text-field>
         </ma-grid-column>`,
 
     computed: {
