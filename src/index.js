@@ -38,6 +38,7 @@ export {
   MaStack,
   markdown,
   markdownSSR,
+  responsivePlugin,
 }
 
 function install(Vue) {

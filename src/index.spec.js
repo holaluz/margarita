@@ -8,10 +8,20 @@ import * as Margarita from './index'
 const defaultExport = Margarita.default
 
 // Remove default export and directives, so we have the list of imported comps.
-const margarita = { ...Margarita }
-delete margarita.default
-delete margarita.markdown
-delete margarita.markdownSSR
+const margaritaComponents = { ...Margarita }
+delete margaritaComponents.default
+delete margaritaComponents.markdown
+delete margaritaComponents.markdownSSR
+delete margaritaComponents.responsivePlugin
+
+test('exposes markdown directives', () => {
+  expect(Margarita).toHaveProperty('markdown')
+  expect(Margarita).toHaveProperty('markdownSSR')
+})
+
+test('exposes responsive plugin', () => {
+  expect(Margarita).toHaveProperty('responsivePlugin')
+})
 
 test('exposes an install function', () => {
   expect(defaultExport).toHaveProperty('install')
@@ -22,14 +32,14 @@ test('installs Margarita components', () => {
   localVue.use(defaultExport)
 
   const installedComponents = Object.keys(localVue.options.components)
-  const componentNames = Object.values(margarita).map((m) => m.name)
+  const componentNames = Object.values(margaritaComponents).map((m) => m.name)
 
   expect(installedComponents.map(camelCase)).toStrictEqual(
     componentNames.map(camelCase)
   )
 })
 
-test.each(Object.entries(margarita))(
+test.each(Object.entries(margaritaComponents))(
   '%s is a valid exposed component',
   (_, component) => {
     expect(isVueComponent(component)).toBe(true)
