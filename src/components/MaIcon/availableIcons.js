@@ -3,6 +3,7 @@ export default [
   'Arrow',
   'ArrowToEnd',
   'BulbOn',
+  'Checkmark',
   'Close',
   'DetailsContract',
   'DownloadContract',
@@ -15,6 +16,8 @@ export default [
   'LongArrow',
   'Phone',
   'Plug',
+  'Reassign',
+  'ReassignCircle',
   'UploadContract',
   'User',
 ]
