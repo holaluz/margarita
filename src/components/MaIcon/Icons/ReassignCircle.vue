@@ -1,12 +1,11 @@
 <template>
   <svg
-    width="26"
-    height="26"
+    width="18"
+    height="18"
     viewBox="0 0 26 26"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle cx="13" cy="13" r="12.5" fill="#E40D7D" stroke="#E40D7D" />
+    <circle cx="13" cy="13" r="12.5" />
     <path
       stroke="white"
       fill-rule="evenodd"

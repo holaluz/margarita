@@ -1,12 +1,7 @@
 <template>
-  <svg
-    fill="#70ba20"
-    xmlns="http://www.w3.org/2000/svg"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-  >
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-  </svg>
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M0 6.90643L6.71533 14L18 2.31881L15.7993 0L6.71533 9.26552L2.31947 4.62073L0 6.90643Z"
+  />
 </template>
