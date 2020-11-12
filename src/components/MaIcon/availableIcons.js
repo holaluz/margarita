@@ -14,6 +14,7 @@ export default [
   'Link',
   'Logo',
   'LongArrow',
+  'Mail',
   'Phone',
   'Plug',
   'Reassign',
