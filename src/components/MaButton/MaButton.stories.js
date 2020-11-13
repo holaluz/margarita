@@ -25,7 +25,6 @@ export const Button = () => {
   const category = select('Categories', BUTTON_CATEGORIES, 'primary')
   const textButton = text('Text', 'Click me')
   const loading = boolean('Loading', false)
-  const fluid = boolean('Fluid', false)
   const rounded = boolean('Rounded', false)
   const ariaLabel = text('Aria Label', '')
   const disabled = boolean('Disabled', false)
@@ -40,7 +39,6 @@ export const Button = () => {
         :rounded="rounded"
         :category="category"
         :tag="tag"
-        :fluid="fluid"
         :disabled="disabled"
         :loading="loading"
         :aria-label="ariaLabel"
@@ -55,9 +53,6 @@ export const Button = () => {
       },
       disabled: {
         default: disabled,
-      },
-      fluid: {
-        default: fluid,
       },
       loading: {
         default: loading,
