@@ -31,11 +31,6 @@ export default {
   },
 
   props: {
-    fluid: {
-      type: Boolean,
-      default: false,
-    },
-
     tag: {
       type: String,
       default: 'button',
@@ -68,7 +63,6 @@ export default {
       return {
         'ma-button--rounded': this.rounded,
         [`ma-button--${this.category}`]: this.category,
-        'ma-button--fluid': this.fluid,
         'ma-button--loading': this.loading,
       }
     },
