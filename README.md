@@ -38,6 +38,47 @@ import Margarita from '@holaluz/margarita'
 Vue.use(Margarita)
 ```
 
+### Installing in Nuxt
+
+First, install [`@nuxtjs/style-resources`](https://github.com/nuxt-community/style-resources-module):
+
+```bash
+npm install @nuxtjs/style-resources
+```
+
+Then, create a plugin for Margarita:
+
+```js
+// plugins/margarita.js
+import Vue from 'vue'
+import Margarita from '@holaluz/margarita'
+import '@holaluz/margarita/dist/margarita.css'
+
+Vue.use(Margarita)
+```
+
+And finally, add the following config on the Nuxt Config file:
+
+```js
+// nuxt.config.js
+
+export default {
+  // Install the plugin
+  plugins: [
+    './plugins/margarita.js',
+  ],
+
+  // Register style-resources module
+  modules: ['@nuxtjs/style-resources'],
+
+  // Add Margarita tokens to each SFC style block
+  styleResources: {
+    scss: ['@holaluz/margarita/dist/scss/_margarita-tokens.scss'],
+  },
+}
+```
+
+
 ## Installing Margarita locally
 
 Clone the repo and install node dependencies:
