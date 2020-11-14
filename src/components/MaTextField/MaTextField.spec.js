@@ -1,15 +1,15 @@
 import { render, fireEvent } from '@testing-library/vue'
-import MaText from './MaText'
+import MaTextField from './MaTextField'
 
-describe('Text', () => {
+describe('TextField', () => {
   test('renders an input element with a label', () => {
-    const { queryByRole } = TextBuilder()
+    const { queryByRole } = renderComponent()
 
     expect(queryByRole('textbox')).toBeInTheDocument()
   })
 
   test('renders a button element with a label', () => {
-    const { input, queryByRole } = TextBuilder({ type: 'button' })
+    const { input, queryByRole } = renderComponent({ type: 'button' })
 
     expect(queryByRole('button')).toBeInTheDocument()
     expect(input).toHaveAttribute('type', 'button')
@@ -17,38 +17,38 @@ describe('Text', () => {
 
   test('renders error CSS class', () => {
     const errorMessage = 'Something went wrong'
-    const { queryByText, input } = TextBuilder({
+    const { queryByText, input } = renderComponent({
       hasError: true,
       errorMessage,
     })
 
-    expect(input).toHaveClass('ma-text__field--error')
+    expect(input).toHaveClass('ma-text-field__input--error')
 
     expect(queryByText(errorMessage)).toBeInTheDocument()
   })
 
   test('renders a disabled input', () => {
-    const { input } = TextBuilder({ disabled: true })
+    const { input } = renderComponent({ disabled: true })
 
     expect(input).toBeDisabled()
   })
 
   test('renders custom id', () => {
     const id = 'customId'
-    const { input } = TextBuilder({ id })
+    const { input } = renderComponent({ id })
 
     expect(input).toHaveAttribute('id', id)
   })
 
   test('renders initial value', () => {
     const value = 'initial value'
-    const { queryByDisplayValue } = TextBuilder({ value })
+    const { queryByDisplayValue } = renderComponent({ value })
 
     expect(queryByDisplayValue(value)).toBeInTheDocument()
   })
 
   test('emits its value after typing', async () => {
-    const { queryByDisplayValue, input, emitted } = TextBuilder({
+    const { queryByDisplayValue, input, emitted } = renderComponent({
       value: 'initial value',
     })
 
@@ -63,7 +63,7 @@ describe('Text', () => {
   })
 
   test('triggers change event with its value when typing', async () => {
-    const { input, emitted } = TextBuilder()
+    const { input, emitted } = renderComponent()
 
     await fireEvent.change(input)
 
@@ -72,7 +72,7 @@ describe('Text', () => {
 
   test('emits value on blur', async () => {
     const value = '42'
-    const { input, emitted } = TextBuilder({ value })
+    const { input, emitted } = renderComponent({ value })
 
     await fireEvent.blur(input)
 
@@ -83,7 +83,7 @@ describe('Text', () => {
 
   test('emits value on enter', async () => {
     const value = '42'
-    const { input, emitted } = TextBuilder({ value })
+    const { input, emitted } = renderComponent({ value })
 
     await fireEvent.keyUp(input, {
       key: 'Enter',
@@ -97,7 +97,7 @@ describe('Text', () => {
 
   test('hides label if aria-label is provided', () => {
     const ariaLabel = 'Aria Label'
-    const { input, queryByText } = TextBuilder(null, {
+    const { input, queryByText } = renderComponent(null, {
       attrs: { 'aria-label': ariaLabel },
     })
 
@@ -109,7 +109,7 @@ describe('Text', () => {
     const type = 'number'
     const placeholder = 'A placeholder'
 
-    const { input } = TextBuilder(null, { attrs: { type, placeholder } })
+    const { input } = renderComponent(null, { attrs: { type, placeholder } })
 
     expect(input).toHaveAttribute('type', 'number')
     expect(input).toHaveAttribute('placeholder', placeholder)
@@ -119,7 +119,7 @@ describe('Text', () => {
     'renders provided %s slot',
     (slotName) => {
       const slotText = 'Test slot'
-      const { queryByText } = TextBuilder(null, {
+      const { queryByText } = renderComponent(null, {
         slots: {
           [slotName]: slotText,
         },
@@ -130,9 +130,9 @@ describe('Text', () => {
   )
 })
 
-function TextBuilder(customProps, customParams) {
+function renderComponent(customProps, customParams) {
   const label = 'input label'
-  const utils = render(MaText, {
+  const utils = render(MaTextField, {
     props: {
       label,
       ...customProps,

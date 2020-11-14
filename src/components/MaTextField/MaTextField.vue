@@ -1,29 +1,33 @@
-<style scoped lang="scss" src="./MaText.scss"></style>
+<style scoped lang="scss" src="./MaTextField.scss"></style>
 
 <template>
-  <div class="ma-text">
-    <div class="ma-text__label-wrapper">
+  <div class="ma-text-field">
+    <div class="ma-text-field__label-wrapper">
       <label
         :for="id"
         :class="labelClasses"
-        class="ma-text__label"
+        class="ma-text-field__label"
         v-text="label"
       />
       <slot name="labelSibling" />
     </div>
-    <div class="ma-text__field-wrapper">
+    <div class="ma-text-field__input-wrapper">
       <input
         :id="id"
         v-model="lazyValue"
         v-bind="$attrs"
         :class="inputClasses"
-        class="ma-text__field"
+        class="ma-text-field__input"
         v-on="inputListeners"
         @keyup.enter="removeFocus"
       />
       <slot name="inputSibling" />
     </div>
-    <div v-if="hasError" class="ma-text__error-message" v-text="errorMessage" />
+    <div
+      v-if="hasError"
+      class="ma-text-field__error-message"
+      v-text="errorMessage"
+    />
   </div>
 </template>
 
@@ -31,7 +35,7 @@
 import uuid from '@margarita/utils/uuid'
 
 export default {
-  name: 'MaText',
+  name: 'MaTextField',
 
   inheritAttrs: false,
 
@@ -71,7 +75,7 @@ export default {
   computed: {
     inputClasses() {
       return {
-        'ma-text__field--error': this.hasError,
+        'ma-text-field__input--error': this.hasError,
       }
     },
 
