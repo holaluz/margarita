@@ -50,6 +50,7 @@ Then, create a plugin for Margarita:
 
 ```js
 // plugins/margarita.js
+
 import Vue from 'vue'
 import Margarita from '@holaluz/margarita'
 import '@holaluz/margarita/dist/margarita.css'
@@ -128,7 +129,7 @@ There's no need to overcomplicate things here. Keep it simple: `fix`, `feat`, an
 
 ### How can I use Margarita as a dependency in a local project?
 
-More often than not we'd want to develop a "parent" project (such as Bonasera or Dry Martini) while tweaking Magarita.
+More often than not we'd want to work on a consumer while tweaking Magarita.
 
 The best way to do so is by installing Margarita as a local dependency. Check out the instructions in [Local Installation](LOCAL_INSTALLATION.md).
 
