@@ -1,5 +1,3 @@
-<style lang="scss" src="./MaSidebar.scss" scoped></style>
-
 <template>
   <div>
     <transition :name="slideDirection">
@@ -66,3 +64,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./MaSidebar.scss" scoped></style>

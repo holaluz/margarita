@@ -1,5 +1,3 @@
-<style scoped lang="scss" src="./MaButtonSpinner.scss"></style>
-
 <template>
   <svg
     class="ma-button-spinner"
@@ -26,3 +24,5 @@ export default {
   name: 'MaButtonSpinner',
 }
 </script>
+
+<style scoped lang="scss" src="./MaButtonSpinner.scss"></style>

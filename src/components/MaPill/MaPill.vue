@@ -1,5 +1,3 @@
-<style scoped lang="scss" src="./MaPill.scss"></style>
-
 <template>
   <div>
     <div :class="`ma-pill--${color}`" class="ma-pill" v-text="text" />
@@ -26,3 +24,5 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss" src="./MaPill.scss"></style>

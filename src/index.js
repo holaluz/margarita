@@ -38,21 +38,22 @@ export {
 }
 
 function install(Vue) {
-  Vue.component('ma-alert', MaAlert)
-  Vue.component('ma-button', MaButton)
-  Vue.component('ma-card', MaCard)
-  Vue.component('ma-datagrid', MaDatagrid)
-  Vue.component('ma-grid-column', MaGridColumn)
-  Vue.component('ma-grid-container', MaGridContainer)
-  Vue.component('ma-grid-row', MaGridRow)
-  Vue.component('ma-icon', MaIcon)
-  Vue.component('ma-option', MaOption)
-  Vue.component('ma-pagination', MaPagination)
-  Vue.component('ma-pill', MaPill)
-  Vue.component('ma-range', MaRange)
-  Vue.component('ma-select', MaSelect)
-  Vue.component('ma-sidebar', MaSidebar)
-  Vue.component('ma-text-field', MaTextField)
+  Vue.component('MaAlert', MaAlert)
+  Vue.component('MaButton', MaButton)
+  Vue.component('MaCard', MaCard)
+  Vue.component('MaDatagrid', MaDatagrid)
+  Vue.component('MaGridColumn', MaGridColumn)
+  Vue.component('MaGridContainer', MaGridContainer)
+  Vue.component('MaGridRow', MaGridRow)
+  Vue.component('MaIcon', MaIcon)
+  Vue.component('MaOption', MaOption)
+  Vue.component('MaPagination', MaPagination)
+  Vue.component('MaPill', MaPill)
+  Vue.component('MaRange', MaRange)
+  Vue.component('MaSelect', MaSelect)
+  Vue.component('MaSidebar', MaSidebar)
+  Vue.component('MaTextField', MaTextField)
+
   Vue.directive('markdown', markdown)
 }
 

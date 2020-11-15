@@ -1,5 +1,3 @@
-<style lang="scss" src="./MaDatagrid.scss"></style>
-
 <template>
   <div class="ma-datagrid">
     <div class="ma-datagrid__container">
@@ -66,3 +64,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./MaDatagrid.scss"></style>

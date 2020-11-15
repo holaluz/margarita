@@ -1,5 +1,3 @@
-<style lang="scss" src="./MaCard.scss"></style>
-
 <template>
   <div :class="{ 'ma-card--has-padding-top': hasPaddingTop }">
     <div :class="`ma-card--${color}`" class="ma-card">
@@ -25,3 +23,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./MaCard.scss"></style>

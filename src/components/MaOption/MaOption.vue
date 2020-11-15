@@ -1,7 +1,3 @@
-<style src="./MaOption.scss" lang="scss" scoped></style>
-<style src="./MaOptionCheckbox.scss" lang="scss" scoped></style>
-<style src="./MaOptionRadio.scss" lang="scss" scoped></style>
-
 <template>
   <label :class="computedClass">
     <input
@@ -93,3 +89,7 @@ export default {
   },
 }
 </script>
+
+<style src="./MaOption.scss" lang="scss" scoped></style>
+<style src="./MaOptionCheckbox.scss" lang="scss" scoped></style>
+<style src="./MaOptionRadio.scss" lang="scss" scoped></style>

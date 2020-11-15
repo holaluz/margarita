@@ -1,5 +1,3 @@
-<style scoped lang="scss" src="./MaButton.scss"></style>
-
 <template>
   <component
     :is="tag"
@@ -83,3 +81,5 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss" src="./MaButton.scss"></style>

@@ -1,5 +1,3 @@
-<style lang="scss" src="./MaAlert.scss"></style>
-
 <template>
   <div :class="['alert-banner', getClasses]">
     <span class="alert-banner__icon" />
@@ -50,3 +48,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./MaAlert.scss"></style>

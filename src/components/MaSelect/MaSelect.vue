@@ -1,5 +1,3 @@
-<style scoped lang="scss" src="./MaSelect.scss"></style>
-
 <template>
   <div class="ma-select">
     <label
@@ -141,3 +139,5 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss" src="./MaSelect.scss"></style>

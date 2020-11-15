@@ -1,5 +1,3 @@
-<style lang="scss" src="./MaPagination.scss" scoped></style>
-
 <template>
   <div v-if="totalItems" class="ma-pagination">
     <div v-show="!isStart" class="ma-pagination__left">
@@ -158,3 +156,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./MaPagination.scss" scoped></style>

@@ -1,5 +1,3 @@
-<style scoped lang="scss" src="./MaTextField.scss"></style>
-
 <template>
   <div class="ma-text-field">
     <div class="ma-text-field__label-wrapper">
@@ -112,3 +110,5 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss" src="./MaTextField.scss"></style>

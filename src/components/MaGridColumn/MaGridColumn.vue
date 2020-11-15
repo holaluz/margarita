@@ -1,5 +1,3 @@
-<style lang="scss" src="./MaGridColumn.scss"></style>
-
 <script>
 import { mergeData } from 'vue-functional-data-merge'
 
@@ -38,3 +36,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./MaGridColumn.scss"></style>

@@ -1,5 +1,3 @@
-<style lang="scss" src="./MaRange.scss" scoped></style>
-
 <template>
   <div>
     <label v-if="label" :for="id" class="ma-range__label" v-text="label" />
@@ -167,3 +165,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./MaRange.scss" scoped></style>

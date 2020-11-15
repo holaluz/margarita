@@ -1,5 +1,3 @@
-<style lang="scss" src="./MaDatagridLoader.scss"></style>
-
 <template>
   <tbody data-testid="datagrid-loader">
     <tr v-for="i in 3" :key="i" class="loader-row">
@@ -32,3 +30,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./MaDatagridLoader.scss"></style>
