@@ -31,12 +31,14 @@ test('installs Margarita components', () => {
   const localVue = createLocalVue()
   localVue.use(defaultExport)
 
-  const installedComponents = Object.keys(localVue.options.components)
-  const componentNames = Object.values(margaritaComponents).map((m) => m.name)
-
-  expect(installedComponents.map(camelCase)).toStrictEqual(
-    componentNames.map(camelCase)
+  const installedComponents = Object.keys(localVue.options.components).map(
+    camelCase
   )
+  const componentNames = Object.values(margaritaComponents).map((m) =>
+    camelCase(m.name)
+  )
+
+  expect(installedComponents.sort()).toStrictEqual(componentNames.sort())
 })
 
 test.each(Object.entries(margaritaComponents))(

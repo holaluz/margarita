@@ -2,7 +2,7 @@ import { select, array } from '@storybook/addon-knobs'
 
 import MaStack from '@margarita/components/MaStack'
 import MaButton from '@margarita/components/MaButton'
-import MaText from '@margarita/components/MaText'
+import MaTextField from '@margarita/components/MaTextField'
 import MaAlert from '@margarita/components/MaAlert'
 
 import { alignment, spacing } from '@margarita/tokens'
@@ -45,15 +45,15 @@ export const Stack = () => {
 
 export const NestedStack = () => {
   return {
-    components: { MaStack, MaButton, MaText, MaAlert },
+    components: { MaStack, MaButton, MaTextField, MaAlert },
     template: `
       <ma-stack space="large" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
         <ma-stack space="medium" align="center" style="outline: 1px solid red">
           <span style="font-size: 2rem">Log In</span>
         </ma-stack>
         <ma-stack space="xxsmall" style="outline: 1px solid red">
-          <ma-text label="email" />
-          <ma-text label="password" />
+          <ma-text-field label="email" />
+          <ma-text-field label="password" />
           <span>reset my password</span>
           <ma-button>submit</ma-button>
         </ma-stack>
