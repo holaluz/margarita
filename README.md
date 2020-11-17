@@ -38,6 +38,48 @@ import Margarita from '@holaluz/margarita'
 Vue.use(Margarita)
 ```
 
+### Installing in Nuxt
+
+First, install [`@nuxtjs/style-resources`](https://github.com/nuxt-community/style-resources-module):
+
+```bash
+npm install @nuxtjs/style-resources
+```
+
+Then, create a plugin for Margarita:
+
+```js
+// plugins/margarita.js
+
+import Vue from 'vue'
+import Margarita from '@holaluz/margarita'
+import '@holaluz/margarita/dist/margarita.css'
+
+Vue.use(Margarita)
+```
+
+And finally, add the following config on the Nuxt Config file:
+
+```js
+// nuxt.config.js
+
+export default {
+  // Install the plugin
+  plugins: [
+    './plugins/margarita.js',
+  ],
+
+  // Register style-resources module
+  modules: ['@nuxtjs/style-resources'],
+
+  // Add Margarita tokens to each SFC style block
+  styleResources: {
+    scss: ['@holaluz/margarita/dist/scss/_margarita-tokens.scss'],
+  },
+}
+```
+
+
 ## Installing Margarita locally
 
 Clone the repo and install node dependencies:
@@ -87,7 +129,7 @@ There's no need to overcomplicate things here. Keep it simple: `fix`, `feat`, an
 
 ### How can I use Margarita as a dependency in a local project?
 
-More often than not we'd want to develop a "parent" project (such as Bonasera or Dry Martini) while tweaking Magarita.
+More often than not we'd want to work on a consumer while tweaking Magarita.
 
 The best way to do so is by installing Margarita as a local dependency. Check out the instructions in [Local Installation](LOCAL_INSTALLATION.md).
 
