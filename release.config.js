@@ -9,7 +9,7 @@ module.exports = {
         notifyOnFail: true,
         markdownReleaseNotes: true,
         onSuccessTemplate: {
-          text: 'New Margarita v$npm_package_version released! $release_notes',
+          text: 'Margarita v$npm_package_version released! $release_notes',
         },
       },
     ],
