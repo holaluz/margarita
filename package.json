@@ -79,6 +79,7 @@
     "prettier": "^2.1.2",
     "sass-loader": "^10.1.0",
     "semantic-release": "^17.2.3",
+    "semantic-release-slack-bot": "^1.6.2",
     "stylelint": "^13.7.2",
     "stylelint-config-concentric-order": "^4.0.0",
     "stylelint-config-prettier": "^8.0.2",
