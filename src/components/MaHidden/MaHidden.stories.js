@@ -2,6 +2,10 @@ import { storiesOf } from '@storybook/vue'
 
 import MaHidden from '@margarita/components/MaHidden'
 
+export default {
+  title: 'Layout/Hidden',
+}
+
 storiesOf('Hidden', module)
   .add('Hidden', () => {
     return {
