@@ -1,5 +1,5 @@
 module.exports = {
-  moduleFileExtensions: ['js', 'jsx', 'json', 'vue'],
+  moduleFileExtensions: ['vue', 'js', 'jsx', 'json'],
   transform: {
     '^.+\\.vue$': 'vue-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$':
@@ -20,4 +20,5 @@ module.exports = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
+  watchPathIgnorePatterns: ['<rootDir>/node_modules/'],
 }

@@ -3,12 +3,12 @@ import MaButton from './MaButton'
 
 describe('Button', () => {
   test('renders a button element by default', () => {
-    const { queryByText, queryByRole } = render(MaButton, {
+    const { getByText, getByRole } = render(MaButton, {
       slots: { default: 'Hello World' },
     })
 
-    expect(queryByText(/Hello World/i)).toBeInTheDocument()
-    expect(queryByRole('button')).toBeInTheDocument()
+    expect(getByText(/Hello World/i)).toBeInTheDocument()
+    expect(getByRole('button')).toBeInTheDocument()
   })
 
   test('renders a link element on passing the right prop', () => {
@@ -39,11 +39,11 @@ describe('Button', () => {
   })
 
   test('renders a loading state if loading prop is passed', () => {
-    const { queryByTitle, getByRole } = render(MaButton, {
+    const { getByTitle, getByRole } = render(MaButton, {
       props: { loading: true },
     })
 
     expect(getByRole('button')).toBeDisabled()
-    expect(queryByTitle(/loading/i)).toBeInTheDocument()
+    expect(getByTitle(/loading/i)).toBeInTheDocument()
   })
 })
