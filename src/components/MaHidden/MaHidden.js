@@ -34,16 +34,20 @@ export default {
   },
 
   computed: {
-    shouldRenderContent() {
-      const breakpoints = Object.values(breakpointsEnum)
-      const currentPositionIndex = breakpoints.indexOf(
-        this.$layout.currentBreakpoint
-      )
-      const abovePosition = breakpoints.indexOf(this.above)
-      const belowPosition = breakpoints.indexOf(this.below)
+    breakpointValues() {
+      return Object.values(breakpointsEnum)
+    },
 
-      const isVisibleBelow = currentPositionIndex >= belowPosition
-      const isVisibleAbove = currentPositionIndex <= abovePosition
+    currentPositionIndex() {
+      return this.breakpointValues.indexOf(this.$layout.currentBreakpoint)
+    },
+
+    shouldRenderContent() {
+      const abovePosition = this.breakpointValues.indexOf(this.above)
+      const belowPosition = this.breakpointValues.indexOf(this.below)
+
+      const isVisibleBelow = this.currentPositionIndex >= belowPosition
+      const isVisibleAbove = this.currentPositionIndex <= abovePosition
 
       if (abovePosition > 0) {
         return isVisibleAbove
