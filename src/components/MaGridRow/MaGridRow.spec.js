@@ -3,11 +3,11 @@ import MaGridRow from './MaGridRow'
 
 describe('GridRow', () => {
   test('renders content from default slot', () => {
-    const { queryByText } = render(MaGridRow, {
+    const { getByText } = render(MaGridRow, {
       slots: { default: 'Hello World' },
     })
 
-    expect(queryByText(/Hello World/i)).toBeInTheDocument()
+    expect(getByText(/Hello World/i)).toBeInTheDocument()
   })
 
   test('renders the specified tag', () => {

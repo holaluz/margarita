@@ -19,29 +19,33 @@ const OPTIONS_WITH_PLACEHOLDER = [
 
 describe('Select', () => {
   test('renders multiple options', () => {
-    const { queryByText } = SelectBuilder()
+    const { getByText } = SelectBuilder()
 
-    expect(queryByText(/option1/i)).toBeInTheDocument()
-    expect(queryByText(/option2/i)).toBeInTheDocument()
-    expect(queryByText(/option3/i)).toBeInTheDocument()
+    expect(getByText(/option1/i)).toBeInTheDocument()
+    expect(getByText(/option2/i)).toBeInTheDocument()
+    expect(getByText(/option3/i)).toBeInTheDocument()
   })
 
   test('changes its value when selected option changes', async () => {
-    const { queryByDisplayValue, getSelect } = SelectBuilder()
+    const {
+      queryByDisplayValue,
+      getByDisplayValue,
+      getSelect,
+    } = SelectBuilder()
 
     await fireEvent.update(getSelect(), 'option2')
 
     expect(queryByDisplayValue(/option1/i)).not.toBeInTheDocument()
-    expect(queryByDisplayValue(/option2/i)).toBeInTheDocument()
+    expect(getByDisplayValue(/option2/i)).toBeInTheDocument()
   })
 
   test('displays error message', () => {
-    const { queryByText } = SelectBuilder({
+    const { getByText } = SelectBuilder({
       hasError: true,
       errorMessage: 'Something went wrong',
     })
 
-    expect(queryByText(/Something went wrong/i)).toBeInTheDocument()
+    expect(getByText(/Something went wrong/i)).toBeInTheDocument()
   })
 
   test('renders bold class', () => {
@@ -57,7 +61,7 @@ describe('Select', () => {
     expect(getSelect()).toHaveClass(fieldClass)
   })
 
-  test('adds aria-label attr and hids label element', () => {
+  test('adds aria-label attr and hides label element', () => {
     const ariaLabel = 'test'
     const { queryByDisplayValue, getSelect } = SelectBuilder({
       'aria-label': ariaLabel,
@@ -69,11 +73,11 @@ describe('Select', () => {
   })
 
   test('renders a placeholder text', () => {
-    const { queryByDisplayValue } = SelectBuilder({
+    const { getByDisplayValue } = SelectBuilder({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
 
-    expect(queryByDisplayValue(/placeholder text/i)).toBeInTheDocument()
+    expect(getByDisplayValue(/placeholder text/i)).toBeInTheDocument()
   })
 
   test('overrides placeholder with selected value', async () => {

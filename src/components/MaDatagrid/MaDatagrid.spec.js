@@ -4,24 +4,24 @@ import MaDatagrid from './MaDatagrid'
 describe('Datagrid', () => {
   test('renders no results label', () => {
     const noResultsText = 'irrelevant string'
-    const { queryByText } = render(MaDatagrid, {
+    const { getByText } = render(MaDatagrid, {
       props: { columns: [], rows: [], noResultsText },
     })
 
-    expect(queryByText(noResultsText)).toBeInTheDocument()
+    expect(getByText(noResultsText)).toBeInTheDocument()
   })
 
   test('renders loading state', () => {
-    const { queryByText, queryByTestId } = render(MaDatagrid, {
+    const { queryByText, getByTestId } = render(MaDatagrid, {
       props: { columns: [], rows: [], isLoading: true },
     })
 
     expect(queryByText(/no results/i)).not.toBeInTheDocument()
-    expect(queryByTestId('datagrid-loader')).toBeInTheDocument()
+    expect(getByTestId('datagrid-loader')).toBeInTheDocument()
   })
 
   test('renders table', () => {
-    const { queryAllByRole, queryByRole } = render(MaDatagrid, {
+    const { queryAllByRole, queryByRole, getByRole } = render(MaDatagrid, {
       props: {
         columns: [{ name: 'Column 1', value: 'text' }],
         rows: [{ text: 'cell content' }],
@@ -29,7 +29,7 @@ describe('Datagrid', () => {
     })
 
     expect(queryAllByRole('rowgroup')).toHaveLength(2)
-    expect(queryByRole('columnheader')).toBeInTheDocument('Column 1')
+    expect(getByRole('columnheader')).toBeInTheDocument('Column 1')
     expect(queryByRole('cell')).toHaveTextContent('cell content')
   })
 

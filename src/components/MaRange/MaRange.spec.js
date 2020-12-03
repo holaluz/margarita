@@ -3,10 +3,10 @@ import MaRange from './MaRange'
 
 describe('Range', () => {
   test('renders a range input element', () => {
-    const { getByRole, queryByText } = RangeBuilder()
+    const { getByRole, getByText } = RangeBuilder()
 
-    expect(queryByText(/step value/i)).toBeInTheDocument()
-    expect(queryByText(/second value/i)).toBeInTheDocument()
+    expect(getByText(/step value/i)).toBeInTheDocument()
+    expect(getByText(/second value/i)).toBeInTheDocument()
 
     expect(getByRole('slider')).toHaveValue('0')
   })
@@ -22,11 +22,11 @@ describe('Range', () => {
   })
 
   test('renders label if prop is passed', () => {
-    const { queryByLabelText } = RangeBuilder({
+    const { getByLabelText } = RangeBuilder({
       label: 'Custom Label',
     })
 
-    expect(queryByLabelText(/custom label/i)).toBeInTheDocument()
+    expect(getByLabelText(/custom label/i)).toBeInTheDocument()
   })
 })
 

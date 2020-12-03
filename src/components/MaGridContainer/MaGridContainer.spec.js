@@ -41,13 +41,13 @@ describe('GridContainer', () => {
 
   test('renders default slot', () => {
     const defaultSlot = 'default slot text'
-    const { queryByText } = ContainerBuilder({
+    const { getByText } = ContainerBuilder({
       slots: {
         default: defaultSlot,
       },
     })
 
-    expect(queryByText(defaultSlot)).toBeInTheDocument()
+    expect(getByText(defaultSlot)).toBeInTheDocument()
   })
 })
 

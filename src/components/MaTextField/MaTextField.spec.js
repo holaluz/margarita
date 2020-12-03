@@ -3,28 +3,28 @@ import MaTextField from './MaTextField'
 
 describe('TextField', () => {
   test('renders an input element with a label', () => {
-    const { queryByRole } = renderComponent()
+    const { getByRole } = renderComponent()
 
-    expect(queryByRole('textbox')).toBeInTheDocument()
+    expect(getByRole('textbox')).toBeInTheDocument()
   })
 
   test('renders a button element with a label', () => {
-    const { input, queryByRole } = renderComponent({ type: 'button' })
+    const { input, getByRole } = renderComponent({ type: 'button' })
 
-    expect(queryByRole('button')).toBeInTheDocument()
+    expect(getByRole('button')).toBeInTheDocument()
     expect(input).toHaveAttribute('type', 'button')
   })
 
   test('renders error CSS class', () => {
     const errorMessage = 'Something went wrong'
-    const { queryByText, input } = renderComponent({
+    const { getByText, input } = renderComponent({
       hasError: true,
       errorMessage,
     })
 
     expect(input).toHaveClass('ma-text-field__input--error')
 
-    expect(queryByText(errorMessage)).toBeInTheDocument()
+    expect(getByText(errorMessage)).toBeInTheDocument()
   })
 
   test('renders a disabled input', () => {
@@ -42,13 +42,13 @@ describe('TextField', () => {
 
   test('renders initial value', () => {
     const value = 'initial value'
-    const { queryByDisplayValue } = renderComponent({ value })
+    const { getByDisplayValue } = renderComponent({ value })
 
-    expect(queryByDisplayValue(value)).toBeInTheDocument()
+    expect(getByDisplayValue(value)).toBeInTheDocument()
   })
 
   test('emits its value after typing', async () => {
-    const { queryByDisplayValue, input, emitted } = renderComponent({
+    const { getByDisplayValue, input, emitted } = renderComponent({
       value: 'initial value',
     })
 
@@ -56,7 +56,7 @@ describe('TextField', () => {
 
     await fireEvent.update(input, newValue)
 
-    expect(queryByDisplayValue(/42/i)).toBeInTheDocument()
+    expect(getByDisplayValue(/42/i)).toBeInTheDocument()
     expect(emitted()).toHaveProperty('input')
     expect(emitted().input).toHaveLength(1)
     expect(emitted().input[0][0]).toStrictEqual(newValue)
@@ -119,13 +119,13 @@ describe('TextField', () => {
     'renders provided %s slot',
     (slotName) => {
       const slotText = 'Test slot'
-      const { queryByText } = renderComponent(null, {
+      const { getByText } = renderComponent(null, {
         slots: {
           [slotName]: slotText,
         },
       })
 
-      expect(queryByText(slotText)).toBeInTheDocument()
+      expect(getByText(slotText)).toBeInTheDocument()
     }
   )
 })

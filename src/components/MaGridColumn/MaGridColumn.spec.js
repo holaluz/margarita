@@ -3,7 +3,7 @@ import MaGridColumn from './MaGridColumn'
 
 describe('GridColumn', () => {
   test('renders DOM element specified in the prop', () => {
-    const { queryByRole } = render(MaGridColumn, {
+    const { getByRole } = render(MaGridColumn, {
       context: Object.assign({
         props: {
           tag: 'nav',
@@ -11,7 +11,7 @@ describe('GridColumn', () => {
       }),
     })
 
-    expect(queryByRole('navigation')).toBeInTheDocument()
+    expect(getByRole('navigation')).toBeInTheDocument()
   })
 
   test('renders custom class', () => {
@@ -32,12 +32,12 @@ describe('GridColumn', () => {
 
   test('renders default slot', () => {
     const defaultSlot = 'default slot content'
-    const { queryByText } = render(MaGridColumn, {
+    const { getByText } = render(MaGridColumn, {
       slots: {
         default: defaultSlot,
       },
     })
 
-    expect(queryByText(defaultSlot)).toBeInTheDocument()
+    expect(getByText(defaultSlot)).toBeInTheDocument()
   })
 })

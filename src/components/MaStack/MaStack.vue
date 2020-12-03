@@ -1,5 +1,3 @@
-<style lang="scss" src="./MaStack.scss" scoped></style>
-
 <template>
   <div :class="classes" class="stack">
     <slot />
@@ -45,3 +43,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./MaStack.scss" scoped></style>
