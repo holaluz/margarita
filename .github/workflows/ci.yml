@@ -7,8 +7,8 @@ on:
     types: [synchronize, opened, reopened, ready_for_review]
 
 jobs:
-  unit-tests:
-    name: Run Unit tests
+  ci:
+    name: CI checks
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
