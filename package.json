@@ -1,29 +1,37 @@
 {
   "name": "@holaluz/margarita",
   "version": "0.0.0-semantically-released",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/holaluz/margarita.git"
+  },
   "main": "dist/margarita.umd.js",
-  "browser": "dist/margarita.common.js",
   "unpkg": "dist/margarita.umd.min.js",
-  "jsDelivr": "dist/margarita.umd.min.js",
+  "browser": "dist/margarita.common.js",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
-    "prepublishOnly": "npm it && npm run build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
-    "deploy": "gh-pages -d storybook-static",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint 'src/**/*.{js,vue}'",
-    "lint:css": "stylelint 'src/**/*.scss'",
-    "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
     "predeploy": "npm run storybook:build",
+    "deploy": "gh-pages -d storybook-static",
+    "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:css": "stylelint 'src/**/*.scss'",
+    "lint:js": "eslint 'src/**/*.{js,vue}'",
+    "prepublishOnly": "npm it && npm run build",
+    "semantic-release": "semantic-release",
     "start": "npm run storybook:serve",
     "storybook:build": "vue-cli-service storybook:build -c .storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c .storybook",
     "test": "vue-cli-service test:unit",
-    "test:watch": "vue-cli-service test:unit --watch",
-    "semantic-release": "semantic-release"
+    "test:watch": "vue-cli-service test:unit --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "sass-mq": "^5.0.0",
@@ -87,16 +95,8 @@
     "vue-functional-data-merge": "^3.1.0",
     "vue-template-compiler": "^2.6.12"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/holaluz/margarita.git"
-  },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "jsDelivr": "dist/margarita.umd.min.js"
 }
