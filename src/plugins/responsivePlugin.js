@@ -6,7 +6,7 @@ export default {
     vue.prototype.$layout.getResponsivePropValue = getResponsivePropValue
 
     // If we're on the server, let's set breakpoint to desktop and call it a day
-    if (process.server) {
+    if (typeof window === 'undefined') {
       vue.prototype.$layout.currentBreakpoint = breakpointsEnum.desktop
       return
     }
