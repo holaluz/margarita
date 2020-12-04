@@ -1,21 +1,20 @@
-import Vue from 'vue'
+import { createLocalVue } from '@vue/test-utils'
 import responsivePlugin from './responsivePlugin'
 
-const vueStub = new Vue()
-
-Vue.use(responsivePlugin)
+const app = createLocalVue()
+app.use(responsivePlugin)
 
 test('adds responsive plugin properties', () => {
-  expect(vueStub).toHaveProperty('$layout')
-  expect(vueStub.$layout).toHaveProperty('currentBreakpoint')
-  expect(vueStub.$layout).toHaveProperty('getResponsivePropValue')
+  expect(app.prototype).toHaveProperty('$layout')
+  expect(app.prototype.$layout).toHaveProperty('currentBreakpoint')
+  expect(app.prototype.$layout).toHaveProperty('getResponsivePropValue')
 })
 
 describe('getResponsivePropValue', () => {
-  const getResponsivePropValue = vueStub.$layout.getResponsivePropValue
+  const getResponsivePropValue = app.prototype.$layout.getResponsivePropValue
 
   test('sets mobile as default current breakpoint', () => {
-    expect(vueStub.$layout.currentBreakpoint).toBe('mobile')
+    expect(app.prototype.$layout.currentBreakpoint).toBe('mobile')
   })
 
   test.each`
@@ -30,7 +29,7 @@ describe('getResponsivePropValue', () => {
   `(
     'returns $expected from $input when displaying on $currentBreakpoint',
     ({ currentBreakpoint, input, expected }) => {
-      vueStub.$layout.currentBreakpoint = currentBreakpoint
+      app.prototype.$layout.currentBreakpoint = currentBreakpoint
       expect(getResponsivePropValue(input)).toStrictEqual(expected)
     }
   )
