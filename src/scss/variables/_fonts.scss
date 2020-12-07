@@ -1,3 +1,71 @@
 $rem-baseline: 16px;
 
 $default-font-size: 1rem;
+
+$font-size-names: (
+  'xsmall',
+  'small',
+  'base',
+  'medium',
+  'large',
+  'xlarge',
+  'xxlarge',
+  'xxxlarge'
+);
+
+$font-size: (
+  mobile: (
+    xsmall: 0.75rem,
+    small: 1rem,
+    base: 1.125rem,
+    medium: 1.5rem,
+    large: 1.75rem,
+    xlarge: 2rem,
+    xxlarge: 2.5rem,
+    xxxlarge: 2.5rem,
+  ),
+  desktop: (
+    xsmall: 0.75rem,
+    small: 1rem,
+    base: 1.25rem,
+    medium: 1.5rem,
+    large: 2rem,
+    xlarge: 3rem,
+    xxlarge: 3.5rem,
+    xxxlarge: 4rem,
+  ),
+);
+
+$font-weights: (
+  xsmall: normal,
+  small: normal,
+  base: normal,
+  medium: bold,
+  large: bold,
+  xlarge: bold,
+  xxlarge: bold,
+  xxxlarge: bold,
+);
+
+$font-line-heights: (
+  mobile: (
+    xsmall: 1.35,
+    small: 1.35,
+    base: 1.35,
+    medium: 1.15,
+    large: 1.15,
+    xlarge: 1.1,
+    xxlarge: 1.1,
+    xxxlarge: 1.1,
+  ),
+  desktop: (
+    xsmall: 1.35,
+    small: 1.35,
+    base: 1.35,
+    medium: 1.15,
+    large: 1.15,
+    xlarge: 1.1,
+    xxlarge: 1.1,
+    xxxlarge: 1.5,
+  ),
+);
