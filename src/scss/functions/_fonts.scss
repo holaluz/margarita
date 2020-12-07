@@ -1,0 +1,56 @@
+/// Returns the font size value for a given font size name.
+/// @param {String} $fontSize - The desired font size name.
+/// @param {String} $targetBreakpoint - The desired breakpoint target.
+/// @return {value} The font size value
+
+@function get-font-size($fontSizeName, $targetBreakpoint: mobile) {
+  $breakpoint: map-get($font-size, $targetBreakpoint);
+
+  @if type-of($breakpoint) != 'map' {
+    @error '`#{$targetBreakpoint} breakpoint does not exist.';
+  }
+
+  $fetched-font-size: map-get($breakpoint, $fontSizeName);
+
+  @if type-of($fetched-font-size) == number {
+    @return $fetched-font-size;
+  } @else {
+    @error 'Font size `#{$fetched-font-size}` not found. Available font sizes: #{available-names($font-size)}';
+  }
+}
+
+/// Returns the font weight value for a given font size name.
+/// @param {String} $fontSizeName - The desired font size name.
+/// @return {value} The font weight value
+
+@function get-font-weight($fontSizeName) {
+  $fetched-font-weight: map-get($font-weights, $fontSizeName);
+
+  @if type-of($fetched-font-weight) == string {
+    @return $fetched-font-weight;
+  } @else {
+    @error 'Font weight `#{$fetched-font-weight}` not found. Available font weights: #{available-names($font-weights)}';
+  }
+}
+
+/// Returns the font line height value for a given font size name.
+///
+/// @param {String} $fontSizeName - The desired font size name.
+/// @param {String} $targetBreakpoint - The desired breakpoint target.
+/// @return {value} The font line height value
+
+@function get-line-height($fontSizeName, $targetBreakpoint: mobile) {
+  $breakpoint: map-get($font-line-heights, $targetBreakpoint);
+
+  @if type-of($breakpoint) != 'map' {
+    @error '`#{$targetBreakpoint} breakpoint does not exist.';
+  }
+
+  $fetched-line-height: map-get($breakpoint, $fontSizeName);
+
+  @if type-of($fetched-line-height) == number {
+    @return $fetched-line-height;
+  } @else {
+    @error 'Font line height `#{$fetched-line-height}` not found. Available font line heights: #{available-names($font-line-heights)}';
+  }
+}
