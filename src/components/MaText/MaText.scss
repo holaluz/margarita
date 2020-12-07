@@ -1,0 +1,14 @@
+@each $size in $font-size-names {
+  .text--#{$size} {
+    margin: 0;
+    line-height: get-line-height($size);
+    font-size: get-font-size($size);
+    font-weight: get-font-weight($size);
+
+    @include mq($from: md) {
+      line-height: get-line-height($size, desktop);
+      font-size: get-font-size($size, desktop);
+      font-weight: get-font-weight($size);
+    }
+  }
+}
