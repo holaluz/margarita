@@ -22,3 +22,16 @@ export const spacing = [
 ]
 
 export const alignment = ['left', 'center', 'right']
+
+export const fontSizes = [
+  'xsmall',
+  'small',
+  'base',
+  'medium',
+  'large',
+  'xlarge',
+  'xxlarge',
+  'xxxlarge',
+]
+
+export const fontTags = ['p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
