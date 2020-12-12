@@ -1,20 +1,18 @@
 module.exports = {
-  moduleFileExtensions: ['vue', 'js', 'jsx', 'json'],
+  moduleFileExtensions: ['vue', 'js', 'json'],
   transform: {
     '^.+\\.vue$': 'vue-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$':
       'jest-transform-stub',
-    '^.+\\.jsx?$': 'babel-jest',
+    '^.+\\.js$': 'babel-jest',
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@margarita/(.*)$': '<rootDir>/src/$1',
     '^@@/(.*)$': '<rootDir>/$1',
   },
-  snapshotSerializers: ['jest-serializer-vue'],
   testEnvironment: 'jest-environment-jsdom-sixteen',
-  testMatch: ['**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'],
-  testURL: 'http://localhost:6006',
+  testMatch: ['**/*.spec.(js|ts)'],
   setupFilesAfterEnv: ['@holaluz/npm-scripts/jest.setup.js'],
   watchPlugins: [
     'jest-watch-typeahead/filename',
