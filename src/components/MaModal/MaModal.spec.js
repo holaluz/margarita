@@ -18,77 +18,88 @@ describe('MaModal', () => {
     assertModalIsOpen()
   })
 
-  test('focus on first focusable element on opening', async () => {
-    const { openModal, getByTestId } = renderComponent({
-      scopedSlots: {
-        content: `
-          <div>
-          <input data-testid="input" />
-          <button>nope</button>
-          </div>
-        `,
-      },
+  test('accepts a width prop', async () => {
+    const { openModal, getByRole, updateProps } = renderComponent()
+
+    await openModal()
+
+    expect(getByRole('dialog')).toHaveClass('modal--width-medium')
+
+    await updateProps({ width: 'large' })
+
+    expect(getByRole('dialog')).toHaveClass('modal--width-large')
+  })
+
+  test('removes event listener on destruction', () => {
+    jest.spyOn(document, 'removeEventListener')
+
+    const { unmount } = renderComponent()
+
+    unmount()
+
+    expect(document.removeEventListener).toHaveBeenCalledTimes(1)
+    expect(document.removeEventListener).toHaveBeenCalledWith(
+      'keydown',
+      expect.any(Function)
+    )
+  })
+
+  describe('closing modal', () => {
+    // eslint-disable-next-line jest/expect-expect
+    test('closes on hitting escape', async () => {
+      const { openModal, container, assertModalIsClosed } = renderComponent()
+
+      await openModal()
+
+      await fireEvent.keyDown(container, { key: 'Escape' })
+
+      await assertModalIsClosed()
     })
 
-    await openModal()
+    test('does not send closing event if modal is already closed', async () => {
+      const { emitted, container } = renderComponent()
 
-    expect(getByTestId('input')).toHaveFocus()
-  })
+      await fireEvent.keyDown(container, { key: 'Escape' })
 
-  // eslint-disable-next-line jest/expect-expect
-  test('removes modal on hitting escape', async () => {
-    const { openModal, container, assertModalIsClosed } = renderComponent()
-
-    await openModal()
-
-    await fireEvent.keyDown(container, { key: 'Escape' })
-
-    await assertModalIsClosed()
-  })
-
-  test('does not send closing event if modal is already closed', async () => {
-    const { emitted, container } = renderComponent()
-
-    await fireEvent.keyDown(container, { key: 'Escape' })
-
-    expect(emitted()).not.toHaveProperty('close')
-  })
-
-  // eslint-disable-next-line jest/expect-expect
-  test('removes modal on clicking close button', async () => {
-    const { openModal, getByTestId, assertModalIsClosed } = renderComponent()
-
-    await openModal()
-
-    await fireEvent.click(getByTestId('close-button'))
-
-    await assertModalIsClosed()
-  })
-
-  // eslint-disable-next-line jest/expect-expect
-  test('removes modal on clicking overlay', async () => {
-    const { openModal, getByTestId, assertModalIsClosed } = renderComponent()
-
-    await openModal()
-
-    await fireEvent.click(getByTestId('overlay'))
-
-    await assertModalIsClosed()
-  })
-
-  // eslint-disable-next-line jest/expect-expect
-  test('removes modal on clicking custom close element from slot', async () => {
-    const { openModal, getByText, assertModalIsClosed } = renderComponent({
-      scopedSlots: {
-        content: `<button @click="props.closeModal">close</button>`,
-      },
+      expect(emitted()).not.toHaveProperty('close')
     })
 
-    await openModal()
+    // eslint-disable-next-line jest/expect-expect
+    test('closes on clicking close button', async () => {
+      const { openModal, getByTestId, assertModalIsClosed } = renderComponent()
 
-    await fireEvent.click(getByText('close'))
+      await openModal()
 
-    await assertModalIsClosed()
+      await fireEvent.click(getByTestId('close-button'))
+
+      await assertModalIsClosed()
+    })
+
+    // eslint-disable-next-line jest/expect-expect
+    test('closes on clicking overlay', async () => {
+      const { openModal, getByTestId, assertModalIsClosed } = renderComponent()
+
+      await openModal()
+
+      await fireEvent.click(getByTestId('overlay'))
+
+      await assertModalIsClosed()
+    })
+
+    // eslint-disable-next-line jest/expect-expect
+    test('closes on clicking custom close element from slot', async () => {
+      const { openModal, getByText, assertModalIsClosed } = renderComponent({
+        scopedSlots: {
+          content: `<button @click="props.closeModal">close</button>`,
+        },
+      })
+
+      await openModal()
+
+      await fireEvent.click(getByText('close'))
+
+      await assertModalIsClosed()
+    })
   })
 
   test('accepts a width prop', async () => {
