@@ -1,6 +1,8 @@
 <template>
   <div class="modal-wrapper">
-    <slot name="trigger" :openModal="openModal" />
+    <div ref="modal-trigger">
+      <slot name="trigger" :openModal="openModal" />
+    </div>
     <portal-to-body>
       <transition
         v-if="showModal"
@@ -82,16 +84,18 @@ export default {
       this.showModal = true
       this.$emit('open')
 
-      await this.focusFirstFocusableElement()
+      await this.setFocusWithin('modal-content')
     },
 
-    closeModal() {
+    async closeModal() {
       // Calling this method will trigger the transition,
       // which when finished, will disable the Portal
       // through the `afterLeave` hook callback.
       // Otherwise no leaving transition happens.
       this.showModal = false
       this.$emit('close')
+
+      await this.setFocusWithin('modal-trigger')
     },
 
     escapeHandler(e) {
@@ -100,13 +104,23 @@ export default {
       }
     },
 
-    async focusFirstFocusableElement() {
+    async setFocusWithin(ref) {
       const focusableElements =
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
 
+      // We need to wait until Vue flushes DOM updates, otherwise we can't get
+      // refs references properly.
       await flushQueue()
 
-      this.$refs['modal-content'].querySelector(focusableElements).focus()
+      const element = this.$refs[ref]
+
+      if (!element) return
+
+      const firstFocusableElement = element.querySelector(focusableElements)
+
+      if (firstFocusableElement) {
+        firstFocusableElement.focus()
+      }
 
       function flushQueue() {
         return new Promise((resolve) => setTimeout(resolve, 0))
