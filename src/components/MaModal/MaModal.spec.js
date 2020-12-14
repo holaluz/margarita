@@ -102,30 +102,33 @@ describe('MaModal', () => {
     })
   })
 
-  test('accepts a width prop', async () => {
-    const { openModal, getByRole, updateProps } = renderComponent()
+  describe('focus management', () => {
+    test('focus on first focusable element on opening', async () => {
+      const { openModal, getByRole, debug } = renderComponent({
+        scopedSlots: {
+          content: function () {
+            return this.$createElement('div', [
+              this.$createElement('input'),
+              this.$createElement('button'),
+            ])
+          },
+        },
+      })
 
-    await openModal()
+      await openModal()
 
-    expect(getByRole('dialog')).toHaveClass('modal--width-medium')
+      await waitFor(() => expect(getByRole('textbox')).toHaveFocus())
+    })
 
-    await updateProps({ width: 'large' })
+    test('focus on first focusable element from trigger on closing', async () => {
+      const { openModal, getByTestId, container } = renderComponent()
 
-    expect(getByRole('dialog')).toHaveClass('modal--width-large')
-  })
+      await openModal()
 
-  test('removes event listener on destruction', () => {
-    jest.spyOn(document, 'removeEventListener')
+      await fireEvent.keyDown(container, { key: 'Escape' })
 
-    const { unmount } = renderComponent()
-
-    unmount()
-
-    expect(document.removeEventListener).toHaveBeenCalledTimes(1)
-    expect(document.removeEventListener).toHaveBeenCalledWith(
-      'keydown',
-      expect.any(Function)
-    )
+      await waitFor(() => expect(getByTestId('trigger')).toHaveFocus())
+    })
   })
 })
 
@@ -136,7 +139,7 @@ function renderComponent({ props = {}, scopedSlots = null } = {}) {
     {
       props: { title, ...props },
       scopedSlots: {
-        trigger: `<button @click="props.openModal">open</button>`,
+        trigger: `<button data-testid="trigger" @click="props.openModal">open</button>`,
         content: `<div>modal content</div>`,
         ...scopedSlots,
       },
