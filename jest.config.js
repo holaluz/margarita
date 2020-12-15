@@ -1,24 +1,12 @@
-module.exports = {
-  moduleFileExtensions: ['vue', 'js', 'jsx', 'json'],
+const merge = require('lodash.merge')
+const jestConfig = require('@holaluz/npm-scripts').jest
+
+module.exports = merge(jestConfig, {
   transform: {
-    '^.+\\.vue$': 'vue-jest',
-    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$':
-      'jest-transform-stub',
-    '^.+\\.jsx?$': 'babel-jest',
+    '.+\\.(css|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
     '^@margarita/(.*)$': '<rootDir>/src/$1',
-    '^@@/(.*)$': '<rootDir>/$1',
   },
-  snapshotSerializers: ['jest-serializer-vue'],
   testEnvironment: 'jest-environment-jsdom-sixteen',
-  testMatch: ['**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'],
-  testURL: 'http://localhost:6006',
-  setupFilesAfterEnv: ['@holaluz/npm-scripts/jest.setup.js'],
-  watchPlugins: [
-    'jest-watch-typeahead/filename',
-    'jest-watch-typeahead/testname',
-  ],
-  watchPathIgnorePatterns: ['<rootDir>/node_modules/'],
-}
+})
