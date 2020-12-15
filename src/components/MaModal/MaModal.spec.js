@@ -118,13 +118,11 @@ describe('MaModal', () => {
       const { openModal, getByTestId } = renderComponent({
         scopedSlots: {
           content: function () {
-            return this.$createElement('div', [
-              this.$createElement('input', {
-                attrs: { 'data-testid': 'input' },
-              }),
-              this.$createElement('button', {
-                attrs: { 'data-testid': 'button' },
-              }),
+            const h = this.$createElement
+
+            return h('div', [
+              h('input', { attrs: { 'data-testid': 'input' } }),
+              h('button', { attrs: { 'data-testid': 'button' } }),
             ])
           },
         },
