@@ -88,17 +88,17 @@ export default {
       [9, this.handleTabKey],
     ])
 
-    function keyListener(e) {
-      const listener = keyListenersMap.get(e.keyCode)
-
-      return listener && listener(e)
-    }
-
     document.addEventListener('keydown', keyListener)
 
     this.$once('hook:destroyed', () => {
       document.removeEventListener('keydown', keyListener)
     })
+
+    function keyListener(e) {
+      const listener = keyListenersMap.get(e.keyCode)
+
+      return listener && listener(e)
+    }
   },
 
   methods: {
@@ -116,12 +116,10 @@ export default {
       this.closeModal()
     },
 
+    // Calling this method will trigger the transition, which when finished,
+    // will disable the Portal through the `afterLeave` hook callback.
+    // Otherwise no leaving transition happens.
     async closeModal() {
-      /**
-       * Calling this method will trigger the transition,which when finished,
-       * will disable the Portal through the `afterLeave` hook callback.
-       * Otherwise no leaving transition happens.
-       */
       this.showModal = false
       this.$emit('close')
 
@@ -136,6 +134,7 @@ export default {
 
       const element = this.$refs[ref]
 
+      // If we cannot find modal let's fail gracefully.
       if (!element) return
 
       const firstFocusableElement = element.querySelector(FOCUSABLE_ELEMENTS)
@@ -166,21 +165,17 @@ export default {
         this.focusableElements.length - 1
       ]
 
-      /**
-       * If there was no SHIFT key pressed (i.e. only the TAB key was pressed)
-       * and the current focused/active element is the last focusable element
-       * in the modal, then we shift the focus to the first focusable element.
-       */
+      // If there was no SHIFT key pressed (i.e. only the TAB key was pressed)
+      // and the current focused/active element is the last focusable element
+      // in the modal, then we shift the focus to the first focusable element.
       if (!e.shiftKey && document.activeElement === lastElement) {
         firstElement.focus()
         return e.preventDefault()
       }
 
-      /**
-       * If there was a SHIFT key pressed (i.e. SHIFT + TAB was pressed) and
-       * the current focused/active element is the first focusable element in
-       * the modal, then we shift the focus to the last focusable element.
-       */
+      // If there was a SHIFT key pressed (i.e. SHIFT + TAB was pressed) and
+      // the current focused/active element is the first focusable element in
+      // the modal, then we shift the focus to the last focusable element.
       if (e.shiftKey && document.activeElement === firstElement) {
         lastElement.focus()
         e.preventDefault()
