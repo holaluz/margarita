@@ -31,6 +31,16 @@ describe('MaModal', () => {
     expect(getByRole('dialog')).toHaveClass('modal--width-large')
   })
 
+  test('accepts a header type prop', async () => {
+    const { openModal, getByTestId } = renderComponent({
+      props: { headerType: 'gradient' },
+    })
+
+    await openModal()
+
+    expect(getByTestId('modal-header')).toHaveClass('modal-header--gradient')
+  })
+
   test('removes event listener on destruction', () => {
     jest.spyOn(document, 'removeEventListener')
 

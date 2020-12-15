@@ -25,7 +25,11 @@
             aria-modal="true"
             class="modal"
           >
-            <div class="modal-header">
+            <div
+              :class="`modal-header--${headerType}`"
+              class="modal-header"
+              data-testid="modal-header"
+            >
               <span class="modal-title">{{ title }}</span>
               <button data-testid="close-button" @click="closeModal">x</button>
             </div>
@@ -72,6 +76,12 @@ export default {
       type: String,
       default: 'medium',
       validator: (w) => MODAL_WIDTHS.includes(w),
+    },
+
+    headerType: {
+      type: String,
+      default: 'white',
+      validator: (h) => ['white', 'gradient'].includes(h),
     },
   },
 
@@ -217,7 +227,14 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: get-space('xxsmall') get-space('xxsmall') 0;
+  padding: get-space('xxsmall');
+}
+
+.modal-header--gradient {
+  background: linear-gradient(to right, get-color(orange), get-color(pink));
+  color: white;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
 .modal-title {
