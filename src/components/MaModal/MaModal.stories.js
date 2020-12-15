@@ -14,11 +14,12 @@ const MODAL_WIDTHS = ['small', 'medium', 'large', 'content']
 export const Modal = () => {
   const title = text('Title', 'Enviar oferta por e-mail')
   const width = select('Width', MODAL_WIDTHS, MODAL_WIDTHS[1])
+  const headerType = select('Header type', ['white', 'gradient'], 'white')
 
   return {
     components: { MaModal, MaStack, MaButton, MaTextField },
     template: `
-      <ma-modal :title="title" :width="width">
+      <ma-modal :title="title" :width="width" :header-type="headerType">
         <template #trigger="{openModal}">
           <ma-button @click="openModal">Open the modal</ma-button>
         </template>
@@ -39,6 +40,9 @@ export const Modal = () => {
       },
       width: {
         default: width,
+      },
+      headerType: {
+        default: headerType,
       },
     },
   }
