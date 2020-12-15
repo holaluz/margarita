@@ -52,6 +52,7 @@
     "@storybook/addon-viewport": "^6.1.14",
     "@storybook/vue": "^6.1.14",
     "@testing-library/jest-dom": "^5.11.8",
+    "@testing-library/user-event": "^12.6.0",
     "@testing-library/vue": "^5.6.1",
     "@vue/cli-plugin-babel": "^4.5.10",
     "@vue/cli-plugin-eslint": "^4.5.10",
