@@ -17,6 +17,7 @@
             @click="closeModal"
           />
           <ma-stack
+            ref="modal"
             :aria-label="title"
             :class="`modal--width-${width}`"
             space="xsmall"
@@ -44,6 +45,15 @@ import { Portal } from '@linusborg/vue-simple-portal'
 
 const MODAL_WIDTHS = ['small', 'medium', 'large', 'content']
 
+const FOCUSABLE_ELEMENTS = [
+  'button',
+  'a[href]',
+  'input',
+  'select',
+  'textarea',
+  '[tabindex]:not([tabindex="-1"])',
+].join(',')
+
 export default {
   name: 'MaModal',
 
@@ -68,14 +78,26 @@ export default {
   data() {
     return {
       showModal: false,
+      focusableElements: [],
     }
   },
 
   mounted() {
-    document.addEventListener('keydown', this.escapeHandler)
+    const keyListenersMap = new Map([
+      [27, this.handleEscapeKey],
+      [9, this.handleTabKey],
+    ])
+
+    function keyListener(e) {
+      const listener = keyListenersMap.get(e.keyCode)
+
+      return listener && listener(e)
+    }
+
+    document.addEventListener('keydown', keyListener)
 
     this.$once('hook:destroyed', () => {
-      document.removeEventListener('keydown', this.escapeHandler)
+      document.removeEventListener('keydown', keyListener)
     })
   },
 
@@ -85,45 +107,83 @@ export default {
       this.$emit('open')
 
       await this.setFocusWithin('modal-content')
+      await this.setFocusableElements()
+    },
+
+    handleEscapeKey() {
+      if (!this.showModal) return
+
+      this.closeModal()
     },
 
     async closeModal() {
-      // Calling this method will trigger the transition,
-      // which when finished, will disable the Portal
-      // through the `afterLeave` hook callback.
-      // Otherwise no leaving transition happens.
+      /**
+       * Calling this method will trigger the transition,which when finished,
+       * will disable the Portal through the `afterLeave` hook callback.
+       * Otherwise no leaving transition happens.
+       */
       this.showModal = false
       this.$emit('close')
 
       await this.setFocusWithin('modal-trigger')
     },
 
-    escapeHandler(e) {
-      if (this.showModal && e.key === 'Escape') {
-        this.closeModal()
-      }
-    },
-
     async setFocusWithin(ref) {
-      const focusableElements =
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-
       // We need to wait until Vue flushes DOM updates, otherwise we can't get
       // refs references properly.
-      await flushQueue()
+      // https://github.com/LinusBorg/vue-simple-portal/issues/45
+      await this.flushQueue()
 
       const element = this.$refs[ref]
 
       if (!element) return
 
-      const firstFocusableElement = element.querySelector(focusableElements)
+      const firstFocusableElement = element.querySelector(FOCUSABLE_ELEMENTS)
 
       if (firstFocusableElement) {
         firstFocusableElement.focus()
       }
+    },
 
-      function flushQueue() {
-        return new Promise((resolve) => setTimeout(resolve, 0))
+    flushQueue() {
+      return new Promise((resolve) => setTimeout(resolve, 0))
+    },
+
+    async setFocusableElements() {
+      await this.flushQueue()
+
+      // If we cannot find modal let's fail gracefully.
+      const modal = this.$refs['modal']
+
+      if (!modal) return
+
+      this.focusableElements = modal.$el.querySelectorAll(FOCUSABLE_ELEMENTS)
+    },
+
+    handleTabKey(e) {
+      const firstElement = this.focusableElements[0]
+      const lastElement = this.focusableElements[
+        this.focusableElements.length - 1
+      ]
+
+      /**
+       * If there was no SHIFT key pressed (i.e. only the TAB key was pressed)
+       * and the current focused/active element is the last focusable element
+       * in the modal, then we shift the focus to the first focusable element.
+       */
+      if (!e.shiftKey && document.activeElement === lastElement) {
+        firstElement.focus()
+        return e.preventDefault()
+      }
+
+      /**
+       * If there was a SHIFT key pressed (i.e. SHIFT + TAB was pressed) and
+       * the current focused/active element is the first focusable element in
+       * the modal, then we shift the focus to the last focusable element.
+       */
+      if (e.shiftKey && document.activeElement === firstElement) {
+        lastElement.focus()
+        e.preventDefault()
       }
     },
   },

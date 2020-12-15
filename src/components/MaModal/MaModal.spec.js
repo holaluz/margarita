@@ -4,6 +4,7 @@ import {
   waitFor,
   waitForElementToBeRemoved,
 } from '@testing-library/vue'
+import userEvent from '@testing-library/user-event'
 import responsivePlugin from '@margarita/plugins/responsivePlugin'
 import MaModal from './MaModal'
 
@@ -51,15 +52,15 @@ describe('MaModal', () => {
 
       await openModal()
 
-      await fireEvent.keyDown(container, { key: 'Escape' })
+      userEvent.type(container, '{esc}')
 
       await assertModalIsClosed()
     })
 
-    test('does not send closing event if modal is already closed', async () => {
+    test('does not send closing event if modal is already closed', () => {
       const { emitted, container } = renderComponent()
 
-      await fireEvent.keyDown(container, { key: 'Escape' })
+      userEvent.type(container, '{esc}')
 
       expect(emitted()).not.toHaveProperty('close')
     })
@@ -103,29 +104,63 @@ describe('MaModal', () => {
   })
 
   describe('focus management', () => {
-    test('focus on first focusable element on opening', async () => {
-      const { openModal, getByRole, debug } = renderComponent({
+    test('traps focus', async () => {
+      const { openModal, getByTestId } = renderComponent({
         scopedSlots: {
           content: function () {
             return this.$createElement('div', [
-              this.$createElement('input'),
-              this.$createElement('button'),
+              this.$createElement('input', {
+                attrs: { 'data-testid': 'input' },
+              }),
+              this.$createElement('button', {
+                attrs: { 'data-testid': 'button' },
+              }),
             ])
           },
         },
       })
 
+      expect(document.body).toHaveFocus()
+
       await openModal()
 
-      await waitFor(() => expect(getByRole('textbox')).toHaveFocus())
+      const focusableElements = [
+        getByTestId('input'),
+        getByTestId('button'),
+        getByTestId('close-button'),
+      ]
+
+      // Initial focus
+      await waitFor(() => expect(focusableElements[0]).toHaveFocus())
+
+      userEvent.tab()
+
+      expect(focusableElements[1]).toHaveFocus()
+
+      userEvent.tab()
+
+      expect(focusableElements[2]).toHaveFocus()
+
+      userEvent.tab()
+
+      // Loops back to the first element
+      expect(focusableElements[0]).toHaveFocus()
+
+      userEvent.tab({ shift: true })
+
+      expect(focusableElements[2]).toHaveFocus()
+
+      userEvent.tab({ shift: true })
+
+      expect(focusableElements[1]).toHaveFocus()
     })
 
-    test('focus on first focusable element from trigger on closing', async () => {
-      const { openModal, getByTestId, container } = renderComponent()
+    test('returns focus to trigger on close', async () => {
+      const { openModal, getByTestId, getByText } = renderComponent()
 
       await openModal()
 
-      await fireEvent.keyDown(container, { key: 'Escape' })
+      userEvent.type(getByText('modal content'), '{esc}', { skipClick: true })
 
       await waitFor(() => expect(getByTestId('trigger')).toHaveFocus())
     })
