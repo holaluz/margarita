@@ -1,4 +1,5 @@
 import { breakpoints, breakpointsEnum } from '../tokens'
+import isBrowser from '../utils/isBrowser'
 
 export default {
   install(vue) {
@@ -6,7 +7,7 @@ export default {
     vue.prototype.$layout.getResponsivePropValue = getResponsivePropValue
 
     // If we're on the server, let's set breakpoint to desktop and call it a day
-    if (typeof window === 'undefined') {
+    if (!isBrowser()) {
       vue.prototype.$layout.currentBreakpoint = breakpointsEnum.desktop
       return
     }
