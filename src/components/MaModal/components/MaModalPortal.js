@@ -45,13 +45,13 @@ export default {
   methods: {
     // This returns the element into which the content should be mounted.
     getTargetEl() {
-      if (!isBrowser) return
+      if (!isBrowser()) return
 
       return document.querySelector(this.selector)
     },
 
     insertTargetEl() {
-      if (!isBrowser) return
+      if (!isBrowser()) return
 
       const body = document.querySelector('body')
       const child = document.createElement(this.tag)
@@ -61,7 +61,7 @@ export default {
     },
 
     mount() {
-      if (!isBrowser) return
+      if (!isBrowser()) return
 
       const targetEl = this.getTargetEl()
       const el = document.createElement('DIV')
