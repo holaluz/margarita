@@ -9,13 +9,13 @@ import MaModal from './MaModal'
 
 describe('MaModal', () => {
   test('shows modal content on clicking trigger element', async () => {
-    const { openModal, assertModalIsOpen, queryByRole } = renderComponent()
+    const { openModal, assertModalHasOpened, queryByRole } = renderComponent()
 
     expect(queryByRole('dialog')).not.toBeInTheDocument()
 
     await openModal()
 
-    assertModalIsOpen()
+    assertModalHasOpened()
   })
 
   test('accepts a width prop', async () => {
@@ -57,13 +57,13 @@ describe('MaModal', () => {
   describe('closing modal', () => {
     // eslint-disable-next-line jest/expect-expect
     test('closes on hitting escape', async () => {
-      const { openModal, container, assertModalIsClosed } = renderComponent()
+      const { openModal, container, assertModalHasClosed } = renderComponent()
 
       await openModal()
 
       userEvent.type(container, '{esc}')
 
-      await assertModalIsClosed()
+      await assertModalHasClosed()
     })
 
     test('does not send closing event if modal is already closed', () => {
@@ -76,29 +76,29 @@ describe('MaModal', () => {
 
     // eslint-disable-next-line jest/expect-expect
     test('closes on clicking close button', async () => {
-      const { openModal, getByTestId, assertModalIsClosed } = renderComponent()
+      const { openModal, getByTestId, assertModalHasClosed } = renderComponent()
 
       await openModal()
 
       userEvent.click(getByTestId('close-button'))
 
-      await assertModalIsClosed()
+      await assertModalHasClosed()
     })
 
     // eslint-disable-next-line jest/expect-expect
     test('closes on clicking overlay', async () => {
-      const { openModal, getByTestId, assertModalIsClosed } = renderComponent()
+      const { openModal, getByTestId, assertModalHasClosed } = renderComponent()
 
       await openModal()
 
       userEvent.click(getByTestId('overlay'))
 
-      await assertModalIsClosed()
+      await assertModalHasClosed()
     })
 
     // eslint-disable-next-line jest/expect-expect
     test('closes on clicking custom close element from slot', async () => {
-      const { openModal, getByText, assertModalIsClosed } = renderComponent({
+      const { openModal, getByRole, assertModalHasClosed } = renderComponent({
         scopedSlots: {
           content: `<button @click="props.closeModal">close</button>`,
         },
@@ -106,9 +106,9 @@ describe('MaModal', () => {
 
       await openModal()
 
-      userEvent.click(getByText('close'))
+      userEvent.click(getByRole('button', { name: 'close' }))
 
-      await assertModalIsClosed()
+      await assertModalHasClosed()
     })
   })
 
@@ -196,14 +196,14 @@ function renderComponent({ props = {}, scopedSlots = null } = {}) {
     await waitFor(() => expect(utils.getByRole('dialog')).toBeInTheDocument())
   }
 
-  const assertModalIsClosed = async () => {
+  const assertModalHasClosed = async () => {
     await waitForElementToBeRemoved(utils.getByRole('dialog'))
 
     expect(utils.emitted()).toHaveProperty('close')
     expect(utils.emitted().close).toHaveLength(1)
   }
 
-  const assertModalIsOpen = () => {
+  const assertModalHasOpened = () => {
     expect(utils.emitted()).toHaveProperty('open')
     expect(utils.emitted().open).toHaveLength(1)
 
@@ -216,8 +216,8 @@ function renderComponent({ props = {}, scopedSlots = null } = {}) {
 
   return {
     openModal,
-    assertModalIsClosed,
-    assertModalIsOpen,
+    assertModalHasClosed,
+    assertModalHasOpened,
     ...utils,
   }
 }
