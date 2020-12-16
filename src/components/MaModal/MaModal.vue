@@ -47,7 +47,7 @@
 import MaStack from '@margarita/components/MaStack'
 import MaModalPortal from './components/MaModalPortal'
 
-const MODAL_WIDTHS = ['small', 'medium', 'large', 'content']
+const MODAL_WIDTHS = ['small', 'medium', 'large']
 
 const FOCUSABLE_ELEMENTS = [
   'button',
