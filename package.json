@@ -20,11 +20,13 @@
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint 'src/**/*.scss'",
     "lint:js": "eslint 'src/**/*.{js,vue}'",
-    "start": "npm run storybook:serve",
+    "start": "npm run storybook:serve & npm run watch:tokens",
     "storybook:build": "vue-cli-service storybook:build -c .storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c .storybook",
     "test": "vue-cli-service test:unit",
-    "test:watch": "vue-cli-service test:unit --watch"
+    "test:watch": "vue-cli-service test:unit --watch",
+    "build:tokens": "style-dictionary build --platform scss --config ./styleDictionary.config.js && prettier 'src/scssTokens/*.scss' --write",
+    "watch:tokens": "npm run build:tokens && chokidar  \"src/tokens/*.json\" -c \"npm run build:tokens\""
   },
   "husky": {
     "hooks": {
