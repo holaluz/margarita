@@ -9,7 +9,7 @@ export default {
   title: 'Components/Modal',
 }
 
-const MODAL_WIDTHS = ['small', 'medium', 'large', 'content']
+const MODAL_WIDTHS = ['small', 'medium', 'large']
 
 export const Modal = () => {
   const title = text('Title', 'Enviar oferta por e-mail')
