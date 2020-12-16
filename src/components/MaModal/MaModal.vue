@@ -3,7 +3,7 @@
     <div ref="modal-trigger">
       <slot name="trigger" :openModal="openModal" />
     </div>
-    <portal-to-body>
+    <ma-modal-portal>
       <transition
         v-if="showModal"
         name="modal-transition"
@@ -39,13 +39,13 @@
           </ma-stack>
         </div>
       </transition>
-    </portal-to-body>
+    </ma-modal-portal>
   </div>
 </template>
 
 <script>
 import MaStack from '@margarita/components/MaStack'
-import { Portal } from '@linusborg/vue-simple-portal'
+import MaModalPortal from './components/MaModalPortal'
 
 const MODAL_WIDTHS = ['small', 'medium', 'large', 'content']
 
@@ -62,7 +62,7 @@ export default {
   name: 'MaModal',
 
   components: {
-    PortalToBody: Portal,
+    MaModalPortal,
     MaStack,
   },
 
@@ -237,6 +237,11 @@ export default {
   border-top-right-radius: 0.5rem;
 }
 
+.modal-header--gradient .modal-title {
+  flex: 1;
+  text-align: center;
+}
+
 .modal-title {
   font-weight: bold;
   font-size: 1.3rem;
@@ -265,15 +270,12 @@ export default {
 }
 
 .modal--width-small {
-  max-width: 400px;
+  max-width: 300px;
 }
 .modal--width-medium {
-  max-width: 600px;
+  max-width: 500px;
 }
 .modal--width-large {
-  max-width: 900px;
-}
-.modal--width-content {
-  max-width: auto;
+  max-width: 800px;
 }
 </style>
