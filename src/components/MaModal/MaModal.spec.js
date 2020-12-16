@@ -1,6 +1,5 @@
 import {
   render,
-  fireEvent,
   waitFor,
   waitForElementToBeRemoved,
 } from '@testing-library/vue'
@@ -81,7 +80,7 @@ describe('MaModal', () => {
 
       await openModal()
 
-      await fireEvent.click(getByTestId('close-button'))
+      userEvent.click(getByTestId('close-button'))
 
       await assertModalIsClosed()
     })
@@ -92,7 +91,7 @@ describe('MaModal', () => {
 
       await openModal()
 
-      await fireEvent.click(getByTestId('overlay'))
+      userEvent.click(getByTestId('overlay'))
 
       await assertModalIsClosed()
     })
@@ -107,7 +106,7 @@ describe('MaModal', () => {
 
       await openModal()
 
-      await fireEvent.click(getByText('close'))
+      userEvent.click(getByText('close'))
 
       await assertModalIsClosed()
     })
@@ -193,7 +192,7 @@ function renderComponent({ props = {}, scopedSlots = null } = {}) {
   )
 
   const openModal = async () => {
-    await fireEvent.click(utils.getByRole('button', { name: 'open' }))
+    userEvent.click(utils.getByRole('button', { name: 'open' }))
     await waitFor(() => expect(utils.getByRole('dialog')).toBeInTheDocument())
   }
 
