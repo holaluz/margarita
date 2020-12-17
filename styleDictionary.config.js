@@ -3,7 +3,7 @@ module.exports = {
   platforms: {
     scss: {
       transformGroup: 'scss',
-      buildPath: './src/scssTokens/',
+      buildPath: './src/scss/variables/',
       files: [
         {
           destination: '_colors.scss',
@@ -14,7 +14,7 @@ module.exports = {
         {
           destination: '_spacing.scss',
           format: 'scss/map-flat',
-          mapName: 'spacing',
+          mapName: 'layout-spacing',
           filter: { type: 'spacing' },
         },
       ],

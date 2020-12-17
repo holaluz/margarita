@@ -25,7 +25,7 @@
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c .storybook",
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
-    "build:tokens": "style-dictionary build --platform scss --config ./styleDictionary.config.js && prettier 'src/scssTokens/*.scss' --write",
+    "build:tokens": "style-dictionary build --platform scss --config ./styleDictionary.config.js && prettier 'src/scss/variables/*.scss' --write",
     "watch:tokens": "npm run build:tokens && chokidar  \"src/tokens/*.js\" -c \"npm run build:tokens\""
   },
   "husky": {
