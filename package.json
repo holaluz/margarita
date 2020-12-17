@@ -26,7 +26,7 @@
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
     "build:tokens": "style-dictionary build --platform scss --config ./styleDictionary.config.js && prettier 'src/scssTokens/*.scss' --write",
-    "watch:tokens": "npm run build:tokens && chokidar  \"src/tokens/*.json\" -c \"npm run build:tokens\""
+    "watch:tokens": "npm run build:tokens && chokidar  \"src/tokens/*.js\" -c \"npm run build:tokens\""
   },
   "husky": {
     "hooks": {
