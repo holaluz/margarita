@@ -5,7 +5,12 @@
 /// @return {Color} The color value.
 
 @function get-color($hue, $value: base) {
-  $colorMap: map-get($colors, '#{$hue}-#{$value}');
+  // Inspecting $name prevents node-sass from
+  // parsing it as a color (and transforming 'white' to '#fff').
+  // https://sass-lang.com/documentation/modules/meta#inspect
+  $stringified-hue: inspect($hue);
+
+  $colorMap: map-get($colors, '#{$stringified-hue}-#{$value}');
 
   @if type-of($colorMap) == color {
     @return $colorMap;
