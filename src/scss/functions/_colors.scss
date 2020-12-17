@@ -5,19 +5,15 @@
 /// @return {Color} The color value.
 
 @function get-color($hue, $value: base) {
-  $colorMap: map-get($colors, $hue);
+  $colorMap: map-get($colors, '#{$hue}-#{$value}');
 
-  @if type-of($colorMap) != 'map' {
-    @error '`#{$hue} does not exist. Available colors: #{available-names($colors)}';
-  }
-
-  $fetched-color: map-get($colorMap, $value);
-
-  @if type-of($fetched-color) == color {
-    @return $fetched-color;
+  @if type-of($colorMap) == color {
+    @return $colorMap;
   } @else {
-    @error 'Color `#{$hue} - #{$value}` not found. Available colors: #{available-names($colors)}';
+    @error 'Color `#{$hue}-#{$value}` not found. Available colors: #{available-names($colors)}';
   }
+
+  @return colorMap;
 }
 
 @function get-alpha-color($color: '', $amount: 0) {
