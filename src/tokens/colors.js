@@ -44,9 +44,4 @@ module.exports = {
   white: {
     base: { value: '#ffffff', type: 'color' },
   },
-  shadow: {
-    light: { value: 'rgba(0, 0, 0, 0.027451)', type: 'color' },
-    medium: { value: 'rgba(0, 0, 0, 0.0980392)', type: 'color' },
-    dark: { value: 'rgba(0, 0, 0, 0.498)', type: 'color' },
-  },
 }
