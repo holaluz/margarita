@@ -1,18 +1,5 @@
-import merge from 'lodash.merge'
 import '../scss/_margarita.scss'
-import rawColors from '../../.storybook/colors.scss'
-
-const colors = Object.entries(rawColors).reduce(
-  (acc, [composedColorName, hex]) => {
-    const [hue, tone] = composedColorName.split('-')
-    return merge(acc, {
-      [hue]: {
-        [tone]: hex,
-      },
-    })
-  },
-  {}
-)
+import colorTokens from '../tokens/colors'
 
 export default {
   title: 'Tokens/Colors',
@@ -24,12 +11,12 @@ export const Colors = () => ({
       <div v-for="(tones, hue) in colors" :key="hue">
         <h2 :style="titleStyle">{{hue}}</h2>
         <div v-for="(hex, tone) in tones" :key="tone" :style="colorStyle">
-          <div :style="getBoxStyle(hex)">
+          <div :style="getBoxStyle(hex.value)">
             <code v-text="getFunction(hue, tone)" />
           </div>
           <p :style="colorNameStyle">
             {{hue}} {{tone}}
-            <code v-text="hex" :style="hexStyle" />
+            <code v-text="hex.value" :style="hexStyle" />
           </p>
         </div>
       </div>
@@ -38,7 +25,7 @@ export const Colors = () => ({
 
   data() {
     return {
-      colors,
+      colors: colorTokens,
       titleStyle: {
         textAlign: 'center',
         textTransform: 'capitalize',
