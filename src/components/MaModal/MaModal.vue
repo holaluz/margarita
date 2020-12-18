@@ -44,8 +44,8 @@
 </template>
 
 <script>
+import { Portal as MaModalPortal } from '@linusborg/vue-simple-portal/dist/index.umd'
 import MaStack from '@margarita/components/MaStack'
-import MaModalPortal from './components/MaModalPortal'
 
 const MODAL_WIDTHS = ['small', 'medium', 'large']
 
@@ -62,8 +62,8 @@ export default {
   name: 'MaModal',
 
   components: {
-    MaModalPortal,
     MaStack,
+    MaModalPortal,
   },
 
   props: {
