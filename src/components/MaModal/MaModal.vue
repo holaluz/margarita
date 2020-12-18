@@ -89,10 +89,10 @@ export default {
     return {
       showModal: false,
       focusableElements: [],
-      keyListenersMap: new Map([
-        [27, this.handleEscapeKey],
-        [9, this.handleTabKey],
-      ]),
+      keyListenersMap: {
+        27: this.handleEscapeKey,
+        9: this.handleTabKey,
+      },
     }
   },
 
@@ -106,7 +106,7 @@ export default {
 
   methods: {
     keyListener(e) {
-      const listener = this.keyListenersMap.get(e.keyCode)
+      const listener = this.keyListenersMap[e.keyCode]
 
       return listener && listener(e)
     },
