@@ -89,29 +89,28 @@ export default {
     return {
       showModal: false,
       focusableElements: [],
+      keyListenersMap: new Map([
+        [27, this.handleEscapeKey],
+        [9, this.handleTabKey],
+      ]),
     }
   },
 
   mounted() {
-    const keyListenersMap = new Map([
-      [27, this.handleEscapeKey],
-      [9, this.handleTabKey],
-    ])
+    document.addEventListener('keydown', this.keyListener)
+  },
 
-    document.addEventListener('keydown', keyListener)
-
-    this.$once('hook:destroyed', () => {
-      document.removeEventListener('keydown', keyListener)
-    })
-
-    function keyListener(e) {
-      const listener = keyListenersMap.get(e.keyCode)
-
-      return listener && listener(e)
-    }
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keyListener)
   },
 
   methods: {
+    keyListener(e) {
+      const listener = this.keyListenersMap.get(e.keyCode)
+
+      return listener && listener(e)
+    },
+
     async openModal() {
       this.showModal = true
       this.$emit('open')
