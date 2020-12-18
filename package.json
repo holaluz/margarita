@@ -15,19 +15,19 @@
     "types/*.d.ts"
   ],
   "scripts": {
-    "prebuild": "npm run build:tokens",
+    "prebuild": "npm run tokens:build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint 'src/**/*.scss'",
     "lint:js": "eslint 'src/**/*.{js,vue}'",
-    "start": "npm run storybook:serve & npm run watch:tokens",
+    "start": "npm run storybook:serve & npm run tokens:watch",
     "storybook:build": "vue-cli-service storybook:build -c .storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c .storybook",
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
-    "build:tokens": "style-dictionary build --platform scss --config ./styleDictionary.config.js && prettier 'src/scss/variables/*.scss' --write",
-    "watch:tokens": "npm run build:tokens && chokidar  \"src/tokens/*.js\" -c \"npm run build:tokens\""
+    "tokens:build": "style-dictionary build --platform scss --config ./styleDictionary.config.js && prettier 'src/scss/variables/*.scss' --write",
+    "tokens:watch": "npm run tokens:build && chokidar  \"src/tokens/*.js\" -c \"npm run tokens:build\""
   },
   "husky": {
     "hooks": {
