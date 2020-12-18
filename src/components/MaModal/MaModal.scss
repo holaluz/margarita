@@ -1,0 +1,82 @@
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.modal {
+  position: fixed;
+
+  // centering
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  // so that it doesn't reach end of viewport
+  width: 96vw;
+
+  // temporary, stylistic stuff
+  background-color: white;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: get-space('xxsmall');
+}
+
+.modal-header--gradient {
+  background: linear-gradient(to right, get-color(orange), get-color(pink));
+  color: white;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.modal-header--gradient .modal-title {
+  flex: 1;
+  text-align: center;
+}
+
+.modal-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.modal-content {
+  padding: 0 get-space('xxsmall');
+
+  // because fuck standards, that's why
+  // https://github.com/w3c/csswg-drafts/issues/129
+  margin-bottom: get-space('xxsmall');
+
+  // height management
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-transition-enter-active,
+.modal-transition-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.modal-transition-enter,
+.modal-transition-leave-to {
+  opacity: 0;
+}
+
+.modal--width-small {
+  max-width: 300px;
+}
+.modal--width-medium {
+  max-width: 500px;
+}
+.modal--width-large {
+  max-width: 800px;
+}
