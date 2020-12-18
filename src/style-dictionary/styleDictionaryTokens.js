@@ -1,5 +1,3 @@
-// import { spacing, colors } from '../tokens/index'
-// import { addTokenType } from './addTokenType'
 const colors = require('../tokens/colors')
 const spacing = require('../tokens/spacing')
 const addTokenType = require('./addTokenType')

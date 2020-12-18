@@ -1,7 +1,5 @@
-// import merge from 'lodash.merge'
 const merge = require('lodash.merge')
 const isPlainObject = require('lodash.isplainobject')
-// import isPlainObject from 'lodash.isplainobject'
 
 const addTokenType = (token, type) =>
   Object.entries(token).reduce((acc, [key, keyVal]) => {
