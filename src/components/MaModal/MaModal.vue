@@ -58,6 +58,9 @@ const FOCUSABLE_ELEMENTS = [
   '[tabindex]:not([tabindex="-1"])',
 ].join(',')
 
+const TAB_KEY = 9
+const ESCAPE_KEY = 27
+
 export default {
   name: 'MaModal',
 
@@ -90,8 +93,8 @@ export default {
       showModal: false,
       focusableElements: [],
       keyListenersMap: {
-        27: this.handleEscapeKey,
-        9: this.handleTabKey,
+        [ESCAPE_KEY]: this.handleEscapeKey,
+        [TAB_KEY]: this.handleTabKey,
       },
     }
   },
