@@ -1,4 +1,4 @@
-import { addTokenType } from './addTokenType'
+import addTokenType from './addTokenType'
 
 describe('Style Dictionary object formatter', () => {
   test('adds properly value and type keys to one level nested objects', () => {
