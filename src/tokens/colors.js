@@ -1,47 +1,47 @@
 module.exports = {
   pink: {
-    light: { value: '#f8b0cb', type: 'color' },
-    base: { value: '#e6007d', type: 'color' },
-    dark: { value: '#b3005d', type: 'color' },
+    light: '#f8b0cb',
+    base: '#e6007d',
+    dark: '#b3005d',
   },
   green: {
-    light: { value: '#e2f3ad', type: 'color' },
-    base: { value: '#237b01', type: 'color' },
-    dark: { value: '#1f6d4a', type: 'color' },
+    light: '#e2f3ad',
+    base: '#237b01',
+    dark: '#1f6d4a',
   },
   yellow: {
-    light: { value: '#fdf6dd', type: 'color' },
-    base: { value: '#f5d154', type: 'color' },
-    dark: { value: '#ffba03', type: 'color' },
+    light: '#fdf6dd',
+    base: '#f5d154',
+    dark: '#ffba03',
   },
   blue: {
-    light: { value: '#daf4fa', type: 'color' },
-    base: { value: '#296c89', type: 'color' },
+    light: '#daf4fa',
+    base: '#296c89',
   },
   red: {
-    light: { value: '#ffdddc', type: 'color' },
-    base: { value: '#cb1010', type: 'color' },
+    light: '#ffdddc',
+    base: '#cb1010',
   },
   brown: {
-    light: { value: '#f9f8f3', type: 'color' },
-    base: { value: '#c8c0ab', type: 'color' },
+    light: '#f9f8f3',
+    base: '#c8c0ab',
   },
   orange: {
-    base: { value: '#f06c17', type: 'color' },
+    base: '#f06c17',
   },
   turquoise: {
-    base: { value: '#24b578', type: 'color' },
+    base: '#24b578',
   },
   gray: {
-    light: { value: '#dcdcdc', type: 'color' },
-    base: { value: '#767676', type: 'color' },
-    dark: { value: '#4a4a4a', type: 'color' },
-    darker: { value: '#212121', type: 'color' },
+    light: '#dcdcdc',
+    base: '#767676',
+    dark: '#4a4a4a',
+    darker: '#212121',
   },
   black: {
-    base: { value: '#000000', type: 'color' },
+    base: '#000000',
   },
   white: {
-    base: { value: '#ffffff', type: 'color' },
+    base: '#ffffff',
   },
 }
