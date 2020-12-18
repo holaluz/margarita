@@ -5,7 +5,7 @@
 /// @return {Color} The color value.
 
 @function get-color($hue, $value: base) {
-  // Inspecting $name prevents node-sass from
+  // Inspecting $hue prevents node-sass from
   // parsing it as a color (and transforming 'white' to '#fff').
   // https://sass-lang.com/documentation/modules/meta#inspect
   $stringified-hue: inspect($hue);
