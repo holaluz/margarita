@@ -226,7 +226,7 @@ export default {
 .modal-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: get-space('xxsmall');
 }
 
