@@ -34,7 +34,7 @@
 
 .modal-header--gradient {
   background: linear-gradient(to right, get-color(orange), get-color(pink));
-  color: white;
+  color: get-color(white);
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
