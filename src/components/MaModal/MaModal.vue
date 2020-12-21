@@ -104,8 +104,8 @@ export default {
   computed: {
     computedIconColor() {
       return this.headerType === 'white'
-        ? 'icon-close-pink'
-        : 'icon-close-white'
+        ? 'icon-close--pink'
+        : 'icon-close--white'
     },
   },
 
@@ -268,7 +268,6 @@ export default {
   margin: 0;
   padding-right: 3rem;
   min-height: 2.25rem;
-  font-size: 1rem;
 
   @include mq($from: md) {
     font-size: rem(24px);
@@ -276,14 +275,13 @@ export default {
 }
 
 .icon-close {
-  position: absolute;
-  top: rem(24px);
-  right: rem(24px);
   border: 0;
   background-color: transparent;
   cursor: pointer;
-  width: rem(36px);
-  height: rem(36px);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1.5rem;
+  height: 1.5rem;
 
   &--pink {
     background-image: url('../../assets/icons/icon-close-pink.svg');
