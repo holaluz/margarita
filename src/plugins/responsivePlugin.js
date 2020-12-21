@@ -79,7 +79,7 @@ function addListenerToMediaQueryList(mediaQueryList, listenerCallback) {
    */
   try {
     mediaQueryList.addEventListener('change', listenerCallback)
-  } catch (e) {
+  } catch {
     mediaQueryList.addListener(listenerCallback)
   }
 }
