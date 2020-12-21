@@ -6,37 +6,39 @@
     <ma-modal-portal>
       <transition
         v-if="showModal"
-        name="modal-transition"
+        name="modal"
         appear
         @after-leave="closeModal"
       >
-        <div>
-          <div
-            class="modal-overlay"
-            data-testid="overlay"
-            @click="closeModal"
-          />
-          <ma-stack
-            ref="modal"
-            :aria-label="title"
-            :class="`modal--width-${width}`"
-            space="xsmall"
-            role="dialog"
-            aria-modal="true"
-            class="modal"
-          >
-            <div
-              :class="`modal-header--${headerType}`"
-              class="modal-header"
-              data-testid="modal-header"
+        <div class="modal-overlay" data-testid="overlay" @click="closeModal">
+          <div class="modal-content-wrapper">
+            <ma-stack
+              ref="modal"
+              :aria-label="title"
+              :class="`modal--width-${width}`"
+              space="xsmall"
+              role="dialog"
+              aria-modal="true"
+              class="modal"
             >
-              <span class="modal-title">{{ title }}</span>
-              <button data-testid="close-button" @click="closeModal">x</button>
-            </div>
-            <div ref="modal-content" class="modal-content">
-              <slot :closeModal="closeModal" name="content" />
-            </div>
-          </ma-stack>
+              <div
+                :class="`modal-header--${headerType}`"
+                class="modal-header"
+                data-testid="modal-header"
+              >
+                <span class="modal-title">{{ title }}</span>
+                <button
+                  class="icon-close"
+                  :class="computedIconColor"
+                  data-testid="close-button"
+                  @click="closeModal"
+                />
+              </div>
+              <div ref="modal-content" class="modal-content">
+                <slot :closeModal="closeModal" name="content" />
+              </div>
+            </ma-stack>
+          </div>
         </div>
       </transition>
     </ma-modal-portal>
@@ -97,6 +99,14 @@ export default {
         [TAB_KEY]: this.handleTabKey,
       },
     }
+  },
+
+  computed: {
+    computedIconColor() {
+      return this.headerType === 'white'
+        ? 'icon-close-pink'
+        : 'icon-close-white'
+    },
   },
 
   mounted() {
@@ -198,3 +208,131 @@ export default {
 </script>
 
 <style src="./MaModal.scss" lang="scss" scoped></style>
+<style lang="scss" scoped>
+.modal-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+  z-index: 100;
+  background-color: get-alpha-color(black, 0.5);
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal {
+  transition: transform 0.4s ease;
+  border-radius: 0.25rem;
+  box-shadow: 0 rem(2px) rem(8px) get-alpha-color(black, 0.67);
+  background-color: get-color(white);
+  width: 96vw;
+  max-width: rem(500px);
+  color: get-color(gray, dark);
+}
+
+.modal-content-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: get-space('xsmall');
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.modal-header--gradient {
+  background: linear-gradient(to right, get-color(orange), get-color(pink));
+  color: white;
+}
+
+.modal-header--gradient .modal-title {
+  flex: 1;
+  text-align: center;
+}
+
+.modal-title {
+  @include font-weight(bold);
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin: 0;
+  padding-right: 3rem;
+  min-height: 2.25rem;
+  font-size: 1rem;
+
+  @include mq($from: md) {
+    font-size: rem(24px);
+  }
+}
+
+.icon-close {
+  position: absolute;
+  top: rem(24px);
+  right: rem(24px);
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  width: rem(36px);
+  height: rem(36px);
+
+  &--pink {
+    background-image: url('../../assets/icons/icon-close-pink.svg');
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-image: url('../../assets/icons/icon-close-darkpink.svg');
+    }
+  }
+
+  &--white {
+    background-image: url('../../assets/icons/icon-close-white.svg');
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 0.75;
+      background-image: url('../../assets/icons/icon-close-darkwhite.svg');
+    }
+  }
+}
+
+.modal-content {
+  // because fuck standards, that's why
+  // https://github.com/w3c/csswg-drafts/issues/129
+  margin-bottom: get-space('xsmall');
+  padding: 0 get-space('xsmall');
+  // height management
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal--width-small {
+  max-width: 300px;
+}
+.modal--width-medium {
+  max-width: 500px;
+}
+.modal--width-large {
+  max-width: 800px;
+}
+
+.modal-leave-active,
+.modal-enter {
+  opacity: 0;
+
+  .modal {
+    transform: translateY(-100%);
+  }
+}
+</style>
