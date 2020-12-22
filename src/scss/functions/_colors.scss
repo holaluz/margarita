@@ -10,15 +10,13 @@
   // https://sass-lang.com/documentation/modules/meta#inspect
   $stringified-hue: inspect($hue);
 
-  $colorMap: map-get($colors, '#{$stringified-hue}-#{$value}');
+  $color: map-get($colors, '#{$stringified-hue}-#{$value}');
 
-  @if type-of($colorMap) == color {
-    @return $colorMap;
+  @if type-of($color) == color {
+    @return $color;
   } @else {
     @error 'Color `#{$hue}-#{$value}` not found. Available colors: #{available-names($colors)}';
   }
-
-  @return colorMap;
 }
 
 @function get-alpha-color($color: '', $amount: 0) {
