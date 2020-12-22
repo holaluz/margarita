@@ -10,7 +10,11 @@
         appear
         @after-leave="closeModal"
       >
-        <div class="modal-overlay" data-testid="overlay" @click="closeModal">
+        <div
+          class="modal-overlay"
+          data-testid="overlay"
+          @click.self="closeModal"
+        >
           <div class="modal-content-wrapper">
             <ma-stack
               ref="modal"
@@ -223,6 +227,15 @@ export default {
   overflow-y: auto;
 }
 
+.modal-content-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 .modal {
   transition: transform 0.4s ease;
   border-radius: 0.25rem;
@@ -231,15 +244,6 @@ export default {
   width: 96vw;
   max-width: rem(500px);
   color: get-color(gray, dark);
-}
-
-.modal-content-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
 }
 
 .modal-header {
