@@ -15,8 +15,8 @@
     "types/*.d.ts"
   ],
   "scripts": {
-    "prebuild": "npm run tokens:build",
     "postinstall": "npm run tokens:build",
+    "prebuild": "npm run tokens:build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
     "lint": "npm run lint:js && npm run lint:css",
