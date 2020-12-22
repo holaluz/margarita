@@ -11,12 +11,12 @@ export const Colors = () => ({
       <div v-for="(tones, hue) in colors" :key="hue">
         <h2 :style="titleStyle">{{hue}}</h2>
         <div v-for="(hex, tone) in tones" :key="tone" :style="colorStyle">
-          <div :style="getBoxStyle(hex.value)">
+          <div :style="getBoxStyle(hex)">
             <code v-text="getFunction(hue, tone)" />
           </div>
           <p :style="colorNameStyle">
             {{hue}} {{tone}}
-            <code v-text="hex.value" :style="hexStyle" />
+            <code v-text="hex" :style="hexStyle" />
           </p>
         </div>
       </div>
