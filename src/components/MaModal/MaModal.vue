@@ -15,34 +15,32 @@
           data-testid="overlay"
           @click.self="closeModal"
         >
-          <div class="modal-content-wrapper">
-            <ma-stack
-              ref="modal"
-              :aria-label="title"
-              :class="`modal--width-${width}`"
-              space="xsmall"
-              role="dialog"
-              aria-modal="true"
-              class="modal"
+          <ma-stack
+            ref="modal"
+            :aria-label="title"
+            :class="`modal--width-${width}`"
+            space="xsmall"
+            role="dialog"
+            aria-modal="true"
+            class="modal"
+          >
+            <div
+              :class="`modal-header--${headerType}`"
+              class="modal-header"
+              data-testid="modal-header"
             >
-              <div
-                :class="`modal-header--${headerType}`"
-                class="modal-header"
-                data-testid="modal-header"
-              >
-                <span class="modal-title">{{ title }}</span>
-                <button
-                  class="icon-close"
-                  :class="computedIconColor"
-                  data-testid="close-button"
-                  @click="closeModal"
-                />
-              </div>
-              <div ref="modal-content" class="modal-content">
-                <slot :closeModal="closeModal" name="content" />
-              </div>
-            </ma-stack>
-          </div>
+              <span class="modal-title">{{ title }}</span>
+              <button
+                class="icon-close"
+                :class="computedIconColor"
+                data-testid="close-button"
+                @click="closeModal"
+              />
+            </div>
+            <div ref="modal-content" class="modal-content">
+              <slot :closeModal="closeModal" name="content" />
+            </div>
+          </ma-stack>
         </div>
       </transition>
     </ma-modal-portal>
@@ -212,129 +210,3 @@ export default {
 </script>
 
 <style src="./MaModal.scss" lang="scss" scoped></style>
-<style lang="scss" scoped>
-.modal-overlay {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  transition: opacity 0.4s ease;
-  z-index: 100;
-  background-color: get-alpha-color(black, 0.5);
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-}
-
-.modal-content-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-
-.modal {
-  transition: transform 0.4s ease;
-  border-radius: 0.25rem;
-  box-shadow: 0 rem(2px) rem(8px) get-alpha-color(black, 0.67);
-  background-color: get-color(white);
-  width: 96vw;
-  max-width: rem(500px);
-  color: get-color(gray, dark);
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: get-space('xsmall');
-  border-radius: 0.25rem 0.25rem 0 0;
-}
-
-.modal-header--gradient {
-  background: linear-gradient(to right, get-color(orange), get-color(pink));
-  color: white;
-}
-
-.modal-header--gradient .modal-title {
-  flex: 1;
-  text-align: center;
-}
-
-.modal-title {
-  @include font-weight(bold);
-  display: flex;
-  flex: 1;
-  align-items: center;
-  margin: 0;
-  padding-right: 3rem;
-  min-height: 2.25rem;
-
-  @include mq($from: md) {
-    font-size: rem(24px);
-  }
-}
-
-.icon-close {
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 1.5rem;
-  height: 1.5rem;
-
-  &--pink {
-    background-image: url('../../assets/icons/icon-close-pink.svg');
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-image: url('../../assets/icons/icon-close-darkpink.svg');
-    }
-  }
-
-  &--white {
-    background-image: url('../../assets/icons/icon-close-white.svg');
-
-    &:hover,
-    &:active,
-    &:focus {
-      opacity: 0.75;
-      background-image: url('../../assets/icons/icon-close-darkwhite.svg');
-    }
-  }
-}
-
-.modal-content {
-  // because fuck standards, that's why
-  // https://github.com/w3c/csswg-drafts/issues/129
-  margin-bottom: get-space('xsmall');
-  padding: 0 get-space('xsmall');
-  // height management
-  max-height: 85vh;
-  overflow-y: auto;
-}
-
-.modal--width-small {
-  max-width: 300px;
-}
-.modal--width-medium {
-  max-width: 500px;
-}
-.modal--width-large {
-  max-width: 800px;
-}
-
-.modal-leave-active,
-.modal-enter {
-  opacity: 0;
-
-  .modal {
-    transform: translateY(-100%);
-  }
-}
-</style>
