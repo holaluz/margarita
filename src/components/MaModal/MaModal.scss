@@ -2,41 +2,45 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+  z-index: 100;
+  background-color: get-alpha-color(black, 0.5);
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
 
-  background-color: rgba(0, 0, 0, 0.25);
+.modal-content-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .modal {
-  position: fixed;
-
-  // centering
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  // so that it doesn't reach end of viewport
+  transition: transform 0.4s ease;
+  border-radius: 0.25rem;
+  box-shadow: 0 rem(2px) rem(8px) get-alpha-color(black, 0.67);
+  background-color: get-color(white);
   width: 96vw;
-
-  // temporary, stylistic stuff
-  background-color: white;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  border-radius: 0.5rem;
+  max-width: rem(500px);
+  color: get-color(gray, dark);
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: get-space('xxsmall');
+  align-items: center;
+  padding: get-space('xsmall');
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .modal-header--gradient {
   background: linear-gradient(to right, get-color(orange), get-color(pink));
-  color: get-color(white);
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  color: white;
 }
 
 .modal-header--gradient .modal-title {
@@ -44,31 +48,63 @@
   text-align: center;
 }
 
+.modal-header--transparent {
+  display: none;
+}
+
 .modal-title {
-  font-weight: bold;
-  font-size: 1.3rem;
+  @include font-weight(bold);
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin: 0;
+  padding-right: 3rem;
+  min-height: 2.25rem;
+
+  @include mq($from: md) {
+    font-size: rem(24px);
+  }
+}
+
+.icon-close {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  &--pink {
+    background-image: url('../../assets/icons/icon-close-pink.svg');
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-image: url('../../assets/icons/icon-close-darkpink.svg');
+    }
+  }
+
+  &--white {
+    background-image: url('../../assets/icons/icon-close-white.svg');
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 0.75;
+      background-image: url('../../assets/icons/icon-close-darkwhite.svg');
+    }
+  }
 }
 
 .modal-content {
-  padding: 0 get-space('xxsmall');
-
   // because fuck standards, that's why
   // https://github.com/w3c/csswg-drafts/issues/129
-  margin-bottom: get-space('xxsmall');
-
+  margin-bottom: get-space('xsmall');
+  padding: 0 get-space('xsmall');
   // height management
   max-height: 85vh;
   overflow-y: auto;
-}
-
-.modal-transition-enter-active,
-.modal-transition-leave-active {
-  transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
-}
-
-.modal-transition-enter,
-.modal-transition-leave-to {
-  opacity: 0;
 }
 
 .modal--width-small {
@@ -79,4 +115,13 @@
 }
 .modal--width-large {
   max-width: 800px;
+}
+
+.modal-leave-active,
+.modal-enter {
+  opacity: 0;
+
+  .modal {
+    transform: translateY(-100%);
+  }
 }
