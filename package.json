@@ -15,16 +15,19 @@
     "types/*.d.ts"
   ],
   "scripts": {
+    "prebuild": "npm run tokens:build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint 'src/**/*.scss'",
     "lint:js": "eslint 'src/**/*.{js,vue}'",
-    "start": "npm run storybook:serve",
+    "start": "npm run storybook:serve & npm run tokens:watch",
     "storybook:build": "vue-cli-service storybook:build -c .storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c .storybook",
     "test": "vue-cli-service test:unit",
-    "test:watch": "vue-cli-service test:unit --watch"
+    "test:watch": "vue-cli-service test:unit --watch",
+    "tokens:build": "style-dictionary build --platform scss --config ./styleDictionary.config.js && prettier 'src/scss/variables/*.scss' --write",
+    "tokens:watch": "npm run tokens:build && chokidar  \"src/tokens/*.js\" -c \"npm run tokens:build\""
   },
   "husky": {
     "hooks": {
@@ -54,6 +57,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^26.6.3",
+    "chokidar-cli": "^2.1.0",
     "copy-webpack-plugin": "^6.4.0",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
@@ -84,6 +88,7 @@
     "sass-loader": "^10.1.0",
     "semantic-release": "^17.3.0",
     "semantic-release-slack-bot": "^1.7.0",
+    "style-dictionary": "^2.10.2",
     "stylelint": "^13.8.0",
     "stylelint-config-concentric-order": "^4.0.0",
     "stylelint-config-prettier": "^8.0.2",

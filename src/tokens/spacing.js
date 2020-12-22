@@ -1,0 +1,11 @@
+module.exports = {
+  none: '0',
+  xxsmall: '1rem',
+  xsmall: '1.5rem',
+  small: '2rem',
+  medium: '3rem',
+  large: '4rem',
+  xlarge: '5rem',
+  xxlarge: '6rem',
+  xxxlarge: '8rem',
+}

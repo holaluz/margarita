@@ -7,9 +7,3 @@ declare module 'vue/types/vue' {
     $layout: Layout
   }
 }
-
-declare module 'vue/types/options' {
-  interface ComponentOptions<V extends Vue> {
-    layout: Layout
-  }
-}

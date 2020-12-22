@@ -5,18 +5,17 @@
 /// @return {Color} The color value.
 
 @function get-color($hue, $value: base) {
-  $colorMap: map-get($colors, $hue);
+  // Inspecting $hue prevents node-sass from
+  // parsing it as a color (and transforming 'white' to '#fff').
+  // https://sass-lang.com/documentation/modules/meta#inspect
+  $stringified-hue: inspect($hue);
 
-  @if type-of($colorMap) != 'map' {
-    @error '`#{$hue} does not exist. Available colors: #{available-names($colors)}';
-  }
+  $color: map-get($colors, '#{$stringified-hue}-#{$value}');
 
-  $fetched-color: map-get($colorMap, $value);
-
-  @if type-of($fetched-color) == color {
-    @return $fetched-color;
+  @if type-of($color) == color {
+    @return $color;
   } @else {
-    @error 'Color `#{$hue} - #{$value}` not found. Available colors: #{available-names($colors)}';
+    @error 'Color `#{$hue}-#{$value}` not found. Available colors: #{available-names($colors)}';
   }
 }
 

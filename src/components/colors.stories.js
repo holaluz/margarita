@@ -1,18 +1,5 @@
-import merge from 'lodash.merge'
 import '../scss/_margarita.scss'
-import rawColors from '../../.storybook/colors.scss'
-
-const colors = Object.entries(rawColors).reduce(
-  (acc, [composedColorName, hex]) => {
-    const [hue, tone] = composedColorName.split('-')
-    return merge(acc, {
-      [hue]: {
-        [tone]: hex,
-      },
-    })
-  },
-  {}
-)
+import colorTokens from '../tokens/colors'
 
 export default {
   title: 'Tokens/Colors',
@@ -38,7 +25,7 @@ export const Colors = () => ({
 
   data() {
     return {
-      colors,
+      colors: colorTokens,
       titleStyle: {
         textAlign: 'center',
         textTransform: 'capitalize',
