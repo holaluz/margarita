@@ -1,13 +1,11 @@
 {
-  "allowJs": true,
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@margarita/*": ["./src/*"],
-      "@@/*": ["./*"]
+      "@/*": ["src/*"],
+      "@margarita/*": ["src/*"],
+      "@@/*": ["/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "storybook-static"]
 }

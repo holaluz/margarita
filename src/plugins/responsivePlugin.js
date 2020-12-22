@@ -14,18 +14,15 @@ export default {
     const tabletQuery = minWidthQuery(breakpoints.tablet)
     const desktopQuery = minWidthQuery(breakpoints.desktop)
 
-    // As per docs: https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList#Methods
-    tabletQuery.addEventListener('change', updateCurrentBreakpoint)
-    desktopQuery.addEventListener('change', updateCurrentBreakpoint)
+    addListenerToMediaQueryList(tabletQuery, updateCurrentBreakpoint)
+    addListenerToMediaQueryList(desktopQuery, updateCurrentBreakpoint)
 
     updateCurrentBreakpoint()
 
     function updateCurrentBreakpoint() {
       const newBreakpoint = getCurrentBreakpoint(tabletQuery, desktopQuery)
 
-      if (newBreakpoint !== vue.prototype.$layout.currentBreakpoint) {
-        vue.prototype.$layout.currentBreakpoint = newBreakpoint
-      }
+      vue.prototype.$layout.currentBreakpoint = newBreakpoint
     }
 
     function getResponsivePropValue(responsiveProp) {
@@ -63,4 +60,26 @@ function getCurrentBreakpoint(tabletQuery, desktopQuery) {
   }
 
   return breakpointsEnum.mobile
+}
+
+function addListenerToMediaQueryList(mediaQueryList, listenerCallback) {
+  /**
+   * Even though docs mention that all browsers support `addEventListener`
+   * (source: https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList#Methods)
+   * turns out Safari does not.
+   * It only implements the deprecated `addListener` method, and throws
+   * when trying calling on the former.
+   *
+   * Thus, we attempt to register the callback using `addEventListener`, but
+   * in case of failure we fall back to the deprecated `addListener`.
+   *
+   * Related:
+   *   https://github.com/mdn/sprints/issues/858
+   *   https://stackoverflow.com/a/60000747/1042082
+   */
+  try {
+    mediaQueryList.addEventListener('change', listenerCallback)
+  } catch {
+    mediaQueryList.addListener(listenerCallback)
+  }
 }
