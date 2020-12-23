@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
   transition: opacity 0.4s ease;
-  z-index: 100;
   background-color: get-alpha-color(black, 0.5);
   width: 100%;
   height: 100%;
@@ -20,7 +19,6 @@
   box-shadow: 0 rem(2px) rem(8px) get-alpha-color(black, 0.67);
   background-color: get-color(white);
   width: 96vw;
-  max-width: rem(500px);
   color: get-color(gray, dark);
 }
 
@@ -53,7 +51,6 @@
   align-items: center;
   margin: 0;
   padding-right: 3rem;
-  min-height: 2.25rem;
 
   @include mq($from: md) {
     font-size: rem(24px);
