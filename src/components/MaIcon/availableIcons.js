@@ -19,6 +19,7 @@ export default [
   'Plug',
   'Reassign',
   'ReassignCircle',
+  'SquaredClose',
   'UploadContract',
   'User',
 ]
