@@ -3,14 +3,12 @@
   top: 0;
   left: 0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: opacity 0.4s ease;
   background-color: get-alpha-color(black, 0.5);
   width: 100%;
   height: 100%;
-  overflow-y: auto;
 }
 
 .modal {
@@ -19,13 +17,13 @@
   box-shadow: 0 rem(2px) rem(8px) get-alpha-color(black, 0.67);
   background-color: get-color(white);
   width: 96vw;
-  color: get-color(gray, dark);
+  word-break: break-word;
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: get-space('xsmall');
   border-radius: 0.25rem 0.25rem 0 0;
 }
@@ -40,42 +38,32 @@
   text-align: center;
 }
 
-.modal-header--transparent {
-  display: none;
-}
-
 .modal-title {
   @include font-weight(bold);
-  display: flex;
-  flex: 1;
-  align-items: center;
-  margin: 0;
-  padding-right: 3rem;
 
   @include mq($from: md) {
-    font-size: rem(24px);
+    font-size: 1.5rem;
   }
 }
 
 .icon-close {
   &--pink {
-    color: get-color(pink);
+    color: get-color(pink, base);
 
     &:hover,
     &:active,
     &:focus {
-      color: get-color(pink, light);
+      color: get-color(pink, dark);
     }
   }
 
   &--white {
-    color: get-color(white);
+    color: get-color(white, base);
 
     &:hover,
     &:active,
     &:focus {
-      opacity: 0.85;
-      color: get-color(gray, light);
+      opacity: 0.5;
     }
   }
 }
