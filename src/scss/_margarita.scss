@@ -1,5 +1,12 @@
+// Variables
 @import 'margarita-tokens';
+
+// Reset
 @import 'normalize';
+
+// Generic styles
 @import 'transitions/slide-fade';
-@import 'utils/visually-hidden';
 @import 'ciutadella-loader';
+
+// Utilities
+@import 'utils/visually-hidden';

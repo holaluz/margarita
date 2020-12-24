@@ -59,12 +59,14 @@ export const Datagrid = () => {
     },
 
     template: `
-      <ma-datagrid
-        :columns="columns"
-        :rows="rows"
-        :isLoading="isLoading"
-        @sort="sortBy"
-      />
+      <div style="width:600px">
+        <ma-datagrid
+          :columns="columns"
+          :rows="rows"
+          :isLoading="isLoading"
+          @sort="sortBy"
+        />
+      </div>
     `,
 
     data() {

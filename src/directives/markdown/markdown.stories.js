@@ -1,5 +1,4 @@
 import { text } from '@storybook/addon-knobs'
-import MaGridContainer from '@margarita/components/MaGridContainer'
 import MaAlert from '@margarita/components/MaAlert'
 import { markdown } from './'
 
@@ -31,20 +30,20 @@ export const VMarkdown = () => {
   return {
     directives: { markdown },
 
-    components: { MaGridContainer, MaAlert },
+    components: { MaAlert },
 
     template: `
-          <bonasera-grid-container>
-            <p v-markdown="markdownText" />
-            <ma-alert style="max-width: 700px; margin-top:3rem; overflow: auto">
-              <p style="margin-top:0">
-                In order to render markdown in Nuxt <b>universal mode</b>, we need to add this property to
-                <b>nuxt.config.js</b>:
-              </p>
-              <pre>${ssrCodeSnippet}</pre>
-            </ma-alert>
-          </bonasera-grid-container>
-        `,
+      <div>
+        <p v-markdown="markdownText" />
+        <ma-alert style="max-width: 700px; margin-top:3rem; overflow: auto">
+          <p style="margin-top:0">
+            In order to render markdown in Nuxt <b>universal mode</b>, we need to add this property to
+            <b>nuxt.config.js</b>:
+          </p>
+          <pre>${ssrCodeSnippet}</pre>
+        </ma-alert>
+      </div>
+    `,
 
     props: {
       markdownText: {

@@ -1,7 +1,6 @@
 import { boolean, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaButton from '@margarita/components/MaButton'
 import MaIcon from '@margarita/components/MaIcon'
 
@@ -40,19 +39,17 @@ export const TextField = () => {
   const value = text('Value', '')
 
   return {
-    components: { MaTextField, MaGridColumn, MaIcon, MaButton },
+    components: { MaTextField, MaIcon, MaButton },
 
     template: `
-      <bonasera-grid-column class="ma-grid-col--4">
-        <ma-text-field
-          :disabled="disabled"
-          :label="label"
-          :aria-label="ariaLabel"
-          :placeholder="placeholder"
-          v-model="value"
-          @blur="onBlur"
-        />
-      </bonasera-grid-column>
+      <ma-text-field
+        :disabled="disabled"
+        :label="label"
+        :aria-label="ariaLabel"
+        :placeholder="placeholder"
+        v-model="value"
+        @blur="onBlur"
+      />
     `,
 
     props: {
@@ -86,14 +83,12 @@ export const TextFieldWithSiblingLabel = () => {
   const siblingLabel = text('Sibling label', 'additional label')
 
   return {
-    components: { MaTextField, MaGridColumn },
+    components: { MaTextField },
 
     template: `
-      <bonasera-grid-column class="ma-grid-col--4">
-        <ma-text-field v-model="value" @blur="onBlur" label="Label">
-          <span slot="labelSibling">{{siblingLabel}}</span>
-        </ma-text-field>
-      </bonasera-grid-column>
+      <ma-text-field v-model="value" @blur="onBlur" label="Label">
+        <span slot="labelSibling">{{siblingLabel}}</span>
+      </ma-text-field>
     `,
 
     data() {
@@ -120,26 +115,24 @@ export const TextFieldWithIcon = () => {
   const icon = select('Icon', ICONS, ICONS[0])
 
   return {
-    components: { MaTextField, MaGridColumn, MaIcon, MaButton },
+    components: { MaTextField, MaIcon, MaButton },
 
     template: `
-      <bonasera-grid-column class="ma-grid-col--4">
-        <ma-text-field
-          :disabled="disabled"
-          :label="label"
-          :placeholder="placeholder"
-          v-model="value"
-          @blur="onBlur"
-        >
-          <ma-button slot="inputSibling">
-            <ma-icon
-              :icon="icon"
-              width="16"
-              height="16"
-            />
-          </ma-button>
-        </ma-text-field>
-      </bonasera-grid-column>
+      <ma-text-field
+        :disabled="disabled"
+        :label="label"
+        :placeholder="placeholder"
+        v-model="value"
+        @blur="onBlur"
+      >
+        <ma-button slot="inputSibling">
+          <ma-icon
+            :icon="icon"
+            width="16"
+            height="16"
+          />
+        </ma-button>
+      </ma-text-field>
     `,
 
     props: {
@@ -174,17 +167,15 @@ export const ErroredTextField = () => {
   const label = text('Label', 'Label')
 
   return {
-    components: { MaTextField, MaGridColumn },
+    components: { MaTextField },
 
     template: `
-      <bonasera-grid-column class="ma-grid-col--4">
-        <ma-text-field
-          :errorMessage="errorMessage"
-          :hasError="true"
-          :label="label"
-          v-model="value"
-        />
-      </bonasera-grid-column>
+      <ma-text-field
+        :errorMessage="errorMessage"
+        :hasError="true"
+        :label="label"
+        v-model="value"
+      />
     `,
 
     props: {

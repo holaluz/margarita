@@ -1,8 +1,6 @@
 import { select, text, boolean, number } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaGridColumn from '@margarita/components/MaGridColumn'
-import MaGridRow from '@margarita/components/MaGridRow'
 import MaButton from '@margarita/components/MaButton'
 import MaIcon from '@margarita/components/MaIcon'
 import availableIcons from '@margarita/components/MaIcon/availableIcons'
@@ -108,37 +106,5 @@ export const IconButton = () => {
         return this.icon === 'None' ? null : this.icon
       },
     },
-  }
-}
-
-export const Examples = () => {
-  return {
-    components: { MaButton, MaGridColumn, MaGridRow, MaIcon },
-
-    template: `
-    <ma-grid-row>
-      <bonasera-grid-column class="ma-grid-col--3">
-        <ma-button category="gradient">
-          This is a button with gradient and only text
-        </ma-button>
-      </bonasera-grid-column>
-      <bonasera-grid-column class="ma-grid-col--3">
-        <ma-button>
-          This is a button with text and icon
-          <ma-icon icon="Arrow" />
-        </ma-button>
-      </bonasera-grid-column>
-      <bonasera-grid-column class="ma-grid-col--3">
-        <ma-button
-          category="no-background"
-          href="https://www.holaluz.com/"
-          tag="a"
-        >
-          This is a link with text and icon
-          <ma-icon icon="Exit" />
-        </ma-button>
-      </bonasera-grid-column>
-    </ma-grid-row>
-    `,
   }
 }

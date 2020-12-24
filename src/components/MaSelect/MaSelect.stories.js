@@ -1,10 +1,8 @@
 import { boolean, object, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaGridColumn from '@margarita/components/MaGridColumn'
 import MaSelect from './MaSelect'
 
-const GRID_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const AVAILABLE_WEIGHTS = ['bold', 'semibold', 'medium', 'regular']
 const DEFAULT_OPTIONS = [
   { label: 'Placeholder text', text: 'Placeholder text', disabled: true },
@@ -33,26 +31,23 @@ export const Select = () => {
   const fieldClass = text('Additional class', '')
   const options = object('Options', DEFAULT_OPTIONS)
 
-  const size = select('Size', GRID_ARRAY, 4)
-
   return {
-    components: { MaGridColumn, MaSelect },
+    components: { MaSelect },
 
     template: `
-        <bonasera-grid-column :class="getClass">
-          <ma-select
-            id="my-select-input"
-            :aria-label="ariaLabel"
-            :errorMessage="errorMessage"
-            :disabled="disabled"
-            :hasError="hasError"
-            :label="label"
-            :options="options"
-            :weight="weight"
-            :fieldClass="fieldClass"
-            v-model="value"
-          />
-        </bonasera-grid-column>`,
+        <ma-select
+          id="my-select-input"
+          :aria-label="ariaLabel"
+          :errorMessage="errorMessage"
+          :disabled="disabled"
+          :hasError="hasError"
+          :label="label"
+          :options="options"
+          :weight="weight"
+          :fieldClass="fieldClass"
+          v-model="value"
+        />
+    `,
 
     props: {
       ariaLabel: {
@@ -73,9 +68,6 @@ export const Select = () => {
       options: {
         default: options,
       },
-      size: {
-        default: size,
-      },
       fieldClass: {
         default: fieldClass,
       },
@@ -91,14 +83,6 @@ export const Select = () => {
       return {
         value: this.selectedValue,
       }
-    },
-
-    computed: {
-      getClass() {
-        return {
-          [`ma-grid-col--${this.size}`]: this.size,
-        }
-      },
     },
 
     watch: {

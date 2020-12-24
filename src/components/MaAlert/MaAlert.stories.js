@@ -1,6 +1,7 @@
 import { select, text } from '@storybook/addon-knobs'
 
 import MaAlert from '@margarita/components/MaAlert'
+import MaStack from '@margarita/components/MaStack'
 
 export default {
   title: 'Components/Alert',
@@ -8,27 +9,23 @@ export default {
 
 export const Alert = () => {
   const size = select('Size', ['small', 'medium', 'large'], 'small')
-  const type = select('Type', ['info', 'error', 'success', 'warning'], 'info')
-  const title = text('Title', 'Title')
-  const content = text('Text', 'Text')
+  const title = text('Title', 'An alert title')
+  const content = text('Text', 'Some longer alert text')
 
   return {
-    components: { MaAlert },
+    components: { MaAlert, MaStack },
     template: `
-      <ma-alert
-          :size="size"
-          :type="type"
-          :title="title"
-          :text="text"
-      />
+      <ma-stack space="small" style="width:500px">
+        <ma-alert :size="size" type="success" :title="title" :text="text" />
+        <ma-alert :size="size" type="info" :title="title" :text="text" />
+        <ma-alert :size="size" type="warning" :title="title" :text="text" />
+        <ma-alert :size="size" type="error" :title="title" :text="text" />
+      </ma-stack>
     `,
 
     props: {
       size: {
         default: size,
-      },
-      type: {
-        default: type,
       },
       title: {
         default: title,

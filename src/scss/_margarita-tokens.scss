@@ -1,5 +1,3 @@
-@import '~sass-mq';
-
 @import 'functions/colors';
 @import 'functions/rem';
 @import 'functions/spacing';
@@ -8,8 +6,10 @@
 @import 'variables/colors';
 @import 'variables/spacing';
 @import 'variables/fonts';
+@import 'variables/sass-mq';
 
 @import 'mixins/font-mixin';
 @import 'mixins/font-weight';
 @import 'mixins/gradient-image';
-@import 'mixins/sass-mq';
+
+@import '~sass-mq';

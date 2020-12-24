@@ -5,7 +5,7 @@ import responsivePlugin from '../src/plugins/responsivePlugin'
 Vue.use(responsivePlugin)
 
 export const parameters = {
-  layout: 'padded',
+  layout: 'centered',
 
   options: {
     storySort: {
