@@ -4,9 +4,6 @@ import MaAlert from './components/MaAlert'
 import MaButton from './components/MaButton'
 import MaCard from './components/MaCard'
 import MaDatagrid from './components/MaDatagrid'
-import MaGridColumn from './components/MaGridColumn'
-import MaGridContainer from './components/MaGridContainer'
-import MaGridRow from './components/MaGridRow'
 import MaIcon from './components/MaIcon'
 import MaOption from './components/MaOption'
 import MaPagination from './components/MaPagination'
@@ -24,9 +21,6 @@ export {
   MaButton,
   MaCard,
   MaDatagrid,
-  MaGridColumn,
-  MaGridContainer,
-  MaGridRow,
   MaIcon,
   MaOption,
   MaPagination,
@@ -48,9 +42,6 @@ function install(Vue) {
   Vue.component('MaButton', MaButton)
   Vue.component('MaCard', MaCard)
   Vue.component('MaDatagrid', MaDatagrid)
-  Vue.component('MaGridColumn', MaGridColumn)
-  Vue.component('MaGridContainer', MaGridContainer)
-  Vue.component('MaGridRow', MaGridRow)
   Vue.component('MaIcon', MaIcon)
   Vue.component('MaOption', MaOption)
   Vue.component('MaPagination', MaPagination)

@@ -34,7 +34,7 @@ export const VMarkdown = () => {
     components: { MaGridContainer, MaAlert },
 
     template: `
-          <ma-grid-container>
+          <bonasera-grid-container>
             <p v-markdown="markdownText" />
             <ma-alert style="max-width: 700px; margin-top:3rem; overflow: auto">
               <p style="margin-top:0">
@@ -43,7 +43,7 @@ export const VMarkdown = () => {
               </p>
               <pre>${ssrCodeSnippet}</pre>
             </ma-alert>
-          </ma-grid-container>
+          </bonasera-grid-container>
         `,
 
     props: {

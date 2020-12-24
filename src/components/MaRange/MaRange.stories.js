@@ -28,13 +28,13 @@ export const Range = () => {
     components: { MaRange, MaGridColumn },
 
     template: `
-        <ma-grid-column>
+        <bonasera-grid-column>
           <ma-range
             :steps="steps"
             :label="label"
             v-model="value"
           />
-        </ma-grid-column>`,
+        </bonasera-grid-column>`,
 
     props: {
       steps: {

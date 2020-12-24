@@ -21,16 +21,16 @@ export const Radio = () => {
 
     template: `
         <ma-grid-row>
-          <ma-grid-column class="ma-grid-col--3 ma-grid-col--offset-3">
+          <bonasera-grid-column class="ma-grid-col--3 ma-grid-col--offset-3">
             <ma-option v-model="selected" :card="card" value="id1" type="radio" @change="onChange">
               {{ text1 }}
             </ma-option>
-          </ma-grid-column>
-          <ma-grid-column class="ma-grid-col--3">
+          </bonasera-grid-column>
+          <bonasera-grid-column class="ma-grid-col--3">
             <ma-option v-model="selected" :card="card" :disabled="disabled" value="id2" type="radio" @change="onChange">
               {{ text2 }}
             </ma-option>
-          </ma-grid-column>
+          </bonasera-grid-column>
         </ma-grid-row>
       `,
 
@@ -72,11 +72,11 @@ export const Checkbox = () => {
 
     template: `
         <ma-grid-row>
-          <ma-grid-column class="ma-grid-col--3 ma-grid-col--offset-3">
+          <bonasera-grid-column class="ma-grid-col--3 ma-grid-col--offset-3">
             <ma-option v-model="checked" :card="card" type="checkbox" :disabled="disabled" @change="onChange">
               {{ text1 }}
             </ma-option>
-          </ma-grid-column>
+          </bonasera-grid-column>
         </ma-grid-row>
       `,
 

@@ -17,26 +17,26 @@ export const Card = () => {
   return {
     components: { MaCard, MaGridContainer, MaGridRow, MaGridColumn },
     template: `
-        <ma-grid-container class="grid-example">
+        <bonasera-grid-container class="grid-example">
           <ma-grid-row>
-            <ma-grid-column class="ma-grid-col--12">
+            <bonasera-grid-column class="ma-grid-col--12">
               <ma-card
                 :color="color"
                 has-margin-top
               >
               I'm a {{ color }} layout card
               </ma-card>
-            </ma-grid-column>
+            </bonasera-grid-column>
           </ma-grid-row>
           <ma-grid-row>
-            <ma-grid-column v-for="col in 2" :key="col" class="ma-grid-col--6">
+            <bonasera-grid-column v-for="col in 2" :key="col" class="ma-grid-col--6">
               <ma-card
                 color="gray"
                 :hasPaddingTop="hasPaddingTop"
               />
-            </ma-grid-column>
+            </bonasera-grid-column>
           </ma-grid-row>
-        </ma-grid-container>
+        </bonasera-grid-container>
       `,
 
     props: {

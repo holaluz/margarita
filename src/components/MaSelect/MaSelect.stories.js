@@ -39,7 +39,7 @@ export const Select = () => {
     components: { MaGridColumn, MaSelect },
 
     template: `
-        <ma-grid-column :class="getClass">
+        <bonasera-grid-column :class="getClass">
           <ma-select
             id="my-select-input"
             :aria-label="ariaLabel"
@@ -52,7 +52,7 @@ export const Select = () => {
             :fieldClass="fieldClass"
             v-model="value"
           />
-        </ma-grid-column>`,
+        </bonasera-grid-column>`,
 
     props: {
       ariaLabel: {

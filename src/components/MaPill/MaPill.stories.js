@@ -18,12 +18,12 @@ export const Pill = () => {
     components: { MaPill, MaGridColumn },
 
     template: `
-        <ma-grid-column>
+        <bonasera-grid-column>
           <ma-pill
             :color="color"
             :text="pillText"
           />
-        </ma-grid-column>`,
+        </bonasera-grid-column>`,
 
     props: {
       color: {

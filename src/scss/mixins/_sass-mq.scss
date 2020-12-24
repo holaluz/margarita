@@ -1,5 +1,12 @@
 $mq-base-font-size: $rem-baseline;
-$mq-breakpoints: $grid-breakpoints;
+$mq-breakpoints: (
+  none: 0,
+  xs: 380px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
 
 $mq-and-landscape: '(orientation: landscape)';
 $mq-and-portrait: '(orientation: portrait)';

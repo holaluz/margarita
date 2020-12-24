@@ -117,18 +117,18 @@ export const Examples = () => {
 
     template: `
     <ma-grid-row>
-      <ma-grid-column class="ma-grid-col--3">
+      <bonasera-grid-column class="ma-grid-col--3">
         <ma-button category="gradient">
           This is a button with gradient and only text
         </ma-button>
-      </ma-grid-column>
-      <ma-grid-column class="ma-grid-col--3">
+      </bonasera-grid-column>
+      <bonasera-grid-column class="ma-grid-col--3">
         <ma-button>
           This is a button with text and icon
           <ma-icon icon="Arrow" />
         </ma-button>
-      </ma-grid-column>
-      <ma-grid-column class="ma-grid-col--3">
+      </bonasera-grid-column>
+      <bonasera-grid-column class="ma-grid-col--3">
         <ma-button
           category="no-background"
           href="https://www.holaluz.com/"
@@ -137,7 +137,7 @@ export const Examples = () => {
           This is a link with text and icon
           <ma-icon icon="Exit" />
         </ma-button>
-      </ma-grid-column>
+      </bonasera-grid-column>
     </ma-grid-row>
     `,
   }

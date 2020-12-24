@@ -95,7 +95,6 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-prettier": "^1.1.0",
     "vue-cli-plugin-storybook": "^2.0.0",
-    "vue-functional-data-merge": "^3.1.0",
     "vue-template-compiler": "^2.6.12"
   },
   "publishConfig": {

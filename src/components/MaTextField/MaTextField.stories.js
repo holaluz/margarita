@@ -43,7 +43,7 @@ export const TextField = () => {
     components: { MaTextField, MaGridColumn, MaIcon, MaButton },
 
     template: `
-      <ma-grid-column class="ma-grid-col--4">
+      <bonasera-grid-column class="ma-grid-col--4">
         <ma-text-field
           :disabled="disabled"
           :label="label"
@@ -52,7 +52,7 @@ export const TextField = () => {
           v-model="value"
           @blur="onBlur"
         />
-      </ma-grid-column>
+      </bonasera-grid-column>
     `,
 
     props: {
@@ -89,11 +89,11 @@ export const TextFieldWithSiblingLabel = () => {
     components: { MaTextField, MaGridColumn },
 
     template: `
-      <ma-grid-column class="ma-grid-col--4">
+      <bonasera-grid-column class="ma-grid-col--4">
         <ma-text-field v-model="value" @blur="onBlur" label="Label">
           <span slot="labelSibling">{{siblingLabel}}</span>
         </ma-text-field>
-      </ma-grid-column>
+      </bonasera-grid-column>
     `,
 
     data() {
@@ -123,7 +123,7 @@ export const TextFieldWithIcon = () => {
     components: { MaTextField, MaGridColumn, MaIcon, MaButton },
 
     template: `
-      <ma-grid-column class="ma-grid-col--4">
+      <bonasera-grid-column class="ma-grid-col--4">
         <ma-text-field
           :disabled="disabled"
           :label="label"
@@ -139,7 +139,7 @@ export const TextFieldWithIcon = () => {
             />
           </ma-button>
         </ma-text-field>
-      </ma-grid-column>
+      </bonasera-grid-column>
     `,
 
     props: {
@@ -177,14 +177,14 @@ export const ErroredTextField = () => {
     components: { MaTextField, MaGridColumn },
 
     template: `
-      <ma-grid-column class="ma-grid-col--4">
+      <bonasera-grid-column class="ma-grid-col--4">
         <ma-text-field
           :errorMessage="errorMessage"
           :hasError="true"
           :label="label"
           v-model="value"
         />
-      </ma-grid-column>
+      </bonasera-grid-column>
     `,
 
     props: {
