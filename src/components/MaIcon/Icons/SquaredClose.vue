@@ -1,27 +1,24 @@
 <template>
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect x="0.5" y="0.5" width="23" height="23" stroke="#000000" />
-    <rect
-      x="7.80005"
-      y="6"
-      width="14.4"
-      height="2.4"
-      transform="rotate(45 7.80005 6)"
-      fill="#000000"
-    />
-    <rect
-      x="6"
-      y="16.2"
-      width="14.4"
-      height="2.4"
-      transform="rotate(-45 6 16.2)"
-      fill="#000000"
-    />
-  </svg>
+  <g>
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M0 0H1H19H20V1V19V20H19H1H0V19V1V0ZM19 1H1V19H19V1Z"
+      />
+      <rect x="6.5" y="5" width="12" height="2" transform="rotate(45 6.5 5)" />
+      <rect
+        x="5"
+        y="13.5"
+        width="12"
+        height="2"
+        transform="rotate(-45 5 13.5)"
+      />
+    </svg>
+  </g>
 </template>
