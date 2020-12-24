@@ -16,5 +16,8 @@ npm-debug.log*
 # vscode
 .vscode/!settings.json
 
+# auto generated vetur files
+vetur
+
 # auto generated scss token file
 src/scss/_tokens.scss
