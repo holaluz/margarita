@@ -58,32 +58,24 @@
 }
 
 .icon-close {
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 1.5rem;
-  height: 1.5rem;
-
   &--pink {
-    background-image: url('../../assets/icons/icon-close-pink.svg');
+    color: get-color(pink);
 
     &:hover,
     &:active,
     &:focus {
-      background-image: url('../../assets/icons/icon-close-darkpink.svg');
+      color: get-color(pink, light);
     }
   }
 
   &--white {
-    background-image: url('../../assets/icons/icon-close-white.svg');
+    color: get-color(white);
 
     &:hover,
     &:active,
     &:focus {
-      opacity: 0.75;
-      background-image: url('../../assets/icons/icon-close-darkwhite.svg');
+      opacity: 0.85;
+      color: get-color(gray, light);
     }
   }
 }

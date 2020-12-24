@@ -30,12 +30,19 @@
               data-testid="modal-header"
             >
               <span class="modal-title">{{ title }}</span>
-              <button
-                class="icon-close"
-                :class="computedIconColor"
+              <ma-button
+                category="no-background"
                 data-testid="close-button"
                 @click="closeModal"
-              />
+              >
+                <ma-icon
+                  icon="SquaredClose"
+                  width="24"
+                  height="24"
+                  :class="computedIconColor"
+                >
+                </ma-icon>
+              </ma-button>
             </div>
             <div ref="modal-content" class="modal-content">
               <slot :closeModal="closeModal" name="content" />
@@ -50,6 +57,8 @@
 <script>
 import { Portal as MaModalPortal } from '@linusborg/vue-simple-portal/dist/index.umd'
 import MaStack from '@margarita/components/MaStack'
+import MaIcon from '@margarita/components/MaIcon'
+import MaButton from '@margarita/components/MaButton'
 
 const MODAL_WIDTHS = ['small', 'medium', 'large']
 
@@ -71,6 +80,8 @@ export default {
   components: {
     MaStack,
     MaModalPortal,
+    MaIcon,
+    MaButton,
   },
 
   props: {
