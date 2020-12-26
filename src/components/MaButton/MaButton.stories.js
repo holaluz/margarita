@@ -1,8 +1,6 @@
 import { select, text, boolean, number } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaButton from '@margarita/components/MaButton'
-import MaIcon from '@margarita/components/MaIcon'
 import availableIcons from '@margarita/components/MaIcon/availableIcons'
 
 const BUTTON_CATEGORIES = [
@@ -29,7 +27,6 @@ export const Button = () => {
   const tag = select('HTML tag', HTML_TAGS, 'button')
 
   return {
-    components: { MaButton },
     template: `
       <ma-button
         @click="action"
@@ -80,8 +77,6 @@ export const IconButton = () => {
   const iconSize = number('Icon height size in px', 18)
 
   return {
-    components: { MaButton, MaIcon },
-
     template: `
     <ma-button rounded category="primary">
       <ma-icon

@@ -1,8 +1,5 @@
 import { select, text } from '@storybook/addon-knobs'
 
-import MaAlert from '@margarita/components/MaAlert'
-import MaStack from '@margarita/components/MaStack'
-
 export default {
   title: 'Components/Alert',
 }
@@ -13,7 +10,6 @@ export const Alert = () => {
   const content = text('Text', 'Some longer alert text')
 
   return {
-    components: { MaAlert, MaStack },
     template: `
       <ma-stack space="small" style="width:500px">
         <ma-alert :size="size" type="success" :title="title" :text="text" />

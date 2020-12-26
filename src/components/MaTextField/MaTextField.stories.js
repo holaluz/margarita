@@ -1,11 +1,6 @@
 import { boolean, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaButton from '@margarita/components/MaButton'
-import MaIcon from '@margarita/components/MaIcon'
-
-import MaTextField from './MaTextField'
-
 const ICONS = [
   'AddContract',
   'Arrow',
@@ -39,8 +34,6 @@ export const TextField = () => {
   const value = text('Value', '')
 
   return {
-    components: { MaTextField, MaIcon, MaButton },
-
     template: `
       <ma-text-field
         :disabled="disabled"
@@ -83,8 +76,6 @@ export const TextFieldWithSiblingLabel = () => {
   const siblingLabel = text('Sibling label', 'additional label')
 
   return {
-    components: { MaTextField },
-
     template: `
       <ma-text-field v-model="value" @blur="onBlur" label="Label">
         <span slot="labelSibling">{{siblingLabel}}</span>
@@ -115,8 +106,6 @@ export const TextFieldWithIcon = () => {
   const icon = select('Icon', ICONS, ICONS[0])
 
   return {
-    components: { MaTextField, MaIcon, MaButton },
-
     template: `
       <ma-text-field
         :disabled="disabled"
@@ -167,8 +156,6 @@ export const ErroredTextField = () => {
   const label = text('Label', 'Label')
 
   return {
-    components: { MaTextField },
-
     template: `
       <ma-text-field
         :errorMessage="errorMessage"

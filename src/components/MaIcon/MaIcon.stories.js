@@ -1,4 +1,3 @@
-import MaIcon from './MaIcon'
 import icons from './availableIcons'
 
 export default {
@@ -6,8 +5,6 @@ export default {
 }
 
 export const Icons = () => ({
-  components: { MaIcon },
-
   template: `
     <div :style="containerStyle">
       <div v-for="icon in icons" :key="icon" :style="iconStyle">

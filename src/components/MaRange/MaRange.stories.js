@@ -1,8 +1,6 @@
 import { select, object, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaRange from '@margarita/components/MaRange'
-
 const defaultSteps = [
   { text: 'Especial', value: 'special' },
   { text: 'Bajo', value: 'low' },
@@ -24,8 +22,6 @@ export const Range = () => {
   const label = text('Label', 'Label')
 
   return {
-    components: { MaRange },
-
     template: `
         <div style="width: 500px">
           <ma-range

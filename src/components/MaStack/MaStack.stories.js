@@ -1,10 +1,5 @@
 import { select, array } from '@storybook/addon-knobs'
 
-import MaStack from '@margarita/components/MaStack'
-import MaButton from '@margarita/components/MaButton'
-import MaTextField from '@margarita/components/MaTextField'
-import MaAlert from '@margarita/components/MaAlert'
-
 import { alignment, spacing } from '@margarita/tokens'
 
 export default {
@@ -16,7 +11,6 @@ export const Stack = () => {
   const align = select('Align', [null, ...alignment], alignment[0])
 
   return {
-    components: { MaStack },
     template: `
         <ma-stack
           :space="space"
@@ -45,7 +39,6 @@ export const Stack = () => {
 
 export const NestedStack = () => {
   return {
-    components: { MaStack, MaButton, MaTextField, MaAlert },
     template: `
       <ma-stack space="large" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
         <ma-stack space="medium" align="center" style="outline: 1px solid red">
@@ -68,7 +61,6 @@ export const ResponsiveProps = () => {
   const align = array('Align', ['center', 'left'])
 
   return {
-    components: { MaStack },
     template: `
       <div>
         <p>current breakpoint: {{ $layout.currentBreakpoint }}</p>

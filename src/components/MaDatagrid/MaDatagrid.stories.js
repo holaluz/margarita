@@ -2,10 +2,6 @@ import shuffle from 'lodash.shuffle'
 import { boolean, object } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaPill from '@margarita/components/MaPill/'
-
-import MaDatagrid from './MaDatagrid'
-
 const columns = [
   {
     name: 'User',
@@ -27,7 +23,6 @@ const columns = [
     // …or we can provide a `component` which receives the whole row as props
     component: {
       template: `<ma-pill :text="status" :color="color" />`,
-      components: { MaPill },
       props: ['status'],
       computed: {
         color() {
@@ -54,10 +49,6 @@ export const Datagrid = () => {
   const computedRows = object('Rows', rows)
 
   return {
-    components: {
-      MaDatagrid,
-    },
-
     template: `
       <div style="width:600px">
         <ma-datagrid

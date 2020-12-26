@@ -1,8 +1,6 @@
 import { boolean, object, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaSelect from './MaSelect'
-
 const AVAILABLE_WEIGHTS = ['bold', 'semibold', 'medium', 'regular']
 const DEFAULT_OPTIONS = [
   { label: 'Placeholder text', text: 'Placeholder text', disabled: true },
@@ -32,8 +30,6 @@ export const Select = () => {
   const options = object('Options', DEFAULT_OPTIONS)
 
   return {
-    components: { MaSelect },
-
     template: `
         <ma-select
           id="my-select-input"

@@ -1,5 +1,4 @@
 import { text } from '@storybook/addon-knobs'
-import MaAlert from '@margarita/components/MaAlert'
 import { markdown } from './'
 
 const ssrCodeSnippet = `
@@ -29,8 +28,6 @@ export const VMarkdown = () => {
 
   return {
     directives: { markdown },
-
-    components: { MaAlert },
 
     template: `
       <div>

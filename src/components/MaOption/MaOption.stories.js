@@ -1,8 +1,6 @@
 import { boolean, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaOption from './MaOption'
-
 export default {
   title: 'Components/Option',
 }
@@ -14,8 +12,6 @@ export const Radio = () => {
   const text2 = text('Text radio 2', 'Second radio button')
 
   return {
-    components: { MaOption },
-
     template: `
       <div>
         <ma-option v-model="selected" :card="card" value="id1" type="radio" @change="onChange">
@@ -61,8 +57,6 @@ export const Checkbox = () => {
   const textSlot = text('Text checkbox ', 'My first checkbox')
 
   return {
-    components: { MaOption },
-
     template: `
       <ma-option v-model="checked" :card="card" type="checkbox" :disabled="disabled" @change="onChange">
         {{ text1 }}

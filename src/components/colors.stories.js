@@ -1,4 +1,3 @@
-import '../scss/_margarita.scss'
 import colorTokens from '../tokens/colors'
 
 export default {

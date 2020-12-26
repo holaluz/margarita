@@ -1,8 +1,6 @@
 import { number, select } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import MaPagination from '@margarita/components/MaPagination'
-
 const BUTTONS_NUMBER = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 export default {
@@ -15,8 +13,6 @@ export const Pagination = () => {
   const buttonsNumber = select('Number of buttons', BUTTONS_NUMBER, 5)
 
   return {
-    components: { MaPagination },
-
     template: `
         <div>
           <ma-pagination
