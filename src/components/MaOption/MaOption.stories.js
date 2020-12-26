@@ -1,4 +1,4 @@
-import { boolean, text } from '@storybook/addon-knobs'
+import { boolean } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 export default {
@@ -8,17 +8,15 @@ export default {
 export const Radio = () => {
   const card = boolean('Card', false)
   const disabled = boolean('Disabled', false)
-  const text1 = text('Text radio 1', 'My first radio')
-  const text2 = text('Text radio 2', 'Second radio button')
 
   return {
     template: `
       <div>
-        <ma-option v-model="selected" :card="card" value="id1" type="radio" @change="onChange">
-          {{ text1 }}
+        <ma-option v-model="selected" v-bind="$props" value="id1" type="radio" @change="onChange">
+          My first radio
         </ma-option>
-        <ma-option v-model="selected" :card="card" :disabled="disabled" value="id2" type="radio" @change="onChange">
-          {{ text2 }}
+        <ma-option v-model="selected" v-bind="$props" value="id2" type="radio" @change="onChange">
+          My second radio
         </ma-option>
       </div>
     `,
@@ -26,12 +24,6 @@ export const Radio = () => {
     props: {
       card: {
         default: card,
-      },
-      text1: {
-        default: text1,
-      },
-      text2: {
-        default: text2,
       },
       disabled: {
         default: disabled,
@@ -52,35 +44,32 @@ export const Radio = () => {
 
 export const Checkbox = () => {
   const card = boolean('Card', false)
-  const checked = boolean('Checked', false)
   const disabled = boolean('Disabled', false)
-  const textSlot = text('Text checkbox ', 'My first checkbox')
 
   return {
     template: `
-      <ma-option v-model="checked" :card="card" type="checkbox" :disabled="disabled" @change="onChange">
-        {{ text1 }}
-      </ma-option>
+      <div>
+        <ma-option v-model="checked" value="checkbox1" type="checkbox" v-bind="$props" @change="onChange">
+          My first checkbox
+        </ma-option>
+        <ma-option v-model="checked" value="checkbox2" type="checkbox" v-bind="$props" @change="onChange">
+          My second checkbox
+        </ma-option>
+      </div>
     `,
 
     props: {
       card: {
         default: card,
       },
-      text1: {
-        default: textSlot,
-      },
       disabled: {
         default: disabled,
-      },
-      checked: {
-        default: checked,
       },
     },
 
     data() {
       return {
-        selected: true,
+        checked: [],
       }
     },
 

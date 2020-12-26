@@ -11,10 +11,10 @@ export const Card = () => {
   return {
     template: `
       <ma-stack space="medium">
-        <ma-card :color="color" :has-padding-top="has-padding-top">
+        <ma-card v-bind="$props">
           I'm a {{ color }} layout card
         </ma-card>
-        <ma-card :color="color" :has-padding-top="has-padding-top">
+        <ma-card v-bind="$props">
           I'm another {{ color }} layout card
         </ma-card>
       </ma-stack>

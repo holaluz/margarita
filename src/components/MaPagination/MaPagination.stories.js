@@ -13,16 +13,7 @@ export const Pagination = () => {
   const buttonsNumber = select('Number of buttons', BUTTONS_NUMBER, 5)
 
   return {
-    template: `
-        <div>
-          <ma-pagination
-            :buttons-number="buttonsNumber"
-            :items-per-page="itemsPerPage"
-            :total-items="totalItems"
-            @pagination="changePage"
-          >
-          </ma-pagination>
-        </div>`,
+    template: `<ma-pagination v-bind="$props" @pagination="changePage" />`,
 
     props: {
       itemsPerPage: {

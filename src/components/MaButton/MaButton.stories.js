@@ -28,17 +28,8 @@ export const Button = () => {
 
   return {
     template: `
-      <ma-button
-        @click="action"
-        :text="text"
-        :rounded="rounded"
-        :category="category"
-        :tag="tag"
-        :disabled="disabled"
-        :loading="loading"
-        :aria-label="ariaLabel"
-      >
-          {{ text }}
+      <ma-button @click="action"v-bind="$props">
+        {{ text }}
       </ma-button>
     `,
 

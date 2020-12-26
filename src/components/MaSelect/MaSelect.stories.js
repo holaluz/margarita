@@ -23,26 +23,15 @@ export const Select = () => {
   const label = text('Label', 'Label')
   const ariaLabel = text('ARIA Label', '')
   const disabled = boolean('Disable', false)
-  const weight = select('Peso', ['', ...AVAILABLE_WEIGHTS], '')
+  const weight = select('Weight', ['', ...AVAILABLE_WEIGHTS], '')
   const hasError = boolean('Has error', false)
   const errorMessage = text('Error msg', 'You have an error')
-  const fieldClass = text('Additional class', '')
+  const fieldClass = text('Field class', '')
   const options = object('Options', DEFAULT_OPTIONS)
 
   return {
     template: `
-        <ma-select
-          id="my-select-input"
-          :aria-label="ariaLabel"
-          :errorMessage="errorMessage"
-          :disabled="disabled"
-          :hasError="hasError"
-          :label="label"
-          :options="options"
-          :weight="weight"
-          :fieldClass="fieldClass"
-          v-model="value"
-        />
+        <ma-select id="my-select-input" v-bind="$props" v-model="value" />
     `,
 
     props: {

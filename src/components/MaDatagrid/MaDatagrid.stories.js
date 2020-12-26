@@ -42,6 +42,11 @@ const rows = [
 
 export default {
   title: 'Components/Datagrid',
+  decorators: [
+    () => ({
+      template: '<div style="width:600px"><story/></div>',
+    }),
+  ],
 }
 
 export const Datagrid = () => {
@@ -49,16 +54,7 @@ export const Datagrid = () => {
   const computedRows = object('Rows', rows)
 
   return {
-    template: `
-      <div style="width:600px">
-        <ma-datagrid
-          :columns="columns"
-          :rows="rows"
-          :isLoading="isLoading"
-          @sort="sortBy"
-        />
-      </div>
-    `,
+    template: `<ma-datagrid v-bind="$props" :columns="columns" @sort="sortBy" />`,
 
     data() {
       return { columns }

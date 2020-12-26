@@ -2,29 +2,41 @@ import { select, text } from '@storybook/addon-knobs'
 
 export default {
   title: 'Components/Alert',
+  decorators: [
+    () => ({
+      template: '<div style="width:600px"><story/></div>',
+    }),
+  ],
 }
+
+const TYPES = ['success', 'info', 'warning', 'error']
 
 export const Alert = () => {
   const size = select('Size', ['small', 'medium', 'large'], 'small')
-  const title = text('Title', 'An alert title')
-  const content = text('Text', 'Some longer alert text')
+  const content = text('Text', 'A longer alert text')
 
   return {
     template: `
-      <ma-stack space="small" style="width:500px">
-        <ma-alert :size="size" type="success" :title="title" :text="text" />
-        <ma-alert :size="size" type="info" :title="title" :text="text" />
-        <ma-alert :size="size" type="warning" :title="title" :text="text" />
-        <ma-alert :size="size" type="error" :title="title" :text="text" />
+      <ma-stack space="xxsmall">
+        <ma-alert
+          v-for="type in types"
+          :key="type"
+          :type="type"
+          :title="type"
+          v-bind="$props"
+        />
       </ma-stack>
     `,
+
+    data() {
+      return {
+        types: TYPES,
+      }
+    },
 
     props: {
       size: {
         default: size,
-      },
-      title: {
-        default: title,
       },
       text: {
         default: content,

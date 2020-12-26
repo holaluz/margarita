@@ -6,25 +6,28 @@ export default {
   title: 'Layout/Stack',
 }
 
+const DemoBlock = {
+  template: `
+  <span style="width:200px;background-color:#dcdcdc;text-align:center;color:#212121;padding:1rem 2rem;outline:1px solid #bbb">
+     <slot />
+  </span>
+  `,
+}
+
 export const Stack = () => {
   const space = select('Space', spacing, spacing[5])
   const align = select('Align', [null, ...alignment], alignment[0])
 
   return {
+    components: { DemoBlock },
+
     template: `
-        <ma-stack
-          :space="space"
-          :align="align"
-          style="background-color:#f1f1f1"
-        >
-        <span
-          v-for="i in [1,2,3]"
-          :key="i"
-          style="width:200px;background-color:#dcdcdc;text-align:center;color:#212121;padding:1rem 2rem;outline:1px solid #bbb">
-            {{i}}
-        </span>
+      <div style="background-color:#f1f1f1;width:600px">
+        <ma-stack :space="space" :align="align">
+          <demo-block v-for="i in [1,2,3]" :key="i">{{ i }}</demo-block>
         </ma-stack>
-      `,
+      </div>
+    `,
 
     props: {
       space: {
@@ -52,7 +55,7 @@ export const NestedStack = () => {
         </ma-stack>
         <ma-alert text="wrong password!" type="error" />
       </ma-stack>
-      `,
+    `,
   }
 }
 
@@ -61,23 +64,16 @@ export const ResponsiveProps = () => {
   const align = array('Align', ['center', 'left'])
 
   return {
+    components: { DemoBlock },
+
     template: `
-      <div>
+      <div style="background-color:#f1f1f1;width:600px">
         <p>current breakpoint: {{ $layout.currentBreakpoint }}</p>
-        <ma-stack
-          :space="space"
-          :align="align"
-          style="background-color:#f1f1f1"
-        >
-        <span
-          v-for="i in [1,2,3]"
-          :key="i"
-          style="width:200px;background-color:#dcdcdc;text-align:center;color:#212121;padding:1rem 2rem;outline:1px solid #bbb">
-            {{i}}
-        </span>
+        <ma-stack :space="space" :align="align">
+          <demo-block v-for="i in [1,2,3]" :key="i">{{ i }}</demo-block>
         </ma-stack>
       </div>
-      `,
+    `,
 
     props: {
       space: {

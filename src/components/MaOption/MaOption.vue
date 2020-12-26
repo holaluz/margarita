@@ -35,7 +35,7 @@ export default {
 
   props: {
     checked: {
-      type: [String, Number, Boolean],
+      type: [String, Number, Boolean, Array],
       required: true,
     },
 

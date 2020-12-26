@@ -18,6 +18,12 @@ export default {
 
 export default {
   title: 'Plugins/Markdown',
+  decorators: [
+    () => ({
+      template:
+        '<div style="max-width: 700px; margin-top:3rem; overflow: auto"><story/></div>',
+    }),
+  ],
 }
 
 export const VMarkdown = () => {
@@ -32,12 +38,12 @@ export const VMarkdown = () => {
     template: `
       <div>
         <p v-markdown="markdownText" />
-        <ma-alert style="max-width: 700px; margin-top:3rem; overflow: auto">
-          <p style="margin-top:0">
+        <ma-alert>
+          <span>
             In order to render markdown in Nuxt <b>universal mode</b>, we need to add this property to
             <b>nuxt.config.js</b>:
-          </p>
-          <pre>${ssrCodeSnippet}</pre>
+          </span>
+          <pre style="font-size:0.8rem">${ssrCodeSnippet}</pre>
         </ma-alert>
       </div>
     `,

@@ -10,6 +10,11 @@ const defaultSteps = [
 
 export default {
   title: 'Components/Range',
+  decorators: [
+    () => ({
+      template: '<div style="width: 600px"><story/></div>',
+    }),
+  ],
 }
 
 export const Range = () => {
@@ -22,14 +27,7 @@ export const Range = () => {
   const label = text('Label', 'Label')
 
   return {
-    template: `
-        <div style="width: 500px">
-          <ma-range
-            :steps="steps"
-            :label="label"
-            v-model="value"
-          />
-        </div>`,
+    template: `<ma-range :steps="steps" :label="label" v-model="value"/>`,
 
     props: {
       steps: {
