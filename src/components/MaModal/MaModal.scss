@@ -32,7 +32,7 @@
 
 .modal-header--gradient {
   background: linear-gradient(to right, get-color(orange), get-color(pink));
-  color: white;
+  color: get-color(white);
 }
 
 .modal-header--gradient .modal-title {
