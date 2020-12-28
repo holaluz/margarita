@@ -13,8 +13,8 @@
 
 .modal {
   transition: transform 0.4s ease;
-  border-radius: 0.25rem;
-  box-shadow: 0 rem(2px) rem(8px) get-alpha-color(black, 0.67);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px get-alpha-color(black, 0.67);
   background-color: get-color(white);
 
   // so that it doesn't reach end of viewport
