@@ -42,10 +42,7 @@
 
 .modal-title {
   @include font-weight(bold);
-
-  @include mq($from: md) {
-    font-size: 1.5rem;
-  }
+  font-size: 1.5rem;
 }
 
 .icon-close {
