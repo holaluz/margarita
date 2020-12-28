@@ -16,6 +16,8 @@
   border-radius: 0.25rem;
   box-shadow: 0 rem(2px) rem(8px) get-alpha-color(black, 0.67);
   background-color: get-color(white);
+
+  // so that it doesn't reach end of viewport
   width: 96vw;
   word-break: break-word;
 }
