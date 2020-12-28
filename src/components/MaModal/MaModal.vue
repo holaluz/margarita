@@ -33,15 +33,11 @@
               <ma-button
                 category="no-background"
                 data-testid="close-button"
+                class="icon-close"
+                :class="computedIconColor"
                 @click="closeModal"
               >
-                <ma-icon
-                  icon="SquaredClose"
-                  width="24"
-                  height="24"
-                  :class="computedIconColor"
-                >
-                </ma-icon>
+                <ma-icon icon="Close"> </ma-icon>
               </ma-button>
             </div>
             <div ref="modal-content" class="modal-content">

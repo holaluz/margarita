@@ -46,6 +46,10 @@
 }
 
 .icon-close {
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.25rem;
+
   &--pink {
     color: get-color(pink, base);
 
@@ -62,7 +66,7 @@
     &:hover,
     &:active,
     &:focus {
-      opacity: 0.5;
+      opacity: 0.75;
     }
   }
 }
