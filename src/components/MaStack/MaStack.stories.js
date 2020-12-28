@@ -45,11 +45,11 @@ export const Stack = () => {
 export const NestedStack = () => {
   return {
     template: `
-      <ma-stack space="large" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
-        <ma-stack space="medium" align="center" style="outline: 1px solid red">
+      <ma-stack space="2-xlarge" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
+        <ma-stack space="xlarge" align="center" style="outline: 1px solid red">
           <span style="font-size: 2rem">Log In</span>
         </ma-stack>
-        <ma-stack space="xxsmall" style="outline: 1px solid red">
+        <ma-stack space="small" style="outline: 1px solid red">
           <ma-text-field label="email" />
           <ma-text-field label="password" />
           <span>reset my password</span>
@@ -62,7 +62,7 @@ export const NestedStack = () => {
 }
 
 export const ResponsiveProps = () => {
-  const space = array('Space', ['xxsmall', 'medium', 'xxlarge'])
+  const space = array('Space', ['xxsmall', 'medium', '4x-large'])
   const align = array('Align', ['center', 'left'])
 
   return {
