@@ -10,11 +10,12 @@
         appear
         @after-leave="closeModal"
       >
-        <div
-          class="modal-overlay"
-          data-testid="overlay"
-          @click.self="closeModal"
-        >
+        <div class="modal-wrapper">
+          <div
+            class="modal-overlay"
+            data-testid="overlay"
+            @click.self="closeModal"
+          />
           <ma-stack
             ref="modal"
             :aria-label="title"
