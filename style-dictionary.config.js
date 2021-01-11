@@ -1,5 +1,5 @@
 module.exports = {
-  source: ['./src/style-dictionary/styleDictionaryTokens.js'],
+  source: ['.style-dictionary/index.js'],
   platforms: {
     scss: {
       transformGroup: 'scss',

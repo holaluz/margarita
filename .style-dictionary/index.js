@@ -1,8 +1,8 @@
 const transformToStyleDictionary = require('./transformToStyleDictionary')
-const color = require('../tokens/color')
-const spacing = require('../tokens/spacing')
-const shadow = require('../tokens/shadow')
-const { breakpoints } = require('../tokens/breakpoint')
+const color = require('../src/tokens/color')
+const spacing = require('../src/tokens/spacing')
+const shadow = require('../src/tokens/shadow')
+const { breakpoints } = require('../src/tokens/breakpoint')
 
 module.exports = {
   color: transformToStyleDictionary(color),
