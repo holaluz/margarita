@@ -1,14 +1,3 @@
-export const breakpointsEnum = {
-  mobile: 'mobile',
-  tablet: 'tablet',
-  desktop: 'desktop',
-}
-
-export const breakpoints = {
-  [breakpointsEnum.tablet]: 900,
-  [breakpointsEnum.desktop]: 1440,
-}
-
 export const spacing = [
   'none',
   'xxsmall',
