@@ -6,7 +6,8 @@
 
 <script>
 import { responsivePropValidator } from '@margarita/utils/responsivePropValidator'
-import { spacing, alignment } from '../../tokens'
+import spacing from '../../tokens/spacing'
+const alignment = ['left', 'center', 'right']
 
 export default {
   name: 'MaStack',
@@ -15,7 +16,7 @@ export default {
     space: {
       type: [Array, String],
       required: true,
-      validator: responsivePropValidator(spacing),
+      validator: responsivePropValidator(Object.keys(spacing)),
     },
 
     align: {
