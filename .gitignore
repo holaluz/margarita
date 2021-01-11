@@ -18,6 +18,3 @@ npm-debug.log*
 
 # auto generated scss token file
 src/scss/variables/_tokens.scss
-
-# auto generated css custom properties file
-src/css/tokens.css

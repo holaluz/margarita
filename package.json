@@ -18,7 +18,7 @@
     "postinstall": "npm run tokens:build",
     "prebuild": "npm run tokens:build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
-    "format": "prettier 'src/**/*.{js,vue,css}' --write && stylelint 'src/**/*.scss' --fix",
+    "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint 'src/**/*.scss'",
     "lint:js": "eslint 'src/**/*.{js,vue}'",
@@ -27,7 +27,7 @@
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c .storybook",
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
-    "tokens:build": "style-dictionary build --config ./styleDictionary.config.js && npm run format",
+    "tokens:build": "style-dictionary build --platform scss --config ./styleDictionary.config.js && prettier 'src/scss/variables/*.scss' --write",
     "tokens:watch": "chokidar  'src/tokens/*.js' -c 'npm run tokens:build'"
   },
   "husky": {
