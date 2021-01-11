@@ -10,3 +10,5 @@ $mq-breakpoints: (
 
 $mq-and-landscape: '(orientation: landscape)';
 $mq-and-portrait: '(orientation: portrait)';
+
+@import '~sass-mq';

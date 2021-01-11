@@ -17,4 +17,4 @@ npm-debug.log*
 .vscode/!settings.json
 
 # auto generated scss token file
-src/scss/variables/_tokens.scss
+src/scss/_tokens.scss

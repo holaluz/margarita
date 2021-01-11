@@ -3,7 +3,7 @@ module.exports = {
   platforms: {
     scss: {
       transformGroup: 'scss',
-      buildPath: './src/scss/variables/',
+      buildPath: './src/scss/',
       files: [
         {
           destination: '_tokens.scss',
