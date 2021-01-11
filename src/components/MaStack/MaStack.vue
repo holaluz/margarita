@@ -6,7 +6,7 @@
 
 <script>
 import { responsivePropValidator } from '@margarita/utils/responsivePropValidator'
-import spacing from '../../tokens/spacing'
+import { spacing } from '../../tokens'
 const alignment = ['left', 'center', 'right']
 
 export default {

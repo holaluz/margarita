@@ -1,6 +1,6 @@
 import { select, array } from '@storybook/addon-knobs'
 
-import spacingTokens from '@margarita/tokens/spacing'
+import { spacing } from '@margarita/tokens'
 
 export default {
   title: 'Layout/Stack',
@@ -14,7 +14,7 @@ const DemoBlock = {
   `,
 }
 
-const spacingKeys = Object.keys(spacingTokens)
+const spacingKeys = Object.keys(spacing)
 
 export const Stack = () => {
   const space = select('Space', spacingKeys, spacingKeys[3])

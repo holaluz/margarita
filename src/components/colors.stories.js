@@ -1,4 +1,4 @@
-import { color } from '../tokens/color'
+import { color } from '../tokens'
 
 export default {
   title: 'Tokens/Colors',

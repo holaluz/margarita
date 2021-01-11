@@ -1,4 +1,4 @@
-import { breakpoints, breakpointsEnum } from '../tokens/breakpoint'
+import { breakpoints, breakpointsEnum } from '../tokens'
 
 export default {
   install(vue) {
