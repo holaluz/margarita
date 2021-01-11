@@ -1,11 +1,10 @@
+$rem-baseline: 16px;
+
 @import 'functions/colors';
 @import 'functions/rem';
 @import 'functions/spacing';
 
-@import 'variables/shadows';
-@import 'variables/colors';
-@import 'variables/spacing';
-@import 'variables/fonts';
+@import 'variables/tokens';
 @import 'variables/sass-mq';
 
 @import 'mixins/font-mixin';

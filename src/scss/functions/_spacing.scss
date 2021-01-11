@@ -4,11 +4,12 @@
 /// @return {value} The spacing value.
 
 @function get-space($value) {
-  $fetched-value: map-get($layout-spacing, $value);
+  $spacing-tokens: map-get($tokens, 'spacing');
+  $fetched-value: map-get($spacing-tokens, $value);
 
   @if type-of($fetched-value) == number {
     @return $fetched-value;
   } @else {
-    @error 'Spacing `#{$value}` not found. Available spaces: #{available-names($layout-spacing)}';
+    @error 'Spacing `#{$value}` not found. Available spaces: #{available-names($spacing-tokens)}';
   }
 }

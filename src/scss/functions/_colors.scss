@@ -10,12 +10,13 @@
   // https://sass-lang.com/documentation/modules/meta#inspect
   $stringified-hue: inspect($hue);
 
-  $color: map-get($colors, '#{$stringified-hue}-#{$value}');
+  $color-map: map-get($tokens, 'color');
+  $color: map-get(map-get($color-map, $stringified-hue), $value);
 
   @if type-of($color) == color {
     @return $color;
   } @else {
-    @error 'Color `#{$hue}-#{$value}` not found. Available colors: #{available-names($colors)}';
+    @error 'Color `#{$hue}-#{$value}` not found. Available colors: #{available-names($color-map)}';
   }
 }
 

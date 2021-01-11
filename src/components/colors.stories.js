@@ -1,4 +1,4 @@
-import colorTokens from '../tokens/colors'
+import { color } from '../tokens/color'
 
 export default {
   title: 'Tokens/Colors',
@@ -24,7 +24,7 @@ export const Colors = () => ({
 
   data() {
     return {
-      colors: colorTokens,
+      colors: color,
       titleStyle: {
         textAlign: 'center',
         textTransform: 'capitalize',

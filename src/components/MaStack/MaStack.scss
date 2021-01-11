@@ -1,4 +1,4 @@
-$stack-spacing: map-keys($layout-spacing);
+$stack-spacing: map-keys(map-get($tokens, 'spacing'));
 
 .stack {
   display: grid;
