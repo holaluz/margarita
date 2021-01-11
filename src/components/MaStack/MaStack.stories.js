@@ -14,12 +14,10 @@ const DemoBlock = {
   `,
 }
 
+const spacingKeys = Object.keys(spacingTokens)
+
 export const Stack = () => {
-  const space = select(
-    'Space',
-    Object.keys(spacingTokens),
-    spacingTokens.medium
-  )
+  const space = select('Space', spacingKeys, spacingKeys[3])
   const align = select('Align', [null, 'left', 'center', 'right'], 'center')
 
   return {
