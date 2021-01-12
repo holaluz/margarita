@@ -11,14 +11,14 @@
 
 .modal-overlay {
   position: fixed;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.2s ease;
   background-color: get-alpha-color(black, 0.5);
   width: 100%;
   height: 100%;
 }
 
 .modal {
-  transition: transform 0.4s ease;
+  transition: transform 0.8s;
   border-radius: 4px;
   box-shadow: 0 2px 8px get-alpha-color(black, 0.67);
   background-color: get-color(white);
@@ -103,6 +103,6 @@
   opacity: 0;
 
   .modal {
-    transform: translateY(-100%);
+    transform: translateY(-4rem);
   }
 }
