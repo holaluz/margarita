@@ -12,13 +12,13 @@
   "files": [
     "dist",
     "src",
-    "types/*.d.ts"
+    "types/*.d.ts",
+    "vetur"
   ],
   "scripts": {
-    "postinstall": "npm run tokens:build",
-    "prebuild": "npm run tokens:build",
+    "prepare": "npm run tokens:build && npm run vetur:build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
-    "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
+    "format": "prettier 'src/**/*.{js,vue,css}' --write && stylelint 'src/**/*.scss' --fix",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint 'src/**/*.scss'",
     "lint:js": "eslint 'src/**/*.{js,vue}'",
@@ -27,8 +27,9 @@
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c .storybook",
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
-    "tokens:build": "style-dictionary build --platform scss --config ./style-dictionary.config.js && prettier 'src/scss/*' --write",
-    "tokens:watch": "chokidar  'src/tokens/*.js' -c 'npm run tokens:build'"
+    "tokens:build": "style-dictionary build --config ./style-dictionary.config.js && prettier 'src/scss/*' --write",
+    "tokens:watch": "chokidar  'src/tokens/*.js' -c 'npm run tokens:build'",
+    "vetur:build": "vue-int --output 'vetur' --input 'src/components' --recursive"
   },
   "husky": {
     "hooks": {
@@ -95,10 +96,15 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-prettier": "^1.1.0",
     "vue-cli-plugin-storybook": "^2.0.0",
+    "vue-intellisense": "^0.1.1",
     "vue-template-compiler": "^2.6.12"
   },
   "publishConfig": {
     "access": "public"
   },
-  "jsDelivr": "dist/margarita.umd.min.js"
+  "jsDelivr": "dist/margarita.umd.min.js",
+  "vetur": {
+    "tags": "vetur/tags.json",
+    "attributes": "vetur/attributes.json"
+  }
 }
