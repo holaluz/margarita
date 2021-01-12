@@ -15,13 +15,13 @@
     "types/*.d.ts"
   ],
   "scripts": {
-    "postinstall": "npm run tokens:build",
     "prebuild": "npm run tokens:build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint 'src/**/*.scss'",
     "lint:js": "eslint 'src/**/*.{js,vue}'",
+    "prestart": "npm run tokens:build",
     "start": "npm run storybook:serve & npm run tokens:watch",
     "storybook:build": "vue-cli-service storybook:build -c .storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c .storybook",
