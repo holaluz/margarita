@@ -1,3 +1,4 @@
+import './css/tokens.css'
 import './scss/_margarita.scss'
 
 import MaAlert from './components/MaAlert'
