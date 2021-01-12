@@ -7,7 +7,7 @@ export default {
 export const Pill = () => {
   return {
     template: `
-      <ma-stack space="xxsmall">
+      <ma-stack space="small">
         <ma-pill v-for="color in colors" :key="color" :color="color" :text="color" />
       </ma-stack>
     `,

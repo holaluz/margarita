@@ -17,7 +17,7 @@ export const Alert = () => {
 
   return {
     template: `
-      <ma-stack space="xxsmall">
+      <ma-stack space="small">
         <ma-alert
           v-for="type in types"
           :key="type"
