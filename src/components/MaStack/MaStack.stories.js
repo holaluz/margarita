@@ -62,7 +62,7 @@ export const NestedStack = () => {
 }
 
 export const ResponsiveProps = () => {
-  const space = array('Space', ['xxsmall', 'medium', '4x-large'])
+  const space = array('Space', ['xsmall', 'medium', '3x-large'])
   const align = array('Align', ['center', 'left'])
 
   return {
