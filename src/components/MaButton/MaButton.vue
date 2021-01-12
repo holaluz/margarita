@@ -5,6 +5,9 @@
     :class="[getClasses, 'ma-button']"
     @click="handleClick"
   >
+    <!--
+      @slot Default slot. Renders content unless it's loading and rounded
+    -->
     <slot v-if="!loading || !rounded" />
     <ma-button-spinner v-if="loading" :style="getLoadingStyle()" />
   </component>
@@ -12,14 +15,6 @@
 
 <script>
 import MaButtonSpinner from './components/MaButtonSpinner'
-
-const AVAILABLE_CATEGORIES = [
-  'primary',
-  'secondary',
-  'white',
-  'gradient',
-  'no-background',
-]
 
 export default {
   name: 'MaButton',
@@ -29,11 +24,18 @@ export default {
   },
 
   props: {
+    /**
+     * Size of the alert.
+     * @values button, a, span
+     */
     tag: {
       type: String,
       default: 'button',
     },
 
+    /**
+     * Round its borders. Use it with an icon, not with text
+     */
     rounded: {
       type: Boolean,
       default: false,
@@ -49,10 +51,17 @@ export default {
       default: false,
     },
 
+    /**
+     * Whatever descr
+     * @values primary, secondary, white
+     */
     category: {
       type: String,
       default: 'primary',
-      validator: (v) => AVAILABLE_CATEGORIES.includes(v),
+      validator: (v) =>
+        ['primary', 'secondary', 'white', 'gradient', 'no-background'].includes(
+          v
+        ),
     },
   },
 

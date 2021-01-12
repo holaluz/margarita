@@ -59,6 +59,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
     "chokidar-cli": "^2.1.0",
     "copy-webpack-plugin": "^6.4.1",
     "eslint": "^7.17.0",

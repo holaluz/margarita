@@ -1,5 +1,6 @@
 import { select, text, boolean, number } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
+import MaButton from '../MaButton'
 
 import availableIcons from '@margarita/components/MaIcon/availableIcons'
 
@@ -15,6 +16,21 @@ const HTML_TAGS = ['button', 'a']
 
 export default {
   title: 'Components/Button',
+  component: MaButton,
+  // argTypes: {
+  //   default: {
+  //     name: 'default',
+  //     description:
+  //       "Default slot. Renders its content unless it's loading and rounded",
+  //     table: {
+  //       type: 'text',
+  //       category: 'slots',
+  //     },
+  //     control: {
+  //       type: 'text',
+  //     },
+  //   },
+  // },
 }
 
 export const Button = () => {

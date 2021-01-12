@@ -1,12 +1,20 @@
-// main.js is the main point of configuration for storybook
+const path = require('path')
 
 module.exports = {
-  stories: ['../src/**/*.stories.js'],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    '@storybook/addon-a11y',
-    '@storybook/addon-actions',
-    '@storybook/addon-knobs',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        vueDocgenOptions: {
+          alias: {
+            '@': path.resolve(__dirname, 'src/'),
+            '@margarita': path.resolve(__dirname, 'src/'),
+          },
+        },
+      },
+    },
     '@storybook/addon-links',
-    '@storybook/addon-viewport',
+    '@storybook/addon-essentials',
   ],
 }
