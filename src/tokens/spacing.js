@@ -1,5 +1,5 @@
 module.exports = {
-  none: '0rem',
+  none: '0',
   xsmall: '0.5rem',
   small: '1rem',
   medium: '1.5rem',
