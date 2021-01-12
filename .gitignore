@@ -21,3 +21,6 @@ vetur
 
 # auto generated scss token file
 src/scss/_tokens.scss
+
+# auto generated css custom properties file
+src/css/tokens.css
