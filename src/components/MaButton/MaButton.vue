@@ -26,7 +26,6 @@ export default {
   props: {
     /**
      * Size of the alert.
-     * @values button, a, span
      */
     tag: {
       type: String,
