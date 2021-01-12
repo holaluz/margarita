@@ -1,12 +1,9 @@
-import MaHidden from '@margarita/components/MaHidden'
-
 export default {
   title: 'Layout/Hidden',
 }
 
 export const Hidden = () => {
   return {
-    components: { MaHidden },
     template: `
       <div>
         <ma-hidden below="tablet">1. I'm hidden below tablet!</ma-hidden>
@@ -20,7 +17,6 @@ export const Hidden = () => {
 
 export const InlineHidden = () => {
   return {
-    components: { MaHidden },
     template: `
       <p>
         Hidden
