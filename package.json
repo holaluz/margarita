@@ -17,7 +17,6 @@
   ],
   "scripts": {
     "prepare": "npm run tokens:build && npm run vetur:build",
-    "prebuild": "npm run tokens:build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "format": "prettier 'src/**/*.{js,vue}' --write && stylelint 'src/**/*.scss' --fix",
     "lint": "npm run lint:js && npm run lint:css",
