@@ -1,12 +1,12 @@
-$ma-range-height: rem(16px);
-$ma-range-radius: rem(10px);
+$ma-range-height: 1rem;
+$ma-range-radius: 10px;
 $ma-range-transition: 0.2s;
-$ma-range-bullet-size: rem(4px);
+$ma-range-bullet-size: 4px;
 
 .ma-range {
   position: relative;
-  margin-top: rem(4px);
-  padding-bottom: rem(32px);
+  margin-top: 4px;
+  padding-bottom: 2rem;
 
   &::after {
     display: block;
@@ -24,7 +24,7 @@ $ma-range-bullet-size: rem(4px);
   &__step {
     position: absolute;
     cursor: pointer;
-    padding-top: rem(21px);
+    padding-top: 21px;
     color: get-color(gray);
     user-select: none;
   }
@@ -37,8 +37,8 @@ $ma-range-bullet-size: rem(4px);
   &__native-element {
     appearance: none;
     position: absolute;
-    top: rem(-2px);
-    left: rem(-10px);
+    top: -2px;
+    left: -10px;
     opacity: 0;
     z-index: 1;
     outline: none;
@@ -72,7 +72,7 @@ $ma-range-bullet-size: rem(4px);
   &__bullet {
     display: inline-block;
     position: absolute;
-    top: rem(6px);
+    top: 6px;
     left: 0%;
     z-index: 2;
     border-radius: 50%;

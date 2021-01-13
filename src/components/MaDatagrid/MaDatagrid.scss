@@ -33,10 +33,10 @@
     tr {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      margin-bottom: rem(16px);
+      margin-bottom: 1rem;
 
       th {
-        padding: 0 rem(16px);
+        padding: 0 1rem;
         text-align: left;
         user-select: none;
 
@@ -57,7 +57,7 @@
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       align-items: center;
       margin-bottom: 1rem;
-      border-radius: rem(4px);
+      border-radius: 0.25rem;
       box-shadow: 0 0 6.4px 4px $shadow-light;
       background-color: get-color(white);
 
@@ -66,7 +66,7 @@
       }
 
       td {
-        padding: rem(8px) rem(16px);
+        padding: 0.5rem 1rem;
         overflow: hidden;
         vertical-align: middle;
         text-overflow: ellipsis;
@@ -84,8 +84,8 @@
     display: inline-flex;
     position: relative;
     flex: auto;
-    padding: rem(4px);
-    padding-bottom: rem(32px);
+    padding: 0.25rem;
+    padding-bottom: 2rem;
   }
 
   &__no-results {

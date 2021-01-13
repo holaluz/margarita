@@ -1,5 +1,5 @@
 .ma-card {
-  padding: rem(24px);
+  padding: 1.5rem;
 
   &--gray {
     background-color: get-color(brown, light);
@@ -11,6 +11,6 @@
   }
 
   &--has-padding-top {
-    padding-top: rem(24px);
+    padding-top: 1.5rem;
   }
 }

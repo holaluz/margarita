@@ -18,13 +18,13 @@
       }
 
       &:checked ~ .indicator {
-        $indicator-svg-size: rem(13px);
+        $indicator-svg-size: 0.75rem;
 
         &::before {
           display: block;
           position: absolute;
-          top: rem(5px);
-          right: rem(5px);
+          top: 5px;
+          right: 5px;
           z-index: 1;
           background-image: url('../../assets/icons/tick.svg');
           background-size: $indicator-svg-size $indicator-svg-size;
@@ -61,7 +61,7 @@
     right: 0;
     transition: border-color 0.33s, border-width 0.33s, background-color 0.33s;
     border: 0 solid transparent;
-    border-radius: rem(8px);
+    border-radius: 0.5rem;
     background-color: transparent;
     width: $indicator-size;
     height: $indicator-size;
@@ -74,8 +74,8 @@
 
     &::after {
       position: absolute;
-      top: rem(-1px);
-      right: rem(-1px);
+      top: -1px;
+      right: -1px;
       transition: border-color 0.33s;
       border-width: 0 $indicator-size $indicator-size 0;
       border-style: solid;
@@ -89,10 +89,10 @@
   .description {
     flex: 1;
     border: 1px solid get-color(gray, light);
-    border-radius: rem(8px);
+    border-radius: 0.5rem;
     box-shadow: 0 0 8px 6px $shadow-light;
     background-color: get-color(white);
-    padding: rem(24px);
+    padding: 1.5rem;
   }
 }
 

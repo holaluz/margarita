@@ -2,10 +2,11 @@
   @include font-weight(semibold);
 
   display: inline-block;
-  border-radius: rem(8px);
-  padding: rem(6px) rem(12px);
+  line-height: 1;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
   width: auto;
-  font-size: rem(14px);
+  font-size: 0.875rem;
 
   &--green {
     background-color: get-color(green, light);
@@ -23,7 +24,7 @@
   }
 
   &--gray {
-    border: 1px solid get-color(gray);
+    box-shadow: inset 0 0 0 1px get-color(gray);
     background-color: get-color(gray, light);
     color: get-color(gray, dark);
   }

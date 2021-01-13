@@ -1,7 +1,7 @@
 .loader-row {
   position: relative;
   opacity: 0;
-  height: rem(66px);
+  height: 4rem;
   animation: aniVertical 3s ease;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
@@ -35,10 +35,10 @@
 }
 
 .loader-item {
-  margin-bottom: rem(8px);
-  border-radius: rem(16px);
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
   background: lighten(get-color(black), 85%);
-  height: rem(8px);
+  height: 0.5rem;
 
   &:last-child {
     margin-bottom: 0;

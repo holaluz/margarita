@@ -3,10 +3,10 @@
   flex-direction: column;
   width: 100%;
   color: get-color(gray, dark);
-  font-size: rem(16px);
+  font-size: 1rem;
 
   &__label {
-    margin-bottom: rem(4px);
+    margin-bottom: 0.25rem;
   }
 
   &__field {
@@ -19,11 +19,10 @@
     background-position: calc(100% - 12px) 50%;
     background-repeat: no-repeat;
     background-size: 12px 8px;
-    padding: 0 rem(32px) 0 rem(8px);
+    padding: 0 2rem 0 0.5rem;
     width: 100%;
-    height: rem(36px);
+    height: 2.25rem;
     color: get-color(gray, dark);
-    font-size: rem(16px);
 
     &:focus {
       outline: 2px solid get-color(pink, light);
@@ -70,8 +69,8 @@
   }
 
   &__error-message {
-    margin-top: rem(4px);
+    margin-top: 0.25rem;
     color: get-color(pink, dark);
-    font-size: rem(14px);
+    font-size: 0.875rem;
   }
 }
