@@ -151,7 +151,7 @@ export const TextFieldWithIcon = () => {
   }
 }
 
-export const ErroredTextField = () => {
+export const TextFieldWithError = () => {
   const errorMessage = text('Error msg', 'You have an error')
   const label = text('Label', 'Label')
 
