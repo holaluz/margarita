@@ -19,6 +19,7 @@
 
 .modal {
   transition: transform 0.8s;
+  transition: opacity 0.4s ease;
   border-radius: 4px;
   box-shadow: 0 2px 8px get-alpha-color(black, 0.67);
   background-color: get-color(white);
@@ -33,7 +34,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: get-space('xsmall');
+  padding: get-space('medium');
   border-radius: 4px 4px 0 0;
 }
 
@@ -81,8 +82,8 @@
 .modal-content {
   // because fuck standards, that's why
   // https://github.com/w3c/csswg-drafts/issues/129
-  margin-bottom: get-space('xsmall');
-  padding: 0 get-space('xsmall');
+  margin-bottom: get-space('medium');
+  padding: 0 get-space('medium');
   // height management
   max-height: 85vh;
   overflow-y: auto;

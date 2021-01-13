@@ -25,7 +25,7 @@ export const Modal = () => {
         </template>
 
         <template #content="{closeModal}">
-          <ma-stack space="xsmall" align="left">
+          <ma-stack space="medium" align="left">
             <span>My amazing content</span>
             <ma-text-field label="And a random input" type="text" />
             <ma-button @click="closeModal">close</ma-button>

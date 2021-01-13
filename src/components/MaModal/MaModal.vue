@@ -20,7 +20,7 @@
             ref="modal"
             :aria-label="title"
             :class="`modal--width-${width}`"
-            space="xsmall"
+            space="medium"
             role="dialog"
             aria-modal="true"
             class="modal"
