@@ -1,16 +1,11 @@
 <template>
-  <div class="modal-wrapper">
+  <div>
     <div ref="modal-trigger">
       <slot name="trigger" :openModal="openModal" />
     </div>
     <ma-modal-portal>
-      <transition
-        v-if="showModal"
-        name="modal"
-        appear
-        @after-leave="closeModal"
-      >
-        <div class="modal-wrapper">
+      <transition name="modal-transition" appear @after-leave="closeModal">
+        <div v-if="showModal">
           <div
             class="modal-overlay"
             data-testid="overlay"
