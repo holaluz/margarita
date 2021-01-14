@@ -18,10 +18,7 @@ const getProps = (argTypes) =>
 const Template = (args, { argTypes }) => ({
   props: getProps(argTypes),
   methods: actionsData,
-  template: `<ma-button v-bind="$props" @click="click"><slot /></ma-button>`,
+  template: `<ma-button v-bind="$props" @click="click">click me</ma-button>`,
 })
 
 export const Default = Template.bind({})
-Default.args = {
-  slots: { default: '<p>asd</p>' },
-}
