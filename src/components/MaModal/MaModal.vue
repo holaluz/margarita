@@ -30,7 +30,6 @@
                 category="no-background"
                 data-testid="close-button"
                 class="icon-close"
-                :class="computedIconColor"
                 @click="closeModal"
               >
                 <ma-icon icon="Close"> </ma-icon>
@@ -104,14 +103,6 @@ export default {
         [TAB_KEY]: this.handleTabKey,
       },
     }
-  },
-
-  computed: {
-    computedIconColor() {
-      return this.headerType === 'white'
-        ? 'icon-close--pink'
-        : 'icon-close--white'
-    },
   },
 
   mounted() {

@@ -26,10 +26,17 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: var(--spacing-medium);
+  gap: var(--spacing-medium);
   border-radius: 4px 4px 0 0;
 }
 
+.modal-header--white {
+  --modal-header-icon-color: var(--color-pink-base);
+}
+
 .modal-header--gradient {
+  --modal-header-icon-color: var(--color-white-base);
+
   background: linear-gradient(
     to right,
     var(--color-orange-base),
@@ -39,11 +46,11 @@
 }
 
 .modal-header--gradient .modal-title {
-  flex: 1;
   text-align: center;
 }
 
 .modal-title {
+  flex: 1;
   font-weight: 700;
   font-size: 1.5rem;
 }
@@ -52,6 +59,7 @@
   border-style: solid;
   border-width: 1px;
   padding: 0.25rem;
+  color: var(--modal-header-icon-color);
 
   &--pink {
     color: var(--color-pink-base);
