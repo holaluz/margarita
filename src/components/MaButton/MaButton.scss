@@ -15,12 +15,12 @@
     cursor: not-allowed;
 
     &:not(.ma-button--loading) {
-      border-color: get-color(gray);
-      color: get-color(gray);
+      border-color: var(--color-gray-base);
+      color: var(--color-gray-base);
 
       &:not(.ma-button--secondary):not(.ma-button--no-background):not(.ma-button--white) {
-        background: get-color(gray);
-        color: get-color(white);
+        background: var(--color-gray-base);
+        color: var(--color-white-base);
       }
     }
   }
@@ -38,27 +38,27 @@
     border: 0;
     padding: 0;
     width: auto;
-    color: get-color(pink);
+    color: var(--color-pink-base);
 
     &:hover:not(:disabled),
     &:active:not(:disabled) {
-      color: darken(get-color(pink), 10%);
+      color: var(--color-pink-dark);
     }
   }
 
   &--primary {
-    background-color: get-color(pink);
-    color: get-color(white);
+    background-color: var(--color-pink-base);
+    color: var(--color-white-base);
 
     &:focus {
-      outline: 2px solid get-color(pink, light);
+      outline: 2px solid var(--color-pink-light);
       outline-offset: 0;
     }
 
     &:hover:not(:disabled),
     &:active:not(:disabled) {
-      background-color: darken(get-color(pink), 10%);
-      color: get-color(white);
+      background-color: var(--color-pink-dark);
+      color: var(--color-white-base);
     }
 
     &.ma-button--rounded {
@@ -67,63 +67,61 @@
   }
 
   &--secondary {
-    border-color: get-color(pink);
+    border-color: var(--color-pink-base);
     background-color: transparent;
-    color: get-color(pink);
+    color: var(--color-pink-base);
 
     &:focus {
-      outline: 2px solid get-color(pink, light);
+      outline: 2px solid var(--color-pink-light);
       outline-offset: 0;
     }
 
     &:hover:not(:disabled),
     &:active:not(:disabled) {
-      background-color: get-color(pink);
-      color: get-color(white);
+      background-color: var(--color-pink-base);
+      color: var(--color-white-base);
     }
 
     &.ma-button--rounded {
       border-color: transparent;
       background-color: transparent;
-      color: get-color(pink);
+      color: var(--color-pink-base);
 
       &:hover:not(:disabled),
       &:active:not(:disabled),
       &.ma-button--loading {
-        border-color: lighten(get-color(pink), 50%);
-        background-color: lighten(get-color(pink), 50%);
-        color: get-color(pink);
+        background-color: var(--color-pink-light);
+        color: var(--color-pink-base);
       }
     }
   }
 
   &--white {
-    border-color: get-color(white);
+    border-color: var(--color-white-base);
     background-color: transparent;
-    color: get-color(white);
+    color: var(--color-white-base);
 
     &:focus {
-      outline: 2px solid get-color(pink, light);
+      outline: 2px solid var(--color-pink-light);
       outline-offset: 0;
     }
 
     &:hover:not(:disabled),
     &:active:not(:disabled) {
-      background-color: get-color(orange);
-      color: get-color(white);
+      background-color: var(--color-orange-base);
+      color: var(--color-white-base);
     }
 
     &.ma-button--rounded {
       border-color: transparent;
       background-color: transparent;
-      color: get-color(white);
+      color: var(--color-white-base);
 
       &:hover:not(:disabled),
       &:active:not(:disabled),
       &.ma-button--loading {
-        border-color: lighten(get-color(white), 50%);
-        background-color: lighten(get-color(white), 50%);
-        color: get-color(white);
+        border-color: var(--color-gray-lighter);
+        color: var(--color-gray-lighter);
       }
     }
   }
@@ -131,16 +129,16 @@
   &--gradient {
     background-image: linear-gradient(
       to right,
-      get-color(pink) 0%,
-      get-color(orange) 40%,
-      get-color(yellow, dark) 50%,
-      get-color(pink) 100%
+      var(--color-pink-base) 0%,
+      var(--color-orange-base) 40%,
+      var(--color-yellow-dark) 50%,
+      var(--color-pink-base) 100%
     );
     background-size: 200% auto;
-    color: get-color(white);
+    color: var(--color-white-base);
 
     &:focus {
-      outline: 2px solid get-color(pink, light);
+      outline: 2px solid var(--color-pink-light);
       outline-offset: 0;
     }
 

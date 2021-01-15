@@ -1,65 +1,47 @@
 import { color } from '../tokens'
-
 export default {
   title: 'Tokens/Colors',
 }
 
 export const Colors = () => ({
   template: `
-    <div :style="containerStyle">
+    <ma-stack space="large">
       <div v-for="(tones, hue) in colors" :key="hue">
         <h2 :style="titleStyle">{{hue}}</h2>
-        <div v-for="(hex, tone) in tones" :key="tone" :style="colorStyle">
-          <div :style="getBoxStyle(hex)">
-            <code v-text="getFunction(hue, tone)" />
+        <div :style="hueStyle">
+          <div v-for="(hex, tone) in tones" :key="tone">
+            <ma-stack space="xsmall" :style="hexStyle">
+            <div :style="getBoxStyle(hex)" v-text="tone" />
+            <code v-text="hex"  />
+            <code>--color-{{hue}}-{{tone}}</code>
+            </ma-stack>
           </div>
-          <p :style="colorNameStyle">
-            {{hue}} {{tone}}
-            <code v-text="hex" :style="hexStyle" />
-          </p>
         </div>
       </div>
-    </div>
+    </ma-stack>
   `,
 
   data() {
     return {
       colors: color,
-      titleStyle: {
-        textAlign: 'center',
-        textTransform: 'capitalize',
-        fontSize: '1.4rem',
-        fontWeight: 'normal',
-      },
-      containerStyle: {
-        display: 'grid',
-        gridGap: '4vw',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        maxWidth: '1400px',
-        margin: '0 auto',
-      },
-      colorStyle: {
-        marginTop: '0.5rem',
-      },
-      colorNameStyle: {
+      hueStyle: {
         display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        margin: '1rem 0 2rem 0',
-        fontWeight: 'bold',
+        gap: '1rem',
+        flexWrap: 'wrap',
       },
       hexStyle: {
         fontWeight: 'normal',
-        fontSize: '0.8rem',
+        fontSize: '0.75rem',
       },
       boxStyle: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '140px',
+        width: '150px',
+        height: '70px',
         borderRadius: '4px',
+        fontSize: '1rem',
         boxShadow: '3px 2px 12px rgba(0,0,0,0.15)',
-        fontSize: '0.8rem',
       },
     }
   },
@@ -71,12 +53,6 @@ export const Colors = () => ({
         backgroundColor: color,
         color: this.getContrast(color),
       }
-    },
-
-    getFunction(hue, tone) {
-      return tone === 'base'
-        ? `get-color(${hue})`
-        : `get-color(${hue}, ${tone})`
     },
 
     getContrast(color) {

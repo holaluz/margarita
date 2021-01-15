@@ -13,7 +13,7 @@
       &:focus,
       &:checked {
         & ~ .description {
-          border-color: get-color(pink);
+          border-color: var(--color-pink-base);
         }
       }
 
@@ -35,7 +35,7 @@
 
         &::after {
           border-color: transparent;
-          border-right-color: get-color(pink);
+          border-right-color: var(--color-pink-base);
         }
       }
     }
@@ -48,9 +48,9 @@
     }
 
     & ~ .description {
-      border-color: get-color(gray, light);
-      background-color: get-color(brown, light);
-      color: get-color(gray);
+      border-color: var(--color-gray-light);
+      background-color: var(--color-brown-light);
+      color: var(--color-gray-base);
     }
   }
 
@@ -88,10 +88,10 @@
 
   .description {
     flex: 1;
-    border: 1px solid get-color(gray, light);
+    border: 1px solid var(--color-gray-light);
     border-radius: 0.5rem;
     box-shadow: 0 0 8px 6px $shadow-light;
-    background-color: get-color(white);
+    background-color: var(--color-white-base);
     padding: 1.5rem;
   }
 }

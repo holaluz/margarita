@@ -11,9 +11,9 @@
     mix-blend-mode: overlay;
     background: linear-gradient(
       to right,
-      lighten(get-color(black), 80%) 2%,
-      lighten(get-color(black), 40%) 18%,
-      lighten(get-color(black), 80%) 33%
+      var(--color-gray-lighter) 2%,
+      var(--color-gray-light) 18%,
+      var(--color-gray-lighter) 33%
     );
     background-size: 50%;
     width: 100%;
@@ -37,7 +37,7 @@
 .loader-item {
   margin-bottom: 0.5rem;
   border-radius: 1rem;
-  background: lighten(get-color(black), 85%);
+  background: var(--color-gray-base);
   height: 0.5rem;
 
   &:last-child {

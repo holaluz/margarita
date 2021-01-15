@@ -2,12 +2,12 @@
   padding: 1.5rem;
 
   &--gray {
-    background-color: get-color(brown, light);
+    background-color: var(--color-brown-light);
   }
 
   &--white {
     box-shadow: 0 0 6px 2px $shadow-light;
-    background-color: get-color(white);
+    background-color: var(--color-white-base);
   }
 
   &--has-padding-top {

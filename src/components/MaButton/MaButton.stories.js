@@ -6,7 +6,7 @@ import availableIcons from '@margarita/components/MaIcon/availableIcons'
 const BUTTON_CATEGORIES = [
   'primary',
   'secondary',
-  'tertiary',
+  'white',
   'gradient',
   'no-background',
 ]

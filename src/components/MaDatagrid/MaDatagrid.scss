@@ -15,7 +15,7 @@
     border: 0;
     padding: 0;
     vertical-align: baseline;
-    color: get-color(gray, dark);
+    color: var(--color-gray-dark);
     font-size: 100%;
   }
 
@@ -59,7 +59,7 @@
       margin-bottom: 1rem;
       border-radius: 0.25rem;
       box-shadow: 0 0 6.4px 4px $shadow-light;
-      background-color: get-color(white);
+      background-color: var(--color-white-base);
 
       &:last-child {
         margin-bottom: 0;

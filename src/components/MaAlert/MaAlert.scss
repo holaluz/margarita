@@ -1,6 +1,11 @@
 .alert-banner {
+  --alert-border-color: none;
+  --alert-background-color: none;
+
   display: flex;
-  color: get-color(gray, darker);
+  color: --color-gray-darker;
+  border: 1px solid var(--alert-border-color);
+  background-color: var(--alert-background-color);
 
   &--small {
     padding: 0.25rem;
@@ -74,22 +79,22 @@
   }
 
   &--error {
-    border: 1px solid get-color(red);
-    background-color: get-color(red, light);
+    --alert-color: var(--color-red-base);
+    --alert-background-color: var(--color-red-light);
   }
 
   &--info {
-    border: 1px solid get-color(blue);
-    background-color: get-color(blue, light);
+    --alert-color: var(--color-blue-base);
+    --alert-background-color: var(--color-blue-light);
   }
 
   &--success {
-    border: 1px solid get-color(green);
-    background-color: get-color(green, light);
+    --alert-color: var(--color-green-base);
+    --alert-background-color: var(--color-green-light);
   }
 
   &--warning {
-    border: 1px solid get-color(yellow);
-    background-color: get-color(yellow, light);
+    --alert-color: var(--color-yellow-base);
+    --alert-background-color: var(--color-yellow-light);
   }
 }
