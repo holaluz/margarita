@@ -17,7 +17,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1001;
-
   // so that it doesn't reach end of viewport
   width: 96vw;
   word-break: break-word;
@@ -92,10 +91,12 @@
   max-width: 800px;
 }
 
-.modal-transition-enter-active,
-.modal-transition-leave-active {
-  transition: opacity 0.5s;
+.modal-transition-leave-active,
+.modal-transition-enter-active {
+  transition: opacity 1s ease;
 }
-.modal-transition-enter, .modal-transition-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.modal-transition-leave-to,
+.modal-transition-enter {
   opacity: 0;
 }
