@@ -9,7 +9,7 @@
           <div
             class="modal-overlay"
             data-testid="overlay"
-            @click.self="closeModal"
+            @click="closeModal"
           />
           <ma-stack
             ref="modal"
