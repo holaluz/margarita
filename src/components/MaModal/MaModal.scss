@@ -1,6 +1,6 @@
 .modal-overlay {
   position: fixed;
-  background-color: get-alpha-color(black, 0.5);
+  background-color: var(--shadow-dark);
   width: 100%;
   height: 100%;
   top: 0;
@@ -9,8 +9,8 @@
 
 .modal {
   border-radius: 4px;
-  box-shadow: 0 2px 8px get-alpha-color(black, 0.67);
-  background-color: get-color(white);
+  box-shadow: 0 2px 8px var(--shadow-dark);
+  background-color: var(--color-white-base);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -25,13 +25,17 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: get-space('medium');
+  padding: var(--spacing-medium);
   border-radius: 4px 4px 0 0;
 }
 
 .modal-header--gradient {
-  background: linear-gradient(to right, get-color(orange), get-color(pink));
-  color: get-color(white);
+  background: linear-gradient(
+    to right,
+    var(--color-orange-base),
+    var(--color-pink-base)
+  );
+  color: var(--color-white-base);
 }
 
 .modal-header--gradient .modal-title {
@@ -40,7 +44,7 @@
 }
 
 .modal-title {
-  @include font-weight(bold);
+  font-weight: 700;
   font-size: 1.5rem;
 }
 
@@ -50,17 +54,17 @@
   padding: 0.25rem;
 
   &--pink {
-    color: get-color(pink, base);
+    color: var(--color-pink-base);
 
     &:hover,
     &:active,
     &:focus {
-      color: get-color(pink, dark);
+      color: var(--color-pink-dark);
     }
   }
 
   &--white {
-    color: get-color(white, base);
+    color: var(--color-white-base);
 
     &:hover,
     &:active,
@@ -73,8 +77,8 @@
 .modal-content {
   // because fuck standards, that's why
   // https://github.com/w3c/csswg-drafts/issues/129
-  margin-bottom: get-space('medium');
-  padding: 0 get-space('medium');
+  margin-bottom: var(--spacing-medium);
+  padding: 0 var(--spacing-medium);
   // height management
   max-height: 85vh;
   overflow-y: auto;
@@ -92,7 +96,7 @@
 
 .modal-transition-leave-active,
 .modal-transition-enter-active {
-  transition: opacity 1s ease;
+  transition: opacity 0.3s ease;
 }
 
 .modal-transition-leave-to,
