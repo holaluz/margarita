@@ -8,17 +8,15 @@
 }
 
 .modal {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 96vw; // so that it doesn't reach end of viewport
+
   border-radius: 4px;
   box-shadow: 0 2px 8px var(--shadow-dark);
   background-color: var(--color-white-base);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   word-break: break-word;
-
-  // so that it doesn't reach end of viewport
-  width: 96vw;
 }
 
 .modal-header {
@@ -103,12 +101,32 @@
   max-width: 800px;
 }
 
+.modal-transition-leave-to,
+.modal-transition-enter {
+  opacity: 0;
+}
+
 .modal-transition-leave-active,
 .modal-transition-enter-active {
   transition: opacity 0.3s ease;
 }
 
-.modal-transition-leave-to,
-.modal-transition-enter {
-  opacity: 0;
+.modal-transition-enter-active {
+  .modal {
+    animation: slideFromTop 0.4s ease-in-out;
+  }
+}
+.modal-transition-leave-active {
+  .modal {
+    animation: slideFromTop 0.4s ease-in-out reverse;
+  }
+}
+
+@keyframes slideFromTop {
+  from {
+    top: 47%;
+  }
+  to {
+    top: 50%;
+  }
 }

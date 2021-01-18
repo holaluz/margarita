@@ -4,7 +4,7 @@
       <slot name="trigger" :openModal="openModal" />
     </div>
     <ma-modal-portal>
-      <transition name="modal-transition" appear @after-leave="closeModal">
+      <transition name="modal-transition" @after-leave="closeModal">
         <div v-if="showModal">
           <div
             class="modal-overlay"
