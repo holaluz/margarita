@@ -1,6 +1,6 @@
 const { breakpointsEnum } = require('./breakpoint')
 
-const _defaultSmallScreenTextSize = {
+const smallScreenTextSize = {
   xsmall: {
     'font-size': '0.75rem',
     'line-height': 1.35,
@@ -44,8 +44,8 @@ const _defaultSmallScreenTextSize = {
 }
 
 const textSize = {
-  [breakpointsEnum.mobile]: _defaultSmallScreenTextSize,
-  [breakpointsEnum.tablet]: _defaultSmallScreenTextSize,
+  [breakpointsEnum.mobile]: smallScreenTextSize,
+  [breakpointsEnum.tablet]: smallScreenTextSize,
   [breakpointsEnum.desktop]: {
     xsmall: {
       'font-size': '0.75rem',
