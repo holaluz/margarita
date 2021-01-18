@@ -15,10 +15,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  word-break: break-word;
 
   // so that it doesn't reach end of viewport
   width: 96vw;
-  word-break: break-word;
 }
 
 .modal-header {
@@ -87,9 +87,10 @@
   // https://github.com/w3c/csswg-drafts/issues/129
   margin-bottom: var(--spacing-medium);
   padding: 0 var(--spacing-medium);
-  // height management
-  max-height: 85vh;
   overflow-y: auto;
+
+  // so that it doesn't reach end of viewport
+  max-height: 85vh;
 }
 
 .modal--width-small {
