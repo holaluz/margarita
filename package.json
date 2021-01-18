@@ -37,7 +37,7 @@
     }
   },
   "dependencies": {
-    "@linusborg/vue-simple-portal": "^0.1.4",
+    "@linusborg/vue-simple-portal": "^0.1.5",
     "sass-mq": "^5.0.0",
     "snarkdown": "^2.0.0",
     "vue": "^2.6.12"

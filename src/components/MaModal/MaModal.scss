@@ -1,31 +1,21 @@
-.modal-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
 .modal-overlay {
   position: fixed;
-  transition: opacity 0.2s ease;
-  background-color: get-alpha-color(black, 0.5);
+  background-color: var(--shadow-dark);
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .modal {
-  transition: transform 0.8s;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px get-alpha-color(black, 0.67);
-  background-color: get-color(white);
-  z-index: 1;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 96vw; // so that it doesn't reach end of viewport
 
-  // so that it doesn't reach end of viewport
-  width: 96vw;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px var(--shadow-dark);
+  background-color: var(--color-white-base);
   word-break: break-word;
 }
 
@@ -33,22 +23,33 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: get-space('xsmall');
+  padding: var(--spacing-medium);
+  gap: var(--spacing-medium);
   border-radius: 4px 4px 0 0;
 }
 
+.modal-header--white {
+  --modal-header-icon-color: var(--color-pink-base);
+}
+
 .modal-header--gradient {
-  background: linear-gradient(to right, get-color(orange), get-color(pink));
-  color: get-color(white);
+  --modal-header-icon-color: var(--color-white-base);
+
+  background: linear-gradient(
+    to right,
+    var(--color-orange-base),
+    var(--color-pink-base)
+  );
+  color: var(--color-white-base);
 }
 
 .modal-header--gradient .modal-title {
-  flex: 1;
   text-align: center;
 }
 
 .modal-title {
-  @include font-weight(bold);
+  flex: 1;
+  font-weight: 700;
   font-size: 1.5rem;
 }
 
@@ -56,19 +57,20 @@
   border-style: solid;
   border-width: 1px;
   padding: 0.25rem;
+  color: var(--modal-header-icon-color);
 
   &--pink {
-    color: get-color(pink, base);
+    color: var(--color-pink-base);
 
     &:hover,
     &:active,
     &:focus {
-      color: get-color(pink, dark);
+      color: var(--color-pink-dark);
     }
   }
 
   &--white {
-    color: get-color(white, base);
+    color: var(--color-white-base);
 
     &:hover,
     &:active,
@@ -81,11 +83,12 @@
 .modal-content {
   // because fuck standards, that's why
   // https://github.com/w3c/csswg-drafts/issues/129
-  margin-bottom: get-space('xsmall');
-  padding: 0 get-space('xsmall');
-  // height management
-  max-height: 85vh;
+  margin-bottom: var(--spacing-medium);
+  padding: 0 var(--spacing-medium);
   overflow-y: auto;
+
+  // so that it doesn't reach end of viewport
+  max-height: 85vh;
 }
 
 .modal--width-small {
@@ -98,11 +101,32 @@
   max-width: 800px;
 }
 
-.modal-leave-active,
-.modal-enter {
+.modal-transition-leave-to,
+.modal-transition-enter {
   opacity: 0;
+}
 
+.modal-transition-leave-active,
+.modal-transition-enter-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-transition-enter-active {
   .modal {
-    transform: translateY(-4rem);
+    animation: slideFromTop 0.4s ease-in-out;
+  }
+}
+.modal-transition-leave-active {
+  .modal {
+    animation: slideFromTop 0.4s ease-in-out reverse;
+  }
+}
+
+@keyframes slideFromTop {
+  from {
+    top: 47%;
+  }
+  to {
+    top: 50%;
   }
 }

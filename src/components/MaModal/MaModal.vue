@@ -1,26 +1,21 @@
 <template>
-  <div class="modal-wrapper">
+  <div>
     <div ref="modal-trigger">
       <slot name="trigger" :openModal="openModal" />
     </div>
     <ma-modal-portal>
-      <transition
-        v-if="showModal"
-        name="modal"
-        appear
-        @after-leave="closeModal"
-      >
-        <div class="modal-wrapper">
+      <transition name="modal-transition" @after-leave="closeModal">
+        <div v-if="showModal">
           <div
             class="modal-overlay"
             data-testid="overlay"
-            @click.self="closeModal"
+            @click="closeModal"
           />
           <ma-stack
             ref="modal"
             :aria-label="title"
             :class="`modal--width-${width}`"
-            space="xsmall"
+            space="medium"
             role="dialog"
             aria-modal="true"
             class="modal"
@@ -35,7 +30,6 @@
                 category="no-background"
                 data-testid="close-button"
                 class="icon-close"
-                :class="computedIconColor"
                 @click="closeModal"
               >
                 <ma-icon icon="Close"> </ma-icon>
@@ -109,14 +103,6 @@ export default {
         [TAB_KEY]: this.handleTabKey,
       },
     }
-  },
-
-  computed: {
-    computedIconColor() {
-      return this.headerType === 'white'
-        ? 'icon-close--pink'
-        : 'icon-close--white'
-    },
   },
 
   mounted() {
