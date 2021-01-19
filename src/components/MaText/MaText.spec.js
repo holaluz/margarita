@@ -7,11 +7,11 @@ import { colorNamesList as COLOR_NAME_LIST } from '@margarita/utils/colorNamesLi
 const CURRENT_BREAKPOINT = 'mobile'
 const { textSize: TEXT_SIZE_TOKENS, textTags: TEXT_TAGS_TOKENS } = text
 const TEXT_SIZE_NAMES = Object.keys(TEXT_SIZE_TOKENS[CURRENT_BREAKPOINT])
+const slotText = 'Hello everybody'
 
 describe('MaText', () => {
-  const slotText = 'Test text'
   test('renders content from slot', () => {
-    const { getByText } = renderComponent(slotText)
+    const { getByText } = renderComponent()
 
     expect(getByText(slotText)).toBeInTheDocument()
   })
@@ -36,7 +36,7 @@ describe('MaText', () => {
   })
   describe(`'Tag' property test`, () => {
     test.each(TEXT_TAGS_TOKENS)('renders the provided %s tag', (desiredTag) => {
-      const { getByText } = renderComponent(slotText, { tag: desiredTag })
+      const { getByText } = renderComponent({ tag: desiredTag })
 
       expect(getByText(slotText).nodeName).toBe(desiredTag.toUpperCase())
     })
@@ -46,7 +46,7 @@ describe('MaText', () => {
     test.each(TEXT_SIZE_NAMES)(
       'assigns the provided %s size styles to text',
       (desiredFontSize) => {
-        const { getByText } = renderComponent(slotText, {
+        const { getByText } = renderComponent({
           size: desiredFontSize,
         })
 
@@ -63,7 +63,7 @@ describe('MaText', () => {
     test.each(COLOR_NAME_LIST)(
       `assigns the provided '%s' color style to text`,
       (desiredColor) => {
-        const { getByText } = renderComponent(slotText, {
+        const { getByText } = renderComponent({
           color: desiredColor,
         })
 
@@ -75,12 +75,12 @@ describe('MaText', () => {
   })
 })
 
-const renderComponent = (defaultText = 'Hello everybody', props = {}) => {
+const renderComponent = (props = {}) => {
   return render(
     MaText,
     {
       props: { ...props },
-      slots: { default: defaultText },
+      slots: { default: slotText },
     },
     (vue) => {
       vue.use(responsivePlugin)
