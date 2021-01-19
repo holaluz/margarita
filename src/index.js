@@ -13,6 +13,7 @@ import MaPill from './components/MaPill'
 import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
 import MaSidebar from './components/MaSidebar'
+import MaText from './components/MaText'
 import MaTextField from './components/MaTextField'
 import MaStack from './components/MaStack'
 import { markdown, markdownSSR } from './directives/markdown'
@@ -33,6 +34,7 @@ export {
   MaSelect,
   MaSidebar,
   MaStack,
+  MaText,
   MaTextField,
   markdown,
   markdownSSR,
@@ -56,6 +58,7 @@ function install(Vue) {
   Vue.component('MaSelect', MaSelect)
   Vue.component('MaSidebar', MaSidebar)
   Vue.component('MaStack', MaStack)
+  Vue.component('MaText', MaText)
   Vue.component('MaTextField', MaTextField)
 
   Vue.directive('markdown', markdown)
