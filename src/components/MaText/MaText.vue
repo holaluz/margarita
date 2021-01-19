@@ -74,6 +74,11 @@ export default {
 </script>
 
 <style scoped>
+.ma-text {
+  padding: 0;
+  margin: 0;
+}
+
 .ma-text--italic {
   font-style: italic;
 }
