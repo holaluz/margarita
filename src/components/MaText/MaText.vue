@@ -32,11 +32,8 @@ export default {
       type: String,
       default: 'gray-dark',
       validator: (val) => {
-        const composedColor = val.split('-')
-        const targetColor = composedColor[0]
-        const targetTone = composedColor[1] ? composedColor[1] : 'base'
-
-        return colorNamesList.includes(`${targetColor}-${targetTone}`)
+        const [color, tone] = val.split('-')
+        return colorNamesList.includes(`${color}-${tone || 'base'}`)
       },
     },
   },
