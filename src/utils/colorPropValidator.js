@@ -9,3 +9,8 @@ export const colorNamesList = Object.entries(color).reduce(
   },
   []
 )
+
+export function colorPropValidator(desiredColor) {
+  const [color, tone] = desiredColor.split('-')
+  return colorNamesList.includes(`${color}-${tone || 'base'}`)
+}
