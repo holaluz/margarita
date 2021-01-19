@@ -1,13 +1,21 @@
 <template>
-  <component :is="tag" :style="computedStyle" :italic="italic" class="ma-text">
+  <component
+    :is="tag"
+    :style="computedStyle"
+    :class="computedClass"
+    :italic="italic"
+    class="ma-text"
+  >
     <slot />
   </component>
 </template>
 
 <script>
 import { text } from '../../tokens'
-const { textSize: TEXT_SIZE, textTags: TEXT_TAGS, textStyle: TEXT_STYLE } = text
+const { textSize: TEXT_SIZE } = text
 import { colorNamesList } from '@margarita/utils/colorNamesList'
+
+const TEXT_TAGS = ['p', 'span', 'label', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
 
 export default {
   name: 'MaText',
@@ -42,8 +50,14 @@ export default {
       return this.$layout.getResponsivePropValue(this.size)
     },
 
-    fromattedColor() {
+    formattedColor() {
       return this.color.includes('-') ? this.color : `${this.color}-base`
+    },
+
+    computedClass() {
+      return {
+        'ma-text--italic': this.italic,
+      }
     },
 
     computedStyle() {
@@ -52,8 +66,7 @@ export default {
 
       return {
         ...sizeStyles,
-        color: `var(--color-${this.fromattedColor})`,
-        '--text-style': this.italic ? TEXT_STYLE.italic : TEXT_STYLE.normal,
+        color: `var(--color-${this.formattedColor})`,
       }
     },
   },
@@ -61,7 +74,7 @@ export default {
 </script>
 
 <style scoped>
-.ma-text {
-  font-style: var(--text-style);
+.ma-text--italic {
+  font-style: italic;
 }
 </style>
