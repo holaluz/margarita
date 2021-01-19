@@ -2,11 +2,9 @@ import { render } from '@testing-library/vue'
 import MaText from './MaText'
 import { text } from '../../tokens'
 import responsivePlugin from '@margarita/plugins/responsivePlugin'
-import { colorNamesList as COLOR_NAME_LIST } from '@margarita/utils/colorNamesList'
 
-const CURRENT_BREAKPOINT = 'mobile'
-const { textSize: TEXT_SIZE_TOKENS, textTags: TEXT_TAGS_TOKENS } = text
-const TEXT_SIZE_NAMES = Object.keys(TEXT_SIZE_TOKENS[CURRENT_BREAKPOINT])
+const CURRENT_BREAKPOINT = 'mobile' // this.$layout.currentBreakpoint is 'mobile' by default
+const { textSize: TEXT_SIZE_TOKENS } = text
 const slotText = 'Hello everybody'
 
 describe('MaText', () => {
@@ -16,62 +14,39 @@ describe('MaText', () => {
     expect(getByText(slotText)).toBeInTheDocument()
   })
 
-  describe('Property validators tests', () => {
-    test.each`
-      prop       | validValues
-      ${'tag'}   | ${TEXT_TAGS_TOKENS}
-      ${'size'}  | ${TEXT_SIZE_NAMES}
-      ${'color'} | ${COLOR_NAME_LIST}
-    `(
-      `allows proper $prop values according to prop validator`,
-      ({ prop, validValues }) => {
-        const validator = MaText.props[prop].validator
-
-        validValues.forEach((value) => {
-          expect(validator(value)).toBe(true)
-        })
-        expect(validator('irrelevant')).toBe(false)
-      }
-    )
-  })
   describe(`'Tag' property test`, () => {
-    test.each(TEXT_TAGS_TOKENS)('renders the provided %s tag', (desiredTag) => {
-      const { getByText } = renderComponent({ tag: desiredTag })
+    const tag = 'h1'
+    test(`renders the valid provided '${tag}' tag`, () => {
+      const { getByText } = renderComponent({ tag })
 
-      expect(getByText(slotText).nodeName).toBe(desiredTag.toUpperCase())
+      expect(getByText(slotText).nodeName).toBe(tag.toUpperCase())
     })
   })
 
   describe(`'Size' property test`, () => {
-    test.each(TEXT_SIZE_NAMES)(
-      'assigns the provided %s size styles to text',
-      (desiredFontSize) => {
-        const { getByText } = renderComponent({
-          size: desiredFontSize,
-        })
+    const size = 'large'
+    test(`assigns the valid provided '${size}' size styles to text`, () => {
+      const { getByText } = renderComponent({
+        size,
+      })
 
-        Object.entries(
-          TEXT_SIZE_TOKENS[CURRENT_BREAKPOINT][desiredFontSize]
-        ).forEach(([style, value]) => {
+      Object.entries(TEXT_SIZE_TOKENS[CURRENT_BREAKPOINT][size]).forEach(
+        ([style, value]) => {
           expect(getByText(slotText)).toHaveStyle(`${style}: ${value}`)
-        })
-      }
-    )
+        }
+      )
+    })
   })
 
   describe(`'Color' property test`, () => {
-    test.each(COLOR_NAME_LIST)(
-      `assigns the provided '%s' color style to text`,
-      (desiredColor) => {
-        const { getByText } = renderComponent({
-          color: desiredColor,
-        })
+    const color = 'pink-dark'
+    test(`assigns the provided '${color}' color style to text`, () => {
+      const { getByText } = renderComponent({
+        color,
+      })
 
-        expect(getByText(slotText)).toHaveStyle(
-          `color: var(--color-${desiredColor})`
-        )
-      }
-    )
+      expect(getByText(slotText)).toHaveStyle(`color: var(--color-${color})`)
+    })
   })
 })
 
@@ -84,7 +59,6 @@ const renderComponent = (props = {}) => {
     },
     (vue) => {
       vue.use(responsivePlugin)
-      // this.$layout.currentBreakpoint is 'mobile' by default
     }
   )
 }
