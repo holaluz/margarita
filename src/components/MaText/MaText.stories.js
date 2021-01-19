@@ -1,39 +1,43 @@
-import { select, boolean, text } from '@storybook/addon-knobs'
-import MaText from '@margarita/components/MaText'
+import { select, boolean } from '@storybook/addon-knobs'
 import { text as TEXT_TOKENS } from '@margarita/tokens'
 import { colorNamesList } from '@margarita/utils/colorNamesList'
 
-const { textSize, textTags } = TEXT_TOKENS
 const colorValues = colorNamesList
+const textTags = ['p', 'span', 'label', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
 
 export default {
   title: 'Components/Text',
 }
 
 export const Text = () => {
-  const textToDisplay = text('Text to display', 'Hello everybody')
-  const size = select('Size', Object.keys(textSize.mobile), 'medium')
+  const allowedTextSizes = Object.keys(TEXT_TOKENS.textSize.mobile)
   const tag = select('Tag', textTags, 'span')
   const color = select('Color', colorValues, 'gray-dark')
   const italic = boolean('Italic', false)
 
   return {
-    components: { MaText },
     template: `
-        <ma-text
-          :size="size"
-          :tag="tag"
-          :italic="italic"
-          :color="color"
-        >
-          {{ textToDisplay }}
-        </ma-text>
+        <ma-stack space="small">
+          <ma-text
+            v-for="textSize in allowedTextSizes"
+            :key="textSize"
+            :size="textSize"
+            :tag="tag"
+            :italic="italic"
+            :color="color"
+          >
+            {{ textSize }} example text
+          </ma-text>
+        </ma-stack space="small">
       `,
 
+    data() {
+      return {
+        allowedTextSizes,
+      }
+    },
+
     props: {
-      size: {
-        default: size,
-      },
       tag: {
         default: tag,
       },
@@ -42,9 +46,6 @@ export const Text = () => {
       },
       italic: {
         default: italic,
-      },
-      textToDisplay: {
-        default: textToDisplay,
       },
     },
   }
