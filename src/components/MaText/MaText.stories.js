@@ -1,9 +1,8 @@
 import { select, boolean } from '@storybook/addon-knobs'
 import { text as TEXT_TOKENS } from '@margarita/tokens'
-import { colorNamesList } from '@margarita/utils/colorNamesList'
+import { colorNamesList } from '@margarita/utils/colorPropValidator'
 
-const colorValues = colorNamesList
-const textTags = ['p', 'span', 'label', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+const textTags = ['p', 'span', 'label']
 
 export default {
   title: 'Components/Text',
@@ -12,7 +11,7 @@ export default {
 export const Text = () => {
   const allowedTextSizes = Object.keys(TEXT_TOKENS.textSize.mobile)
   const tag = select('Tag', textTags, 'span')
-  const color = select('Color', colorValues, 'gray-dark')
+  const color = select('Color', colorNamesList, 'gray-dark')
   const italic = boolean('Italic', false)
 
   return {

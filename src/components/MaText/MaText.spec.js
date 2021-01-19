@@ -15,7 +15,7 @@ describe('MaText', () => {
   })
 
   describe(`'Tag' property test`, () => {
-    const tag = 'h1'
+    const tag = 'label'
     test(`renders the valid provided '${tag}' tag`, () => {
       const { getByText } = renderComponent({ tag })
 
@@ -24,7 +24,7 @@ describe('MaText', () => {
   })
 
   describe(`'Size' property test`, () => {
-    const size = 'large'
+    const size = 'medium'
     test(`assigns the valid provided '${size}' size styles to text`, () => {
       const { getByText } = renderComponent({
         size,

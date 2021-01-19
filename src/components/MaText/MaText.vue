@@ -11,24 +11,27 @@
 </template>
 
 <script>
+import { responsivePropValidator } from '@margarita/utils/responsivePropValidator'
+import { colorPropValidator } from '@margarita/utils/colorPropValidator'
 import { text } from '../../tokens'
 const { textSize: TEXT_SIZE } = text
-import { colorNamesList } from '@margarita/utils/colorNamesList'
 
-const TEXT_TAGS = ['p', 'span', 'label', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+const TEXT_TAGS = ['p', 'span', 'label']
 
 export default {
   name: 'MaText',
+
   props: {
     tag: {
       type: String,
       default: 'span',
-      validator: (tag) => TEXT_TAGS.includes(tag),
+      validator: responsivePropValidator(TEXT_TAGS),
     },
+
     size: {
       type: String,
-      default: 'medium',
-      validator: (size) => Object.keys(TEXT_SIZE.mobile).includes(size),
+      default: 'small',
+      validator: responsivePropValidator(Object.keys(TEXT_SIZE.mobile)),
     },
 
     italic: {
@@ -39,12 +42,10 @@ export default {
     color: {
       type: String,
       default: 'gray-dark',
-      validator: (val) => {
-        const [color, tone] = val.split('-')
-        return colorNamesList.includes(`${color}-${tone || 'base'}`)
-      },
+      validator: colorPropValidator,
     },
   },
+
   computed: {
     responsiveTextSize() {
       return this.$layout.getResponsivePropValue(this.size)
