@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { render } from '@testing-library/vue'
 import MaText from './MaText'
 import { text } from '../../tokens'
@@ -14,39 +15,54 @@ describe('MaText', () => {
     expect(getByText(slotText)).toBeInTheDocument()
   })
 
-  describe(`'Tag' property test`, () => {
-    const tag = 'label'
-    test(`renders the valid provided '${tag}' tag`, () => {
-      const { getByText } = renderComponent({ tag })
+  const tag = 'label'
+  test(` 'tag' property test renders the valid provided '${tag}' tag`, () => {
+    const { getByText } = renderComponent({ tag })
 
-      expect(getByText(slotText).nodeName).toBe(tag.toUpperCase())
-    })
+    expect(getByText(slotText).nodeName).toBe(tag.toUpperCase())
   })
 
-  describe(`'Size' property test`, () => {
-    const size = 'medium'
-    test(`assigns the valid provided '${size}' size styles to text`, () => {
-      const { getByText } = renderComponent({
-        size,
-      })
-
-      Object.entries(TEXT_SIZE_TOKENS[CURRENT_BREAKPOINT][size]).forEach(
-        ([style, value]) => {
-          expect(getByText(slotText)).toHaveStyle(`${style}: ${value}`)
-        }
-      )
+  const size = 'medium'
+  test(` 'size' property test assigns the valid provided '${size}' size styles to text`, () => {
+    const { getByText } = renderComponent({
+      size,
     })
+
+    Object.entries(TEXT_SIZE_TOKENS[CURRENT_BREAKPOINT][size]).forEach(
+      ([style, value]) => {
+        expect(getByText(slotText)).toHaveStyle(`${style}: ${value}`)
+      }
+    )
   })
 
-  describe(`'Color' property test`, () => {
-    const color = 'pink-dark'
-    test(`assigns the provided '${color}' color style to text`, () => {
-      const { getByText } = renderComponent({
-        color,
-      })
-
-      expect(getByText(slotText)).toHaveStyle(`color: var(--color-${color})`)
+  const color = 'pink'
+  const tone = 'dark'
+  test(`'color' property test assigns the provided '${color}-${tone}' style to text`, () => {
+    const { getByText } = renderComponent({
+      color,
+      tone,
     })
+
+    expect(getByText(slotText)).toHaveStyle(
+      `color: var(--color-${color}-${tone})`
+    )
+  })
+
+  test('throws a console warn when tone does not exists for the desired color', () => {
+    const originalWarn = console.warn
+    console.warn = jest.fn()
+
+    renderComponent({
+      color: 'white',
+      tone: 'darker',
+    })
+
+    expect(console.warn).toHaveBeenCalledTimes(1)
+    expect(console.warn).toHaveBeenCalledWith(
+      expect.stringContaining(`'darker' tone does not exist for color 'white'`)
+    )
+
+    console.warn = originalWarn
   })
 })
 

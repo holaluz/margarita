@@ -1,9 +1,9 @@
 <template>
   <component
     :is="tag"
+    :key="tone"
     :style="computedStyle"
     :class="computedClass"
-    :italic="italic"
     class="ma-text"
   >
     <slot />
@@ -11,9 +11,7 @@
 </template>
 
 <script>
-import { responsivePropValidator } from '@margarita/utils/responsivePropValidator'
-import { colorPropValidator } from '@margarita/utils/colorPropValidator'
-import { text } from '../../tokens'
+import { text, color } from '../../tokens'
 const { textSize: TEXT_SIZE } = text
 
 const TEXT_TAGS = ['p', 'span', 'label']
@@ -25,13 +23,13 @@ export default {
     tag: {
       type: String,
       default: 'span',
-      validator: responsivePropValidator(TEXT_TAGS),
+      validator: (val) => TEXT_TAGS.includes(val),
     },
 
     size: {
       type: String,
-      default: 'small',
-      validator: responsivePropValidator(Object.keys(TEXT_SIZE.mobile)),
+      default: 'medium',
+      validator: (val) => Object.keys(TEXT_SIZE.mobile).includes(val),
     },
 
     italic: {
@@ -46,18 +44,19 @@ export default {
 
     color: {
       type: String,
-      default: 'gray-dark',
-      validator: colorPropValidator,
+      default: 'gray',
+      validator: (val) => Object.keys(color).includes(val),
+    },
+
+    tone: {
+      type: String,
+      default: 'base',
     },
   },
 
   computed: {
     responsiveTextSize() {
       return this.$layout.getResponsivePropValue(this.size)
-    },
-
-    formattedColor() {
-      return this.color.includes('-') ? this.color : `${this.color}-base`
     },
 
     computedClass() {
@@ -73,9 +72,20 @@ export default {
 
       return {
         ...sizeStyles,
-        color: `var(--color-${this.formattedColor})`,
+        color: `var(--color-${this.color}-${this.tone})`,
       }
     },
+  },
+
+  mounted() {
+    if (!(this.tone in color[this.color])) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `'${this.tone}' tone does not exist for color '${
+          this.color
+        }'. Please check the valid values: ${Object.keys(color[this.color])}`
+      )
+    }
   },
 }
 </script>
