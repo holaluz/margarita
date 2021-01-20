@@ -1,7 +1,6 @@
 <template>
   <component
     :is="tag"
-    :key="tone"
     :style="computedStyle"
     :class="computedClass"
     class="ma-text"
@@ -11,8 +10,7 @@
 </template>
 
 <script>
-import { text, color } from '../../tokens'
-const { textSize: TEXT_SIZE } = text
+import { text, tones } from '../../tokens'
 
 const TEXT_TAGS = ['p', 'span', 'label']
 
@@ -29,7 +27,7 @@ export default {
     size: {
       type: String,
       default: 'medium',
-      validator: (val) => Object.keys(TEXT_SIZE.mobile).includes(val),
+      validator: (val) => Object.keys(text.textSize.mobile).includes(val),
     },
 
     italic: {
@@ -42,15 +40,10 @@ export default {
       default: false,
     },
 
-    color: {
-      type: String,
-      default: 'gray',
-      validator: (val) => Object.keys(color).includes(val),
-    },
-
     tone: {
       type: String,
-      default: 'base',
+      default: 'neutral',
+      validator: (val) => Object.keys(tones).includes(val),
     },
   },
 
@@ -68,24 +61,13 @@ export default {
 
     computedStyle() {
       const sizeStyles =
-        TEXT_SIZE[this.$layout.currentBreakpoint][this.responsiveTextSize]
+        text.textSize[this.$layout.currentBreakpoint][this.responsiveTextSize]
 
       return {
         ...sizeStyles,
-        color: `var(--color-${this.color}-${this.tone})`,
+        color: tones[this.tone],
       }
     },
-  },
-
-  mounted() {
-    if (!(this.tone in color[this.color])) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `'${this.tone}' tone does not exist for color '${
-          this.color
-        }'. Please check the valid values: ${Object.keys(color[this.color])}`
-      )
-    }
   },
 }
 </script>
