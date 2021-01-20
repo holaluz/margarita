@@ -52,19 +52,19 @@
     }
 
     &--regular {
-      @include font-weight(regular);
+      font-weight: 400;
     }
 
     &--medium {
-      @include font-weight(medium);
+      font-weight: 500;
     }
 
     &--semibold {
-      @include font-weight(semibold);
+      font-weight: 700;
     }
 
     &--bold {
-      @include font-weight(bold);
+      font-weight: 900;
     }
   }
 

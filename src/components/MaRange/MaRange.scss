@@ -30,7 +30,7 @@ $ma-range-bullet-size: 4px;
   }
 
   &__step--active {
-    @include font-weight(medium);
+    font-weight: 500;
     color: get-color(gray, dark);
   }
 

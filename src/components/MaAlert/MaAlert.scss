@@ -67,8 +67,7 @@
   }
 
   &__title {
-    @include font-weight(semibold);
-
+    font-weight: 700;
     margin: 0;
     margin-bottom: 0.5rem;
     font-size: 1.25rem;

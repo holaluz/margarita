@@ -1,5 +1,5 @@
 .ma-button {
-  @include font-weight(semibold);
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +32,7 @@
   }
 
   &--no-background {
-    @include font-weight(regular);
+    font-weight: 400;
     justify-content: start;
     transition: color 0.3s;
     border: 0;
