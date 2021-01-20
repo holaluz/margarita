@@ -1,10 +1,5 @@
 import { select, text } from '@storybook/addon-knobs'
 
-import MaModal from '@margarita/components/MaModal'
-import MaStack from '@margarita/components/MaStack'
-import MaButton from '@margarita/components/MaButton'
-import MaTextField from '@margarita/components/MaTextField'
-
 export default {
   title: 'Components/Modal',
 }
@@ -17,7 +12,6 @@ export const Modal = () => {
   const headerType = select('Header type', ['white', 'gradient'], 'white')
 
   return {
-    components: { MaModal, MaStack, MaButton, MaTextField },
     template: `
       <ma-modal :title="title" :width="width" :header-type="headerType">
         <template #trigger="{openModal}">
