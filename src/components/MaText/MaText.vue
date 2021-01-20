@@ -39,6 +39,11 @@ export default {
       default: false,
     },
 
+    bold: {
+      type: Boolean,
+      default: false,
+    },
+
     color: {
       type: String,
       default: 'gray-dark',
@@ -58,6 +63,7 @@ export default {
     computedClass() {
       return {
         'ma-text--italic': this.italic,
+        'ma-text--bold': this.bold,
       }
     },
 
@@ -78,9 +84,14 @@ export default {
 .ma-text {
   padding: 0;
   margin: 0;
+  font-weight: normal;
 }
 
 .ma-text--italic {
   font-style: italic;
+}
+
+.ma-text--bold {
+  font-weight: bold;
 }
 </style>

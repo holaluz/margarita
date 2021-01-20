@@ -13,6 +13,7 @@ export const Text = () => {
   const tag = select('Tag', textTags, 'span')
   const color = select('Color', colorNamesList, 'gray-dark')
   const italic = boolean('Italic', false)
+  const bold = boolean('Bold', false)
 
   return {
     template: `
@@ -23,6 +24,7 @@ export const Text = () => {
             :size="textSize"
             :tag="tag"
             :italic="italic"
+            :bold="bold"
             :color="color"
           >
             {{ textSize }} example text
@@ -45,6 +47,9 @@ export const Text = () => {
       },
       italic: {
         default: italic,
+      },
+      bold: {
+        default: bold,
       },
     },
   }
