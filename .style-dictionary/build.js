@@ -7,7 +7,7 @@ StyleDictionary.registerTransform({
 })
 
 StyleDictionary.extend({
-  source: ['.style-dictionary/index.js'],
+  source: ['.style-dictionary/tokens.js'],
   platforms: {
     css: {
       transforms: [
