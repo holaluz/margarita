@@ -42,9 +42,7 @@ export default {
     },
 
     styles() {
-      return {
-        '--stack-gap': spacing[this.responsiveSpace],
-      }
+      return { gap: spacing[this.responsiveSpace] }
     },
   },
 }
@@ -54,7 +52,6 @@ export default {
 .stack {
   display: grid;
   grid-auto-flow: row;
-  gap: var(--stack-gap);
 }
 
 .stack--align-left {
