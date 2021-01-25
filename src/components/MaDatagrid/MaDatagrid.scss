@@ -58,7 +58,7 @@
       align-items: center;
       margin-bottom: 1rem;
       border-radius: 0.25rem;
-      box-shadow: 0 0 6.4px 4px $shadow-light;
+      box-shadow: 0 0 6.4px 4px var(--shadow-light);
       background-color: var(--color-white-base);
 
       &:last-child {
