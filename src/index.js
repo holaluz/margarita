@@ -48,15 +48,15 @@ function install(Vue) {
   Vue.component('MaHidden', MaHidden)
   Vue.component('MaIcon', MaIcon)
   Vue.component('MaOption', MaOption)
-  Vue.component('MaPagination', MaPagination)
-  Vue.component('MaPill', MaPill)
-  Vue.component('MaRange', MaRange)
-  Vue.component('MaSelect', MaSelect)
-  Vue.component('MaSidebar', MaSidebar)
-  Vue.component('MaStack', MaStack)
-  Vue.component('MaTextField', MaTextField)
+  // Vue.component('MaPagination', MaPagination)
+  // Vue.component('MaPill', MaPill)
+  // Vue.component('MaRange', MaRange)
+  // Vue.component('MaSelect', MaSelect)
+  // Vue.component('MaSidebar', MaSidebar)
+  // Vue.component('MaStack', MaStack)
+  // Vue.component('MaTextField', MaTextField)
 
-  Vue.directive('markdown', markdown)
+  // Vue.directive('markdown', markdown)
 }
 
 export default { install }

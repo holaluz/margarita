@@ -1,7 +1,7 @@
 // main.js is the main point of configuration for storybook
 
 module.exports = {
-  stories: ['../src/**/*.stories.js'],
+  stories: ['../src/components/MaOption/MaOption.stories.js'],
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-actions',
