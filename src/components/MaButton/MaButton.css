@@ -63,7 +63,7 @@
   }
 
   &.ma-button--rounded {
-    box-shadow: 0 2px 3px 2px $shadow-medium;
+    box-shadow: 0 2px 3px 2px var(--shadow-medium);
   }
 }
 
