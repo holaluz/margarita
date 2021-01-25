@@ -79,17 +79,17 @@
       text-overflow: ellipsis;
     }
   }
+}
 
-  &__container {
-    display: inline-flex;
-    position: relative;
-    flex: auto;
-    padding: 0.25rem;
-    padding-bottom: 2rem;
-  }
+.ma-datagrid__container {
+  display: inline-flex;
+  position: relative;
+  flex: auto;
+  padding: 0.25rem;
+  padding-bottom: 2rem;
+}
 
-  &__no-results {
-    width: 100%;
-    text-align: center;
-  }
+.ma-datagrid__no-results {
+  width: 100%;
+  text-align: center;
 }

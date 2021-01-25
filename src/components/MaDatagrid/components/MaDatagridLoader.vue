@@ -31,4 +31,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./MaDatagridLoader.scss"></style>
+<style scoped src="./MaDatagridLoader.css"></style>

@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .wrapper {
   display: inline-flex;
   flex-direction: column;

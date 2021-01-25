@@ -34,7 +34,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 tbody::before {
   position: absolute;
   top: 1%;
