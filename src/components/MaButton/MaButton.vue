@@ -82,4 +82,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss" src="./MaButton.scss"></style>
+<style scoped src="./MaButton.css"></style>
