@@ -90,7 +90,7 @@
     flex: 1;
     border: 1px solid var(--color-gray-light);
     border-radius: 0.5rem;
-    box-shadow: 0 0 8px 6px $shadow-light;
+    box-shadow: 0 0 8px 6px var(--shadow-light);
     background-color: var(--color-white-base);
     padding: 1.5rem;
   }
