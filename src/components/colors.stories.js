@@ -7,7 +7,7 @@ export const Colors = () => ({
   template: `
     <ma-stack space="large">
       <div v-for="(tones, hue) in colors" :key="hue">
-        <h2 :style="titleStyle">{{hue}}</h2>
+        <h2>{{hue}}</h2>
         <div :style="hueStyle">
           <div v-for="(hex, tone) in tones" :key="tone">
             <ma-stack space="xsmall" :style="hexStyle">
