@@ -65,4 +65,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./MaSidebar.scss" scoped></style>
+<style src="./MaSidebar.css" scoped></style>
