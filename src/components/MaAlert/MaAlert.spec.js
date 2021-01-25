@@ -44,4 +44,12 @@ describe('Alert', () => {
     expect(getByText(slotDefault)).toBeInTheDocument()
     expect(queryByText(text)).not.toBeInTheDocument()
   })
+
+  test('renders type modifier', () => {
+    const { container } = render(MaAlert, {
+      props: { type: 'error' },
+    })
+
+    expect(container.firstChild).toHaveClass('alert-banner--error')
+  })
 })
