@@ -4,7 +4,7 @@
   --alert-icon: none;
 
   display: flex;
-  color: --color-gray-darker;
+  color: var(--color-gray-darker);
   border: 1px solid var(--alert-border-color);
   background-color: var(--alert-background-color);
 }
