@@ -24,4 +24,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./MaCard.scss"></style>
+<style src="./MaCard.css"></style>
