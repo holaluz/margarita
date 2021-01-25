@@ -166,4 +166,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./MaRange.scss" scoped></style>
+<style src="./MaRange.css" scoped></style>
