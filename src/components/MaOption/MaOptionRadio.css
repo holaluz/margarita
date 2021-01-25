@@ -1,0 +1,63 @@
+.ma-option--radio {
+  padding: 0.75rem 0;
+}
+
+.ma-option--radio .indicator {
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 1px;
+  border: 1px solid var(--color-gray-base);
+  border-radius: 50%;
+  background-color: var(--color-white-base);
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+  user-select: none;
+}
+
+.ma-option--radio .description {
+  padding-left: 0.5rem;
+}
+
+.ma-option--radio .input:not(:disabled) {
+  &:hover,
+  &:active,
+  &:checked,
+  &:focus {
+    & ~ .indicator {
+      border-color: var(--color-pink-base);
+    }
+  }
+
+  &:active,
+  &:checked,
+  &:focus {
+    & ~ .indicator::before {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      bottom: 2px;
+      left: 2px;
+      border-radius: 50%;
+      background-color: var(--color-pink-base);
+      content: '';
+    }
+  }
+
+  &:active {
+    & ~ .indicator::before {
+      background-color: var(--color-pink-dark);
+    }
+  }
+}
+
+.ma-option--radio .input {
+  &:disabled ~ .description,
+  &:disabled ~ .indicator {
+    cursor: not-allowed;
+  }
+
+  &:disabled ~ .indicator {
+    background-color: var(--color-brown-light);
+  }
+}

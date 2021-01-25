@@ -1,0 +1,105 @@
+.ma-selector-card {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+
+.ma-selector-card .input {
+  &:not(:disabled) {
+    & ~ .description {
+      transition: border 0.2s ease;
+    }
+
+    &:hover,
+    &:focus,
+    &:checked {
+      & ~ .description {
+        border-color: var(--color-pink-base);
+      }
+    }
+
+    &:checked ~ .indicator {
+      --indicator-svg-size: 0.75rem;
+
+      &::before {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1;
+        background-image: url('../../assets/icons/tick.svg');
+        background-size: var(--indicator-svg-size) var(--indicator-svg-size);
+        width: var(--indicator-svg-size);
+        height: var(--indicator-svg-size);
+        content: ' ';
+      }
+
+      &::after {
+        border-color: transparent;
+        border-right-color: var(--color-pink-base);
+      }
+    }
+  }
+}
+
+.ma-selector-card .input:disabled {
+  & ~ .description,
+  & ~ .indicator {
+    cursor: not-allowed;
+  }
+
+  & ~ .description {
+    border-color: var(--color-gray-light);
+    background-color: var(--color-brown-light);
+    color: var(--color-gray-base);
+  }
+}
+
+.ma-selector-card .indicator {
+  --indicator-size: 2.5rem;
+
+  position: absolute;
+  right: 0;
+  transition: border-color 0.33s, border-width 0.33s, background-color 0.33s;
+  border: 0 solid transparent;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  width: var(--indicator-size);
+  height: var(--indicator-size);
+  overflow: hidden;
+  user-select: none;
+
+  &::before {
+    display: none;
+  }
+
+  &::after {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    transition: border-color 0.33s;
+    border-width: 0 var(--indicator-size) var(--indicator-size) 0;
+    border-style: solid;
+    border-color: transparent;
+    width: 0;
+    height: 0;
+    content: ' ';
+  }
+}
+
+.ma-selector-card .description {
+  flex: 1;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 8px 6px var(--shadow-light);
+  background-color: var(--color-white-base);
+  padding: 1.5rem;
+}
+
+.ma-option {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  cursor: pointer;
+  width: 100%;
+}
