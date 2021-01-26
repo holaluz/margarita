@@ -169,7 +169,7 @@ export default {
     async setFocusableElements() {
       await this.flushQueue()
 
-      const modal = this.$refs['modal']
+      const { modal } = this.$refs
 
       // If we cannot find the modal let's fail gracefully.
       if (!modal) return
