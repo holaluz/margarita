@@ -110,15 +110,12 @@
   transition: opacity 0.3s ease;
 }
 
-.modal-transition-enter-active {
-  .modal {
-    animation: slideFromTop 0.4s ease-in-out;
-  }
+.modal-transition-enter-active .modal {
+  animation: slideFromTop 0.4s ease-in-out;
 }
-.modal-transition-leave-active {
-  .modal {
-    animation: slideFromTop 0.4s ease-in-out reverse;
-  }
+
+.modal-transition-leave-active .modal {
+  animation: slideFromTop 0.4s ease-in-out reverse;
 }
 
 @keyframes slideFromTop {
