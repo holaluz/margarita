@@ -24,6 +24,11 @@
       }
     }
   }
+
+  &:focus {
+    outline: 2px solid var(--color-pink-light);
+    outline-offset: 0;
+  }
 }
 
 .ma-button--rounded {
@@ -51,11 +56,6 @@
   background-color: var(--color-pink-base);
   color: var(--color-white-base);
 
-  &:focus {
-    outline: 2px solid var(--color-pink-light);
-    outline-offset: 0;
-  }
-
   &:hover:not(:disabled),
   &:active:not(:disabled) {
     background-color: var(--color-pink-dark);
@@ -71,11 +71,6 @@
   border-color: var(--color-pink-base);
   background-color: transparent;
   color: var(--color-pink-base);
-
-  &:focus {
-    outline: 2px solid var(--color-pink-light);
-    outline-offset: 0;
-  }
 
   &:hover:not(:disabled),
   &:active:not(:disabled) {
@@ -101,11 +96,6 @@
   border-color: var(--color-white-base);
   background-color: transparent;
   color: var(--color-white-base);
-
-  &:focus {
-    outline: 2px solid var(--color-pink-light);
-    outline-offset: 0;
-  }
 
   &:hover:not(:disabled),
   &:active:not(:disabled) {
@@ -137,11 +127,6 @@
   );
   background-size: 200% auto;
   color: var(--color-white-base);
-
-  &:focus {
-    outline: 2px solid var(--color-pink-light);
-    outline-offset: 0;
-  }
 
   &:hover:not(:disabled),
   &:active:not(:disabled) {
