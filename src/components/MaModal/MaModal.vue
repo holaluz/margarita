@@ -169,9 +169,9 @@ export default {
     async setFocusableElements() {
       await this.flushQueue()
 
-      // If we cannot find modal let's fail gracefully.
       const modal = this.$refs['modal']
 
+      // If we cannot find the modal let's fail gracefully.
       if (!modal) return
 
       this.focusableElements = modal.$el.querySelectorAll(FOCUSABLE_ELEMENTS)
@@ -203,4 +203,4 @@ export default {
 }
 </script>
 
-<style src="./MaModal.scss" lang="scss" scoped></style>
+<style src="./MaModal.css" scoped></style>

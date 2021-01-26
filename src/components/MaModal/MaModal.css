@@ -11,7 +11,7 @@
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 96vw; // so that it doesn't reach end of viewport
+  width: 96vw; /* so that it doesn't reach end of viewport */
 
   border-radius: 4px;
   box-shadow: 0 2px 8px var(--shadow-dark);
@@ -58,36 +58,35 @@
   border-width: 1px;
   padding: 0.25rem;
   color: var(--modal-header-icon-color);
+}
 
-  &--pink {
-    color: var(--color-pink-base);
+.icon-close--pink {
+  color: var(--color-pink-base);
 
-    &:hover,
-    &:active,
-    &:focus {
-      color: var(--color-pink-dark);
-    }
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-pink-dark);
   }
+}
 
-  &--white {
-    color: var(--color-white-base);
+.icon-close--white {
+  color: var(--color-white-base);
 
-    &:hover,
-    &:active,
-    &:focus {
-      opacity: 0.75;
-    }
+  &:hover,
+  &:active,
+  &:focus {
+    opacity: 0.75;
   }
 }
 
 .modal-content {
-  // because fuck standards, that's why
-  // https://github.com/w3c/csswg-drafts/issues/129
+  /* because fuck standards, that's why: https://github.com/w3c/csswg-drafts/issues/129 */
   margin-bottom: var(--spacing-medium);
   padding: 0 var(--spacing-medium);
   overflow-y: auto;
 
-  // so that it doesn't reach end of viewport
+  /* so that it doesn't reach end of viewport */
   max-height: 85vh;
 }
 
