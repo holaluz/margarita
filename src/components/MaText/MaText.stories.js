@@ -28,7 +28,7 @@ export const Text = () => {
           >
             {{ textSize }} example text
           </ma-text>
-        </ma-stack space="small">
+        </ma-stack>
       `,
 
     data() {
