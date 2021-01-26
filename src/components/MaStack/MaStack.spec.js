@@ -1,18 +1,19 @@
 import { render } from '@testing-library/vue'
 import MaStack from './MaStack'
+import { spacing } from '../../tokens'
 import responsivePlugin from '@margarita/plugins/responsivePlugin'
 
 describe('Stack', () => {
   test('adds spacing classes', () => {
     const { contentWrapper } = renderComponent({ space: 'large' })
 
-    expect(contentWrapper).toHaveClass('stack--space-large')
+    expect(contentWrapper).toHaveStyle({ gap: spacing.large })
   })
 
   test('adds spacing classes from array', () => {
     const { contentWrapper } = renderComponent({ space: ['small', 'large'] })
 
-    expect(contentWrapper).toHaveClass('stack--space-small')
+    expect(contentWrapper).toHaveStyle({ gap: spacing.small })
   })
 
   test('adds alignment classes', () => {

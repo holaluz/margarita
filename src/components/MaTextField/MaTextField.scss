@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: get-color(gray, dark);
+  color: var(--color-gray-dark);
 
   &__label-wrapper {
     display: flex;
@@ -22,34 +22,34 @@
   &__input {
     flex: 0 1 100%;
     transition: border 0.2s ease;
-    border: 1px solid get-color(gray, light);
-    background-color: get-color(white);
+    border: 1px solid var(--color-gray-light);
+    background-color: var(--color-white-base);
     padding: 0 0.5rem;
     max-width: 100%;
     height: 100%;
     font-size: 1rem;
 
     &:focus {
-      outline: 2px solid get-color(pink, light);
+      outline: 2px solid var(--color-pink-light);
       outline-offset: 0;
-      border: 1px solid get-color(pink);
+      border: 1px solid var(--color-pink-base);
     }
 
     &:disabled {
-      background-color: get-color(brown, light);
-      color: get-color(gray);
+      background-color: var(--color-brown-light);
+      color: var(--color-gray-base);
       pointer-events: none;
     }
 
     &:active:not(:disabled),
     &:hover:not(:disabled) {
       outline: none;
-      border: 1px solid get-color(pink);
+      border: 1px solid var(--color-pink-base);
     }
 
     &--error {
-      border-color: get-color(pink, dark);
-      background-color: get-color(white);
+      border-color: var(--color-pink-dark);
+      background-color: var(--color-white-base);
       background-image: url('../../assets/icons/alert-error.svg');
       background-position: calc(100% - 8px) center;
       background-repeat: no-repeat;
@@ -58,14 +58,14 @@
 
       &:focus,
       &:active {
-        border: 1px solid get-color(pink, dark);
+        border: 1px solid var(--color-pink-dark);
       }
     }
   }
 
   &__error-message {
     margin-top: 0.25rem;
-    color: get-color(pink, dark);
+    color: var(--color-pink-dark);
     font-size: 0.875rem;
   }
 }

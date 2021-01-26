@@ -11,27 +11,27 @@ $ma-range-bullet-size: 4px;
   &::after {
     display: block;
     border-radius: $ma-range-radius;
-    background-color: get-color(gray, light);
+    background-color: var(--color-gray-light);
     width: 100%;
     height: $ma-range-height;
     content: '';
   }
 
   &__label {
-    color: get-color(gray, dark);
+    color: var(--color-gray-dark);
   }
 
   &__step {
     position: absolute;
     cursor: pointer;
     padding-top: 21px;
-    color: get-color(gray);
+    color: var(--color-gray-base);
     user-select: none;
   }
 
   &__step--active {
     font-weight: 500;
-    color: get-color(gray, dark);
+    color: var(--color-gray-dark);
   }
 
   &__native-element {
@@ -51,9 +51,9 @@ $ma-range-bullet-size: 4px;
     display: inline-block;
     position: absolute;
     transition: $ma-range-transition;
-    border: 2px solid get-color(pink);
+    border: 2px solid var(--color-pink-base);
     border-radius: 50%;
-    background: get-color(white);
+    background: var(--color-white-base);
     width: $ma-range-height;
     height: $ma-range-height;
   }
@@ -65,7 +65,11 @@ $ma-range-bullet-size: 4px;
     left: 0;
     transition: $ma-range-transition;
     border-radius: $ma-range-radius;
-    background: linear-gradient(to right, get-color(orange), get-color(pink));
+    background: linear-gradient(
+      to right,
+      var(--color-orange-base),
+      var(--color-pink-base)
+    );
     height: $ma-range-height;
   }
 
@@ -76,7 +80,7 @@ $ma-range-bullet-size: 4px;
     left: 0%;
     z-index: 2;
     border-radius: 50%;
-    background: get-color(white);
+    background: var(--color-white-base);
     cursor: pointer;
     width: $ma-range-bullet-size;
     height: $ma-range-bullet-size;

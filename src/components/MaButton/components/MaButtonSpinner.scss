@@ -18,13 +18,13 @@ $duration: 1.4s;
 .ma-button-spinner__path {
   transform-origin: center;
   animation: dash $duration ease-in-out infinite;
-  stroke: get-color(white);
+  stroke: var(--color-white-base);
   stroke-dasharray: $offset;
   stroke-dashoffset: 0;
 
   .ma-button--secondary &,
   .ma-button--no-background & {
-    stroke: get-color(pink);
+    stroke: var(--color-pink-base);
   }
 }
 

@@ -1,40 +1,45 @@
 .ma-pill {
-  font-weight: 700;
+  --pill-color: none;
+  --pill-background-color: none;
+
   display: inline-block;
   line-height: 1;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   width: auto;
   font-size: 0.875rem;
+  font-weight: 700;
+  background-color: var(--pill-background-color);
+  color: var(--pill-color);
 
   &--green {
-    background-color: get-color(green, light);
-    color: get-color(green);
+    --pill-background-color: var(--color-green-light);
+    --pill-color: var(--color-green-base);
   }
 
   &--red {
-    background-color: get-color(red, light);
-    color: get-color(red);
+    --pill-background-color: var(--color-red-light);
+    --pill-color: var(--color-red-base);
   }
 
   &--orange {
-    background-color: get-color(yellow, light);
-    color: get-color(orange);
+    --pill-background-color: var(--color-yellow-light);
+    --pill-color: var(--color-orange-base);
   }
 
   &--gray {
-    box-shadow: inset 0 0 0 1px get-color(gray);
-    background-color: get-color(gray, light);
-    color: get-color(gray, dark);
+    box-shadow: inset 0 0 0 1px var(--color-gray-base);
+    --pill-background-color: var(--color-gray-light);
+    --pill-color: var(--color-gray-dark);
   }
 
   &--dark {
-    background-color: get-color(gray, dark);
-    color: get-color(white);
+    --pill-background-color: var(--color-gray-dark);
+    --pill-color: var(--color-white-base);
   }
 
   &--blue {
-    background-color: get-color(blue, light);
-    color: get-color(blue);
+    --pill-background-color: var(--color-blue-light);
+    --pill-color: var(--color-blue-base);
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" class="stack">
+  <div :style="styles" :class="classes" class="stack">
     <slot />
   </div>
 </template>
@@ -37,12 +37,32 @@ export default {
 
     classes() {
       return {
-        [`stack--space-${this.responsiveSpace}`]: true,
         [`stack--align-${this.responsiveAlign}`]: this.align,
       }
+    },
+
+    styles() {
+      return { gap: spacing[this.responsiveSpace] }
     },
   },
 }
 </script>
 
-<style lang="scss" src="./MaStack.scss" scoped></style>
+<style scoped>
+.stack {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.stack--align-left {
+  justify-items: flex-start;
+}
+
+.stack--align-center {
+  justify-items: center;
+}
+
+.stack--align-right {
+  justify-items: flex-end;
+}
+</style>
