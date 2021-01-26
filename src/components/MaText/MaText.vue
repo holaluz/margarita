@@ -11,38 +11,54 @@
 
 <script>
 import { text, tones } from '../../tokens'
-
-const TEXT_TAGS = ['p', 'span', 'label']
-
+/**
+ * This is our custom text component wich follows our design system guidelines
+ */
 export default {
   name: 'MaText',
 
   props: {
+    /**
+     * Sets the text element tag
+     */
     tag: {
       type: String,
       default: 'span',
-      validator: (val) => TEXT_TAGS.includes(val),
+      validator: (val) => ['p', 'span', 'label'].includes(val),
     },
 
+    /**
+     * Sets the text element size accroding to our Design System
+     */
     size: {
       type: String,
       default: 'medium',
-      validator: (val) => Object.keys(text.textSize.mobile).includes(val),
+      validator: (val) => ['xsmall', 'small', 'medium'].includes(val),
     },
 
+    /**
+     * Applies italic style to text
+     */
     italic: {
       type: Boolean,
       default: false,
     },
 
+    /**
+     * Applies bold weigth to text
+     */
     bold: {
       type: Boolean,
       default: false,
     },
 
+    /**
+     * Sets the text element color tone
+     * @values white, red, pink, blue, green, yellow, gray-darker, gray-dark, gray-base
+     */
     tone: {
       type: String,
-      default: 'neutral',
+      default: 'gray-dark',
       validator: (val) => Object.keys(tones).includes(val),
     },
   },
