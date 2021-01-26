@@ -16,7 +16,7 @@ export const Text = () => {
 
   return {
     template: `
-        <ma-stack>
+        <ma-stack space="small">
           <ma-text
             v-for="textSize in allowedTextSizes"
             :key="textSize"
