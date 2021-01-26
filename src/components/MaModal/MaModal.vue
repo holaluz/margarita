@@ -51,8 +51,6 @@ import MaStack from '@margarita/components/MaStack'
 import MaIcon from '@margarita/components/MaIcon'
 import MaButton from '@margarita/components/MaButton'
 
-const MODAL_WIDTHS = ['small', 'medium', 'large']
-
 const FOCUSABLE_ELEMENTS = [
   'button',
   'a[href]',
@@ -84,7 +82,7 @@ export default {
     width: {
       type: String,
       default: 'medium',
-      validator: (w) => MODAL_WIDTHS.includes(w),
+      validator: (w) => ['small', 'medium', 'large'].includes(w),
     },
 
     headerType: {
