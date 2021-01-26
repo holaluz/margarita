@@ -44,7 +44,7 @@ const renderComponent = (props = {}) => {
   return render(
     MaText,
     {
-      props: { ...props },
+      props,
       slots: { default: slotText },
     },
     (vue) => {
