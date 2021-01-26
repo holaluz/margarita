@@ -33,7 +33,7 @@ describe('MaText', () => {
 
   test(`'tone' property test assigns the provided style to text`, () => {
     const { getByText } = renderComponent({
-      tone: 'gray-base',
+      tone: 'gray',
     })
 
     expect(getByText(slotText)).toHaveStyle({ color: 'rgb(118, 118, 118)' }) //jest converts hex colors to rgb

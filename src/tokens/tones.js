@@ -9,5 +9,5 @@ module.exports = {
   yellow: color.yellow.base,
   'gray-darker': color.gray.darker,
   'gray-dark': color.gray.dark,
-  'gray-base': color.gray.base,
+  gray: color.gray.base,
 }
