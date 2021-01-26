@@ -45,7 +45,7 @@ export const Stack = () => {
 export const NestedStack = () => {
   return {
     template: `
-      <ma-stack space="2-xlarge" style="outline: 1px solid red;width 400px;margin:0 auto;background-color:#f1f1f2;padding:1rem">
+      <ma-stack space="2x-large" style="width: 400px;outline: 1px solid red;background-color:#f1f1f2;padding:1rem">
         <ma-stack space="xlarge" align="center" style="outline: 1px solid red">
           <span style="font-size: 2rem">Log In</span>
         </ma-stack>
@@ -55,7 +55,7 @@ export const NestedStack = () => {
           <span>reset my password</span>
           <ma-button>submit</ma-button>
         </ma-stack>
-        <ma-alert text="wrong password!" type="error" />
+        <ma-alert text="wrong password!" type="warning" />
       </ma-stack>
     `,
   }
