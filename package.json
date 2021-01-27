@@ -29,7 +29,8 @@
     "test:watch": "vue-cli-service test:unit --watch",
     "tokens:build": "node .style-dictionary/build.js && prettier 'src/scss/*' --write",
     "tokens:watch": "chokidar  'src/tokens/*.js' -c 'npm run tokens:build'",
-    "vetur:build": "vue-int --output 'vetur' --input 'src/components' --recursive"
+    "vetur:build": "vue-int --output 'vetur' --input 'src/components' --recursive",
+    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
   },
   "husky": {
     "hooks": {
@@ -62,6 +63,7 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^26.6.3",
     "chokidar-cli": "^2.1.0",
+    "chromatic": "^5.6.1",
     "copy-webpack-plugin": "^6.4.1",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
@@ -88,8 +90,8 @@
     "lodash.shuffle": "^4.2.0",
     "markdown-loader": "^6.0.0",
     "node-sass": "^5.0.0",
-    "postcss-preset-env": "^6.7.0",
     "postcss-normalize": "^9.0.0",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
     "sass-loader": "^10.1.1",
     "semantic-release": "^17.3.1",
