@@ -3,14 +3,14 @@
   min-width: 100%;
   overflow-x: auto;
 
-  table,
-  caption,
-  tbody,
-  tfoot,
-  thead,
-  tr,
-  th,
-  td {
+  & table,
+  & caption,
+  & tbody,
+  & tfoot,
+  & thead,
+  & tr,
+  & th,
+  & td {
     margin: 0;
     border: 0;
     padding: 0;
@@ -19,7 +19,7 @@
     font-size: 100%;
   }
 
-  table {
+  & table {
     flex: auto;
     z-index: 1;
 
@@ -29,13 +29,13 @@
     width: stretch; /* Unprefixed */
   }
 
-  thead {
-    tr {
+  & thead {
+    & tr {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       margin-bottom: 1rem;
 
-      th {
+      & th {
         padding: 0 1rem;
         text-align: left;
         user-select: none;
@@ -47,11 +47,11 @@
     }
   }
 
-  tbody {
+  & tbody {
     display: block;
     position: relative;
 
-    tr {
+    & tr {
       display: grid;
       position: relative;
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -65,7 +65,7 @@
         margin-bottom: 0;
       }
 
-      td {
+      & td {
         padding: 0.5rem 1rem;
         overflow: hidden;
         vertical-align: middle;
@@ -74,7 +74,7 @@
       }
     }
 
-    * {
+    & * {
       overflow: hidden;
       text-overflow: ellipsis;
     }
