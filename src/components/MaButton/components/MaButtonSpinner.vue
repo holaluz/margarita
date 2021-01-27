@@ -25,4 +25,4 @@ export default {
 }
 </script>
 
-<style scoped src="./MaButtonSpinner"></style>
+<style scoped src="./MaButtonSpinner.css"></style>
