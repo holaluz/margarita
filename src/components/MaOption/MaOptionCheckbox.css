@@ -30,7 +30,7 @@
   &:disabled ~ .indicator {
     border: 1px solid;
     background-image: url('../../assets/icons/tick.svg');
-    background-position: 2px 2px;
+    background-position: 1px 1px;
     background-repeat: no-repeat;
     background-size: 12px 12px;
   }
