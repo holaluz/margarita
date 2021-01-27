@@ -77,3 +77,9 @@
     url('https://assets.holaluz.com/fonts/ciutadella/Ci1001-RgIt.svg#str-replace(%22Ciutadella%22,%20%22%20%22,%20%22_%22)')
       format('svg');
 }
+
+html,
+body {
+  font-family: 'Ciutadella', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
