@@ -31,5 +31,8 @@ jobs:
       - name: Run tests
         run: npm run test
 
+      - name: Run UI tests and publish Storybook
+        run: npm run chromatic
+
       - name: Build project
         run: npm run build
