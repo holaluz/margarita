@@ -28,17 +28,20 @@
 .alert-banner__text {
   margin: 0;
   width: 100%;
+  font-size: 1.25rem;
+  line-height: 1.35;
 }
 
 .alert-banner__title {
   font-weight: 700;
   margin: 0;
   margin-bottom: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 1.15;
 }
 
 .alert-banner--small {
-  padding: 0.25rem;
+  padding: 0.5rem;
 
   & .alert-banner__icon {
     margin-right: 0.5rem;
@@ -46,36 +49,32 @@
 }
 
 .alert-banner--medium {
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .alert-banner--large {
-  padding: 0.75rem;
+  padding: 1.5rem;
 }
 
 .alert-banner--error {
-  --alert-color: var(--color-red-base);
   --alert-border-color: var(--color-red-base);
   --alert-background-color: var(--color-red-light);
   --alert-icon: url('../../assets/icons/alert-error.svg');
 }
 
 .alert-banner--info {
-  --alert-color: var(--color-blue-base);
   --alert-border-color: var(--color-blue-base);
   --alert-background-color: var(--color-blue-light);
   --alert-icon: url('../../assets/icons/info.svg');
 }
 
 .alert-banner--success {
-  --alert-color: var(--color-green-base);
   --alert-border-color: var(--color-green-base);
   --alert-background-color: var(--color-green-light);
   --alert-icon: url('../../assets/icons/rounded-tick.svg');
 }
 
 .alert-banner--warning {
-  --alert-color: var(--color-yellow-dark);
   --alert-border-color: var(--color-yellow-dark);
   --alert-background-color: var(--color-yellow-light);
   --alert-icon: url('../../assets/icons/warning.svg');
