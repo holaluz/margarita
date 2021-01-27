@@ -157,4 +157,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./MaPagination.scss" scoped></style>
+<style src="./MaPagination.css" scoped></style>

@@ -1,0 +1,16 @@
+.ma-card {
+  padding: 1.5rem;
+}
+
+.ma-card--gray {
+  background-color: var(--color-brown-light);
+}
+
+.ma-card--white {
+  box-shadow: 0 0 6px 2px var(--shadow-light);
+  background-color: var(--color-white-base);
+}
+
+.ma-card--has-padding-top {
+  padding-top: 1.5rem;
+}

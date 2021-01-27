@@ -1,0 +1,89 @@
+.ma-range {
+  --range-height: 1rem;
+  --range-radius: 10px;
+  --range-transition: 0.2s;
+  --range-bullet-size: 4px;
+
+  position: relative;
+  margin-top: 4px;
+  padding-bottom: 2rem;
+
+  &::after {
+    display: block;
+    border-radius: var(--range-radius);
+    background-color: var(--color-gray-light);
+    width: 100%;
+    height: var(--range-height);
+    content: '';
+  }
+}
+
+.ma-range__label {
+  color: var(--color-gray-dark);
+}
+
+.ma-range__step {
+  position: absolute;
+  cursor: pointer;
+  padding-top: 21px;
+  color: var(--color-gray-base);
+  user-select: none;
+}
+
+.ma-range__step--active {
+  font-weight: 500;
+  color: var(--color-gray-dark);
+}
+
+.ma-range__native-element {
+  appearance: none;
+  position: absolute;
+  top: -2px;
+  left: -10px;
+  opacity: 0;
+  z-index: 1;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+.ma-range__circle {
+  display: inline-block;
+  position: absolute;
+  transition: var(--range-transition);
+  border: 2px solid var(--color-pink-base);
+  border-radius: 50%;
+  background: var(--color-white-base);
+  width: var(--range-height);
+  height: var(--range-height);
+}
+
+.ma-range__progress {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: var(--range-transition);
+  border-radius: var(--range-radius);
+  background: linear-gradient(
+    to right,
+    var(--color-orange-base),
+    var(--color-pink-base)
+  );
+  height: var(--range-height);
+}
+
+.ma-range__bullet {
+  display: inline-block;
+  position: absolute;
+  top: 6px;
+  left: 0%;
+  z-index: 2;
+  border-radius: 50%;
+  background: var(--color-white-base);
+  cursor: pointer;
+  width: var(--range-bullet-size);
+  height: var(--range-bullet-size);
+  pointer-events: none;
+}

@@ -65,4 +65,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./MaDatagrid.scss"></style>
+<style src="./MaDatagrid.css"></style>

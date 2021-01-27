@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .polygon {
   fill: var(--color-pink-base);
 }

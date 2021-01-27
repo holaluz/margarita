@@ -140,4 +140,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss" src="./MaSelect.scss"></style>
+<style scoped src="./MaSelect.css"></style>

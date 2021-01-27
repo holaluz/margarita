@@ -49,4 +49,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./MaAlert.scss"></style>
+<style src="./MaAlert.css"></style>

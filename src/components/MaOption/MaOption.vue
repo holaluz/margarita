@@ -90,6 +90,6 @@ export default {
 }
 </script>
 
-<style src="./MaOption.scss" lang="scss" scoped></style>
-<style src="./MaOptionCheckbox.scss" lang="scss" scoped></style>
-<style src="./MaOptionRadio.scss" lang="scss" scoped></style>
+<style src="./MaOption.css" scoped></style>
+<style src="./MaOptionCheckbox.css" scoped></style>
+<style src="./MaOptionRadio.css" scoped></style>

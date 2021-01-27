@@ -1,0 +1,85 @@
+@font-face {
+  font-family: Ciutadella;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Rg.eot)
+      format('eot'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Rg.woff2)
+      format('woff2'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Rg.woff)
+      format('woff'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Rg.ttf)
+      format('truetype'),
+    url('https://assets.holaluz.com/fonts/ciutadella/Ci1001-Rg.svg#str-replace(%22Ciutadella%22,%20%22%20%22,%20%22_%22)')
+      format('svg');
+}
+
+@font-face {
+  font-family: Ciutadella;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Bd.eot)
+      format('eot'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Bd.woff2)
+      format('woff2'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Bd.woff)
+      format('woff'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Bd.ttf)
+      format('truetype'),
+    url('https://assets.holaluz.com/fonts/ciutadella/Ci1001-Bd.svg#str-replace(%22Ciutadella%22,%20%22%20%22,%20%22_%22)')
+      format('svg');
+}
+
+@font-face {
+  font-family: Ciutadella;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Md.eot)
+      format('eot'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Md.woff2)
+      format('woff2'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Md.woff)
+      format('woff'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-Md.ttf)
+      format('truetype'),
+    url('https://assets.holaluz.com/fonts/ciutadella/Ci1001-Md.svg#str-replace(%22Ciutadella%22,%20%22%20%22,%20%22_%22)')
+      format('svg');
+}
+
+@font-face {
+  font-family: Ciutadella;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-SmBd.eot)
+      format('eot'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-SmBd.woff2)
+      format('woff2'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-SmBd.woff)
+      format('woff'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-SmBd.ttf)
+      format('truetype'),
+    url('https://assets.holaluz.com/fonts/ciutadella/Ci1001-SmBd.svg#str-replace(%22Ciutadella%22,%20%22%20%22,%20%22_%22)')
+      format('svg');
+}
+
+@font-face {
+  font-family: Ciutadella;
+  font-style: italic;
+  font-display: swap;
+  src: url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-RgIt.eot)
+      format('eot'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-RgIt.woff2)
+      format('woff2'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-RgIt.woff)
+      format('woff'),
+    url(https://assets.holaluz.com/fonts/ciutadella/Ci1001-RgIt.ttf)
+      format('truetype'),
+    url('https://assets.holaluz.com/fonts/ciutadella/Ci1001-RgIt.svg#str-replace(%22Ciutadella%22,%20%22%20%22,%20%22_%22)')
+      format('svg');
+}
+
+html,
+body {
+  font-family: 'Ciutadella', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

@@ -25,4 +25,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss" src="./MaPill.scss"></style>
+<style scoped src="./MaPill.css"></style>

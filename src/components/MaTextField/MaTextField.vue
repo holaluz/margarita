@@ -111,4 +111,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss" src="./MaTextField.scss"></style>
+<style scoped src="./MaTextField.css"></style>

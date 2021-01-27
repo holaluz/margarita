@@ -1,5 +1,4 @@
-import './css/tokens.css'
-import './scss/_margarita.scss'
+import './css/index.css'
 
 import MaAlert from './components/MaAlert'
 import MaButton from './components/MaButton'

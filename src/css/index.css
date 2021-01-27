@@ -1,0 +1,17 @@
+/**
+ * Auto-generated CSS custom properties from style-dictionary
+ */
+@import 'tokens.css';
+
+/**
+ * Make browsers render all elements more consistently
+ * https://necolas.github.io/normalize.css/
+ */
+@import 'normalize.css';
+
+/**
+ * Load Margarita partial files
+ */
+@import 'partials/ciutadella.css';
+@import 'partials/slide-fade.css';
+@import 'partials/visually-hidden.css';

@@ -91,16 +91,16 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .ma-datagrid-head__column {
   font-weight: normal;
+}
 
-  &--sorted {
-    font-weight: 700;
-  }
+.ma-datagrid-head__column--sorted {
+  font-weight: 700;
+}
 
-  &--sortable {
-    cursor: pointer;
-  }
+.ma-datagrid-head__column--sortable {
+  cursor: pointer;
 }
 </style>
