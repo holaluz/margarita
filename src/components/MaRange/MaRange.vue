@@ -143,12 +143,15 @@ export default {
     getStepStyle(index) {
       let translateOffset = '-50%'
 
-      // First and last labels are justified to the slider
+      if (index === this.stepsAmount - 1) {
+        return {
+          right: 0,
+        }
+      }
+
+      // First step is justified to the slider
       if (index === 0) {
         translateOffset = '0%'
-      }
-      if (index === this.stepsAmount - 1) {
-        translateOffset = '-100%'
       }
 
       const leftOffset = Math.floor(index * this.offsetMultiplier)
