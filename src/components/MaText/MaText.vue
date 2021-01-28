@@ -12,7 +12,7 @@
 <script>
 import { text, tones } from '../../tokens'
 /**
- * This is our custom text component wich follows our design system guidelines
+ * Renders text following the Design System guidelines
  */
 export default {
   name: 'MaText',
