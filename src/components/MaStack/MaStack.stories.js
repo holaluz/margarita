@@ -2,6 +2,8 @@ import { select, array } from '@storybook/addon-knobs'
 
 import { spacing } from '@margarita/tokens'
 
+import DemoComp from './DemoComp.vue'
+
 export default {
   title: 'Layout/Stack',
 }
@@ -21,13 +23,13 @@ export const Stack = () => {
   const align = select('Align', [null, 'left', 'center', 'right'], 'center')
 
   return {
-    components: { DemoBlock },
+    components: { DemoBlock, DemoComp },
 
     template: `
       <div style="background-color:#f1f1f1;width:600px">
-        <ma-stack :space="space" :align="align">
-          <demo-block v-for="i in [1,2,3]" :key="i">{{ i }}</demo-block>
-        </ma-stack>
+        <demo-comp v-for="i in [1,2,3]" :key="i">
+          <p>hola en color blau</p>
+        </demo-comp>
       </div>
     `,
 

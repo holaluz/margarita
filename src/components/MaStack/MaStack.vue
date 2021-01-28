@@ -1,9 +1,3 @@
-<template>
-  <div :style="styles" :class="classes" class="stack">
-    <slot />
-  </div>
-</template>
-
 <script>
 import { responsivePropValidator } from '@margarita/utils/responsivePropValidator'
 import { spacing } from '../../tokens'
@@ -11,6 +5,8 @@ const alignment = ['left', 'center', 'right']
 
 export default {
   name: 'MaStack',
+
+  functional: true,
 
   props: {
     space: {
@@ -26,24 +22,23 @@ export default {
     },
   },
 
-  computed: {
-    responsiveSpace() {
-      return this.$layout.getResponsivePropValue(this.space)
-    },
+  render(h, { parent, props, slots }) {
+    const currentSpacing = parent.$layout.getResponsivePropValue(props.space)
+    const currentAlign = parent.$layout.getResponsivePropValue(props.align)
 
-    responsiveAlign() {
-      return this.$layout.getResponsivePropValue(this.align)
-    },
-
-    classes() {
-      return {
-        [`stack--align-${this.responsiveAlign}`]: this.align,
-      }
-    },
-
-    styles() {
-      return { gap: spacing[this.responsiveSpace] }
-    },
+    return h(
+      'div',
+      {
+        staticClass: 'stack',
+        class: {
+          [`stack--align-${currentAlign}`]: props.align,
+        },
+        style: {
+          gap: spacing[currentSpacing],
+        },
+      },
+      slots().default
+    )
   },
 }
 </script>
