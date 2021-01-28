@@ -23,7 +23,8 @@ jobs:
         uses: chromaui/action@v1
         # Options required to the GitHub Chromatic Action
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: storybook:build
           exitZeroOnChanges: true # 👈 Option to prevent the workflow from failing
+          exitOnceUploaded: true # 👈 Exit with status 0 (OK) once the build has been sent to Chromatic
