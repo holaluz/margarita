@@ -58,7 +58,6 @@
     "@vue/cli-plugin-eslint": "^4.5.10",
     "@vue/cli-plugin-unit-jest": "^4.5.10",
     "@vue/cli-service": "^4.5.10",
-    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^26.6.3",
     "chokidar-cli": "^2.1.0",
