@@ -36,7 +36,7 @@ const storybookViewports = {
 export const parameters = {
   layout: 'centered',
 
-  chromatic: { chromaticViewports },
+  chromatic: { viewports: chromaticViewports },
 
   viewport: {
     viewports: storybookViewports,
