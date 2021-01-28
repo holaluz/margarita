@@ -29,8 +29,8 @@ export default {
     return h(
       'div',
       {
-        staticClass: 'stack',
         class: {
+          stack: true,
           [`stack--align-${currentAlign}`]: props.align,
         },
         style: {
