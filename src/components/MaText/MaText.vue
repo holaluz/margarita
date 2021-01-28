@@ -80,7 +80,10 @@ export default {
         text.textSize[this.$layout.currentBreakpoint][this.responsiveTextSize]
 
       return {
-        ...sizeStyles,
+        'font-size': sizeStyles['font-size'],
+        'line-height': sizeStyles['line-height'],
+        '--top-crop': sizeStyles['top-crop'],
+        '--bottom-crop': sizeStyles['bottom-crop'],
         color: tones[this.tone],
       }
     },
@@ -88,18 +91,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.ma-text {
-  padding: 0;
-  margin: 0;
-  font-weight: normal;
-}
-
-.ma-text--italic {
-  font-style: italic;
-}
-
-.ma-text--bold {
-  font-weight: bold;
-}
-</style>
+<style scoped src="./MaText.css"></style>
