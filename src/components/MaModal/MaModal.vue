@@ -11,32 +11,33 @@
             data-testid="overlay"
             @click="closeModal"
           />
-          <ma-stack
-            ref="modal"
-            :aria-label="title"
-            :class="`modal--width-${width}`"
-            space="medium"
-            role="dialog"
-            aria-modal="true"
-            class="modal"
-          >
+          <ma-stack space="medium">
             <div
-              :class="`modal-header--${headerType}`"
-              class="modal-header"
-              data-testid="modal-header"
+              ref="modal"
+              :aria-label="title"
+              :class="`modal--width-${width}`"
+              role="dialog"
+              aria-modal="true"
+              class="modal"
             >
-              <span class="modal-title">{{ title }}</span>
-              <ma-button
-                category="no-background"
-                data-testid="close-button"
-                class="icon-close"
-                @click="closeModal"
+              <div
+                :class="`modal-header--${headerType}`"
+                class="modal-header"
+                data-testid="modal-header"
               >
-                <ma-icon icon="Close"> </ma-icon>
-              </ma-button>
-            </div>
-            <div ref="modal-content" class="modal-content">
-              <slot :closeModal="closeModal" name="content" />
+                <span class="modal-title">{{ title }}</span>
+                <ma-button
+                  category="no-background"
+                  data-testid="close-button"
+                  class="icon-close"
+                  @click="closeModal"
+                >
+                  <ma-icon icon="Close"> </ma-icon>
+                </ma-button>
+              </div>
+              <div ref="modal-content" class="modal-content">
+                <slot :closeModal="closeModal" name="content" />
+              </div>
             </div>
           </ma-stack>
         </div>
@@ -172,7 +173,7 @@ export default {
       // If we cannot find the modal let's fail gracefully.
       if (!modal) return
 
-      this.focusableElements = modal.$el.querySelectorAll(FOCUSABLE_ELEMENTS)
+      this.focusableElements = modal.querySelectorAll(FOCUSABLE_ELEMENTS)
     },
 
     handleTabKey(e) {
