@@ -19,7 +19,7 @@ export default {
 
   props: {
     /**
-     * Sets the text element tag
+     * Set the HTML element tag to ensure the document semantics are meaningful
      */
     tag: {
       type: String,
