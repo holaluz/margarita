@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
 
       - name: Setup Node.js
         uses: actions/setup-node@v1
@@ -30,6 +32,15 @@ jobs:
 
       - name: Run tests
         run: npm run test
+
+      - name: Run UI regression tests
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: storybook:build
+          exitZeroOnChanges: true # 👈 Option to prevent the workflow from failing
+          exitOnceUploaded: true # 👈 Exit with status 0 (OK) once the build has been sent to Chromatic
 
       - name: Build project
         run: npm run build

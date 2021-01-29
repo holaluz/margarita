@@ -68,7 +68,8 @@
   border-radius: var(--range-radius);
   background: linear-gradient(
     to right,
-    var(--color-orange-base),
+    var(--color-yellow-dark),
+    var(--color-orange-base) 15%,
     var(--color-pink-base)
   );
   height: var(--range-height);
