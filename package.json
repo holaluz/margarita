@@ -16,7 +16,6 @@
     "vetur"
   ],
   "scripts": {
-    "prepare": "npm run tokens:build && npm run vetur:build",
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
     "format": "prettier 'src/**/*.{js,vue,css}' --write && stylelint 'src/**/*.scss' --fix",
     "lint": "npm run lint:js && npm run lint:css",
@@ -27,7 +26,7 @@
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c .storybook",
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
-    "tokens:build": "node .style-dictionary/build.js && prettier 'src/scss/*' --write",
+    "tokens:build": "node .style-dictionary/build.js",
     "tokens:watch": "chokidar  'src/tokens/*.js' -c 'npm run tokens:build'",
     "vetur:build": "vue-int --output 'vetur' --input 'src/components' --recursive"
   },
