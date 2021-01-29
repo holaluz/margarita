@@ -1,4 +1,5 @@
 import { select, text } from '@storybook/addon-knobs'
+import docs from '../../../docs/components/MaAlert.docs.mdx'
 
 export default {
   title: 'Components/Alert',
@@ -7,6 +8,9 @@ export default {
       template: '<div style="width:600px"><story/></div>',
     }),
   ],
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 const TYPES = ['success', 'info', 'warning', 'error']
