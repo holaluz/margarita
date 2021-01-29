@@ -1,7 +1,7 @@
 // main.js is the main point of configuration for storybook
 
 module.exports = {
-  stories: ['../src/**/*.stories.{js,mdx}'],
+  stories: ['../src/**/*.stories.js', '../docs/**/*.stories.mdx'],
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-actions',
