@@ -70,11 +70,18 @@
   },
   "ma-modal/width": {
     "type": "string",
-    "options": ["small", "medium", "large"]
+    "options": [
+      "small",
+      "medium",
+      "large"
+    ]
   },
   "ma-modal/headerType": {
     "type": "string",
-    "options": ["white", "gradient"]
+    "options": [
+      "white",
+      "gradient"
+    ]
   },
   "ma-option/v-model": {
     "type": "string|number|boolean|array"
