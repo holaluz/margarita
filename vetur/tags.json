@@ -1,37 +1,18 @@
 {
   "ma-alert": {
-    "attributes": [
-      "size",
-      "text",
-      "title",
-      "type"
-    ],
+    "attributes": ["size", "text", "title", "type"],
     "description": ""
   },
   "ma-button": {
-    "attributes": [
-      "tag",
-      "rounded",
-      "loading",
-      "disabled",
-      "category"
-    ],
+    "attributes": ["tag", "rounded", "loading", "disabled", "category"],
     "description": ""
   },
   "ma-card": {
-    "attributes": [
-      "color",
-      "hasPaddingTop"
-    ],
+    "attributes": ["color", "hasPaddingTop"],
     "description": ""
   },
   "ma-datagrid": {
-    "attributes": [
-      "rows",
-      "columns",
-      "isLoading",
-      "noResultsText"
-    ],
+    "attributes": ["rows", "columns", "isLoading", "noResultsText"],
     "description": ""
   },
   "ma-icon": {
@@ -47,22 +28,11 @@
     "description": ""
   },
   "ma-modal": {
-    "attributes": [
-      "title",
-      "width",
-      "headerType"
-    ],
+    "attributes": ["title", "width", "headerType"],
     "description": ""
   },
   "ma-option": {
-    "attributes": [
-      "v-model",
-      "id",
-      "value",
-      "disabled",
-      "card",
-      "type"
-    ],
+    "attributes": ["v-model", "id", "value", "disabled", "card", "type"],
     "description": ""
   },
   "ma-pagination": {
@@ -78,19 +48,11 @@
     "description": ""
   },
   "ma-pill": {
-    "attributes": [
-      "color",
-      "text"
-    ],
+    "attributes": ["color", "text"],
     "description": ""
   },
   "ma-range": {
-    "attributes": [
-      "value",
-      "steps",
-      "label",
-      "id"
-    ],
+    "attributes": ["value", "steps", "label", "id"],
     "description": ""
   },
   "ma-select": {
@@ -108,29 +70,19 @@
     "description": ""
   },
   "ma-sidebar": {
-    "attributes": [
-      "type",
-      "position",
-      "overlay",
-      "show"
-    ],
+    "attributes": ["type", "position", "overlay", "show"],
     "description": ""
   },
   "ma-stack": {
-    "attributes": [
-      "space",
-      "align"
-    ],
+    "attributes": ["space", "align"],
     "description": ""
   },
+  "ma-text": {
+    "attributes": ["tag", "size", "italic", "bold", "tone"],
+    "description": "Renders text following the Design System guidelines"
+  },
   "ma-text-field": {
-    "attributes": [
-      "errorMessage",
-      "id",
-      "hasError",
-      "label",
-      "value"
-    ],
+    "attributes": ["errorMessage", "id", "hasError", "label", "value"],
     "description": ""
   }
 }

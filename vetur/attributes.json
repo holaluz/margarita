@@ -70,18 +70,11 @@
   },
   "ma-modal/width": {
     "type": "string",
-    "options": [
-      "small",
-      "medium",
-      "large"
-    ]
+    "options": ["small", "medium", "large"]
   },
   "ma-modal/headerType": {
     "type": "string",
-    "options": [
-      "white",
-      "gradient"
-    ]
+    "options": ["white", "gradient"]
   },
   "ma-option/v-model": {
     "type": "string|number|boolean|array"
@@ -184,6 +177,39 @@
   },
   "ma-stack/align": {
     "type": "array|string"
+  },
+  "ma-text/tag": {
+    "type": "string",
+    "description": "Set the HTML element tag to ensure the document semantics are meaningful",
+    "options": ["p", "span", "label"]
+  },
+  "ma-text/size": {
+    "type": "string",
+    "description": "Sets the text element size accroding to our Design System",
+    "options": ["xsmall", "small", "medium"]
+  },
+  "ma-text/italic": {
+    "type": "boolean",
+    "description": "Applies italic style to text"
+  },
+  "ma-text/bold": {
+    "type": "boolean",
+    "description": "Applies bold weigth to text"
+  },
+  "ma-text/tone": {
+    "type": "string",
+    "description": "Sets the text element color tone",
+    "options": [
+      "white",
+      "red",
+      "pink",
+      "blue",
+      "green",
+      "yellow",
+      "gray-darker",
+      "gray-dark",
+      "gray"
+    ]
   },
   "ma-text-field/errorMessage": {
     "type": "string"
