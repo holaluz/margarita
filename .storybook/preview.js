@@ -7,6 +7,8 @@ Vue.use(margarita)
 export const parameters = {
   layout: 'centered',
 
+  controls: { expanded: true },
+
   options: {
     storySort: {
       order: ['Tokens', 'Layout', 'Components', 'Plugins'],
