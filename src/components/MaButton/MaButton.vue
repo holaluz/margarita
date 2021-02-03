@@ -23,7 +23,7 @@ export default {
 
   props: {
     /**
-     * The tag property of the component sets when the component tag
+     * Sets the HTML tag element of the component
      */
     tag: {
       type: String,
