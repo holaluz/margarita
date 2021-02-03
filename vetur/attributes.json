@@ -12,19 +12,26 @@
     "type": "string"
   },
   "ma-button/tag": {
-    "type": "string"
+    "type": "string",
+    "description": "The tag property of the component sets when the component tag",
+    "options": ["button", "a"]
   },
   "ma-button/rounded": {
-    "type": "boolean"
+    "type": "boolean",
+    "description": "Sets the button borders to rounded style"
   },
   "ma-button/loading": {
-    "type": "boolean"
+    "type": "boolean",
+    "description": "Sets the button state to loading and this becomes disabled"
   },
   "ma-button/disabled": {
-    "type": "boolean"
+    "type": "boolean",
+    "description": "Sets the button state as disabled"
   },
   "ma-button/category": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets the component displaying style",
+    "options": ["primary", "secondary", "white", "gradient", "no-background"]
   },
   "ma-card/color": {
     "type": "string"
