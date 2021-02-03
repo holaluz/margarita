@@ -1,4 +1,3 @@
-import { action } from '@storybook/addon-actions'
 import MaButton from '../MaButton'
 
 export default {
@@ -23,21 +22,15 @@ export default {
         options: ['primary', 'secondary', 'white', 'gradient', 'no-background'],
       },
     },
+    /**
+     * Tell Storybook that 'click' arg to your story should be an action
+     */
+    click: { action: 'click' },
   },
 }
 
-const actionsData = {
-  click: action('click'),
-}
-
-const getProps = (argTypes) =>
-  Object.values(argTypes)
-    .filter((a) => a.table?.category === 'props')
-    .map((a) => a.name)
-
 const Template = (args, { argTypes }) => ({
-  props: getProps(argTypes),
-  methods: actionsData,
+  props: Object.keys(argTypes),
   template: `<ma-button v-bind="$props" @click="click">click me</ma-button>`,
 })
 
