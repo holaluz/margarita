@@ -35,8 +35,9 @@
   --modal-header-icon-color: var(--color-white-base);
 
   background: linear-gradient(
-    to right,
-    var(--color-orange-base),
+    to left,
+    var(--color-yellow-dark),
+    var(--color-orange-base) 15%,
     var(--color-pink-base)
   );
   color: var(--color-white-base);

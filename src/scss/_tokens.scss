@@ -1,0 +1,118 @@
+/*
+  Do not edit directly
+  Generated on Fri, 29 Jan 2021 11:56:21 GMT
+*/
+
+$color-pink-light: #f8b0cb !default;
+$color-pink-base: #e6007d !default;
+$color-pink-dark: #b3005d !default;
+$color-green-light: #e2f3ad !default;
+$color-green-base: #237b01 !default;
+$color-green-dark: #1f6d4a !default;
+$color-yellow-light: #fdf6dd !default;
+$color-yellow-base: #f5d154 !default;
+$color-yellow-dark: #ffba03 !default;
+$color-blue-light: #daf4fa !default;
+$color-blue-base: #296c89 !default;
+$color-red-light: #ffdddc !default;
+$color-red-base: #cb1010 !default;
+$color-brown-light: #f9f8f3 !default;
+$color-brown-base: #c8c0ab !default;
+$color-orange-base: #f06c17 !default;
+$color-turquoise-base: #24b578 !default;
+$color-gray-lighter: #f6f6f6 !default;
+$color-gray-light: #dcdcdc !default;
+$color-gray-base: #767676 !default;
+$color-gray-dark: #4a4a4a !default;
+$color-gray-darker: #212121 !default;
+$color-black-base: #000000 !default;
+$color-white-base: #ffffff !default;
+$spacing-none: 0 !default;
+$spacing-xsmall: 0.5rem !default;
+$spacing-small: 1rem !default;
+$spacing-medium: 1.5rem !default;
+$spacing-large: 2rem !default;
+$spacing-xlarge: 3rem !default;
+$spacing-2x-large: 4rem !default;
+$spacing-3x-large: 5rem !default;
+$spacing-4x-large: 6rem !default;
+$spacing-5x-large: 8rem !default;
+$spacing-6x-large: 11rem !default;
+$shadow-light: rgba(0, 0, 0, 0.027451) !default;
+$shadow-medium: rgba(0, 0, 0, 0.0980392) !default;
+$shadow-dark: rgba(0, 0, 0, 0.498) !default;
+$breakpoint-tablet: 900 !default;
+$breakpoint-desktop: 1440 !default;
+
+$tokens: (
+  'color': (
+    'pink': (
+      'light': $color-pink-light,
+      'base': $color-pink-base,
+      'dark': $color-pink-dark,
+    ),
+    'green': (
+      'light': $color-green-light,
+      'base': $color-green-base,
+      'dark': $color-green-dark,
+    ),
+    'yellow': (
+      'light': $color-yellow-light,
+      'base': $color-yellow-base,
+      'dark': $color-yellow-dark,
+    ),
+    'blue': (
+      'light': $color-blue-light,
+      'base': $color-blue-base,
+    ),
+    'red': (
+      'light': $color-red-light,
+      'base': $color-red-base,
+    ),
+    'brown': (
+      'light': $color-brown-light,
+      'base': $color-brown-base,
+    ),
+    'orange': (
+      'base': $color-orange-base,
+    ),
+    'turquoise': (
+      'base': $color-turquoise-base,
+    ),
+    'gray': (
+      'lighter': $color-gray-lighter,
+      'light': $color-gray-light,
+      'base': $color-gray-base,
+      'dark': $color-gray-dark,
+      'darker': $color-gray-darker,
+    ),
+    'black': (
+      'base': $color-black-base,
+    ),
+    'white': (
+      'base': $color-white-base,
+    ),
+  ),
+  'spacing': (
+    'none': $spacing-none,
+    'xsmall': $spacing-xsmall,
+    'small': $spacing-small,
+    'medium': $spacing-medium,
+    'large': $spacing-large,
+    'xlarge': $spacing-xlarge,
+    '2x-large': $spacing-2x-large,
+    '3x-large': $spacing-3x-large,
+    '4x-large': $spacing-4x-large,
+    '5x-large': $spacing-5x-large,
+    '6x-large': $spacing-6x-large,
+  ),
+  'shadow': (
+    'light': $shadow-light,
+    'medium': $shadow-medium,
+    'dark': $shadow-dark,
+  ),
+  'breakpoint': (
+    'tablet': $breakpoint-tablet,
+    'desktop': $breakpoint-desktop,
+  ),
+);

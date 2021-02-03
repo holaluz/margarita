@@ -1,0 +1,88 @@
+{
+  "ma-alert": {
+    "attributes": ["size", "text", "title", "type"],
+    "description": ""
+  },
+  "ma-button": {
+    "attributes": ["tag", "rounded", "loading", "disabled", "category"],
+    "description": ""
+  },
+  "ma-card": {
+    "attributes": ["color", "hasPaddingTop"],
+    "description": ""
+  },
+  "ma-datagrid": {
+    "attributes": ["rows", "columns", "isLoading", "noResultsText"],
+    "description": ""
+  },
+  "ma-icon": {
+    "attributes": [
+      "icon",
+      "id",
+      "width",
+      "height",
+      "viewBoxWidth",
+      "iconColor",
+      "title"
+    ],
+    "description": ""
+  },
+  "ma-modal": {
+    "attributes": ["title", "width", "headerType"],
+    "description": ""
+  },
+  "ma-option": {
+    "attributes": ["v-model", "id", "value", "disabled", "card", "type"],
+    "description": ""
+  },
+  "ma-pagination": {
+    "attributes": [
+      "buttonsNumber",
+      "totalItems",
+      "itemsPerPage",
+      "leftButtonAria",
+      "rightButtonAria",
+      "numberButtonAria",
+      "startPage"
+    ],
+    "description": ""
+  },
+  "ma-pill": {
+    "attributes": ["color", "text"],
+    "description": ""
+  },
+  "ma-range": {
+    "attributes": ["value", "steps", "label", "id"],
+    "description": ""
+  },
+  "ma-select": {
+    "attributes": [
+      "options",
+      "value",
+      "id",
+      "label",
+      "errorMessage",
+      "hasError",
+      "formatter",
+      "fieldClass",
+      "weight"
+    ],
+    "description": ""
+  },
+  "ma-sidebar": {
+    "attributes": ["type", "position", "overlay", "show"],
+    "description": ""
+  },
+  "ma-stack": {
+    "attributes": ["space", "align"],
+    "description": ""
+  },
+  "ma-text": {
+    "attributes": ["tag", "size", "italic", "bold", "tone"],
+    "description": "Renders text following the Design System guidelines"
+  },
+  "ma-text-field": {
+    "attributes": ["errorMessage", "id", "hasError", "label", "value"],
+    "description": ""
+  }
+}

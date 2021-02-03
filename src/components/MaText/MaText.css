@@ -1,0 +1,29 @@
+.ma-text {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+  }
+
+  &::before {
+    margin-bottom: var(--top-crop);
+  }
+
+  &::after {
+    margin-top: var(--bottom-crop);
+  }
+}
+
+.ma-text--italic {
+  font-style: italic;
+}
+
+.ma-text--bold {
+  font-weight: bold;
+}
