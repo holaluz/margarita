@@ -1,5 +1,6 @@
 import { boolean, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
+import docs from '../../../docs/components/MaTextField.docs.mdx'
 
 const ICONS = [
   'AddContract',
@@ -24,6 +25,9 @@ const CHANGED_MSG = 'Changed property:'
 
 export default {
   title: 'Components/TextField',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const TextField = () => {

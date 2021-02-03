@@ -1,7 +1,11 @@
 import { boolean, select } from '@storybook/addon-knobs'
+import docs from '../../../docs/components/MaCard.docs.mdx'
 
 export default {
   title: 'Components/Card',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const Card = () => {

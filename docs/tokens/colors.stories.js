@@ -1,6 +1,11 @@
 import { color } from '../../src/tokens'
+import docs from './colors.docs.mdx'
+
 export default {
   title: 'Tokens/Colors',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const Colors = () => ({

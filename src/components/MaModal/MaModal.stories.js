@@ -1,7 +1,11 @@
 import { select, text } from '@storybook/addon-knobs'
+import docs from '../../../docs/components/MaModal.docs.mdx'
 
 export default {
   title: 'Components/Modal',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 const MODAL_WIDTHS = ['small', 'medium', 'large']

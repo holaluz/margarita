@@ -1,5 +1,9 @@
+import docs from '../../../docs/components/MaHidden.docs.mdx'
 export default {
   title: 'Layout/Hidden',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const Hidden = () => {

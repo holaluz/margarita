@@ -1,7 +1,11 @@
 import icons from './availableIcons'
+import docs from '../../../docs/components/MaIcon.docs.mdx'
 
 export default {
   title: 'Components/Icon',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const Icons = () => ({

@@ -1,10 +1,14 @@
 import { number, select } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
+import docs from '../../../docs/components/MaPagination.docs.mdx'
 
 const BUTTONS_NUMBER = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 export default {
   title: 'Components/Pagination',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const Pagination = () => {

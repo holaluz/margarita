@@ -1,5 +1,6 @@
 import { boolean, object, select, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
+import docs from '../../../docs/components/MaSelect.docs.mdx'
 
 const AVAILABLE_WEIGHTS = ['bold', 'semibold', 'medium', 'regular']
 const DEFAULT_OPTIONS = [
@@ -12,6 +13,9 @@ const DEFAULT_OPTIONS = [
 
 export default {
   title: 'Components/Select',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const Select = () => {

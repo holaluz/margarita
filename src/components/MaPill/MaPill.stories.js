@@ -1,7 +1,12 @@
+import docs from '../../../docs/components/MaPill.docs.mdx'
+
 const COLORS = ['green', 'orange', 'red', 'gray', 'dark', 'blue']
 
 export default {
   title: 'Components/Pill',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const Pill = () => {

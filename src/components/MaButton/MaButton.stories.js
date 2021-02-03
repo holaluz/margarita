@@ -1,4 +1,5 @@
 import MaButton from '../MaButton'
+import docs from '../../../docs/components/MaButton.docs.mdx'
 
 export default {
   title: 'Components/Button',
@@ -26,6 +27,9 @@ export default {
      * Tell Storybook that 'click' arg to your story should be an action
      */
     click: { action: 'click' },
+  },
+  parameters: {
+    docs: { page: docs },
   },
 }
 

@@ -1,6 +1,7 @@
 import shuffle from 'lodash.shuffle'
 import { boolean, object } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
+import docs from '../../../docs/components/MaDataGrid.docs.mdx'
 
 const columns = [
   {
@@ -47,6 +48,9 @@ export default {
       template: '<div style="width:600px"><story/></div>',
     }),
   ],
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const Datagrid = () => {

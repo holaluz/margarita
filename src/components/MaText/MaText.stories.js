@@ -1,10 +1,14 @@
 import { select, boolean } from '@storybook/addon-knobs'
 import { text, tones } from '@margarita/tokens'
+import docs from '../../../docs/components/MaText.docs.mdx'
 
 const textTags = ['p', 'span', 'label']
 
 export default {
   title: 'Components/Text',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const Text = () => {

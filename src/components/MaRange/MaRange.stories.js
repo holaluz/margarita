@@ -1,5 +1,6 @@
 import { select, object, text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
+import docs from '../../../docs/components/MaRange.docs.mdx'
 
 const defaultSteps = [
   { text: 'Especial', value: 'special' },
@@ -15,6 +16,9 @@ export default {
       template: '<div style="width: 600px"><story/></div>',
     }),
   ],
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 export const Range = () => {

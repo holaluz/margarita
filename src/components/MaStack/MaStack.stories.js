@@ -1,9 +1,12 @@
 import { select, array } from '@storybook/addon-knobs'
-
 import { spacing } from '@margarita/tokens'
+import docs from '../../../docs/components/MaStack.docs.mdx'
 
 export default {
   title: 'Layout/Stack',
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 const DemoBlock = {
