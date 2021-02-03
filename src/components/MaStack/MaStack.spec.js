@@ -22,6 +22,12 @@ describe('Stack', () => {
     expect(contentWrapper).toHaveClass('stack--align-right')
   })
 
+  test(`alignment class defaults to 'fill'`, () => {
+    const { contentWrapper } = renderComponent({ space: 'medium' })
+
+    expect(contentWrapper).toHaveClass('stack--align-fill')
+  })
+
   test('adds alignment classes from array', () => {
     const { contentWrapper } = renderComponent({ align: ['center', 'right'] })
 
