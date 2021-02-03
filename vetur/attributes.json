@@ -180,10 +180,26 @@
     "type": "boolean"
   },
   "ma-stack/space": {
-    "type": "array|string"
+    "type": "array|string",
+    "description": "Sets the space gap between children.",
+    "options": [
+      "none",
+      "xsmall",
+      "small",
+      "medium",
+      "large",
+      "xlarge",
+      "2x-large",
+      "3x-large",
+      "4x-large",
+      "5x-large",
+      "6x-large"
+    ]
   },
   "ma-stack/align": {
-    "type": "array|string"
+    "type": "array|string",
+    "description": "Set the children alignment. Defaults to fill.",
+    "options": ["left", "center", "right", "fill"]
   },
   "ma-text/tag": {
     "type": "string",
