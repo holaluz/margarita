@@ -8,6 +8,7 @@ export default {
    * As per now, storybook does handle 'String' type properties as a text input, thus requiring to
    * manually set the available property's options.
    * See: https://storybook.js.org/docs/vue/essentials/controls#annotation
+   * See: https://github.com/storybookjs/storybook/issues/13764
    */
   argTypes: {
     tag: {
