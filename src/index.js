@@ -16,6 +16,7 @@ import MaSidebar from './components/MaSidebar'
 import MaText from './components/MaText'
 import MaTextField from './components/MaTextField'
 import MaStack from './components/MaStack'
+import MaHeading from './components/MaHeading'
 import { markdown, markdownSSR } from './directives/markdown'
 import responsivePlugin from './plugins/responsivePlugin'
 
@@ -36,6 +37,7 @@ export {
   MaStack,
   MaText,
   MaTextField,
+  MaHeading,
   markdown,
   markdownSSR,
   responsivePlugin,
@@ -58,6 +60,7 @@ function install(Vue) {
   Vue.component('MaSelect', MaSelect)
   Vue.component('MaSidebar', MaSidebar)
   Vue.component('MaStack', MaStack)
+  Vue.component('MaHeading', MaHeading)
   Vue.component('MaText', MaText)
   Vue.component('MaTextField', MaTextField)
 
