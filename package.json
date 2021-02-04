@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "build": "vue-cli-service build --target lib --name margarita src/index.js",
-    "format": "prettier 'src/**/*.{js,vue,css}' --write && stylelint 'src/**/*.scss' --fix",
+    "format": "prettier '{src,vetur,types}/**/*.{js,vue,css,json}' --write && stylelint 'src/**/*.{scss,css}' --fix",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint 'src/**/*.{css,scss}'",
     "lint:js": "eslint 'src/**/*.{js,vue}'",

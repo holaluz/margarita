@@ -4,7 +4,7 @@
     <div class="ma-range">
       <span
         v-for="(_, index) in new Array(bulletsAmount)"
-        :key="index"
+        :key="`${index}-bullet`"
         :style="getBulletStyle(index)"
         class="ma-range__bullet"
       />
@@ -21,7 +21,7 @@
       />
       <div
         v-for="(step, index) in steps"
-        :key="step.value"
+        :key="`${step.value}-step`"
         :style="getStepStyle(index)"
         :class="{
           'ma-range__step--active': index === Number(selectedValue),
