@@ -51,6 +51,35 @@
   "ma-datagrid/noResultsText": {
     "type": "string"
   },
+  "ma-heading/level": {
+    "type": "string",
+    "description": "Set the HTML element tag to ensure the document semantics are meaningful by specifying its level",
+    "options": ["none", "1", "2", "3", "4", "5", "6"]
+  },
+  "ma-heading/size": {
+    "type": "string",
+    "description": "Sets the text element size accroding to our Design System",
+    "options": ["xsmall", "small", "medium", "large", "xlarge"]
+  },
+  "ma-heading/italic": {
+    "type": "boolean",
+    "description": "Applies italic style to text"
+  },
+  "ma-heading/tone": {
+    "type": "string",
+    "description": "Sets the text element color tone",
+    "options": [
+      "white",
+      "red",
+      "pink",
+      "blue",
+      "green",
+      "yellow",
+      "gray-darker",
+      "gray-dark",
+      "gray"
+    ]
+  },
   "ma-icon/icon": {
     "type": "string"
   },

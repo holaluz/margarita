@@ -15,6 +15,10 @@
     "attributes": ["rows", "columns", "isLoading", "noResultsText"],
     "description": ""
   },
+  "ma-heading": {
+    "attributes": ["level", "size", "italic", "tone"],
+    "description": "Renders heading following the Design System guidelines"
+  },
   "ma-icon": {
     "attributes": [
       "icon",
