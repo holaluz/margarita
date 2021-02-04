@@ -132,3 +132,6 @@ More often than not we'd want to work on a consumer while tweaking Magarita.
 
 The best way to do so is by installing Margarita as a local dependency. Check out the instructions in [Local Installation](LOCAL_INSTALLATION.md).
 
+### How can I contribute to documentation?
+
+Follow the edition guidelines[here](https://github.com/holaluz/margarita/tree/master/docs/README.md)
