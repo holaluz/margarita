@@ -34,14 +34,6 @@ export default {
     },
 
     /**
-     * Applies italic style to text
-     */
-    italic: {
-      type: Boolean,
-      default: false,
-    },
-
-    /**
      * Sets the text element color tone
      * @values white, red, pink, blue, green, yellow, gray-darker, gray-dark, gray
      */

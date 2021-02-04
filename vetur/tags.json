@@ -16,7 +16,7 @@
     "description": ""
   },
   "ma-heading": {
-    "attributes": ["level", "size", "italic", "tone"],
+    "attributes": ["level", "size", "tone"],
     "description": "Renders heading following the Design System guidelines"
   },
   "ma-icon": {

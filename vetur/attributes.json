@@ -61,10 +61,6 @@
     "description": "Sets the text element size accroding to our Design System",
     "options": ["xsmall", "small", "medium", "large", "xlarge"]
   },
-  "ma-heading/italic": {
-    "type": "boolean",
-    "description": "Applies italic style to text"
-  },
   "ma-heading/tone": {
     "type": "string",
     "description": "Sets the text element color tone",
