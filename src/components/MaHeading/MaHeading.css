@@ -1,0 +1,21 @@
+.ma-heading {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+  }
+
+  &::before {
+    margin-bottom: var(--top-crop);
+  }
+
+  &::after {
+    margin-top: var(--bottom-crop);
+  }
+}
