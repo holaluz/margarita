@@ -3,13 +3,13 @@
 
 import { addons } from '@storybook/addons'
 import { create } from '@storybook/theming/create'
-import brandImage from './holaluz.svg'
+import brandImage from './public/images/holaluz.svg'
 
 const theme = create({
   base: 'light',
   brandTitle: 'Holaluz Margarita',
-  brandUrl: 'https://www.holaluz.com/',
   brandImage,
+  brandUrl: 'https://www.holaluz.com/',
 })
 
 addons.setConfig({
