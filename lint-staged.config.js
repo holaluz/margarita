@@ -4,7 +4,7 @@ module.exports = {
   ...lintStagedConfig,
   '*.{js,vue}': [
     'npm run vetur:build',
-    'prettier --write',
+    'npm run format',
     'eslint',
     'npm run test -- --findRelatedTests',
   ],
