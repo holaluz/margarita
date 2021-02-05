@@ -11,7 +11,7 @@ describe('Markdown directive', () => {
   `(
     'renders $type with $nodeName as node name',
     ({ type, markdown, nodeName }) => {
-      const { getByText } = componentBuilder(markdown)
+      const { getByText } = renderComponent(markdown)
 
       const node = getByText(type).nodeName
       expect(node).toBe(nodeName)
@@ -19,7 +19,7 @@ describe('Markdown directive', () => {
   )
 
   test('renders anchor with correct attributes', () => {
-    const { getByText } = componentBuilder(
+    const { getByText } = renderComponent(
       '[anchor](https://url.com)<<.class-name #id-name>>'
     )
 
@@ -31,7 +31,7 @@ describe('Markdown directive', () => {
   })
 
   test('renders nested markdown nodes', () => {
-    const { getByText } = componentBuilder(
+    const { getByText } = renderComponent(
       '[**text**<<.bold-class>>](http://ble)<<.anchor-class>>'
     )
     const text = getByText('text')
@@ -41,7 +41,7 @@ describe('Markdown directive', () => {
   })
 
   test(`renders blank target' link with proper rel attribute values`, () => {
-    const { getByText } = componentBuilder(
+    const { getByText } = renderComponent(
       '[anchor](http://ble)<<.anchor-class blank>>'
     )
     const anchor = getByText('anchor')
@@ -51,14 +51,14 @@ describe('Markdown directive', () => {
   })
 })
 
-const componentBuilder = (markdownText) => {
-  return render({
+function renderComponent(markdownText) {
+  const Component = {
     template: `<div v-markdown="markdownText" />`,
-    directives: {
-      markdown,
-    },
-    data() {
-      return { markdownText }
-    },
+    directives: { markdown },
+    props: ['markdownText'],
+  }
+
+  return render(Component, {
+    props: { markdownText },
   })
 }
