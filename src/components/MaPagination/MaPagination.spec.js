@@ -1,7 +1,7 @@
 import { render, fireEvent } from '@margarita/margarita-test-utils'
 import MaPagination from './MaPagination'
 
-describe('MaPagination', () => {
+describe('Pagination', () => {
   test('shows arrow buttons properly when current page is the first page', () => {
     const { getByLabelText } = renderComponent()
     const leftButton = getByLabelText('Previous page')

@@ -6,7 +6,7 @@ import {
 import userEvent from '@testing-library/user-event'
 import MaModal from './MaModal'
 
-describe('MaModal', () => {
+describe('Modal', () => {
   test('shows modal content on clicking trigger element', async () => {
     const { openModal, assertModalHasOpened, queryByRole } = renderComponent()
 

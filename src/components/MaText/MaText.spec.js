@@ -3,7 +3,7 @@ import MaText from './MaText'
 
 const slotText = 'Hello everybody'
 
-describe('MaText', () => {
+describe('Text', () => {
   test('renders content from slot', () => {
     const { getByText } = renderComponent()
 
