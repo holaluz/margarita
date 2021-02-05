@@ -1,6 +1,5 @@
-import { render } from '@testing-library/vue'
+import { render } from '@margarita/margarita-test-utils'
 import MaHeading from './MaHeading'
-import responsivePlugin from '@margarita/plugins/responsivePlugin'
 
 const slotText = 'Hello everybody'
 
@@ -34,15 +33,9 @@ describe('MaHeading', () => {
   })
 })
 
-const renderComponent = (props = {}) => {
-  return render(
-    MaHeading,
-    {
-      props,
-      slots: { default: slotText },
-    },
-    (vue) => {
-      vue.use(responsivePlugin)
-    }
-  )
+function renderComponent(props = {}) {
+  return render(MaHeading, {
+    props,
+    slots: { default: slotText },
+  })
 }
