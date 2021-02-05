@@ -48,7 +48,7 @@ describe('Text', () => {
   })
 })
 
-const renderComponent = (props = {}) => {
+function renderComponent(props = {}) {
   return render(MaText, {
     props,
     slots: { default: slotText },
