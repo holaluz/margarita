@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/vue'
+import { render, fireEvent } from '@margarita/margarita-test-utils'
 import MaSelect from './MaSelect'
 
 const OPTIONS = [
@@ -19,7 +19,7 @@ const OPTIONS_WITH_PLACEHOLDER = [
 
 describe('Select', () => {
   test('renders multiple options', () => {
-    const { getByText } = SelectBuilder()
+    const { getByText } = renderComponent()
 
     expect(getByText(/option1/i)).toBeInTheDocument()
     expect(getByText(/option2/i)).toBeInTheDocument()
@@ -31,7 +31,7 @@ describe('Select', () => {
       queryByDisplayValue,
       getByDisplayValue,
       getSelect,
-    } = SelectBuilder()
+    } = renderComponent()
 
     await fireEvent.update(getSelect(), 'option2')
 
@@ -40,7 +40,7 @@ describe('Select', () => {
   })
 
   test('displays error message', () => {
-    const { getByText } = SelectBuilder({
+    const { getByText } = renderComponent({
       hasError: true,
       errorMessage: 'Something went wrong',
     })
@@ -49,21 +49,21 @@ describe('Select', () => {
   })
 
   test('renders bold class', () => {
-    const { getSelect } = SelectBuilder({ weight: 'bold' })
+    const { getSelect } = renderComponent({ weight: 'bold' })
 
     expect(getSelect()).toHaveClass('ma-select__field--bold')
   })
 
   test('renders custom class', () => {
     const fieldClass = 'my-custom-class'
-    const { getSelect } = SelectBuilder({ fieldClass })
+    const { getSelect } = renderComponent({ fieldClass })
 
     expect(getSelect()).toHaveClass(fieldClass)
   })
 
   test('adds aria-label attr and hides label element', () => {
     const ariaLabel = 'test'
-    const { queryByDisplayValue, getSelect } = SelectBuilder({
+    const { queryByDisplayValue, getSelect } = renderComponent({
       'aria-label': ariaLabel,
     })
 
@@ -73,7 +73,7 @@ describe('Select', () => {
   })
 
   test('renders a placeholder text', () => {
-    const { getByDisplayValue } = SelectBuilder({
+    const { getByDisplayValue } = renderComponent({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
 
@@ -81,7 +81,7 @@ describe('Select', () => {
   })
 
   test('overrides placeholder with selected value', async () => {
-    const { getByDisplayValue } = SelectBuilder({
+    const { getByDisplayValue } = renderComponent({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
 
@@ -93,7 +93,7 @@ describe('Select', () => {
   })
 
   test('renders disabled placeholder option', () => {
-    const { getByText } = SelectBuilder({
+    const { getByText } = renderComponent({
       options: OPTIONS_WITH_PLACEHOLDER,
     })
 
@@ -106,7 +106,7 @@ describe('Select', () => {
       { potato: 'Pataton2', something: 'bleble' },
     ]
 
-    const { getByText } = SelectBuilder({
+    const { getByText } = renderComponent({
       options,
       formatter: (o) => ({
         label: o.potato,
@@ -123,7 +123,7 @@ describe('Select', () => {
   })
 })
 
-function SelectBuilder(customProps) {
+function renderComponent(customProps) {
   const label = 'Test Select label'
 
   const utils = render(MaSelect, {

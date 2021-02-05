@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-import { render } from '@testing-library/vue'
+import { render } from '@margarita/margarita-test-utils'
 import MaHidden from './MaHidden'
-import responsivePlugin from '@margarita/plugins/responsivePlugin'
 import { breakpoints } from '../../tokens'
 
 describe('Hidden', () => {
@@ -61,13 +60,7 @@ describe('Hidden', () => {
 })
 
 function renderComponent(props) {
-  const utils = render(
-    MaHidden,
-    { props, slots: { default: 'content' } },
-    (vue) => {
-      vue.use(responsivePlugin)
-    }
-  )
+  const utils = render(MaHidden, { props, slots: { default: 'content' } })
 
   const querySlot = utils.queryByText('content')
 

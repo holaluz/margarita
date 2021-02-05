@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/vue'
+import { render, fireEvent } from '@margarita/margarita-test-utils'
 import MaTextField from './MaTextField'
 
 describe('TextField', () => {

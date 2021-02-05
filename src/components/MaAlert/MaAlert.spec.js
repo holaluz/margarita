@@ -1,4 +1,4 @@
-import { render } from '@testing-library/vue'
+import { render } from '@margarita/margarita-test-utils'
 import MaAlert from './MaAlert'
 
 describe('Alert', () => {

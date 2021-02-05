@@ -1,9 +1,9 @@
-import { render, fireEvent } from '@testing-library/vue'
+import { render, fireEvent } from '@margarita/margarita-test-utils'
 import MaRange from './MaRange'
 
 describe('Range', () => {
   test('renders a range input element', () => {
-    const { getByRole, getByText } = RangeBuilder()
+    const { getByRole, getByText } = renderComponent()
 
     expect(getByText(/step value/i)).toBeInTheDocument()
     expect(getByText(/second value/i)).toBeInTheDocument()
@@ -12,7 +12,7 @@ describe('Range', () => {
   })
 
   test('selects the clicked element', async () => {
-    const { getByText, emitted } = RangeBuilder()
+    const { getByText, emitted } = renderComponent()
 
     await fireEvent.click(getByText(/second value/i))
 
@@ -22,7 +22,7 @@ describe('Range', () => {
   })
 
   test('renders label if prop is passed', () => {
-    const { getByLabelText } = RangeBuilder({
+    const { getByLabelText } = renderComponent({
       label: 'Custom Label',
     })
 
@@ -30,7 +30,7 @@ describe('Range', () => {
   })
 })
 
-function RangeBuilder(customProps) {
+function renderComponent(customProps) {
   return render(MaRange, {
     props: {
       value: 'value1',

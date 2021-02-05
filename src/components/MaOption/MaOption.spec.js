@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/vue'
+import { render, fireEvent } from '@margarita/margarita-test-utils'
 import MaOption from './MaOption'
 
 const CHECKED_VALUE = '1'
@@ -7,20 +7,20 @@ const SLOT_TEXT = 'text slot'
 describe('Option', () => {
   describe('Radio', () => {
     test('renders an unchecked radio element by default', () => {
-      const { input } = OptionBuilder()
+      const { input } = renderComponent()
 
       expect(input).not.toBeChecked()
     })
 
     test('renders an checked radio element if checked key matches own label', () => {
-      const { input } = OptionBuilder({ value: CHECKED_VALUE })
+      const { input } = renderComponent({ value: CHECKED_VALUE })
 
       expect(input).toBeChecked()
     })
 
     test('emits event on click', async () => {
       const value = 'checkboxvalue'
-      const { input, emitted } = OptionBuilder({ value })
+      const { input, emitted } = renderComponent({ value })
 
       await fireEvent.click(input)
 
@@ -31,7 +31,7 @@ describe('Option', () => {
     })
 
     test(`doesn't emit events if input is disabled`, async () => {
-      const { input, emitted } = OptionBuilder({ disabled: true })
+      const { input, emitted } = renderComponent({ disabled: true })
 
       expect(input).toBeDisabled()
 
@@ -67,13 +67,13 @@ describe('Option', () => {
 
   describe('Checkbox', () => {
     test('renders a checkbox element', () => {
-      const { input } = OptionBuilder({ type: 'checkbox' })
+      const { input } = renderComponent({ type: 'checkbox' })
 
       expect(input).toBeInTheDocument()
     })
 
     test('renders a disabled checkbox', async () => {
-      const { input, emitted } = OptionBuilder({
+      const { input, emitted } = renderComponent({
         type: 'checkbox',
         disabled: true,
       })
@@ -86,20 +86,20 @@ describe('Option', () => {
     })
 
     test('renders a checked checkbox', () => {
-      const { input } = OptionBuilder({ type: 'checkbox', checked: true })
+      const { input } = renderComponent({ type: 'checkbox', checked: true })
 
       expect(input).toBeChecked()
     })
 
     test('renders a custom id', () => {
       const id = 'customId'
-      const { input } = OptionBuilder({ id })
+      const { input } = renderComponent({ id })
 
       expect(input).toHaveAttribute('id', id)
     })
 
     test('emits event when checked', async () => {
-      const { input, emitted } = OptionBuilder({
+      const { input, emitted } = renderComponent({
         type: 'checkbox',
         checked: false,
       })
@@ -118,7 +118,7 @@ describe('Option', () => {
   })
 })
 
-function OptionBuilder(customProps) {
+function renderComponent(customProps) {
   const utils = render(MaOption, {
     props: {
       checked: CHECKED_VALUE,

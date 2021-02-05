@@ -1,7 +1,6 @@
-import { render } from '@testing-library/vue'
+import { render } from '@margarita/margarita-test-utils'
 import MaStack from './MaStack'
 import { spacing } from '../../tokens'
-import responsivePlugin from '@margarita/plugins/responsivePlugin'
 
 describe('Stack', () => {
   test('adds spacing classes', () => {
@@ -36,17 +35,10 @@ describe('Stack', () => {
 })
 
 function renderComponent(props) {
-  const utils = render(
-    MaStack,
-    {
-      props: { space: 'small', ...props },
-      slots: { default: 'content' },
-    },
-    (vue) => {
-      vue.use(responsivePlugin)
-      // this.$layout.currentBreakpoint is 'mobile' by default
-    }
-  )
+  const utils = render(MaStack, {
+    props: { space: 'small', ...props },
+    slots: { default: 'content' },
+  })
 
   const contentWrapper = utils.getByText('content')
 
