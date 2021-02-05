@@ -5,21 +5,12 @@ import responsivePlugin from './plugins/responsivePlugin'
 
 /** @type {Render} */
 function render(component, options = {}, callbackFn = () => {}) {
-  return VTLrender(
-    component,
-    {
-      ...options,
-      stubs: {
-        transition: { template: '<div><slot /></div>' },
-      },
-    },
-    (vue) => {
-      // this.$layout.currentBreakpoint will be 'mobile' by default
-      vue.use(responsivePlugin)
+  return VTLrender(component, options, (vue) => {
+    // this.$layout.currentBreakpoint will be 'mobile' by default
+    vue.use(responsivePlugin)
 
-      callbackFn(vue)
-    }
-  )
+    callbackFn(vue)
+  })
 }
 
 // Export useful packages from Vue Testing Library
