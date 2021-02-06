@@ -1,3 +1,45 @@
 # Button
+Buttons communicate actions that users can take and make them easily perceived and achievable. They are typically placed throughout the UI, in places like: Modals, 
 
-This is the documentation section about Button component
+# How to use it?
+### Categories
+Categories communicate the importance of an action. Create a hierarchy of actions that will guide the user where there are multitudes of choices. Too many calls to action can cause confusion and make our users unsure of what to do next.
+
+- Use **primary** category as the default. This helps the majority of users finish their tasks faster and points them in the right direction.
+*The exception is when all choices are equal, or action is particularly dangerous, in those cases, you want users to explicitly select the button rather than accidentally.*
+- Use **gradient** category when you want to highlight an action above anything else. It should be only one gradient button per page in order to not overwhelm and discract the user.
+- Use **secondary** category secondary actions on each page; can be used in isolation or paired with a primary button when there are multiple calls to action.
+- Use **no-background** category for less prominent actions; text buttons can be used in isolation or paired with a primary button when there are multiple calls to action.
+- Use **white** category never
+- Use **icon-button** category for primary tasks a user can do a page. Normally used in our internal tools.
+
+- Altogether you can have a single primary button, and several “secondary” and low emphasis “text“ actions.
+- Do always label a button in a clear and understandable way. Lead with a strong, actionable verb.
+- Do use a loading state to provide feedback for our user when the action revolves around saving or inputting information, especially when it could take some seconds.
+
+### Alignment and position
+- Simple forms lined up in one column or in F-pattern are easier to read. Users move down the form in one visual direction and submit button aligned left closes the journey. 
+- Left alignment is more convenient for those users who use Tab key for navigation
+- Left-aligned buttons leave room for any possible improvements in the future. You definitely should consider left alignment for your buttons if you may need to place some other elements or indicators nearby.
+- Left align is actually universal and fit for multiple purposes.
+- Ok/Cancel or Cancel/Ok? Either is fine. Base this decision with user research if needed.
+
+# When to use it? 
+- Buttons are used when you are performing an action, such as: “submit,” “merge,” “create new,” “upload,” etc.
+Links are used when you’re navigating to another place, such as: “view all” page, “Roger Wright“ profile, etc.
+- Use buttons as a part of a page, part of a form, part of a modal, or almost any type of 
+
+# Behavior
+### States
+- **Normal** — communicates that component is interactive and enabled.
+- **Focus** — communicates that the user has highlighted an element, using a keyboard or other input method.
+- **Hover** — communicates when a user has placed a cursor above an interactive element.
+- **Active** — or pressed state communicates that the user had tapped on the button.
+- **Loading** —used when action is not performed immediately and communicates that the component is in the progress of completing the action.
+- **Disabled** — communicates that component is currently noninteractive, but can be enabled in the future.
+Avoid disabled buttons if you can. Better to have it always enabled, and if users didn't provide some required information just highlight the empty fields, or bring up notification.
+
+### Tracking
+Use GTM classes in your buttons
+
+
