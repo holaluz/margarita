@@ -1,12 +1,8 @@
-module.exports = {
+const merge = require('lodash.merge')
+const postcssConfig = require('@holaluz/npm-scripts').postcss
+
+module.exports = merge(postcssConfig, {
   plugins: {
-    autoprefixer: {},
     'postcss-normalize': {},
-    'postcss-preset-env': {
-      stage: 2,
-      features: {
-        'nesting-rules': true,
-      },
-    },
   },
-}
+})
