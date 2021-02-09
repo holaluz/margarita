@@ -15,8 +15,6 @@
 import MaStack from '@margarita/components/MaStack'
 import MaHeading from '@margarita/components/MaHeading'
 import MaText from '@margarita/components/MaText'
-const AVAILABLE_SIZES = ['small', 'medium', 'large']
-const AVAILABLE_TYPES = ['error', 'info', 'success', 'warning']
 
 export default {
   name: 'MaAlert',
@@ -56,7 +54,8 @@ export default {
     type: {
       type: String,
       default: 'info',
-      validator: (value) => AVAILABLE_TYPES.includes(value),
+      validator: (value) =>
+        ['error', 'info', 'success', 'warning'].includes(value),
     },
   },
 
