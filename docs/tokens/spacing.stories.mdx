@@ -1,0 +1,23 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { spacing } from '../../src/tokens'
+import MaDatagrid from '../../src/components/MaDatagrid'
+
+<Meta title="Tokens/Spacing" />
+
+export const tokenRows = Object.entries(spacing).map(([tokenName,tokenValue])=>{
+    return {name:tokenName,value:tokenValue}
+})
+
+export const tokenColumns = [{name:'Spacing name',value:'name'},{name:'Spacing value',value:'value'}]
+
+export const Template = (args) => <MaDatagrid {...args } />
+
+# Spacing
+This is our values for spacing vertically and horizontally layout elements, based on 8px-grid. 
+
+<Story name="spacing" args={{
+     :rows: tokenRows
+     :columns: tokenColumns
+  }}>
+    {Template.bind({})}
+  </Story>
