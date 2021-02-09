@@ -12,11 +12,20 @@
 </template>
 
 <script>
+import MaStack from '@margarita/components/MaStack'
+import MaHeading from '@margarita/components/MaHeading'
+import MaText from '@margarita/components/MaText'
 const AVAILABLE_SIZES = ['small', 'medium', 'large']
 const AVAILABLE_TYPES = ['error', 'info', 'success', 'warning']
 
 export default {
   name: 'MaAlert',
+
+  components: {
+    MaStack,
+    MaHeading,
+    MaText,
+  },
 
   props: {
     /**
