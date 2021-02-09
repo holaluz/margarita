@@ -1,4 +1,4 @@
-import { color } from '../../src/tokens'
+import { color } from '../../../src/tokens/'
 import docs from './colors.docs.mdx'
 
 export default {
