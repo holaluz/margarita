@@ -1,4 +1,5 @@
 const color = require('./color')
+const gradient = require('./gradient')
 const spacing = require('./spacing')
 const shadow = require('./shadow')
 const text = require('./text')
@@ -8,6 +9,7 @@ const { breakpoints, breakpointsEnum } = require('./breakpoint')
 
 module.exports = {
   color,
+  gradient,
   spacing,
   shadow,
   breakpoints,
