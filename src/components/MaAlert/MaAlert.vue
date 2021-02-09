@@ -2,10 +2,10 @@
   <div :class="['alert-banner', getClasses]">
     <span class="alert-banner__icon" />
     <ma-stack space="xsmall">
-      <ma-heading v-if="title" size="xsmall">{{ title }}</ma-heading>
+      <ma-heading v-if="title" size="xsmall" v-text="title" />
       <!-- @slot Alert content slot -->
       <slot>
-        <ma-text v-if="text" tag="p">{{ text }}</ma-text>
+        <ma-text v-if="text" tag="p" v-text="text" />
       </slot>
     </ma-stack>
   </div>
