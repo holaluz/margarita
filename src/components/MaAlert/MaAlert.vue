@@ -34,7 +34,7 @@ export default {
     size: {
       default: 'medium',
       type: String,
-      validator: (value) => AVAILABLE_SIZES.includes(value),
+      validator: (value) => ['small', 'medium', 'large'].includes(value),
     },
     /**
      * Inner text of the component
