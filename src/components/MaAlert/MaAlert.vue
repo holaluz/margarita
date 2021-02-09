@@ -1,12 +1,13 @@
 <template>
   <div :class="['alert-banner', getClasses]">
     <span class="alert-banner__icon" />
-    <div class="alert-banner__content">
-      <p v-if="title" class="alert-banner__title" v-text="title" />
+    <ma-stack space="xsmall">
+      <ma-heading v-if="title" size="xsmall">{{ title }}</ma-heading>
+      <!-- @slot Alert content slot -->
       <slot>
-        <p class="alert-banner__text" v-text="text" />
+        <ma-text v-if="text" tag="p">{{ text }}</ma-text>
       </slot>
-    </div>
+    </ma-stack>
   </div>
 </template>
 
@@ -18,22 +19,31 @@ export default {
   name: 'MaAlert',
 
   props: {
+    /**
+     * Sets the size of the component
+     */
     size: {
       default: 'medium',
       type: String,
       validator: (value) => AVAILABLE_SIZES.includes(value),
     },
-
+    /**
+     * Inner text of the component
+     */
     text: {
       type: String,
       default: '',
     },
-
+    /**
+     * Title of the component
+     */
     title: {
       type: String,
       default: '',
     },
-
+    /**
+     * Sets the type of component
+     */
     type: {
       type: String,
       default: 'info',

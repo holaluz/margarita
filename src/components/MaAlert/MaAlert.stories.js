@@ -1,50 +1,44 @@
-import { select, text } from '@storybook/addon-knobs'
+import MaAlert from '../MaAlert'
 import docs from '../../../docs/components/MaAlert.docs.mdx'
 
 export default {
   title: 'Components/Alert',
-  decorators: [
-    () => ({
-      template: '<div style="width:600px"><story/></div>',
-    }),
-  ],
+  component: MaAlert,
+  /**
+   * As per now, storybook does handle 'String' type properties as a text input, thus requiring to
+   * manually set the available property's options.
+   * See: https://storybook.js.org/docs/vue/essentials/controls#annotation
+   * See: https://github.com/storybookjs/storybook/issues/13764
+   */
+  argTypes: {
+    title: {
+      defaultValue: 'This is an alert',
+    },
+    text: {
+      defaultValue: 'This is an alert sample text',
+    },
+    type: {
+      control: {
+        type: 'select',
+        options: ['success', 'info', 'warning', 'error'],
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+    },
+  },
   parameters: {
     docs: { page: docs },
   },
 }
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  template: `
+    <ma-alert v-bind="$props"/>
+  `,
+})
 
-const TYPES = ['success', 'info', 'warning', 'error']
-
-export const Alert = () => {
-  const size = select('Size', ['small', 'medium', 'large'], 'small')
-  const content = text('Text', 'A longer alert text')
-
-  return {
-    template: `
-      <ma-stack space="small">
-        <ma-alert
-          v-for="type in types"
-          :key="type"
-          :type="type"
-          :title="type"
-          v-bind="$props"
-        />
-      </ma-stack>
-    `,
-
-    data() {
-      return {
-        types: TYPES,
-      }
-    },
-
-    props: {
-      size: {
-        default: size,
-      },
-      text: {
-        default: content,
-      },
-    },
-  }
-}
+export const Alert = Template.bind({})

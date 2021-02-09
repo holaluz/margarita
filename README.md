@@ -134,4 +134,4 @@ The best way to do so is by installing Margarita as a local dependency. Check ou
 
 ### How can I contribute to documentation?
 
-Follow the edition guidelines[here](https://github.com/holaluz/margarita/tree/master/docs/README.md)
+Follow the edition guidelines [here](https://github.com/holaluz/margarita/tree/master/docs/README.md)
