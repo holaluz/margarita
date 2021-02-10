@@ -9,6 +9,8 @@ import { headings, tones } from '../../tokens'
 const { headingSize } = headings
 /**
  * Renders heading following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-heading--heading)
  */
 export default {
   name: 'MaHeading',
