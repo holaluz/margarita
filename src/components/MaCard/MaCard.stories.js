@@ -1,36 +1,25 @@
-import { boolean, select } from '@storybook/addon-knobs'
+import MaCard from '../MaCard'
 import docs from '../../../docs/components/MaCard.docs.mdx'
 
 export default {
   title: 'Components/Card',
+  component: MaCard,
+  argTypes: {
+    color: {
+      control: {
+        type: 'select',
+        options: ['white', 'gray'],
+      },
+    },
+  },
   parameters: {
     docs: { page: docs },
   },
 }
 
-export const Card = () => {
-  const color = select('Color', ['white', 'gray'], 'white')
-  const hasPaddingTop = boolean('Bottom cards have padding top', true)
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  template: `<ma-card v-bind="$props">I'm a card</ma-card>`,
+})
 
-  return {
-    template: `
-      <ma-stack space="medium">
-        <ma-card v-bind="$props">
-          I'm a {{ color }} layout card
-        </ma-card>
-        <ma-card v-bind="$props">
-          I'm another {{ color }} layout card
-        </ma-card>
-      </ma-stack>
-    `,
-
-    props: {
-      color: {
-        default: color,
-      },
-      hasPaddingTop: {
-        default: hasPaddingTop,
-      },
-    },
-  }
-}
+export const Card = Template.bind({})
