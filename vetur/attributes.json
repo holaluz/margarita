@@ -65,7 +65,7 @@
   },
   "ma-heading/size": {
     "type": "string",
-    "description": "Sets the text element size accroding to our Design System",
+    "description": "Sets the text element size according to our Design System",
     "options": ["xsmall", "small", "medium", "large", "xlarge"]
   },
   "ma-heading/tone": {
@@ -213,7 +213,7 @@
   },
   "ma-stack/space": {
     "type": "array|string",
-    "description": "Sets the space gap between children.",
+    "description": "Sets the space gap between children.\n\n[Spacing tokens documentation](https://holaluz.github.io/margarita/?path=/story/tokens-spacing--page)",
     "options": [
       "none",
       "xsmall",
@@ -240,7 +240,7 @@
   },
   "ma-text/size": {
     "type": "string",
-    "description": "Sets the text element size accroding to our Design System",
+    "description": "Sets the text element size according to our Design System",
     "options": ["xsmall", "small", "medium"]
   },
   "ma-text/italic": {
