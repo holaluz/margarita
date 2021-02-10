@@ -19,6 +19,8 @@ export default {
   props: {
     /**
      * Sets the space gap between children.
+     *
+     * [Spacing tokens documentation](https://holaluz.github.io/margarita/?path=/story/tokens-spacing--page)
      * @values none, xsmall, small, medium, large, xlarge, 2x-large, 3x-large, 4x-large, 5x-large, 6x-large
      */
     space: {
