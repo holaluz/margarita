@@ -22,10 +22,11 @@ Spacing also reacts to the objects it surrounds. Optical adjustments can also be
 <div style={{display: 'grid', gridAutoFlow: 'rows', gap: '2rem', marginTop: '1.5rem'}}>
 {
   Object.entries(spacing).map(([tokenName,tokenValue]) => (
-    <div style={{display: 'grid', gridAutoFlow: 'column', gap: '3rem', maxWidth: '600px', alignItems: 'center', gridTemplateColumns: '4rem 11rem 4rem'}}>
+    <div style={{display: 'grid', gridAutoFlow: 'column', gap: '3rem', maxWidth: '600px', alignItems: 'center', gridTemplateColumns: '4rem 11rem 4rem 3rem'}}>
       <span>{tokenName}</span>
       <div style={{width: tokenValue, height: tokenValue, backgroundColor: 'var(--color-gray-light)', justifySelf: 'center'}}/>
       <span>{tokenValue}</span>
+      <span>{Number(tokenValue.split('rem')[0])*16}px</span>
     </div>
     )
   )
