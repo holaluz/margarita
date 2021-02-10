@@ -14,6 +14,11 @@
 <script>
 import MaButtonSpinner from './components/MaButtonSpinner'
 
+/**
+ * Renders a button or link element following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-button--button)
+ */
 export default {
   name: 'MaButton',
 
