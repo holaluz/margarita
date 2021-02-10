@@ -24,7 +24,7 @@ export default {
     },
 
     /**
-     * Sets the text element size accroding to our Design System
+     * Sets the text element size according to our Design System
      * @values xsmall, small, medium, large, xlarge
      */
     size: {
