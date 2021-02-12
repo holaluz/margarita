@@ -3,9 +3,9 @@
     <span class="alert-banner__icon" />
     <ma-stack space="xsmall">
       <ma-heading v-if="title" size="xsmall" v-text="title" />
-      <!-- @slot Alert content slot -->
+      <!-- @slot Alert content slot (Overwrites `text` when both are specified ) -->
       <slot>
-        <ma-text v-if="text" tag="p" v-text="text" />
+        <ma-text tag="p" v-text="text" />
       </slot>
     </ma-stack>
   </div>
