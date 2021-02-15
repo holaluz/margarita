@@ -27,9 +27,9 @@ export default {
     formatter: {
       description: 'Formats the given options before rendering them',
     },
+    change: { action: 'change' },
     'v-model': { table: { disable: true } },
     fieldClass: { table: { disable: true } },
-    change: { table: { disable: true } },
     mount: { table: { disable: true } },
   },
   parameters: {
@@ -40,7 +40,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   data: () => ({ selectedOption: '' }),
   props: Object.keys(argTypes),
-  template: `<ma-select id="select-input" v-bind="$props" v-model="selectedOption" />`,
+  template: `<ma-select id="select-input" v-bind="$props" v-model="selectedOption" @change="change"/>`,
 })
 
 export const Select = Template.bind({})

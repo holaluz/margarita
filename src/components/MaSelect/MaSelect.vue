@@ -78,6 +78,8 @@ export default {
 
     /**
      * Sets component's label
+     *
+     * ⚠️ If attribute aria-label is defined, input's label will be 'visually' hidden
      */
     label: {
       type: String,
@@ -149,6 +151,12 @@ export default {
         return this.value
       },
       set(newVal) {
+        /**
+         * Change event
+         *
+         * @event change
+         * @type {Event}
+         */
         this.$emit('change', newVal)
       },
     },
