@@ -1,61 +1,43 @@
-import { select, object, text } from '@storybook/addon-knobs'
-import { action } from '@storybook/addon-actions'
+import MaRange from './MaRange'
 import docs from '../../../docs/components/MaRange.docs.mdx'
 
 const defaultSteps = [
-  { text: 'Especial', value: 'special' },
-  { text: 'Bajo', value: 'low' },
-  { text: 'Medio', value: 'medium' },
-  { text: 'Alto', value: 'high' },
+  { text: 'Special', value: 'special' },
+  { text: 'Low', value: 'low' },
+  { text: 'Medium', value: 'medium' },
+  { text: 'High', value: 'high' },
 ]
 
 export default {
   title: 'Components/Range',
+  component: MaRange,
   decorators: [
     () => ({
       template: '<div style="width: 600px"><story/></div>',
     }),
   ],
+  args: {
+    steps: defaultSteps,
+    id: 'Demo range',
+    label: 'Demo range',
+  },
+  argTypes: {
+    'v-model': {
+      control: false,
+    },
+    input: {
+      table: { disable: true },
+    },
+  },
   parameters: {
     docs: { page: docs },
   },
 }
 
-export const Range = () => {
-  const selectedValue = select(
-    'Value',
-    defaultSteps.map((s) => s.value),
-    'medium'
-  )
-  const steps = object('Steps', defaultSteps)
-  const label = text('Label', 'Label')
+const Template = (args, { argTypes }) => ({
+  data: () => ({ selectedStep: 'medium' }),
+  props: Object.keys(argTypes),
+  template: `<ma-range v-model="selectedStep" v-bind="$props" />`,
+})
 
-  return {
-    template: `<ma-range :steps="steps" :label="label" v-model="value"/>`,
-
-    props: {
-      steps: {
-        default: steps,
-      },
-      label: {
-        default: label,
-      },
-      selectedValue: {
-        default: selectedValue,
-      },
-    },
-
-    data() {
-      return {
-        value: this.selectedValue,
-      }
-    },
-
-    watch: {
-      selectedValue(newValue) {
-        this.value = newValue
-      },
-      value: action('value'),
-    },
-  }
-}
+export const Range = Template.bind({})
