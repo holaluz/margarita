@@ -34,7 +34,7 @@
 .modal-header--gradient {
   --modal-header-icon-color: var(--color-white-base);
 
-  background: var(--gradient-pink-orange-yellow);
+  background: linear-gradient(to right, var(--gradient-holaluz));
   color: var(--color-white-base);
 }
 
