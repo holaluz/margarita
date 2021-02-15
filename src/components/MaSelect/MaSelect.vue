@@ -33,8 +33,11 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
-const AVAILABLE_WEIGHTS = ['bold', 'semibold', 'medium', 'regular']
-
+/**
+ * Renders a select component following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-select--select)
+ */
 export default {
   name: 'MaSelect',
 
@@ -48,36 +51,67 @@ export default {
   },
 
   props: {
+    /**
+     * Available select component options
+     */
     options: {
       type: Array,
       required: true,
     },
 
+    /**
+     * Component's model value
+     * @model
+     */
     value: {
       type: [String, Number, Boolean, Object],
       default: '',
     },
 
+    /**
+     * Sets component's id
+     */
     id: {
       type: String,
       default: uuid,
     },
 
+    /**
+     * Sets component's label
+     */
     label: {
       type: String,
       required: true,
     },
 
+    /**
+     * Sets component's error message to display if `hasError === true`
+     */
     errorMessage: {
       type: String,
       default: '',
     },
 
+    /**
+     * Displays or hides error message defined through `errorMessage` property
+     */
     hasError: {
       type: Boolean,
       default: false,
     },
 
+    /**
+     * Formats the given options before rendering them
+     *
+     * ```ts
+     * formattedOption = {
+     *    disabled: boolean,
+     *    label: string,
+     *    text: string,
+     *    value: string | number | boolean | object
+     *  }
+     * ```
+     */
     formatter: {
       type: Function,
       default: (o) => ({
@@ -88,15 +122,22 @@ export default {
       }),
     },
 
+    /**
+     * Applies given styling class to component
+     */
     fieldClass: {
       type: String,
       default: '',
     },
 
+    /**
+     * Applies given styling class to component
+     */
     weight: {
       type: String,
       default: '',
-      validator: (value) => !value || AVAILABLE_WEIGHTS.includes(value),
+      validator: (value) =>
+        ['', 'bold', 'semibold', 'medium', 'regular'].includes(value),
     },
   },
 
