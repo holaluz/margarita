@@ -14,9 +14,9 @@
   margin-right: 1rem;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  width: 0.9rem;
-  min-width: 0.9rem;
-  height: 0.9rem;
+  width: 1rem;
+  min-width: 1rem;
+  height: 1rem;
   background-image: var(--alert-icon);
 }
 
