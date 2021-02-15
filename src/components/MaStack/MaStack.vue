@@ -17,7 +17,7 @@ const alignment = ['left', 'center', 'right', 'fill']
 /**
  * Renders a stack component following the Design System guidelines
  *
- * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-stack--stack)
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-stack--stack)
  */
 export default {
   name: 'MaStack',
