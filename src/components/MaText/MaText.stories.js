@@ -1,81 +1,43 @@
-import { select, boolean } from '@storybook/addon-knobs'
-import { text, tones } from '@margarita/tokens'
+import MaText from './MaText'
 import docs from '../../../docs/components/MaText.docs.mdx'
-
-const textTags = ['p', 'span', 'label']
+import { text, tones } from '@margarita/tokens'
 
 export default {
   title: 'Components/Text',
+  component: MaText,
+  argTypes: {
+    tag: {
+      control: {
+        type: 'select',
+        options: ['p', 'span', 'label'],
+      },
+    },
+    tone: {
+      control: {
+        type: 'select',
+        options: Object.keys(tones),
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: Object.keys(text.textSize.mobile),
+      },
+    },
+  },
   parameters: {
     docs: { page: docs },
   },
 }
 
-export const Text = () => {
-  const allowedTextSizes = Object.keys(text.textSize.mobile)
-  const tag = select('Tag', textTags, 'span')
-  const tone = select('Tone', Object.keys(tones), 'gray')
-  const italic = boolean('Italic', false)
-  const bold = boolean('Bold', false)
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  template: `<div style="display: flex;">
+      <ma-text v-bind="$props">I'M a text</ma-text>
+      <ma-text v-bind="$props" style="margin-left:4rem; background-color:var(--color-blue-light)">
+        I'M a text
+      </ma-text>
+  </div>`,
+})
 
-  return {
-    template: `
-      <div style="display: flex;">
-        <ma-stack space="medium">
-          <ma-text size="medium">
-            MaText with different sizes
-          </ma-text>
-          <ma-text
-            v-for="textSize in allowedTextSizes"
-            :key="textSize"
-            :size="textSize"
-            :tag="tag"
-            :italic="italic"
-            :bold="bold"
-            :tone="tone"
-          >
-            {{ textSize }} size example text
-          </ma-text>
-        </ma-stack>
-        <ma-stack space="medium" style="margin-left: 4rem;">
-          <ma-text size="medium">
-            MaText displaying used line-height
-          </ma-text>
-          <ma-text
-            v-for="textSize in allowedTextSizes"
-            :key="textSize"
-            :size="textSize"
-            :tag="tag"
-            :italic="italic"
-            :bold="bold"
-            :tone="tone"
-            style="background-color:var(--color-blue-light)"
-          >
-            {{ textSize }} Example with UpperCase and LowerCase
-          </ma-text>
-        </ma-stack>
-      </div>
-      `,
-
-    data() {
-      return {
-        allowedTextSizes,
-      }
-    },
-
-    props: {
-      tag: {
-        default: tag,
-      },
-      tone: {
-        default: tone,
-      },
-      italic: {
-        default: italic,
-      },
-      bold: {
-        default: bold,
-      },
-    },
-  }
-}
+export const Text = Template.bind({})

@@ -5,6 +5,7 @@
     :class="computedClass"
     class="ma-text"
   >
+    <!-- @slot Text content slot -->
     <slot />
   </component>
 </template>
