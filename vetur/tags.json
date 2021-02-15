@@ -5,19 +5,19 @@
   },
   "ma-button": {
     "attributes": ["tag", "rounded", "loading", "disabled", "category"],
-    "description": ""
+    "description": "Renders a button or link element following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-button--button)"
   },
   "ma-card": {
     "attributes": ["color", "hasPaddingTop"],
-    "description": ""
+    "description": "Renders a card component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-card--card)"
   },
   "ma-datagrid": {
     "attributes": ["rows", "columns", "isLoading", "noResultsText"],
-    "description": ""
+    "description": "Renders a datagrid component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-datagrid--datagrid)"
   },
   "ma-heading": {
     "attributes": ["level", "size", "tone"],
-    "description": "Renders heading following the Design System guidelines"
+    "description": "Renders heading following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-heading--heading)"
   },
   "ma-icon": {
     "attributes": [
@@ -29,15 +29,15 @@
       "iconColor",
       "title"
     ],
-    "description": ""
+    "description": "Renders an icon component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-icon--icon)"
   },
   "ma-modal": {
     "attributes": ["title", "width", "headerType"],
-    "description": ""
+    "description": "Renders a modal component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-modal--modal)"
   },
   "ma-option": {
     "attributes": ["v-model", "id", "value", "disabled", "card", "type"],
-    "description": ""
+    "description": "Renders a radio or checkbox component following the Design System guidelines\n\n[Radio's component API documentation](https://holaluz.github.io/margarita/?path=/story/components-option--radio)\n[Checkbox's component API documentation](https://holaluz.github.io/margarita/?path=/story/components-option--checkbox)"
   },
   "ma-pagination": {
     "attributes": [
@@ -49,20 +49,20 @@
       "numberButtonAria",
       "startPage"
     ],
-    "description": ""
+    "description": "Renders a pagination component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-pagination--pagination)"
   },
   "ma-pill": {
     "attributes": ["color", "text"],
-    "description": ""
+    "description": "Renders a pill component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-pill--pill)"
   },
   "ma-range": {
-    "attributes": ["value", "steps", "label", "id"],
-    "description": ""
+    "attributes": ["v-model", "steps", "label", "id"],
+    "description": "Renders a range element following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-range--range)"
   },
   "ma-select": {
     "attributes": [
       "options",
-      "value",
+      "v-model",
       "id",
       "label",
       "errorMessage",
@@ -71,18 +71,18 @@
       "fieldClass",
       "weight"
     ],
-    "description": ""
+    "description": "Renders a select component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-select--select)"
   },
   "ma-stack": {
     "attributes": ["space", "align"],
-    "description": ""
+    "description": "Renders a stack component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-stack--stack)"
   },
   "ma-text": {
     "attributes": ["tag", "size", "italic", "bold", "tone"],
     "description": "Renders text following the Design System guidelines"
   },
   "ma-text-field": {
-    "attributes": ["errorMessage", "id", "hasError", "label", "value"],
-    "description": ""
+    "attributes": ["errorMessage", "id", "hasError", "label", "v-model"],
+    "description": "Renders an input text field component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-textfield--text-field)"
   }
 }
