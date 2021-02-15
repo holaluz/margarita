@@ -16,6 +16,12 @@ import MaStack from '@margarita/components/MaStack'
 import MaHeading from '@margarita/components/MaHeading'
 import MaText from '@margarita/components/MaText'
 
+/**
+ * Renders an alert component following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-alert--alert)
+ */
+
 export default {
   name: 'MaAlert',
 
