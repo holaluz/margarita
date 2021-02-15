@@ -1,6 +1,6 @@
 /*
   Do not edit directly
-  Generated on Fri, 29 Jan 2021 11:56:21 GMT
+  Generated on Mon, 15 Feb 2021 14:56:40 GMT
 */
 
 $color-pink-light: #f8b0cb !default;
@@ -27,6 +27,8 @@ $color-gray-dark: #4a4a4a !default;
 $color-gray-darker: #212121 !default;
 $color-black-base: #000000 !default;
 $color-white-base: #ffffff !default;
+$gradient-holaluz: #e6007d, #f06c17 85%, #ffba03 !default;
+$gradient-green-energy: #24b578, #1f6d4a !default;
 $spacing-none: 0 !default;
 $spacing-xsmall: 0.5rem !default;
 $spacing-small: 1rem !default;
@@ -92,6 +94,10 @@ $tokens: (
     'white': (
       'base': $color-white-base,
     ),
+  ),
+  'gradient': (
+    'holaluz': $gradient-holaluz,
+    'green-energy': $gradient-green-energy,
   ),
   'spacing': (
     'none': $spacing-none,

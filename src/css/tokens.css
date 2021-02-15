@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 29 Jan 2021 11:56:21 GMT
+ * Generated on Mon, 15 Feb 2021 14:56:40 GMT
  */
 
 :root {
@@ -28,6 +28,8 @@
   --color-gray-darker: #212121;
   --color-black-base: #000000;
   --color-white-base: #ffffff;
+  --gradient-holaluz: #e6007d, #f06c17 85%, #ffba03;
+  --gradient-green-energy: #24b578, #1f6d4a;
   --spacing-none: 0;
   --spacing-xsmall: 0.5rem;
   --spacing-small: 1rem;
