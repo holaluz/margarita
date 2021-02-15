@@ -118,7 +118,14 @@
 }
 
 .ma-button--gradient {
-  background-image: var(--gradient-pink-orange-yellow);
+  background-image: linear-gradient(
+    to right,
+    var(--color-pink-base) 0%,
+    var(--color-orange-base) 40%,
+    var(--color-yellow-dark) 50%,
+    var(--color-orange-base) 60%,
+    var(--color-pink-base) 100%
+  );
   background-size: 200% auto;
   color: var(--color-white-base);
 
