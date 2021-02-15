@@ -12,11 +12,13 @@ export const Gradients = () => ({
   template: `
     <ma-stack space="large">
       <div v-for="(gradient, name) in gradients" :key="name">
-        <ma-heading level="4" size="xsmall">{{getName(name)}}</ma-heading>
-        <ma-stack space="xsmall" :style="stackStyle">
-            <div :style="getBoxStyle(gradient)" />
-            <code  v-text="gradient" />
-            <code>--gradient-{{name}}</code>
+        <ma-stack space="small">
+          <ma-heading level="2" size="xsmall">{{getName(name)}}</ma-heading>
+          <ma-stack space="xsmall" :style="stackStyle">
+              <div :style="getBoxStyle(gradient)" />
+              <code  v-text="gradient" />
+              <code>--gradient-{{name}}</code>
+          </ma-stack>
         </ma-stack>
       </div>
     </ma-stack>
@@ -28,7 +30,6 @@ export const Gradients = () => ({
       stackStyle: {
         fontWeight: 'normal',
         fontSize: '0.75rem',
-        marginTop: '1rem',
       },
       boxStyle: {
         width: '450px',
