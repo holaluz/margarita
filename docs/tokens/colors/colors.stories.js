@@ -11,20 +11,16 @@ export default {
 export const Colors = () => ({
   template: `
     <ma-stack space="large">
-      <div v-for="(tones, hue) in colors" :key="hue">
-        <ma-stack space="small">
-          <ma-heading level="2" size="xsmall">{{hue}}</ma-heading>
-          <div :style="hueStyle">
-            <div v-for="(hex, tone) in tones" :key="tone">
-              <ma-stack space="xsmall" :style="hexStyle">
-              <div :style="getBoxStyle(hex)" v-text="tone" />
-              <code v-text="hex"  />
-              <code>--color-{{hue}}-{{tone}}</code>
-              </ma-stack>
-            </div>
-          </div>
-        </ma-stack>
-      </div>
+      <ma-stack space="small" v-for="(tones, hue) in colors" :key="hue">
+        <ma-heading level="2" size="xsmall">{{hue}}</ma-heading>
+        <div :style="hueStyle">
+          <ma-stack space="xsmall" :style="hexStyle" v-for="(hex, tone) in tones" :key="tone">
+          <div :style="getBoxStyle(hex)" v-text="tone" />
+          <code v-text="hex"  />
+          <code>--color-{{hue}}-{{tone}}</code>
+          </ma-stack>
+        </div>
+      </ma-stack>
     </ma-stack>
   `,
 
