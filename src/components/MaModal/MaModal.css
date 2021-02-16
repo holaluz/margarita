@@ -1,3 +1,13 @@
+.modal-wrapper {
+  position: relative;
+
+  /**
+   * TODO: Normalize z-indexes values across HL. For instance, this one is set
+   * to 101 to trump CMB's z-index of 100.
+   */
+  z-index: 101;
+}
+
 .modal-overlay {
   position: fixed;
   background-color: var(--shadow-dark);
@@ -10,6 +20,7 @@
 .modal {
   position: fixed;
   left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
   width: 96vw; /* so that it doesn't reach end of viewport */
 

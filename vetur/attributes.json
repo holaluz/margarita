@@ -1,15 +1,22 @@
 {
   "ma-alert/size": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets the size of the component",
+    "options": [ "small", "medium", "large"
+    ]
   },
   "ma-alert/text": {
-    "type": "string"
+    "type": "string",
+    "description": "Inner text of the component"
   },
   "ma-alert/title": {
-    "type": "string"
+    "type": "string",
+    "description": "Title of the component"
   },
   "ma-alert/type": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets the type of component",
+    "options": ["error", "info", "success", "warning"]
   },
   "ma-button/tag": {
     "type": "string",

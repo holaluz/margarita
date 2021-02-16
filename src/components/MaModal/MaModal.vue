@@ -5,7 +5,7 @@
     </div>
     <ma-modal-portal>
       <transition name="modal-transition" @after-leave="closeModal">
-        <div v-if="showModal">
+        <div v-if="showModal" class="modal-wrapper">
           <div
             class="modal-overlay"
             data-testid="overlay"
