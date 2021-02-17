@@ -48,7 +48,7 @@ export default {
      *   <{
      *    name: string,
      *    value?: any,
-     *    component?: HTMLElement
+     *    component?: {import('vue').PropType<VNode>}
      *   }[]>
      * ```
      */
