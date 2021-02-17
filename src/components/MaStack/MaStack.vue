@@ -51,7 +51,7 @@ export default {
      * // This would apply left on all the different breakpoints
      * align = 'left'
      * // This would apply fill on mobile, center on tablet and left on desktop
-     * align = ['fill', 'center','left']
+     * :align="['fill', 'center', 'left']"
      * ```
      * @values left, center, right, fill
      */
