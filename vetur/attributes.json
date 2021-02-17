@@ -54,7 +54,7 @@
   },
   "ma-datagrid/columns": {
     "type": "array",
-    "description": "Sets the datagrid columns.\n\nIf `column.value` not present, `column.component` is required, and viceversa.\n```ts\n  <{\n   name: string,\n   value?: any,\n   component?: HTMLElement\n  }[]>\n```"
+    "description": "Sets the datagrid columns.\n\nIf `column.value` not present, `column.component` is required, and viceversa.\n```ts\n  <{\n   name: string,\n   value?: any,\n   component?: {import('vue').PropType<VNode>}\n  }[]>\n```"
   },
   "ma-datagrid/isLoading": {
     "type": "boolean",
@@ -140,7 +140,7 @@
   },
   "ma-icon/title": {
     "type": "string",
-    "description": "Sets icon's color"
+    "description": "Sets icon's title"
   },
   "ma-modal/title": {
     "type": "string",
