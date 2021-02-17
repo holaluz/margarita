@@ -31,7 +31,7 @@ export default {
      * // This would apply medium on all the different breakpoints
      * space = 'small'
      * // This would apply none on mobile, small on tablet and large on desktop
-     * space = ['none', 'small','large']
+     * :space="['none', 'small', 'large']"
      * ```
      *
      * [Spacing tokens documentation](https://holaluz.github.io/margarita/?path=/story/tokens-spacing--page)
