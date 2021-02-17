@@ -85,7 +85,7 @@ export default {
     },
 
     /**
-     * Sets icon's color
+     * Sets icon's title
      */
     title: {
       type: String,
