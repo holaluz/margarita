@@ -41,7 +41,7 @@ export default {
     inline: {
       type: 'boolean',
       defaultValue: false,
-      description: 'Sets if content should be displaced inline',
+      description: 'Sets if content wrapper should be an inline element',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: `false` },
