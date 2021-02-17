@@ -13,7 +13,7 @@ export default {
   props: {
     /**
      * Hides the content below the desired breakpoint
-     * @values null, tablet, desktop
+     * @values tablet, desktop
      */
     below: {
       type: String,
@@ -24,7 +24,7 @@ export default {
 
     /**
      * Hides the content above the desired breakpoint
-     * @values mobile, tablet, null
+     * @values mobile, tablet
      */
     above: {
       type: String,
