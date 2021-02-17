@@ -44,7 +44,7 @@ export default {
     },
 
     /**
-     * Set the children alignment.
+     * Sets the children alignment. Defaults to fill.
      *
      * If an array is passed, values will target the design system breakpoints.
      * ```ts
