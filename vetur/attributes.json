@@ -290,7 +290,7 @@
   },
   "ma-stack/align": {
     "type": "array|string",
-    "description": "Set the children alignment.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply left on all the different breakpoints\nalign = 'left'\n// This would apply fill on mobile, center on tablet and left on desktop\n:align=\"['fill', 'center', 'left']\"\n```",
+    "description": "Sets the children alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply left on all the different breakpoints\nalign = 'left'\n// This would apply fill on mobile, center on tablet and left on desktop\n:align=\"['fill', 'center', 'left']\"\n```",
     "options": ["left", "center", "right", "fill"]
   },
   "ma-text/tag": {
