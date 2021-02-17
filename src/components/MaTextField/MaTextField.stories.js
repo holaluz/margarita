@@ -41,9 +41,7 @@ const Template = (args, { argTypes }) => ({
     <ma-text-field
       v-model="inputText"
       v-bind="$props"
-      :disabled="disabled"
       :aria-label="ariaLabel"
-      :placeholder="placeholder"
       @input="input"
       @change="change"
       @blur="blur"
