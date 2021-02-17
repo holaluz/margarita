@@ -14,6 +14,8 @@
 import { text, tones } from '../../tokens'
 /**
  * Renders text following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-text--text)
  */
 export default {
   name: 'MaText',
