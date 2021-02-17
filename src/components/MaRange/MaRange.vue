@@ -41,7 +41,7 @@ import uuid from '@margarita/utils/uuid'
 const REQUIRED_STEP_KEYS = ['value', 'text']
 
 /**
- * Renders a range element following the Design System guidelines
+ * Renders a range input element following the Design System guidelines
  *
  * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-range--range)
  */
