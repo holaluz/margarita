@@ -89,6 +89,20 @@
       "gray"
     ]
   },
+  "ma-hidden/below": {
+    "type": "string",
+    "description": "Hides the content below the desired breakpoint",
+    "options": ["null", "tablet", "desktop"]
+  },
+  "ma-hidden/above": {
+    "type": "string",
+    "description": "Hides the content above the desired breakpoint",
+    "options": ["mobile", "tablet", "null"]
+  },
+  "ma-hidden/inline": {
+    "type": "boolean",
+    "description": "Sets if content should be displaced inline"
+  },
   "ma-icon/icon": {
     "type": "string",
     "description": "Sets which icon should be displayed",

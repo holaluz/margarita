@@ -19,6 +19,10 @@
     "attributes": ["level", "size", "tone"],
     "description": "Renders heading following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-heading--heading)"
   },
+  "ma-hidden": {
+    "attributes": ["below", "above", "inline"],
+    "description": "Renders a component that hides its children according to the Design System breakpoints.\n\nBeware that at least one of both `below` and `above` properties must be set\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-hidden--hidden)"
+  },
   "ma-icon": {
     "attributes": [
       "icon",
