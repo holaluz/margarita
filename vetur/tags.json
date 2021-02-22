@@ -73,10 +73,6 @@
     ],
     "description": ""
   },
-  "ma-sidebar": {
-    "attributes": ["type", "position", "overlay", "show"],
-    "description": ""
-  },
   "ma-stack": {
     "attributes": ["space", "align"],
     "description": ""

@@ -2,8 +2,7 @@
   "ma-alert/size": {
     "type": "string",
     "description": "Sets the size of the component",
-    "options": [ "small", "medium", "large"
-    ]
+    "options": ["small", "medium", "large"]
   },
   "ma-alert/text": {
     "type": "string",
@@ -198,18 +197,6 @@
   },
   "ma-select/weight": {
     "type": "string"
-  },
-  "ma-sidebar/type": {
-    "type": "string"
-  },
-  "ma-sidebar/position": {
-    "type": "string"
-  },
-  "ma-sidebar/overlay": {
-    "type": "boolean"
-  },
-  "ma-sidebar/show": {
-    "type": "boolean"
   },
   "ma-stack/space": {
     "type": "array|string",
