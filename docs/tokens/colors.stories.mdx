@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { color } from '../../src/tokens/'
+
+<Meta title="Tokens/Colors" />
+
+# Colors
+
+This is the documentation section about Colors
+
+___
+
+<div 
+    style={{
+        display: 'grid', 
+        gap: '2rem', 
+        marginTop: '1.5rem'
+    }}
+>
+    {
+    Object.entries(color).map(([tokenName,tokenValue]) => (
+        <div>
+            <h2 
+                style={{ 
+                    borderBottom: 'none' 
+                }}
+            >
+                {tokenName}
+            </h2>
+            <div 
+                style={{
+                    display: 'flex', 
+                    gap: '1rem'
+                }}
+            >
+                {
+                    Object.entries(tokenValue).map(([tone, hexadecimal]) => (
+                        <div 
+                            style={{
+                                display: 'grid', 
+                                gap: '0.5rem'
+                            }} 
+                        >
+                            <div 
+                                style={{
+                                    display: 'flex', 
+                                    alignItems: 'center', 
+                                    justifyContent: 'center',
+                                    width: '150px', 
+                                    height: '70px', 
+                                    borderRadius: '4px', 
+                                    fontSize: '1rem', 
+                                    boxShadow: '3px 2px 12px rgba(0,0,0,0.15)', 
+                                    background: hexadecimal
+                                }} 
+                            />
+                            <span>{ tone }</span>
+                            <span 
+                                style={{ 
+                                    fontSize: '0.75rem', 
+                                    fontFamily: 'monospace'
+                                }}
+                            >
+                                { hexadecimal }
+                            </span>
+                            <span 
+                                style={{ 
+                                    fontSize: '0.75rem', 
+                                    fontFamily: 'monospace'
+                                }}
+                            >
+                                --color-{ tokenName }-{ tone }
+                            </span>
+                        </div>
+                ))
+                }
+            </div>
+        </div>
+    )
+    )
+    }
+</div>
