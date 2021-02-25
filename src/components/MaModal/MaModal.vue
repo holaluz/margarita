@@ -1,6 +1,10 @@
 <template>
   <div>
     <div ref="modal-trigger">
+      <!--
+        @slot Modal trigger slot
+        @binding function that handles the opening modal's action
+        -->
       <slot name="trigger" :openModal="openModal" />
     </div>
     <ma-modal-portal>
@@ -36,6 +40,10 @@
               </ma-button>
             </div>
             <div ref="modal-content" class="modal-content">
+              <!--
+                @slot Modal's content slot
+                @binding function that handles the closing modal's action
+                -->
               <slot :closeModal="closeModal" name="content" />
             </div>
           </ma-stack>
@@ -63,6 +71,11 @@ const FOCUSABLE_ELEMENTS = [
 const TAB_KEY = 9
 const ESCAPE_KEY = 27
 
+/**
+ * Renders a modal component following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-modal--modal)
+ */
 export default {
   name: 'MaModal',
 
@@ -74,17 +87,26 @@ export default {
   },
 
   props: {
+    /**
+     * Sets modal's title
+     */
     title: {
       type: String,
       required: true,
     },
 
+    /**
+     * Sets modal's width
+     */
     width: {
       type: String,
       default: 'medium',
       validator: (w) => ['small', 'medium', 'large'].includes(w),
     },
 
+    /**
+     * Sets modal's header background color
+     */
     headerType: {
       type: String,
       default: 'white',
@@ -120,6 +142,12 @@ export default {
 
     async openModal() {
       this.showModal = true
+      /**
+       * Open modal event
+       *
+       * @event open
+       * @type {Event}
+       */
       this.$emit('open')
 
       await this.setFocusWithin('modal-content')
@@ -137,6 +165,12 @@ export default {
     // Otherwise no leaving transition happens.
     async closeModal() {
       this.showModal = false
+      /**
+       * Close modal event
+       *
+       * @event close
+       * @type {Event}
+       */
       this.$emit('close')
 
       await this.setFocusWithin('modal-trigger')

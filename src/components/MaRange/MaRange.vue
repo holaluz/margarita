@@ -40,15 +40,34 @@ import uuid from '@margarita/utils/uuid'
 
 const REQUIRED_STEP_KEYS = ['value', 'text']
 
+/**
+ * Renders a range input element following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-range--range)
+ */
 export default {
   name: 'MaRange',
 
   props: {
+    /**
+     * Current range value
+     * @model
+     */
     value: {
       type: String,
       required: true,
     },
 
+    /**
+     * Sets the range steps
+     *.
+     * ```ts
+     *   <{
+     *    text: string,
+     *    value: any,
+     *   }[]>
+     * ```
+     */
     steps: {
       type: Array,
       required: true,
@@ -59,11 +78,17 @@ export default {
         }),
     },
 
+    /**
+     * Sets component's label
+     */
     label: {
       type: String,
       default: '',
     },
 
+    /**
+     * Sets component's id
+     */
     id: {
       type: String,
       default: uuid,

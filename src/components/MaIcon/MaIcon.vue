@@ -22,10 +22,19 @@ import uuid from '@margarita/utils/uuid'
 
 import availableIcons from './availableIcons'
 
+/**
+ * Renders an icon component following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-icon--icon)
+ */
 export default {
   name: 'MaIcon',
 
   props: {
+    /**
+     * Sets which icon should be displayed
+     * @values AddContract, Arrow, ArrowToEnd, BulbOn, Checkmark, Close, DetailsContract, DownloadContract, EditContract, Exit, Gas, Invoices, Link, Logo, LongArrow, Mail, Phone, Plug, Reassign, ReassignCircle, UploadContract, User,
+     */
     icon: {
       type: String,
       default: '',
@@ -35,31 +44,49 @@ export default {
       },
     },
 
+    /**
+     * Sets icon's id
+     */
     id: {
       type: String,
       default: uuid,
     },
 
+    /**
+     * Sets icon's width
+     */
     width: {
       type: [Number, String],
       default: 18,
     },
 
+    /**
+     * Sets icon's height
+     */
     height: {
       type: [Number, String],
       default: 18,
     },
 
+    /**
+     * Sets icon's view box width
+     */
     viewBoxWidth: {
       type: [Number, String],
       default: 18,
     },
 
+    /**
+     * Sets icon's color
+     */
     iconColor: {
       type: String,
       default: 'currentColor',
     },
 
+    /**
+     * Sets icon's title
+     */
     title: {
       type: String,
       default: '',

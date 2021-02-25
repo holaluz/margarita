@@ -1,38 +1,30 @@
 import icons from './availableIcons'
 import docs from '../../../docs/components/MaIcon.docs.mdx'
+import MaIcon from './MaIcon'
 
 export default {
   title: 'Components/Icon',
+  component: MaIcon,
+  args: {
+    icon: icons[0],
+    id: 'randomId',
+  },
+  argTypes: {
+    icon: {
+      control: {
+        type: 'select',
+        options: icons,
+      },
+    },
+  },
   parameters: {
     docs: { page: docs },
   },
 }
 
-export const Icons = () => ({
-  template: `
-    <div :style="containerStyle">
-      <div v-for="icon in icons" :key="icon" :style="iconStyle">
-        <ma-icon :icon="icon" />
-        <div :style="textStyle">{{ icon }}</div>
-      </div>
-    </div>
-  `,
-
-  data() {
-    return {
-      icons,
-      containerStyle: {
-        display: 'grid',
-        gridGap: '1.5em',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-      },
-      iconStyle: {
-        display: 'flex',
-      },
-      textStyle: {
-        opacity: 0.8,
-        paddingLeft: '1em',
-      },
-    }
-  },
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  template: `<ma-icon v-bind="$props" />`,
 })
+
+export const Icon = Template.bind({})

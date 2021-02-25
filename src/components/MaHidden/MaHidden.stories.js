@@ -1,35 +1,61 @@
+import MaHidden from './MaHidden'
 import docs from '../../../docs/components/MaHidden.docs.mdx'
+
 export default {
   title: 'Layout/Hidden',
+  component: MaHidden,
   parameters: {
     docs: { page: docs },
   },
+  args: {
+    below: 'tablet',
+    above: 'mobile',
+  },
+  argTypes: {
+    below: {
+      type: 'string',
+      defaultValue: null,
+      description: 'Hides the content below the desired breakpoint',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: `null` },
+      },
+      control: {
+        type: 'select',
+        options: [null, 'tablet', 'desktop'],
+      },
+    },
+    above: {
+      type: 'string',
+      defaultValue: null,
+      description: 'Hides the content above the desired breakpoint',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: `null` },
+      },
+      control: {
+        type: 'select',
+        options: ['mobile', 'tablet', null],
+      },
+    },
+    inline: {
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Sets if content wrapper should be an inline element',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: `false` },
+      },
+    },
+  },
 }
 
-export const Hidden = () => {
-  return {
-    template: `
-      <div>
-        <ma-hidden below="tablet">1. I'm hidden below tablet!</ma-hidden>
-        <ma-hidden below="desktop">2. I'm hidden below desktop!</ma-hidden>
-        <ma-hidden above="mobile">3. I'm hidden above mobile!</ma-hidden>
-        <ma-hidden above="tablet">4. I'm hidden above tablet!</ma-hidden>
-      </div>
-    `,
-  }
-}
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  template: `<ma-hidden v-bind="$props">
+    <div v-if="$props.below">I'm hidden below {{below}}!</div>
+    <div v-if="$props.above">I'm hidden above {{above}}!</div>
+  </ma-hidden>`,
+})
 
-export const InlineHidden = () => {
-  return {
-    template: `
-      <p>
-        Hidden
-          <b>
-            <ma-hidden inline below="tablet">below</ma-hidden>
-            <ma-hidden inline above="mobile">above</ma-hidden>
-          </b>
-        tablet.
-      </p>
-    `,
-  }
-}
+export const Hidden = Template.bind({})

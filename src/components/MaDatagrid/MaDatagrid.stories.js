@@ -1,7 +1,5 @@
-import shuffle from 'lodash.shuffle'
-import { boolean, object } from '@storybook/addon-knobs'
-import { action } from '@storybook/addon-actions'
 import docs from '../../../docs/components/MaDataGrid.docs.mdx'
+import MaDatagrid from './MaDatagrid'
 
 const columns = [
   {
@@ -48,40 +46,22 @@ export default {
       template: '<div style="width:600px"><story/></div>',
     }),
   ],
+  component: MaDatagrid,
+  argTypes: {
+    sort: { action: 'sort' },
+  },
   parameters: {
     docs: { page: docs },
   },
 }
 
-export const Datagrid = () => {
-  const isLoading = boolean('Loading', false)
-  const computedRows = object('Rows', rows)
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  template: `<ma-datagrid v-bind="$props" :columns="columns" @sort="sort" />`,
+})
 
-  return {
-    template: `<ma-datagrid v-bind="$props" :columns="columns" @sort="sortBy" />`,
-
-    data() {
-      return { columns }
-    },
-
-    props: {
-      rows: {
-        default: computedRows,
-      },
-      isLoading: {
-        default: isLoading,
-      },
-    },
-
-    methods: {
-      sortBy(payload) {
-        // No, we are not sorting.
-        // Oh, and don't do this. We're mutating a prop here just for
-        // demonstration purposes.
-        this.rows = shuffle(this.rows)
-
-        action('sort')(payload)
-      },
-    },
-  }
+export const Datagrid = Template.bind({})
+Datagrid.args = {
+  columns,
+  rows,
 }

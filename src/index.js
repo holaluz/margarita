@@ -12,7 +12,6 @@ import MaPagination from './components/MaPagination'
 import MaPill from './components/MaPill'
 import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
-import MaSidebar from './components/MaSidebar'
 import MaText from './components/MaText'
 import MaTextField from './components/MaTextField'
 import MaStack from './components/MaStack'
@@ -33,7 +32,6 @@ export {
   MaPill,
   MaRange,
   MaSelect,
-  MaSidebar,
   MaStack,
   MaText,
   MaTextField,
@@ -58,7 +56,6 @@ function install(Vue) {
   Vue.component('MaPill', MaPill)
   Vue.component('MaRange', MaRange)
   Vue.component('MaSelect', MaSelect)
-  Vue.component('MaSidebar', MaSidebar)
   Vue.component('MaStack', MaStack)
   Vue.component('MaHeading', MaHeading)
   Vue.component('MaText', MaText)

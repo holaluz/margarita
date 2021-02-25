@@ -19,8 +19,12 @@
 <script>
 import uuid from '@margarita/utils/uuid'
 
-const AVAILABLE_TYPES = ['radio', 'checkbox']
-
+/**
+ * Renders a radio or checkbox component following the Design System guidelines
+ *
+ * [Radio's component API documentation](https://holaluz.github.io/margarita/?path=/story/components-option--radio)
+ * [Checkbox's component API documentation](https://holaluz.github.io/margarita/?path=/story/components-option--checkbox)
+ */
 export default {
   name: 'MaOption',
 
@@ -34,35 +38,49 @@ export default {
   },
 
   props: {
+    /**
+     * Component's model value
+     * @model
+     */
     checked: {
       type: [String, Number, Boolean, Array],
       required: true,
     },
-
+    /**
+     * Sets the component's id
+     */
     id: {
       type: String,
       default: uuid,
     },
-
+    /**
+     * Sets the option value
+     */
     value: {
       type: [String, Number, Boolean],
       default: null,
     },
-
+    /**
+     * Sets if element should be disabled
+     */
     disabled: {
       type: Boolean,
       default: false,
     },
-
+    /**
+     * Sets element's style to look like a card
+     */
     card: {
       type: Boolean,
       default: false,
     },
-
+    /**
+     * Sets element's input type
+     */
     type: {
       type: String,
       default: 'radio',
-      validator: (v) => AVAILABLE_TYPES.includes(v),
+      validator: (v) => ['radio', 'checkbox'].includes(v),
     },
   },
 
@@ -74,7 +92,12 @@ export default {
 
       set(newValue) {
         if (this.disabled) return false
-
+        /**
+         * Change event
+         *
+         * @event change
+         * @type {Event}
+         */
         this.$emit('change', newValue)
       },
     },

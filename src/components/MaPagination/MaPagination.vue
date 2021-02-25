@@ -47,6 +47,11 @@
 import MaButton from '@margarita/components/MaButton'
 import MaIcon from '@margarita/components/MaIcon'
 
+/**
+ * Renders a pagination component following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-pagination--pagination)
+ */
 export default {
   name: 'MaPagination',
 
@@ -56,37 +61,58 @@ export default {
   },
 
   props: {
+    /**
+     * Sets the amount of page buttons' to be displayed
+     */
     buttonsNumber: {
       type: Number,
       default: 5,
       validator: (value) => value >= 3,
     },
 
+    /**
+     * Defines total amount of items to be displayed
+     */
     totalItems: {
       type: Number,
       required: true,
     },
 
+    /**
+     * Defines amount of items that will be displayed per each page
+     */
     itemsPerPage: {
       type: Number,
       required: true,
     },
 
+    /**
+     * Sets left arrow button aria label
+     */
     leftButtonAria: {
       type: String,
       default: 'Previous page',
     },
 
+    /**
+     * Sets right arrow button aria label
+     */
     rightButtonAria: {
       type: String,
       default: 'Next page',
     },
 
+    /**
+     * Sets numbered button aria label
+     */
     numberButtonAria: {
       type: String,
       default: 'Page number',
     },
 
+    /**
+     * Sets initial page number
+     */
     startPage: {
       type: Number,
       default: 1,
@@ -151,6 +177,12 @@ export default {
 
     onButtonClick(page) {
       this.currentPage = page
+      /**
+       * Change page event
+       *
+       * @event pagination
+       * @type {Event}
+       */
       this.$emit('pagination', page)
     },
   },

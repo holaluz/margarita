@@ -1,84 +1,67 @@
-import { boolean } from '@storybook/addon-knobs'
-import { action } from '@storybook/addon-actions'
+import MaOption from './MaOption'
 import docs from '../../../docs/components/MaOption.docs.mdx'
 
 export default {
   title: 'Components/Option',
+  component: MaOption,
+  argTypes: {
+    type: {
+      control: false,
+    },
+    'v-model': {
+      control: false,
+    },
+    change: { action: 'change' },
+  },
   parameters: {
     docs: { page: docs },
   },
 }
 
-export const Radio = () => {
-  const card = boolean('Card', false)
-  const disabled = boolean('Disabled', false)
-
+const RadioTemplate = (args, { argTypes }) => {
   return {
+    data: () => ({
+      selectedOption: 'radio1',
+    }),
+    props: Object.keys(argTypes),
     template: `
-      <div>
-        <ma-option v-model="selected" v-bind="$props" value="id1" type="radio" @change="onChange">
+      <ma-stack space="small">
+        <ma-option v-model="selectedOption" v-bind="$props" value="radio1" id="radio1" @change="change">
           My first radio
         </ma-option>
-        <ma-option v-model="selected" v-bind="$props" value="id2" type="radio" @change="onChange">
+        <ma-option v-model="selectedOption" v-bind="$props" value="radio2" id="radio2" @change="change">
           My second radio
         </ma-option>
-      </div>
+      </ma-stack>
     `,
-
-    props: {
-      card: {
-        default: card,
-      },
-      disabled: {
-        default: disabled,
-      },
-    },
-
-    data() {
-      return {
-        selected: 'id1',
-      }
-    },
-
-    methods: {
-      onChange: action(`Change`),
-    },
   }
 }
 
-export const Checkbox = () => {
-  const card = boolean('Card', false)
-  const disabled = boolean('Disabled', false)
+export const Radio = RadioTemplate.bind({})
+Radio.args = {
+  type: 'radio',
+}
 
+const CheckboxTemplate = (args, { argTypes }) => {
   return {
+    data: () => ({
+      checkedOption: [],
+    }),
+    props: Object.keys(argTypes),
     template: `
-      <div>
-        <ma-option v-model="checked" value="checkbox1" type="checkbox" v-bind="$props" @change="onChange">
+      <ma-stack space="small">
+        <ma-option v-model="checkedOption" v-bind="$props" value="checkbox1" id="checkbox1" @change="change">
           My first checkbox
         </ma-option>
-        <ma-option v-model="checked" value="checkbox2" type="checkbox" v-bind="$props" @change="onChange">
+        <ma-option v-model="checkedOption" v-bind="$props" value="checkbox2" id="checkbox2" @change="change">
           My second checkbox
         </ma-option>
-      </div>
+      </ma-stack>
     `,
-
-    props: {
-      card: {
-        default: card,
-      },
-      disabled: {
-        default: disabled,
-      },
-    },
-
-    data() {
-      return {
-        checked: [],
-      }
-    },
-
-    methods: {
-      onChange: action(`Change`),
-    },
   }
+}
+
+export const Checkbox = CheckboxTemplate.bind({})
+Checkbox.args = {
+  type: 'checkbox',
 }

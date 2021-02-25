@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { spacing } from '../../src/tokens'
+
+<Meta title="Tokens/Spacing" />
+
+# Spacing
+
+Consistent spacing creates visual balance, rythm and visual understanding that makes the user interface (UI) easier to scan. All spacing is done in increments of 8 pixels, which is the basic unit of measurement for spacing.
+
+---
+
+#### Create visual rhythm
+
+We use incrementally measured spacing to create harmonious arrangements of components and text. This gives the elements a predictable rhythm, which makes the experience as a whole feel intentional and well designed.
+
+#### Precise but flexible
+
+Spacing also reacts to the objects it surrounds. Optical adjustments can also be made if an element looks off and the spacing needs a nudge to make things feel right.
+
+## Layout Spacing
+
+<div
+  style={{
+    display: 'grid',
+    gridAutoFlow: 'rows',
+    gap: '2rem',
+    marginTop: '1.5rem',
+  }}
+>
+  {Object.entries(spacing).map(([tokenName, tokenValue]) => (
+    <div
+      style={{
+        display: 'grid',
+        gridAutoFlow: 'column',
+        gap: '3rem',
+        maxWidth: '600px',
+        alignItems: 'center',
+        gridTemplateColumns: '4rem 11rem 4rem',
+      }}
+    >
+      <span>{tokenName}</span>
+      <div
+        style={{
+          width: tokenValue,
+          height: tokenValue,
+          backgroundColor: 'var(--color-gray-light)',
+          justifySelf: 'center',
+        }}
+      />
+      <span>{tokenValue}</span>
+    </div>
+  ))}
+</div>
+
+## How to choose spacing
+
+Use less space between small components, or components that share a close functional relationship, for example, for buttons that have a similar purpose.
+
+Coordinate small and large values, along with structural components to create visual groupings of related things. This helps our users understand the interface and more easily find what they’re looking for.

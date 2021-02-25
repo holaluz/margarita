@@ -1,9 +1,32 @@
-import { select, array } from '@storybook/addon-knobs'
 import { spacing } from '@margarita/tokens'
+import MaStack from './MaStack'
 import docs from '../../../docs/components/MaStack.docs.mdx'
 
 export default {
   title: 'Layout/Stack',
+  component: MaStack,
+  args: {
+    space: 'small',
+    align: 'center',
+  },
+  argTypes: {
+    space: {
+      control: {
+        type: 'select',
+        options: Object.keys(spacing),
+      },
+      description:
+        'If an array is passed, values will target the design system breakpoints',
+    },
+    align: {
+      control: {
+        type: 'select',
+        options: ['left', 'center', 'right', 'fill'],
+      },
+      description:
+        'If an array is passed, values will target the design system breakpoints',
+    },
+  },
   parameters: {
     docs: { page: docs },
   },
@@ -17,76 +40,60 @@ const DemoBlock = {
   `,
 }
 
-const spacingKeys = Object.keys(spacing)
-
-export const Stack = () => {
-  const space = select('Space', spacingKeys, spacingKeys[3])
-  const align = select('Align', [null, 'left', 'center', 'right'], 'center')
-
-  return {
-    components: { DemoBlock },
-
-    template: `
-      <div style="background-color:#f1f1f1;width:600px">
-        <ma-stack :space="space" :align="align">
-          <demo-block v-for="i in [1,2,3]" :key="i">{{ i }}</demo-block>
-        </ma-stack>
-      </div>
-    `,
-
-    props: {
-      space: {
-        default: space,
-      },
-      align: {
-        default: align,
-      },
-    },
-  }
-}
-
-export const NestedStack = () => {
-  return {
-    template: `
-      <ma-stack space="2x-large" style="width: 400px;outline: 1px solid red;background-color:#f1f1f2;padding:1rem">
-        <ma-stack space="xlarge" align="center" style="outline: 1px solid red">
-          <span style="font-size: 2rem">Log In</span>
-        </ma-stack>
-        <ma-stack space="small" style="outline: 1px solid red">
-          <ma-text-field label="email" />
-          <ma-text-field label="password" />
-          <span>reset my password</span>
-          <ma-button>submit</ma-button>
-        </ma-stack>
-        <ma-alert text="wrong password!" type="warning" />
+const StackTemplate = (args, { argTypes }) => ({
+  components: { DemoBlock },
+  props: Object.keys(argTypes),
+  template: `
+    <div style="background-color:#f1f1f1;width:600px;">
+      <ma-stack v-bind="$props">
+        <demo-block v-for="i in [1,2,3]" :key="i">{{ i }}</demo-block>
       </ma-stack>
-    `,
-  }
+    </div>
+  `,
+})
+
+export const Stack = StackTemplate.bind({})
+
+const NestedStackTemplate = (args, { argTypes }) => ({
+  components: { DemoBlock },
+  props: Object.keys(argTypes),
+  template: `
+    <ma-stack space="2x-large" style="width: 400px;outline: 1px solid red;background-color:#f1f1f2;padding:1rem">
+      <ma-stack space="xlarge" align="center" style="outline: 1px solid red">
+        <span style="font-size: 2rem">Log In</span>
+      </ma-stack>
+      <ma-stack space="small" style="outline: 1px solid red">
+        <ma-text-field label="email" />
+        <ma-text-field label="password" />
+        <span>reset my password</span>
+        <ma-button>submit</ma-button>
+      </ma-stack>
+      <ma-alert text="wrong password!" type="warning" />
+    </ma-stack>
+  `,
+})
+
+export const NestedStack = NestedStackTemplate.bind({})
+NestedStack.argTypes = {
+  space: { table: { disable: true }, control: false },
+  align: { table: { disable: true }, control: false },
+  default: { table: { disable: true }, control: false },
 }
 
-export const ResponsiveProps = () => {
-  const space = array('Space', ['xsmall', 'medium', '3x-large'])
-  const align = array('Align', ['center', 'left'])
-
-  return {
-    components: { DemoBlock },
-
-    template: `
-      <div style="background-color:#f1f1f1;width:600px">
-        <p>current breakpoint: {{ $layout.currentBreakpoint }}</p>
-        <ma-stack :space="space" :align="align">
-          <demo-block v-for="i in [1,2,3]" :key="i">{{ i }}</demo-block>
-        </ma-stack>
-      </div>
-    `,
-
-    props: {
-      space: {
-        default: space,
-      },
-      align: {
-        default: align,
-      },
+export const ResponsivePropsStack = StackTemplate.bind({})
+ResponsivePropsStack.argTypes = {
+  space: {
+    control: {
+      type: 'array',
     },
-  }
+  },
+  align: {
+    control: {
+      type: 'array',
+    },
+  },
+}
+ResponsivePropsStack.args = {
+  space: ['xsmall', 'medium', '3x-large'],
+  align: ['center', 'left'],
 }

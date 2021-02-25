@@ -2,8 +2,7 @@
   "ma-alert/size": {
     "type": "string",
     "description": "Sets the size of the component",
-    "options": [ "small", "medium", "large"
-    ]
+    "options": ["small", "medium", "large"]
   },
   "ma-alert/text": {
     "type": "string",
@@ -41,22 +40,29 @@
     "options": ["primary", "secondary", "white", "gradient", "no-background"]
   },
   "ma-card/color": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets card background color",
+    "options": ["white", "gray"]
   },
   "ma-card/hasPaddingTop": {
-    "type": "boolean"
+    "type": "boolean",
+    "description": "Sets card's top padding"
   },
   "ma-datagrid/rows": {
-    "type": "array"
+    "type": "array",
+    "description": "Sets the datagrid rows"
   },
   "ma-datagrid/columns": {
-    "type": "array"
+    "type": "array",
+    "description": "Sets the datagrid columns.\n\nIf `column.value` not present, `column.component` is required, and viceversa.\n```ts\n  <{\n   name: string,\n   value?: any,\n   component?: VueComponent\n  }[]>\n```"
   },
   "ma-datagrid/isLoading": {
-    "type": "boolean"
+    "type": "boolean",
+    "description": "Sets the is loading status"
   },
   "ma-datagrid/noResultsText": {
-    "type": "string"
+    "type": "string",
+    "description": "Displayed text when no data is displayed"
   },
   "ma-heading/level": {
     "type": "string",
@@ -65,7 +71,7 @@
   },
   "ma-heading/size": {
     "type": "string",
-    "description": "Sets the text element size accroding to our Design System",
+    "description": "Sets the text element size according to our Design System",
     "options": ["xsmall", "small", "medium", "large", "xlarge"]
   },
   "ma-heading/tone": {
@@ -84,136 +90,190 @@
     ]
   },
   "ma-icon/icon": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets which icon should be displayed",
+    "options": [
+      "AddContract",
+      "Arrow",
+      "ArrowToEnd",
+      "BulbOn",
+      "Checkmark",
+      "Close",
+      "DetailsContract",
+      "DownloadContract",
+      "EditContract",
+      "Exit",
+      "Gas",
+      "Invoices",
+      "Link",
+      "Logo",
+      "LongArrow",
+      "Mail",
+      "Phone",
+      "Plug",
+      "Reassign",
+      "ReassignCircle",
+      "UploadContract",
+      "User",
+      ""
+    ]
   },
   "ma-icon/id": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets icon's id"
   },
   "ma-icon/width": {
-    "type": "number|string"
+    "type": "number|string",
+    "description": "Sets icon's width"
   },
   "ma-icon/height": {
-    "type": "number|string"
+    "type": "number|string",
+    "description": "Sets icon's height"
   },
   "ma-icon/viewBoxWidth": {
-    "type": "number|string"
+    "type": "number|string",
+    "description": "Sets icon's view box width"
   },
   "ma-icon/iconColor": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets icon's color"
   },
   "ma-icon/title": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets icon's title"
   },
   "ma-modal/title": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets modal's title"
   },
   "ma-modal/width": {
     "type": "string",
+    "description": "Sets modal's width",
     "options": ["small", "medium", "large"]
   },
   "ma-modal/headerType": {
     "type": "string",
+    "description": "Sets modal's header background color",
     "options": ["white", "gradient"]
   },
   "ma-option/v-model": {
-    "type": "string|number|boolean|array"
+    "type": "string|number|boolean|array",
+    "description": "Component's model value"
   },
   "ma-option/id": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets the component's id"
   },
   "ma-option/value": {
-    "type": "string|number|boolean"
+    "type": "string|number|boolean",
+    "description": "Sets the option value"
   },
   "ma-option/disabled": {
-    "type": "boolean"
+    "type": "boolean",
+    "description": "Sets if element should be disabled"
   },
   "ma-option/card": {
-    "type": "boolean"
+    "type": "boolean",
+    "description": "Sets element's style to look like a card"
   },
   "ma-option/type": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets element's input type",
+    "options": ["radio", "checkbox"]
   },
   "ma-pagination/buttonsNumber": {
-    "type": "number"
+    "type": "number",
+    "description": "Sets the amount of page buttons' to be displayed"
   },
   "ma-pagination/totalItems": {
-    "type": "number"
+    "type": "number",
+    "description": "Defines total amount of items to be displayed"
   },
   "ma-pagination/itemsPerPage": {
-    "type": "number"
+    "type": "number",
+    "description": "Defines amount of items that will be displayed per each page"
   },
   "ma-pagination/leftButtonAria": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets left arrow button aria label"
   },
   "ma-pagination/rightButtonAria": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets right arrow button aria label"
   },
   "ma-pagination/numberButtonAria": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets numbered button aria label"
   },
   "ma-pagination/startPage": {
-    "type": "number"
+    "type": "number",
+    "description": "Sets initial page number"
   },
   "ma-pill/color": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets component's styling color",
+    "options": ["green", "orange", "red", "gray", "dark", "blue"]
   },
   "ma-pill/text": {
-    "type": "number|string"
+    "type": "number|string",
+    "description": "Sets text to be displayed"
   },
-  "ma-range/value": {
-    "type": "string"
+  "ma-range/v-model": {
+    "type": "string",
+    "description": "Current range value"
   },
   "ma-range/steps": {
-    "type": "array"
+    "type": "array",
+    "description": "Sets the range steps\n.\n```ts\n  <{\n   text: string,\n   value: any,\n  }[]>\n```"
   },
   "ma-range/label": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets component's label"
   },
   "ma-range/id": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets component's id"
   },
   "ma-select/options": {
-    "type": "array"
+    "type": "array",
+    "description": "Available select component options"
   },
-  "ma-select/value": {
-    "type": "string|number|boolean|object"
+  "ma-select/v-model": {
+    "type": "string|number|boolean|object",
+    "description": "Component's model value"
   },
   "ma-select/id": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets component's id"
   },
   "ma-select/label": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets component's label\n\n⚠️ If attribute aria-label is defined, input's label will be 'visually' hidden"
   },
   "ma-select/errorMessage": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets component's error message to display if `hasError === true`"
   },
   "ma-select/hasError": {
-    "type": "boolean"
+    "type": "boolean",
+    "description": "Displays or hides error message defined through `errorMessage` property"
   },
   "ma-select/formatter": {
-    "type": "function"
+    "type": "function",
+    "description": "Formats the given options before rendering them\n\n```ts\nformattedOption = {\n   disabled: boolean,\n   label: string,\n   text: string,\n   value: string | number | boolean | object\n }\n```"
   },
   "ma-select/fieldClass": {
-    "type": "string"
+    "type": "string",
+    "description": "Applies given styling class to component"
   },
   "ma-select/weight": {
-    "type": "string"
-  },
-  "ma-sidebar/type": {
-    "type": "string"
-  },
-  "ma-sidebar/position": {
-    "type": "string"
-  },
-  "ma-sidebar/overlay": {
-    "type": "boolean"
-  },
-  "ma-sidebar/show": {
-    "type": "boolean"
+    "type": "string",
+    "description": "Applies given styling class to component",
+    "options": ["bold", "semibold", "medium", "regular"]
   },
   "ma-stack/space": {
     "type": "array|string",
-    "description": "Sets the space gap between children.",
+    "description": "Sets the space gap between children.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply medium on all the different breakpoints\nspace = 'small'\n// This would apply none on mobile, small on tablet and large on desktop\n:space=\"['none', 'small', 'large']\"\n```\n\n[Spacing tokens documentation](https://holaluz.github.io/margarita/?path=/story/tokens-spacing--page)",
     "options": [
       "none",
       "xsmall",
@@ -230,7 +290,7 @@
   },
   "ma-stack/align": {
     "type": "array|string",
-    "description": "Set the children alignment. Defaults to fill.",
+    "description": "Sets the children alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply left on all the different breakpoints\nalign = 'left'\n// This would apply fill on mobile, center on tablet and left on desktop\n:align=\"['fill', 'center', 'left']\"\n```",
     "options": ["left", "center", "right", "fill"]
   },
   "ma-text/tag": {
@@ -240,7 +300,7 @@
   },
   "ma-text/size": {
     "type": "string",
-    "description": "Sets the text element size accroding to our Design System",
+    "description": "Sets the text element size according to our Design System",
     "options": ["xsmall", "small", "medium"]
   },
   "ma-text/italic": {
@@ -267,18 +327,23 @@
     ]
   },
   "ma-text-field/errorMessage": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets component's error message to display if `hasError === true`"
   },
   "ma-text-field/id": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets component's id"
   },
   "ma-text-field/hasError": {
-    "type": "boolean"
+    "type": "boolean",
+    "description": "Displays or hides error message defined through `errorMessage` property"
   },
   "ma-text-field/label": {
-    "type": "string"
+    "type": "string",
+    "description": "Sets component's label\n\n⚠️ If attribute aria-label is defined, input's label will be 'visually' hidden"
   },
-  "ma-text-field/value": {
-    "type": "string|number"
+  "ma-text-field/v-model": {
+    "type": "string|number",
+    "description": "Component's model value"
   }
 }

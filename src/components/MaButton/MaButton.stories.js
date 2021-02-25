@@ -38,4 +38,4 @@ const Template = (args, { argTypes }) => ({
   template: `<ma-button v-bind="$props" @click="click">click me</ma-button>`,
 })
 
-export const DefaultButton = Template.bind({})
+export const Button = Template.bind({})

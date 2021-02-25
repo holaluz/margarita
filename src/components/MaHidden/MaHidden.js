@@ -1,9 +1,20 @@
 import { breakpointsEnum } from '../../tokens'
 
+/**
+ * Renders a component that hides its children according to the Design System breakpoints.
+ *
+ * Beware that at least one of both `below` and `above` properties must be set
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-hidden--hidden)
+ */
 export default {
   name: 'MaHidden',
 
   props: {
+    /**
+     * Hides the content below the desired breakpoint
+     * @values tablet, desktop
+     */
     below: {
       type: String,
       default: null,
@@ -11,6 +22,10 @@ export default {
         [null, breakpointsEnum.tablet, breakpointsEnum.desktop].includes(v),
     },
 
+    /**
+     * Hides the content above the desired breakpoint
+     * @values mobile, tablet
+     */
     above: {
       type: String,
       default: null,
@@ -18,6 +33,9 @@ export default {
         [breakpointsEnum.mobile, breakpointsEnum.tablet, null].includes(v),
     },
 
+    /**
+     * Sets if content should be displaced inline
+     */
     inline: {
       type: Boolean,
       default: false,

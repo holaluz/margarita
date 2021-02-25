@@ -5,6 +5,7 @@
     :class="computedClass"
     class="ma-text"
   >
+    <!-- @slot Text content slot -->
     <slot />
   </component>
 </template>
@@ -13,6 +14,8 @@
 import { text, tones } from '../../tokens'
 /**
  * Renders text following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-text--text)
  */
 export default {
   name: 'MaText',
@@ -28,7 +31,7 @@ export default {
     },
 
     /**
-     * Sets the text element size accroding to our Design System
+     * Sets the text element size according to our Design System
      */
     size: {
       type: String,
