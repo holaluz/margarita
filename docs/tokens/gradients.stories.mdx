@@ -17,49 +17,46 @@ This is the documentation section about Gradients
     width: '450px'
   }}
 >
-  {
-    Object.entries(gradient).map(([tokenName,tokenValue]) => (
-      <div>
-        <h2 
-          style={{ 
-            borderBottom: 'none' 
-          }}
-        >
-          {tokenName}
-        </h2>
+  {Object.entries(gradient).map(([tokenName,tokenValue]) => (
+    <div>
+      <h2 
+        style={{ 
+          borderBottom: 'none' 
+        }}
+      >
+        {tokenName}
+      </h2>
+      <div 
+        style={{
+          display: 'grid', 
+          gap: '0.5rem' 
+        }}
+      >
         <div 
-          style={{
-            display: 'grid', 
-            gap: '0.5rem' 
+          style={{ 
+            height: '70px', 
+            borderRadius: '4px', 
+            boxShadow: '3px 2px 12px rgba(0,0,0,0.15)', 
+            background: `linear-gradient(to right, ${tokenValue})`
+          }}
+        />
+        <span 
+          style={{ 
+            fontSize: '0.75rem', 
+            fontFamily: 'monospace'
           }}
         >
-          <div 
-            style={{ 
-              height: '70px', 
-              borderRadius: '4px', 
-              boxShadow: '3px 2px 12px rgba(0,0,0,0.15)', 
-              background: `linear-gradient(to right, ${tokenValue})`
-            }}
-          />
-          <span 
-            style={{ 
-              fontSize: '0.75rem', 
-              fontFamily: 'monospace'
-            }}
-          >
-            {tokenValue}
-          </span>
-          <span 
-            style={{ 
-              fontSize: '0.75rem', 
-              fontFamily: 'monospace'
-            }}
-          >
-            --gradient-{tokenName}
-          </span>
-        </div>
+          {tokenValue}
+        </span>
+        <span 
+          style={{ 
+            fontSize: '0.75rem', 
+            fontFamily: 'monospace'
+          }}
+        >
+          --gradient-{tokenName}
+        </span>
       </div>
-      )
-    )
-  }
+    </div>
+  ))}
 </div>
