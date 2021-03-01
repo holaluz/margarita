@@ -39,10 +39,9 @@ export default {
   render(createElement, { parent, props, slots }) {
     const gap = getResponsiveGap({ parent, gap: props.gap })
     const columns = getResponsiveColumns({ parent, columns: props.columns })
-    const hasAutoFlow = checkAutoFlow({ columns })
     const style = { gap }
 
-    if (!hasAutoFlow) {
+    if (!hasAutoFlow({ columns })) {
       style.gridTemplateColumns = getGridTemplateColumns({ gap, columns })
       style.justifyContent = props.justify
     }
@@ -52,7 +51,7 @@ export default {
       {
         class: {
           grid: true,
-          hasAutoFlow,
+          'has-auto-flow': hasAutoFlow({ columns }),
           [`vertical-align-${props.verticalAlign}`]: true,
         },
         style,
@@ -74,7 +73,7 @@ function getResponsiveColumns({ parent, columns }) {
   return responsiveColumns
 }
 
-function checkAutoFlow({ columns }) {
+function hasAutoFlow({ columns }) {
   return columns.includes(autoFlowOperator)
 }
 
@@ -92,8 +91,10 @@ function getGridTemplateColumns({ gap, columns }) {
 
 function validateColumnsProp({ columns }) {
   let columnsSum = 0
+
   // eslint-disable-next-line no-console
   const logError = (message) => console.error(`[Layout Error] ${message}`)
+
   columns.forEach((c, i) => {
     if (c === '*') {
       if (columns.length !== 1) {
@@ -111,6 +112,7 @@ function validateColumnsProp({ columns }) {
     }
     columnsSum += columnValue
   })
+
   if (columnsSum > columnCount) {
     logError(`The row overflows the ${columnCount}-column layout.`)
   }
@@ -121,7 +123,7 @@ function validateColumnsProp({ columns }) {
 .grid {
   display: grid;
 }
-.hasAutoFlow {
+.has-auto-flow {
   grid-auto-flow: column;
 }
 .vertical-align-center {

@@ -63,7 +63,7 @@ describe('MaColumns', () => {
 
   test('adds auto flow if columns has autoFlow operator', () => {
     const { contentWrapper } = renderComponent({ columns: '*' })
-    expect(contentWrapper).toHaveClass('hasAutoFlow')
+    expect(contentWrapper).toHaveClass('has-auto-flow')
   })
 
   test('adds correct column size', () => {

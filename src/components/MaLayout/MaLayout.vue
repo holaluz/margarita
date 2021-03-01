@@ -36,8 +36,8 @@ export default {
   },
 
   render(createElement, { parent, props, slots, data }) {
-    const staticClass = data.staticClass || ''
     let dom = slots().default
+
     if (props.columns) {
       const grid = getGrid({ parent, columns: props.columns })
       dom = renderGrid({
@@ -49,11 +49,12 @@ export default {
         verticalAlign: props.verticalAlign,
       })
     }
+
     return renderStack({
       createElement,
       dom,
       gap: props.gap,
-      staticClass,
+      staticClass: data.staticClass || '',
     })
   },
 }
@@ -65,6 +66,30 @@ function getGrid({ parent, columns }) {
 
 function renderStack({ createElement, dom, gap, staticClass }) {
   return createElement(MaStack, { staticClass, props: { space: gap } }, dom)
+}
+
+function renderGrid({ createElement, dom, grid, gap, justify, verticalAlign }) {
+  let lastIdx = 0
+
+  return grid.map((row, i) => {
+    const isLast = i === grid.length - 1
+    const children = dom.filter((c) => c.tag)
+
+    const rowChildren = children.slice(
+      lastIdx,
+      isLast ? children.length : lastIdx + row.length
+    )
+    lastIdx += row.length
+
+    return renderColumns({
+      createElement,
+      columns: row.join(' '),
+      children: rowChildren,
+      gap,
+      justify,
+      verticalAlign,
+    })
+  })
 }
 
 function renderColumns({
@@ -87,26 +112,5 @@ function renderColumns({
     },
     children
   )
-}
-
-function renderGrid({ createElement, dom, grid, gap, justify, verticalAlign }) {
-  let lastIdx = 0
-  return grid.map((row, i) => {
-    const isLast = i === grid.length - 1
-    const children = dom.filter((c) => c.tag)
-    const rowChildren = children.slice(
-      lastIdx,
-      isLast ? children.length : lastIdx + row.length
-    )
-    lastIdx += row.length
-    return renderColumns({
-      createElement,
-      columns: row.join(' '),
-      children: rowChildren,
-      gap,
-      justify,
-      verticalAlign,
-    })
-  })
 }
 </script>
