@@ -20,8 +20,8 @@ export default {
      * Defines the columns layout.
      *
      * ```ts
-     * <ma-column columns="12">...</ma-column>
-     * <ma-column :columns="['4', '4', '4']">...</ma-column>
+     * <ma-column columns="6 6">...</ma-column>
+     * <ma-column :columns="['12', '4 4 4', '6 6']">...</ma-column>
      * ```
      */
     columns: {
@@ -113,7 +113,9 @@ function getResponsiveColumns({ parent, columns }) {
   const responsiveColumns = parent.$layout
     .getResponsivePropValue(columns)
     .split(' ')
-  validateColumnsProp({ columns: responsiveColumns })
+
+  validateColumnsProp(responsiveColumns)
+
   return responsiveColumns
 }
 
@@ -125,15 +127,20 @@ function hasAutoFlow({ columns }) {
 // https://stackoverflow.com/a/45092180
 function getGridTemplateColumns({ gap, columns }) {
   const gapDistribution = (columns.length - 1) / columns.length
+
   return columns
     .map((c) => {
       const widthPercentile = (c / columnCount) * 100
+      if (gap === spacing.none || gapDistribution === 0) {
+        return `${widthPercentile}%`
+      }
+
       return `calc(${widthPercentile}% - ${gap} * ${gapDistribution})`
     })
     .join(' ')
 }
 
-function validateColumnsProp({ columns }) {
+function validateColumnsProp(columns) {
   let columnsSum = 0
 
   // eslint-disable-next-line no-console
