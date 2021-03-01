@@ -3,9 +3,11 @@ import './css/index.css'
 import MaAlert from './components/MaAlert'
 import MaButton from './components/MaButton'
 import MaCard from './components/MaCard'
+import MaColumns from './components/MaColumns'
 import MaDatagrid from './components/MaDatagrid'
 import MaHidden from './components/MaHidden'
 import MaIcon from './components/MaIcon'
+import MaLayout from './components/MaLayout'
 import MaModal from './components/MaModal'
 import MaOption from './components/MaOption'
 import MaPagination from './components/MaPagination'
@@ -23,9 +25,11 @@ export {
   MaAlert,
   MaButton,
   MaCard,
+  MaColumns,
   MaDatagrid,
   MaHidden,
   MaIcon,
+  MaLayout,
   MaModal,
   MaOption,
   MaPagination,
@@ -47,9 +51,11 @@ function install(Vue) {
   Vue.component('MaAlert', MaAlert)
   Vue.component('MaButton', MaButton)
   Vue.component('MaCard', MaCard)
+  Vue.component('MaColumns', MaColumns)
   Vue.component('MaDatagrid', MaDatagrid)
   Vue.component('MaHidden', MaHidden)
   Vue.component('MaIcon', MaIcon)
+  Vue.component('MaLayout', MaLayout)
   Vue.component('MaModal', MaModal)
   Vue.component('MaOption', MaOption)
   Vue.component('MaPagination', MaPagination)
