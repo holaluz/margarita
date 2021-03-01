@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { render } from '@margarita/margarita-test-utils'
 import MaColumns from './MaColumns'
 import { spacing } from '../../tokens'
