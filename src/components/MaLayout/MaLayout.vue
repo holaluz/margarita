@@ -4,23 +4,55 @@ import { spacing } from '../../tokens'
 import MaStack from '../MaStack'
 import MaColumns from '../MaColumns'
 
+/**
+ * Renders a complex layout made of rows and columns following the Design System guidelines
+ *
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-layout--layout)
+ */
 export default {
   name: 'MaLayout',
 
   functional: true,
 
   props: {
+    /**
+     * Defines the columns layout.
+     *
+     * ```ts
+     * <ma-column columns="12">...</ma-column>
+     * <ma-column :columns="['4', '4', '4']">...</ma-column>
+     * ```
+     */
     columns: {
       type: [Array, String],
       default: '',
     },
 
+    /**
+     * Sets the space gap between child rows and columns.
+     *
+     * If an array is passed, values will target the design system breakpoints.
+     * ```ts
+     * // This would apply medium on all the different breakpoints
+     * space = 'small'
+     * // This would apply none on mobile, small on tablet and large on desktop
+     * :space="['none', 'small', 'large']"
+     * ```
+     *
+     * [Spacing tokens documentation](https://holaluz.github.io/margarita/?path=/story/tokens-spacing--page)
+     * @values none, xsmall, small, medium, large, xlarge, 2x-large, 3x-large, 4x-large, 5x-large, 6x-large
+     */
     gap: {
       type: [Array, String],
       required: true,
       validator: responsivePropValidator(Object.keys(spacing)),
     },
 
+    /**
+     * Defines how the space between and around content items is distributed. Defaults to start.
+     *
+     * @values space-around, space-between, start, end
+     */
     justify: {
       type: String,
       default: 'start',
@@ -28,6 +60,18 @@ export default {
         ['space-around', 'space-between', 'start', 'end'].includes(value),
     },
 
+    /**
+     * Sets the children vertical alignment. Defaults to fill.
+     *
+     * If an array is passed, values will target the design system breakpoints.
+     * ```ts
+     * // This would apply start on all the different breakpoints
+     * align = 'start'
+     * // This would apply fill on mobile, center on tablet and start on desktop
+     * :align="['fill', 'center', 'start']"
+     * ```
+     * @values start, center, fill, end
+     */
     verticalAlign: {
       type: String,
       default: 'fill',
