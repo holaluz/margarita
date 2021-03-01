@@ -18,19 +18,19 @@ describe('Stack', () => {
   test('adds alignment classes', () => {
     const { contentWrapper } = renderComponent({ align: 'right' })
 
-    expect(contentWrapper).toHaveClass('stack--align-right')
+    expect(contentWrapper).toHaveStyle({ justifyItems: 'flex-end' })
   })
 
   test(`alignment class defaults to 'fill'`, () => {
     const { contentWrapper } = renderComponent({ space: 'medium' })
 
-    expect(contentWrapper).toHaveClass('stack--align-fill')
+    expect(contentWrapper).toHaveStyle({ justifyItems: 'stretch' })
   })
 
   test('adds alignment classes from array', () => {
     const { contentWrapper } = renderComponent({ align: ['center', 'right'] })
 
-    expect(contentWrapper).toHaveClass('stack--align-center')
+    expect(contentWrapper).toHaveStyle({ justifyItems: 'center' })
   })
 })
 
