@@ -20,8 +20,8 @@ export default {
      *
      * If an array is passed, values will target the design system breakpoints.
      * ```ts
-     * // This renders a stack for mobile and 3 column layout for desktop
-     * columns="['12', '4 4 4]'
+     * <ma-layout columns="12">...</ma-layout>
+     * <ma-layout :columns="['4', '4', '4']">...</ma-layout>
      * ```
      * [Layout documentation](https://holaluz.github.io/margarita/?path=/docs/layout-layout--layout)
      */
