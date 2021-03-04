@@ -175,7 +175,7 @@
   },
   "ma-layout/columns": {
     "type": "array|string",
-    "description": "Defines the columns layout.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This renders a stack for mobile and 3 column layout for desktop\ncolumns=\"['12', '4 4 4]'\n```\n[Layout documentation](https://holaluz.github.io/margarita/?path=/docs/layout-layout--layout)"
+    "description": "Defines the columns layout.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n<ma-layout columns=\"12\">...</ma-layout>\n<ma-layout :columns=\"['4', '4', '4']\">...</ma-layout>\n```\n[Layout documentation](https://holaluz.github.io/margarita/?path=/docs/layout-layout--layout)"
   },
   "ma-layout/gap": {
     "type": "array|string",
