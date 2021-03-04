@@ -18,10 +18,12 @@ export default {
     /**
      * Defines the columns layout.
      *
+     * If an array is passed, values will target the design system breakpoints.
      * ```ts
-     * <ma-column columns="12">...</ma-column>
-     * <ma-column :columns="['4', '4', '4']">...</ma-column>
+     * // This renders a stack for mobile and 3 column layout for desktop
+     * columns="['12', '4 4 4]'
      * ```
+     * [Layout documentation](https://holaluz.github.io/margarita/?path=/docs/layout-layout--layout)
      */
     columns: {
       type: [Array, String],
@@ -34,9 +36,9 @@ export default {
      * If an array is passed, values will target the design system breakpoints.
      * ```ts
      * // This would apply medium on all the different breakpoints
-     * space = 'small'
+     * gap = 'small'
      * // This would apply none on mobile, small on tablet and large on desktop
-     * :space="['none', 'small', 'large']"
+     * :gap="['none', 'small', 'large']"
      * ```
      *
      * [Spacing tokens documentation](https://holaluz.github.io/margarita/?path=/story/tokens-spacing--page)

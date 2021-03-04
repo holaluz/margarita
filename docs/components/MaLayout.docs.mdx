@@ -1,0 +1,35 @@
+import { Story } from '@storybook/addon-docs/blocks'
+
+# Layout Component
+
+## The columns prop
+
+The layout component generates a combination of columns an rows equal to what its defined in the `columns` prop.
+
+This prop is a string, which can have this characters:
+
+- **An integer from (1 to 12):** signifies the width that a column will fill in a 12-col layout.
+- **An hyphen (-):** signifies an end of a row.
+- **The autoflow operator (\*):** signifies that the rest of the elements of the div will all be fit in the same row.
+
+So, for example, a value of `12` will mean that all the direct children of the `<ma-layout>` will all occupy a full width column (AKA stack).
+
+A value of `11 1` will mean that the direct children will be classified in rows of 2 columns: one of size 11 and the other of size 1.
+
+A value of `12 - *` will mean that there will be 2 rows, one full width and the other with the rest of the direct children of the `<ma-layout>`.
+
+Since it's a bit hard to visualize by text, here are some examples and the value of `columns` used to achieve it.
+
+## Examples:
+
+<Story id="layout-layout-examples--example-1" />
+<Story id="layout-layout-examples--example-2" />
+<Story id="layout-layout-examples--example-3" />
+<Story id="layout-layout-examples--example-4" />
+<Story id="layout-layout-examples--example-5" />
+<Story id="layout-layout-examples--example-6" />
+<Story id="layout-layout-examples--example-7" />
+<Story id="layout-layout-examples--example-8" />
+<Story id="layout-layout-examples--example-9" />
+<Story id="layout-layout-examples--example-10" />
+<Story id="layout-layout-examples--example-11" />
