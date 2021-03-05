@@ -1,8 +1,10 @@
 <template>
   <div class="ma-select">
-    <label
+    <ma-text
       :for="id"
       :class="getLabelClass"
+      tag="label"
+      size="small"
       class="ma-select__label"
       v-text="label"
     />
@@ -22,8 +24,10 @@
         v-text="option.text"
       />
     </select>
-    <div
+    <ma-text
       v-if="hasError"
+      size="xsmall"
+      tone="red"
       class="ma-select__error-message"
       v-text="errorMessage"
     />
@@ -31,6 +35,7 @@
 </template>
 
 <script>
+import MaText from '@margarita/components/MaText'
 import uuid from '@margarita/utils/uuid'
 
 /**
@@ -40,6 +45,10 @@ import uuid from '@margarita/utils/uuid'
  */
 export default {
   name: 'MaSelect',
+
+  components: {
+    MaText,
+  },
 
   inheritAttrs: false,
 

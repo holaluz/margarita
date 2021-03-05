@@ -74,7 +74,7 @@ const TextFieldWithSiblingLabelTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <ma-text-field v-bind="$props">
-      <span slot="labelSibling">{{siblingLabel}}</span>
+      <ma-text size="small" slot="labelSibling">{{siblingLabel}}</ma-text>
     </ma-text-field>
   `,
 })

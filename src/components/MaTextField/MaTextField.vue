@@ -1,9 +1,11 @@
 <template>
   <div class="ma-text-field">
     <div class="ma-text-field__label-wrapper">
-      <label
+      <ma-text
         :for="id"
         :class="labelClasses"
+        size="small"
+        tag="label"
         class="ma-text-field__label"
         v-text="label"
       />
@@ -32,6 +34,7 @@
 </template>
 
 <script>
+import MaText from '@margarita/components/MaText'
 import uuid from '@margarita/utils/uuid'
 
 /**
@@ -41,6 +44,10 @@ import uuid from '@margarita/utils/uuid'
  */
 export default {
   name: 'MaTextField',
+
+  components: {
+    MaText,
+  },
 
   inheritAttrs: false,
 

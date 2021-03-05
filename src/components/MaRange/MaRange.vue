@@ -1,6 +1,13 @@
 <template>
   <div>
-    <label v-if="label" :for="id" class="ma-range__label" v-text="label" />
+    <ma-text
+      v-if="label"
+      :for="id"
+      tone="gray-dark"
+      size="small"
+      tag="label"
+      v-text="label"
+    />
     <div class="ma-range">
       <span
         v-for="(_, index) in new Array(bulletsAmount)"
@@ -36,6 +43,7 @@
 </template>
 
 <script>
+import MaText from '@margarita/components/MaText'
 import uuid from '@margarita/utils/uuid'
 
 const REQUIRED_STEP_KEYS = ['value', 'text']
@@ -47,6 +55,10 @@ const REQUIRED_STEP_KEYS = ['value', 'text']
  */
 export default {
   name: 'MaRange',
+
+  components: {
+    MaText,
+  },
 
   props: {
     /**

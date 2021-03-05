@@ -7,7 +7,7 @@
 }
 
 .ma-select__label {
-  margin-bottom: 0.25rem;
+  margin-bottom: 8px;
 }
 
 .ma-select__field {
@@ -73,7 +73,5 @@
 }
 
 .ma-select__error-message {
-  margin-top: 0.25rem;
-  color: var(--color-red-base);
-  font-size: 0.875rem;
+  margin-top: 0.5rem;
 }

@@ -8,11 +8,11 @@
 .ma-text-field__label-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 0.25rem;
+  margin-bottom: 8px;
 }
 
 .ma-text-field__label {
-  flex: auto;
+  margin-right: auto;
 }
 
 .ma-text-field__input-wrapper {

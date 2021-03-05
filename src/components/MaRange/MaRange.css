@@ -5,7 +5,7 @@
   --range-bullet-size: 4px;
 
   position: relative;
-  margin-top: 4px;
+  margin-top: 8px;
   padding-bottom: 2rem;
 
   &::after {
@@ -16,10 +16,6 @@
     height: var(--range-height);
     content: '';
   }
-}
-
-.ma-range__label {
-  color: var(--color-gray-dark);
 }
 
 .ma-range__step {
