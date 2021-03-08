@@ -345,5 +345,39 @@
   "ma-text-field/v-model": {
     "type": "string|number",
     "description": "Component's model value"
+  },
+  "ma-text-list/tag": {
+    "type": "string",
+    "description": "Set the HTML element tag to ensure the document semantics are meaningful",
+    "options": ["ul", "ol"]
+  },
+  "ma-text-list/size": {
+    "type": "string",
+    "description": "Sets the text element size according to our Design System",
+    "options": ["small", "medium"]
+  },
+  "ma-text-list/tone": {
+    "type": "string",
+    "description": "Sets the text element color tone",
+    "options": [
+      "white",
+      "red",
+      "pink",
+      "blue",
+      "green",
+      "yellow",
+      "gray-darker",
+      "gray-dark",
+      "gray"
+    ]
+  },
+  "ma-text-list/icon": {
+    "type": "string",
+    "description": "Sets the icon of the items",
+    "options": ["bullet", "check"]
+  },
+  "ma-text-list/listItems": {
+    "type": "array",
+    "description": "Sets the content of the items"
   }
 }
