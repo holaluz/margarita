@@ -3,7 +3,7 @@ import docs from '../../../docs/components/MaTextList.docs.mdx'
 import { tones } from '@margarita/tokens'
 
 export default {
-  title: 'Components/TextList',
+  title: 'Components/Textlist',
   component: MaTextList,
   args: {
     listItems: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'],
@@ -46,4 +46,4 @@ const Template = (args, { argTypes }) => ({
   </div>`,
 })
 
-export const TextList = Template.bind({})
+export const Textlist = Template.bind({})

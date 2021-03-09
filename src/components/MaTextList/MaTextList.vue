@@ -16,9 +16,9 @@
 import MaText from '@margarita/components/MaText'
 import { tones } from '../../tokens'
 /**
- * Renders text following the Design System guidelines
+ * Renders text-list following the Design System guidelines
  *
- * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-text--text)
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-textlist--text-list)
  */
 export default {
   name: 'MaTextList',
@@ -79,6 +79,7 @@ export default {
     iconClass() {
       return `${this.icon}`
     },
+
     computedStyle() {
       return {
         color: tones[this.tone],
