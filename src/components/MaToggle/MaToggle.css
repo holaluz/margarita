@@ -1,0 +1,61 @@
+.ma-toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.ma-toggle__text {
+  margin-left: 0.75rem;
+}
+
+.ma-toggle__input {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+
+.ma-toggle__label {
+  display: block;
+  background-color: var(--color-pink-base);
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  padding: 2px;
+  width: 56px;
+  height: 32px;
+  border-radius: 16px;
+  transition: background 0.4s;
+}
+
+.ma-toggle__label:hover {
+  background-color: var(--color-pink-dark);
+}
+
+.ma-toggle__label:before,
+.ma-toggle__label:after {
+  display: block;
+  position: absolute;
+  content: '';
+}
+.ma-toggle__label:before {
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  right: 4px;
+  border-radius: 16px;
+  transition: background 0.4s;
+}
+.ma-toggle__label:after {
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 24px;
+  background-color: var(--color-white-base);
+  border-radius: 16px;
+  transition: margin 0.4s, background 0.4s;
+}
+
+.ma-toggle__input:checked + .ma-toggle__label:after {
+  margin-left: 24px;
+}
