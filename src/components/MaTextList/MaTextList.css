@@ -17,18 +17,20 @@ li:not(:last-child) {
 ul li::before {
   content: '';
   position: absolute;
-  left: -20px;
-  top: 6px;
 }
 
 .bullet li::before {
   background: url('../../assets/icons/bullet.svg');
   width: 10px;
   height: 10px;
+  top: 6px;
+  left: -22px;
 }
 
 .check li::before {
   background: url('../../assets/icons/check.svg');
   width: 16px;
   height: 12px;
+  top: 5px;
+  left: -24px;
 }
