@@ -345,5 +345,21 @@
   "ma-text-field/v-model": {
     "type": "string|number",
     "description": "Component's model value"
+  },
+  "ma-toggle/v-model": {
+    "type": "boolean",
+    "description": "Component's model value"
+  },
+  "ma-toggle/id": {
+    "type": "string",
+    "description": "Sets the component's id"
+  },
+  "ma-toggle/disabled": {
+    "type": "boolean",
+    "description": "Sets if element should be disabled"
+  },
+  "ma-toggle/label": {
+    "type": "string",
+    "description": "Sets toggle's label"
   }
 }
