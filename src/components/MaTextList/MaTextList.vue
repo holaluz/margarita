@@ -14,7 +14,8 @@
 
 <script>
 import MaText from '@margarita/components/MaText'
-import { tones } from '../../tokens'
+import { text, tones } from '../../tokens'
+
 /**
  * Renders text-list following the Design System guidelines
  *
@@ -77,12 +78,20 @@ export default {
 
   computed: {
     iconClass() {
-      return `${this.icon}`
+      return this.tag === 'ul' ? this.icon : null
+    },
+
+    responsiveTextSize() {
+      return this.$layout.getResponsivePropValue(this.size)
     },
 
     computedStyle() {
+      const sizeStyles =
+        text.textSize[this.$layout.currentBreakpoint][this.responsiveTextSize]
+
       return {
         color: tones[this.tone],
+        'font-size': sizeStyles['font-size'],
       }
     },
   },

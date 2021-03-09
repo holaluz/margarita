@@ -19,7 +19,7 @@ ul li::before {
   position: absolute;
 }
 
-.bullet li::before {
+ul.bullet li::before {
   background: url('../../assets/icons/bullet.svg');
   width: 10px;
   height: 10px;
@@ -27,10 +27,22 @@ ul li::before {
   left: -22px;
 }
 
-.check li::before {
+ul.check li::before {
   background: url('../../assets/icons/check.svg');
   width: 16px;
   height: 12px;
   top: 5px;
   left: -24px;
+}
+
+ol {
+  counter-reset: counter;
+  list-style-type: none;
+}
+
+li::before {
+  counter-increment: counter;
+  content: counter(counter) '.';
+  position: absolute;
+  left: -20px;
 }
