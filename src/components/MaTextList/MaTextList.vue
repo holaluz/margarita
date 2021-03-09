@@ -1,6 +1,10 @@
 <template>
   <component :is="tag" :class="iconClass">
-    <li v-for="(listItem, index) in listItems" :key="index">
+    <li
+      v-for="(listItem, index) in listItems"
+      :key="index"
+      :style="computedStyle"
+    >
       <ma-text tag="p" :size="size" :tone="tone">
         {{ listItem }}
       </ma-text>
@@ -74,6 +78,11 @@ export default {
   computed: {
     iconClass() {
       return `${this.icon}`
+    },
+    computedStyle() {
+      return {
+        color: tones[this.tone],
+      }
     },
   },
 }
