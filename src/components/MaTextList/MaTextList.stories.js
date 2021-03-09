@@ -42,7 +42,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `<div style="display: flex;">
-      <ma-text-list v-bind="$props">
+      <ma-text-list v-bind="$props" />
   </div>`,
 })
 

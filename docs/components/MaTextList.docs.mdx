@@ -1,3 +1,49 @@
-# TextList
+# Text List
 
-This is the documentation section about TextList component
+Lists are vertical groupings of related text content. List items begin with either a number or a symbol (bullet or checkmark).
+
+Lists are vertical groupings of related text content. List items begin with either a number or a symbol (bullet or checkmark).
+
+## How to use it? (Controls)
+
+- **Tag:** Set the HTML element tag to ensure the document semantics are meaningful
+    - ul → To present content of equal status or value.
+    - ol → Imply sequence and order, and are commonly used when giving a set of instructions.
+- **Size:** Sets the text element size according to our Design System
+    - MaText-Medium, MaText-Small
+    - The use of any MaHeading or MaText-xSmall is strictly forbidden.
+- **Tone:** Sets the text element color tone (check text-tones). This also applies to symbols of the bullet lists
+- **Icon:** Sets the icon used for ul element. Can be bullet point or checkmark.
+
+## When to use it
+
+### ul (Unordered Lists or Bullet Lists)
+
+→ To present content of equal status or value.
+
+- Use bulleted lists when you don’t need to convey a specific order for list items.
+- Use bullets when is just a list of items.
+- Use checkmarks when the text is talking about things that are
+
+### ol (Ordered Lists or Numbered Lists)
+
+→ Imply sequence and order, and are commonly used when giving a set of instructions.
+
+- Use numbered lists when you need to convey a priority, hierarchy, or sequence between list items
+
+Generally, lists should be used to present simple pieces of information. For more complex sets of data, consider using a [data-grid](https://holaluz.github.io/margarita/?path=/story/components-datagrid--datagrid)
+
+Use list items that are grammatically parallel. For example, do not mix passive voice with active voice or declarative sentences (statements) with imperative sentences (direct command).
+
+
+## Behavior
+
+
+### Resizing
+
+The width of the `<li>` element is defined by its parent but has a max-width of 75ch to have proper legibility.
+
+### Order
+
+- Arrange list items in a logical way. For example, if the list is about resource use, the default order might be highest resource use to lowest.
+- Grouping items in categories into smaller, more specific lists might be more meaningful in some contexts. Alternatively, organize in alphabetical or numeric order.

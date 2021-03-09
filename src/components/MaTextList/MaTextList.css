@@ -6,6 +6,10 @@ li {
   position: relative;
 }
 
+li p {
+  max-width: 75ch;
+}
+
 li:not(:last-child) {
   margin-bottom: 8px;
 }
