@@ -16,6 +16,7 @@ import MaText from './components/MaText'
 import MaTextField from './components/MaTextField'
 import MaStack from './components/MaStack'
 import MaHeading from './components/MaHeading'
+import MaToggle from './components/MaToggle'
 import { markdown, markdownSSR } from './directives/markdown'
 import responsivePlugin from './plugins/responsivePlugin'
 
@@ -28,6 +29,7 @@ export {
   MaIcon,
   MaModal,
   MaOption,
+  MaToggle,
   MaPagination,
   MaPill,
   MaRange,
@@ -58,6 +60,7 @@ function install(Vue) {
   Vue.component('MaSelect', MaSelect)
   Vue.component('MaStack', MaStack)
   Vue.component('MaHeading', MaHeading)
+  Vue.component('MaToggle', MaToggle)
   Vue.component('MaText', MaText)
   Vue.component('MaTextField', MaTextField)
 
