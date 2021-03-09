@@ -87,6 +87,6 @@
   },
   "ma-text-list": {
     "attributes": ["tag", "size", "tone", "icon", "listItems"],
-    "description": "Renders text following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-text--text)"
+    "description": "Renders text-list following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-textlist--text-list)"
   }
 }
