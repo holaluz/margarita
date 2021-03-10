@@ -28,7 +28,13 @@
               class="modal-header"
               data-testid="modal-header"
             >
-              <span class="modal-title">{{ title }}</span>
+              <ma-heading
+                class="modal-title"
+                :tone="headerType === 'gradient' ? 'white' : 'gray-dark'"
+                size="xsmall"
+              >
+                {{ title }}
+              </ma-heading>
               <ma-button
                 category="no-background"
                 data-testid="close-button"
@@ -56,6 +62,7 @@
 import { Portal as MaModalPortal } from '@linusborg/vue-simple-portal/dist/index.umd'
 import MaIcon from '@margarita/components/MaIcon'
 import MaButton from '@margarita/components/MaButton'
+import MaHeading from '@margarita/components/MaHeading'
 
 const FOCUSABLE_ELEMENTS = [
   'button',
@@ -81,6 +88,7 @@ export default {
     MaModalPortal,
     MaIcon,
     MaButton,
+    MaHeading,
   },
 
   props: {

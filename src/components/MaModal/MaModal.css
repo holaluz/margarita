@@ -30,7 +30,7 @@
 .modal-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: var(--spacing-medium);
   border-radius: 4px 4px 0 0;
 }
@@ -41,19 +41,15 @@
 
 .modal-header--gradient {
   --modal-header-icon-color: var(--color-white-base);
-
   background: linear-gradient(to right, var(--gradient-holaluz));
-  color: var(--color-white-base);
-}
 
-.modal-header--gradient .modal-title {
-  text-align: center;
+  & .modal-title {
+    text-align: center;
+  }
 }
 
 .modal-title {
   flex: 1;
-  font-weight: 800;
-  font-size: 1.5rem;
 }
 
 .icon-close {
@@ -62,6 +58,7 @@
   padding: 0.4rem;
   margin-left: var(--spacing-medium);
   color: var(--modal-header-icon-color);
+  align-self: flex-start;
 }
 
 .icon-close--pink {
