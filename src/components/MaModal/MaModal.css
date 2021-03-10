@@ -37,6 +37,7 @@
 
 .modal-header--white {
   --modal-header-icon-color: var(--color-pink-base);
+  padding-bottom: 0;
 }
 
 .modal-header--gradient {
