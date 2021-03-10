@@ -22,8 +22,6 @@
         v-on="inputListeners"
         @keyup.enter="removeFocus"
       />
-      <!-- @slot Input's sibling content slot -->
-      <slot name="inputSibling" />
       <ma-text
         v-if="unit"
         class="ma-text-field__input-unit"
@@ -31,6 +29,8 @@
         tone="gray"
         v-text="unit"
       />
+      <!-- @slot Input's sibling content slot -->
+      <slot name="inputSibling" />
     </div>
     <div
       v-if="hasError"

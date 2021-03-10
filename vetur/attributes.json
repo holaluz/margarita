@@ -345,5 +345,9 @@
   "ma-text-field/v-model": {
     "type": "string|number",
     "description": "Component's model value"
+  },
+  "ma-text-field/unit": {
+    "type": "string",
+    "description": "Component's fixed unit inside the text field"
   }
 }
