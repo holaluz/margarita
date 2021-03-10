@@ -110,3 +110,15 @@ export const TextFieldWithIcon = TextFieldWithIconTemplate.bind({})
 TextFieldWithIcon.argTypes = {
   ...hideComponentProperties,
 }
+
+const TexFieldWithUnit = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  template: `
+    <ma-text-field v-bind="$props" unit="€/mes" />
+  `,
+})
+
+export const TextFieldWithUnit = TexFieldWithUnit.bind({})
+TexFieldWithUnit.argTypes = {
+  ...hideComponentProperties,
+}

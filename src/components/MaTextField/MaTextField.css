@@ -18,6 +18,7 @@
 .ma-text-field__input-wrapper {
   display: flex;
   height: 2.25rem;
+  position: relative;
 }
 
 .ma-text-field__input {
@@ -47,6 +48,12 @@
     outline: none;
     border: 1px solid var(--color-pink-base);
   }
+}
+
+.ma-text-field__input-unit {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
 }
 
 .ma-text-field__input--error {

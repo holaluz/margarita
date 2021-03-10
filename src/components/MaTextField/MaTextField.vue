@@ -24,6 +24,13 @@
       />
       <!-- @slot Input's sibling content slot -->
       <slot name="inputSibling" />
+      <ma-text
+        v-if="unit"
+        class="ma-text-field__input-unit"
+        tag="span"
+        tone="gray"
+        v-text="unit"
+      />
     </div>
     <div
       v-if="hasError"
@@ -91,6 +98,13 @@ export default {
      */
     value: {
       type: [String, Number],
+      default: '',
+    },
+    /**
+     * Component's fixed unit inside the text field
+     */
+    unit: {
+      type: String,
       default: '',
     },
   },
