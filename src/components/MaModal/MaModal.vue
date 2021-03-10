@@ -36,6 +36,7 @@
                 {{ title }}
               </ma-heading>
               <ma-button
+                ref="closeButton"
                 category="no-background"
                 data-testid="close-button"
                 class="icon-close"
@@ -198,6 +199,8 @@ export default {
 
       if (firstFocusableElement) {
         firstFocusableElement.focus()
+      } else if (this.$refs.closeButton) {
+        this.$refs.closeButton.$el.focus()
       }
     },
 
