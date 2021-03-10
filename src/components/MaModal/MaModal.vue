@@ -9,17 +9,16 @@
     </div>
     <ma-modal-portal>
       <transition name="modal-transition" @after-leave="closeModal">
-        <div v-if="showModal" class="modal-wrapper">
+        <div
+          v-if="showModal"
+          class="modal-wrapper"
+          data-testid="overlay"
+          @click.self="closeModal"
+        >
           <div
-            class="modal-overlay"
-            data-testid="overlay"
-            @click="closeModal"
-          />
-          <ma-stack
             ref="modal"
             :aria-label="title"
             :class="`modal--width-${width}`"
-            space="medium"
             role="dialog"
             aria-modal="true"
             class="modal"
@@ -46,7 +45,7 @@
                 -->
               <slot :closeModal="closeModal" name="content" />
             </div>
-          </ma-stack>
+          </div>
         </div>
       </transition>
     </ma-modal-portal>
@@ -55,7 +54,6 @@
 
 <script>
 import { Portal as MaModalPortal } from '@linusborg/vue-simple-portal/dist/index.umd'
-import MaStack from '@margarita/components/MaStack'
 import MaIcon from '@margarita/components/MaIcon'
 import MaButton from '@margarita/components/MaButton'
 
@@ -80,7 +78,6 @@ export default {
   name: 'MaModal',
 
   components: {
-    MaStack,
     MaModalPortal,
     MaIcon,
     MaButton,
@@ -206,7 +203,7 @@ export default {
       // If we cannot find the modal let's fail gracefully.
       if (!modal) return
 
-      this.focusableElements = modal.$el.querySelectorAll(FOCUSABLE_ELEMENTS)
+      this.focusableElements = modal.querySelectorAll(FOCUSABLE_ELEMENTS)
     },
 
     handleTabKey(e) {
