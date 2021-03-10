@@ -155,6 +155,7 @@ export default {
        */
       this.$emit('open')
 
+      document.body.style.overflowY = 'hidden'
       await this.setFocusWithin('modal-content')
       await this.setFocusableElements()
     },
@@ -178,6 +179,7 @@ export default {
        */
       this.$emit('close')
 
+      document.body.style.overflowY = ''
       await this.setFocusWithin('modal-trigger')
     },
 
