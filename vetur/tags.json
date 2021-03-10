@@ -82,7 +82,14 @@
     "description": "Renders text following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-text--text)"
   },
   "ma-text-field": {
-    "attributes": ["errorMessage", "id", "hasError", "label", "v-model"],
+    "attributes": [
+      "errorMessage",
+      "id",
+      "hasError",
+      "label",
+      "v-model",
+      "unit"
+    ],
     "description": "Renders an input text field component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-textfield--text-field)"
   }
 }

@@ -28,6 +28,9 @@ export default {
     input: { action: 'input' },
     change: { action: 'change' },
     enter: { action: 'enter' },
+    unit: {
+      defaultValue: '€',
+    },
   },
   parameters: {
     docs: { page: docs },
@@ -114,7 +117,7 @@ TextFieldWithIcon.argTypes = {
 const TexFieldWithUnit = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
-    <ma-text-field v-bind="$props" unit="€/mes" />
+    <ma-text-field v-bind="$props" />
   `,
 })
 
