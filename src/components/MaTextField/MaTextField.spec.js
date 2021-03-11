@@ -128,6 +128,13 @@ describe('TextField', () => {
       expect(getByText(slotText)).toBeInTheDocument()
     }
   )
+
+  test('renders suffix', () => {
+    const suffix = '€'
+    const { getByText } = renderComponent({ suffix })
+
+    expect(getByText(suffix)).toBeInTheDocument()
+  })
 })
 
 function renderComponent(customProps, customParams) {
