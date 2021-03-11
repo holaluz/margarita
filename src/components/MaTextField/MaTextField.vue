@@ -12,7 +12,7 @@
       <!-- @slot Label's sibling content slot -->
       <slot name="labelSibling" />
     </div>
-    <div class="ma-text-field__input-wrapper" :class="wrapperClasses">
+    <div class="ma-text-field__input-wrapper" :class="inputWrapperClasses">
       <input
         :id="id"
         v-model="lazyValue"
@@ -130,7 +130,7 @@ export default {
       }
     },
 
-    wrapperClasses() {
+    inputWrapperClasses() {
       return {
         'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
         'ma-text-field__input-wrapper--active': this.value,
