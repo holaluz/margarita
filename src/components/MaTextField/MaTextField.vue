@@ -176,6 +176,9 @@ export default {
     value(newValue) {
       this.lazyValue = newValue
     },
+    suffix() {
+      this.suffixWidth = this.$refs.suffix?.$el.clientWidth + 8
+    },
   },
 
   mounted() {
