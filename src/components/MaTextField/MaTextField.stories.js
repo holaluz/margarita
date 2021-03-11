@@ -121,7 +121,7 @@ TextFieldWithUnit.argTypes = {
   ...hideComponentProperties,
   suffix: {
     name: 'Suffix',
-    defaultValue: '€',
+    defaultValue: '€/mes',
     control: { type: 'text' },
   },
 }

@@ -19,6 +19,7 @@
         v-bind="$attrs"
         :class="inputClasses"
         class="ma-text-field__input"
+        :style="inputStyles"
         v-on="inputListeners"
         @keyup.enter="removeFocus"
       />
@@ -119,6 +120,13 @@ export default {
   },
 
   computed: {
+    inputStyles() {
+      const suffixMargins = 12
+      return {
+        paddingRight: `${this.suffixWidth + suffixMargins}px`,
+      }
+    },
+
     inputClasses() {
       return {
         'ma-text-field__input--error': this.hasError,
@@ -168,6 +176,12 @@ export default {
     value(newValue) {
       this.lazyValue = newValue
     },
+  },
+
+  mounted() {
+    this.$nextTick(function () {
+      this.suffixWidth = this.$refs.suffix?.$el.clientWidth
+    })
   },
 
   methods: {
