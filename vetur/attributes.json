@@ -346,8 +346,8 @@
     "type": "string|number",
     "description": "Component's model value"
   },
-  "ma-text-field/unit": {
+  "ma-text-field/suffix": {
     "type": "string",
-    "description": "Component's fixed unit inside the text field"
+    "description": "Component's suffix inside the text field"
   }
 }

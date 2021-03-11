@@ -23,11 +23,12 @@
         @keyup.enter="removeFocus"
       />
       <ma-text
-        v-if="unit"
-        class="ma-text-field__input-unit"
+        v-if="suffix"
+        size="small"
         tag="span"
         tone="gray"
-        v-text="unit"
+        class="ma-text-field__input-suffix"
+        v-text="suffix"
       />
       <!-- @slot Input's sibling content slot -->
       <slot name="inputSibling" />
@@ -101,9 +102,9 @@ export default {
       default: '',
     },
     /**
-     * Component's fixed unit inside the text field
+     * Component's suffix inside the text field
      */
-    unit: {
+    suffix: {
       type: String,
       default: '',
     },
