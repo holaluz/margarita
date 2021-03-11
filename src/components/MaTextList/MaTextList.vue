@@ -1,19 +1,10 @@
 <template>
   <component :is="tag" :class="iconClass">
-    <li
-      v-for="(listItem, index) in listItems"
-      :key="index"
-      :style="computedStyle"
-    >
-      <ma-text tag="p" :size="size" :tone="tone">
-        {{ listItem }}
-      </ma-text>
-    </li>
+    <items v-bind="$props" :style="computedStyle"><slot /></items>
   </component>
 </template>
 
 <script>
-import MaText from '@margarita/components/MaText'
 import { text, tones } from '../../tokens'
 
 /**
@@ -22,10 +13,31 @@ import { text, tones } from '../../tokens'
  * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-textlist--text-list)
  */
 export default {
-  name: 'MaTextList',
-
   components: {
-    MaText,
+    items: {
+      functional: true,
+      render(createElement, { slots, props, data }) {
+        if (!slots().default) {
+          // eslint-disable-next-line no-console
+          console.error(`[TextList component] No list items found`)
+          return
+        }
+
+        return slots().default.map((item) => {
+          if (item.componentOptions && item.componentOptions.propsData) {
+            item.componentOptions.propsData = {
+              ...props,
+              ...item.componentOptions.propsData,
+            }
+          }
+          return createElement(
+            'li',
+            { props, style: data.style, class: props.size },
+            [item]
+          )
+        })
+      },
+    },
   },
 
   props: {
@@ -65,14 +77,6 @@ export default {
       type: String,
       default: 'bullet',
       validator: (val) => ['bullet', 'check'].includes(val),
-    },
-
-    /**
-     * Sets the content of the items
-     */
-    listItems: {
-      type: Array,
-      required: true,
     },
   },
 

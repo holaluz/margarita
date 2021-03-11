@@ -5,9 +5,6 @@ import { tones } from '@margarita/tokens'
 export default {
   title: 'Components/Textlist',
   component: MaTextList,
-  args: {
-    listItems: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'],
-  },
   argTypes: {
     tag: {
       control: {
@@ -42,7 +39,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `<div style="display: flex;">
-      <ma-text-list v-bind="$props" />
+      <ma-text-list v-bind="$props"><ma-text tag="p">Item 1</ma-text><ma-text tag="span" tone="yellow">Item 2</ma-text><ma-text tag="p">Item 3 <a href="">here</a></ma-text></ma-text-list>
   </div>`,
 })
 
