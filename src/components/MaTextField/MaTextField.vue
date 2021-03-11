@@ -12,7 +12,7 @@
       <!-- @slot Label's sibling content slot -->
       <slot name="labelSibling" />
     </div>
-    <div class="ma-text-field__input-wrapper" :class="inputDisabledClasses">
+    <div class="ma-text-field__input-wrapper" :class="wrapperClasses">
       <input
         :id="id"
         v-model="lazyValue"
@@ -21,6 +21,7 @@
         class="ma-text-field__input"
         v-on="inputListeners"
         @keyup.enter="removeFocus"
+        @focus="addFocus"
       />
       <ma-text
         v-if="suffix"
@@ -113,9 +114,9 @@ export default {
   data() {
     return {
       lazyValue: this.value,
+      hasFocus: false,
     }
   },
-
   computed: {
     inputClasses() {
       return {
@@ -129,9 +130,11 @@ export default {
       }
     },
 
-    inputDisabledClasses() {
+    wrapperClasses() {
       return {
         'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
+        'ma-text-field__input-wrapper--active': this.value,
+        'ma-text-field__input-wrapper--focus': this.hasFocus && this.value,
       }
     },
 
@@ -175,6 +178,10 @@ export default {
   },
 
   methods: {
+    addFocus() {
+      this.hasFocus = true
+    },
+
     removeFocus() {
       /**
        * On enter event.
@@ -185,6 +192,7 @@ export default {
        */
       this.$emit('enter', this.lazyValue)
       this.$el.querySelector('input').blur()
+      this.hasFocus = false
     },
   },
 }
