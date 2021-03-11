@@ -13,6 +13,7 @@ const hideComponentProperties = {
   id: { table: { disable: true } },
   labelSibling: { table: { disable: true } },
   inputSibling: { table: { disable: true } },
+  suffix: { table: { disable: true } },
 }
 
 export default {
@@ -28,9 +29,6 @@ export default {
     input: { action: 'input' },
     change: { action: 'change' },
     enter: { action: 'enter' },
-    unit: {
-      defaultValue: '€',
-    },
   },
   parameters: {
     docs: { page: docs },
@@ -114,14 +112,19 @@ TextFieldWithIcon.argTypes = {
   ...hideComponentProperties,
 }
 
-const TexFieldWithUnit = (args, { argTypes }) => ({
+const TexFieldWithUnitTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <ma-text-field v-bind="$props" />
   `,
 })
 
-export const TextFieldWithUnit = TexFieldWithUnit.bind({})
-TexFieldWithUnit.argTypes = {
+export const TextFieldWithUnit = TexFieldWithUnitTemplate.bind({})
+TextFieldWithUnit.argTypes = {
   ...hideComponentProperties,
+  suffix: {
+    name: 'Suffix',
+    defaultValue: '€',
+    control: { type: 'text' },
+  },
 }
