@@ -21,7 +21,6 @@
         class="ma-text-field__input"
         v-on="inputListeners"
         @keyup.enter="removeFocus"
-        @focus="addFocus"
       />
       <ma-text
         v-if="suffix"
