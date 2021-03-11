@@ -77,6 +77,8 @@ const FOCUSABLE_ELEMENTS = [
 const TAB_KEY = 9
 const ESCAPE_KEY = 27
 
+const OVERFLOW_HIDDEN_CLASS = 'overflow-y-hidden'
+
 /**
  * Renders a modal component following the Design System guidelines
  *
@@ -156,7 +158,7 @@ export default {
        */
       this.$emit('open')
 
-      document.body.style.overflowY = 'hidden'
+      document.body.classList.add(OVERFLOW_HIDDEN_CLASS)
       await this.setFocusWithin('modal-content')
       await this.setFocusableElements()
     },
@@ -180,7 +182,7 @@ export default {
        */
       this.$emit('close')
 
-      document.body.style.overflowY = ''
+      document.body.classList.remove(OVERFLOW_HIDDEN_CLASS)
       await this.setFocusWithin('modal-trigger')
     },
 
@@ -244,5 +246,12 @@ export default {
   },
 }
 </script>
+
+<style>
+/* unscoped style to affect <body> */
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+</style>
 
 <style src="./MaModal.css" scoped></style>
