@@ -24,13 +24,13 @@
   background-color: var(--color-white-base);
 }
 
-.ma-text-field__input-wrapper--active,
+.ma-text-field__input-wrapper:active,
 .ma-text-field__input-wrapper:hover {
   outline: none;
   border: 1px solid var(--color-pink-base);
 }
 
-.ma-text-field__input-wrapper--focus {
+.ma-text-field__input-wrapper:focus-within {
   outline: 2px solid var(--color-pink-light);
   outline-offset: 0;
   border: 1px solid var(--color-pink-base);

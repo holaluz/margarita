@@ -133,8 +133,6 @@ export default {
     inputWrapperClasses() {
       return {
         'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
-        'ma-text-field__input-wrapper--active': this.value,
-        'ma-text-field__input-wrapper--focus': this.hasFocus && this.value,
       }
     },
 
