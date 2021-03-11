@@ -24,16 +24,16 @@
   background-color: var(--color-white-base);
 }
 
+.ma-text-field__input-wrapper--disabled {
+  background-color: var(--color-brown-light);
+  color: var(--color-gray-base);
+  pointer-events: none;
+}
+
 .ma-text-field__input-wrapper:focus {
   outline: 2px solid var(--color-pink-light);
   outline-offset: 0;
   border: 1px solid var(--color-pink-base);
-}
-
-.ma-text-field__input-wrapper:disabled {
-  background-color: var(--color-brown-light);
-  color: var(--color-gray-base);
-  pointer-events: none;
 }
 
 .ma-text-field__input-wrapper:active:not(:disabled),

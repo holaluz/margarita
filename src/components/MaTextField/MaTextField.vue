@@ -12,7 +12,7 @@
       <!-- @slot Label's sibling content slot -->
       <slot name="labelSibling" />
     </div>
-    <div class="ma-text-field__input-wrapper">
+    <div class="ma-text-field__input-wrapper" :class="inputDisabledClasses">
       <input
         :id="id"
         v-model="lazyValue"
@@ -126,6 +126,12 @@ export default {
     labelClasses() {
       return {
         'visually-hidden': this.$attrs['aria-label'],
+      }
+    },
+
+    inputDisabledClasses() {
+      return {
+        'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
       }
     },
 
