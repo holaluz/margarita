@@ -110,3 +110,18 @@ export const TextFieldWithIcon = TextFieldWithIconTemplate.bind({})
 TextFieldWithIcon.argTypes = {
   ...hideComponentProperties,
 }
+
+const TexFieldWithUnitTemplate = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  template: `<ma-text-field v-bind="$props"  />`,
+})
+
+export const TextFieldWithUnit = TexFieldWithUnitTemplate.bind({})
+TextFieldWithUnit.argTypes = {
+  ...hideComponentProperties,
+  suffix: {
+    name: 'Suffix',
+    defaultValue: '€',
+    control: { type: 'text' },
+  },
+}
