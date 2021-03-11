@@ -22,6 +22,15 @@
         v-on="inputListeners"
         @keyup.enter="removeFocus"
       />
+      <ma-text
+        v-if="suffix"
+        ref="suffix"
+        size="small"
+        tag="span"
+        tone="gray"
+        class="ma-text-field__input-suffix"
+        v-text="suffix"
+      />
       <!-- @slot Input's sibling content slot -->
       <slot name="inputSibling" />
     </div>
@@ -93,11 +102,19 @@ export default {
       type: [String, Number],
       default: '',
     },
+    /**
+     * Component's suffix inside the text field
+     */
+    suffix: {
+      type: String,
+      default: '',
+    },
   },
 
   data() {
     return {
       lazyValue: this.value,
+      suffixWidth: 0,
     }
   },
 
