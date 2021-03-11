@@ -72,9 +72,13 @@ TextField.argTypes = {
 }
 
 const TextFieldWithSiblingLabelTemplate = (args, { argTypes }) => ({
+  data: () => ({ inputText: '' }),
   props: Object.keys(argTypes),
   template: `
-    <ma-text-field v-bind="$props">
+    <ma-text-field 
+      v-model="inputText"
+      v-bind="$props"
+    >
       <ma-text size="small" slot="labelSibling">{{siblingLabel}}</ma-text>
     </ma-text-field>
   `,
@@ -93,9 +97,13 @@ TextFieldWithSiblingLabel.argTypes = {
 }
 
 const TextFieldWithIconTemplate = (args, { argTypes }) => ({
+  data: () => ({ inputText: '' }),
   props: Object.keys(argTypes),
   template: `
-    <ma-text-field v-bind="$props">
+    <ma-text-field 
+      v-model="inputText" 
+      v-bind="$props"
+    >
       <ma-button slot="inputSibling">
         <ma-icon
           icon="Arrow"
@@ -113,9 +121,13 @@ TextFieldWithIcon.argTypes = {
 }
 
 const TexFieldWithUnitTemplate = (args, { argTypes }) => ({
+  data: () => ({ inputText: '' }),
   props: Object.keys(argTypes),
   template: `
-    <ma-text-field v-bind="$props" />
+    <ma-text-field
+      v-model="inputText"
+      v-bind="$props"
+    />
   `,
 })
 
