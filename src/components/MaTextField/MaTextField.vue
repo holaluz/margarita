@@ -114,7 +114,6 @@ export default {
   data() {
     return {
       lazyValue: this.value,
-      hasFocus: false,
     }
   },
   computed: {
@@ -176,10 +175,6 @@ export default {
   },
 
   methods: {
-    addFocus() {
-      this.hasFocus = true
-    },
-
     removeFocus() {
       /**
        * On enter event.
@@ -190,7 +185,6 @@ export default {
        */
       this.$emit('enter', this.lazyValue)
       this.$el.querySelector('input').blur()
-      this.hasFocus = false
     },
   },
 }
