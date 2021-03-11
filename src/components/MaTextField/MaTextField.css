@@ -18,6 +18,7 @@
 .ma-text-field__input-wrapper {
   display: flex;
   height: 2.25rem;
+  position: relative;
 }
 
 .ma-text-field__input {
@@ -47,6 +48,14 @@
 .ma-text-field__input:hover:not(:disabled) {
   outline: none;
   border: 1px solid var(--color-pink-base);
+}
+
+.ma-text-field__input-suffix {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  right: 0.5rem;
 }
 
 .ma-text-field__input--error {
