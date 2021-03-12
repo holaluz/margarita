@@ -9,14 +9,24 @@ const LayoutTemplate = ({
   columns,
   title,
   justify = 'start',
+  verticalAlign = '',
 }) => () => ({
   components: { DemoBlock },
   template: `
   <div>
   <h3>${title} (columns='${columns}')</h3>
   <div style='background-color: rgb(241, 241, 241); width: 400px;margin-bottom:2rem'>
-    <ma-layout gap="small" columns="${columns}" justify="${justify}">
-        <demo-block v-for="i in ${childCount}" :key="i">{{ i }}</demo-block>
+    <ma-layout
+      gap="small"
+      columns="${columns}"
+      justify="${justify}"
+      vertical-align="${verticalAlign || 'fill'}"
+    >
+      <demo-block
+        v-for="i in ${childCount}"
+        :key="i"
+        :height="${verticalAlign ? "i===5 ? '6rem' : 'auto'" : 'auto'}"
+      >{{ i }}</demo-block>
     </ma-layout>
   </div>
   <div>
@@ -61,33 +71,61 @@ export const Example6 = LayoutTemplate({
 
 export const Example7 = LayoutTemplate({
   title: 'Justify center',
-  columns: '3 4 5 - 5 - 5 4 3',
+  columns: '4 4 4 - 6 - 4 4 4',
   justify: 'center',
   childCount: 7,
 })
 
 export const Example8 = LayoutTemplate({
   title: 'Justify end',
-  columns: '3 4 5 - 5 - 5 4 3',
+  columns: '4 4 4 - 6 - 4 4 4',
   justify: 'end',
   childCount: 7,
 })
 
 export const Example9 = LayoutTemplate({
   title: 'Justify space between',
-  columns: '3 4 5 - 5 5 - 5 4 3',
+  columns: '4 4 4 - 5 5 - 4 4 4',
   justify: 'space-between',
   childCount: 8,
 })
 
 export const Example10 = LayoutTemplate({
   title: 'Justify space around',
-  columns: '3 4 5 - 5 5 - 5 4 3',
+  columns: '4 4 4 - 5 5 - 4 4 4',
   justify: 'space-around',
   childCount: 8,
 })
 
-export const Example11 = () => ({
+export const Example11 = LayoutTemplate({
+  title: 'Vertical align fill',
+  columns: '4 4 4 - 4 4 4 - 4 4 4',
+  childCount: 9,
+  verticalAlign: 'fill',
+})
+
+export const Example12 = LayoutTemplate({
+  title: 'Vertical align start',
+  columns: '4 4 4 - 4 4 4 - 4 4 4',
+  childCount: 9,
+  verticalAlign: 'start',
+})
+
+export const Example13 = LayoutTemplate({
+  title: 'Vertical align end',
+  columns: '4 4 4 - 4 4 4 - 4 4 4',
+  childCount: 9,
+  verticalAlign: 'end',
+})
+
+export const Example14 = LayoutTemplate({
+  title: 'Vertical align center',
+  columns: '4 4 4 - 4 4 4 - 4 4 4',
+  childCount: 9,
+  verticalAlign: 'center',
+})
+
+export const Example15 = () => ({
   components: { DemoBlock },
   template: `
   <div>
