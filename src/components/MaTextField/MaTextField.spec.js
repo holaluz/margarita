@@ -15,14 +15,15 @@ describe('TextField', () => {
     expect(input).toHaveAttribute('type', 'button')
   })
 
-  test('renders error CSS class', () => {
+  test('renders error CSS class in input wrapper', () => {
     const errorMessage = 'Something went wrong'
     const { getByText, input } = renderComponent({
       hasError: true,
       errorMessage,
     })
 
-    expect(input).toHaveClass('ma-text-field__input--error')
+    expect(input.parentNode).toHaveClass('ma-text-field__input--error')
+    expect(input.parentNode).toHaveClass('ma-text-field__input--error-icon')
 
     expect(getByText(errorMessage)).toBeInTheDocument()
   })
@@ -131,9 +132,10 @@ describe('TextField', () => {
 
   test('renders suffix', () => {
     const suffix = '€'
-    const { getByText } = renderComponent({ suffix })
+    const { getByText, input } = renderComponent({ suffix })
 
     expect(getByText(suffix)).toBeInTheDocument()
+    expect(input.parentNode).not.toHaveClass('ma-text-field__input--error-icon')
   })
 })
 

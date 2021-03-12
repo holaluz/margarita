@@ -66,7 +66,9 @@
 
 .ma-text-field__input--error {
   border-color: var(--color-red-base);
-  background-color: var(--color-white-base);
+}
+
+.ma-text-field__input--error-icon {
   background-image: url('../../assets/icons/alert-error.svg');
   background-position: calc(100% - 8px) center;
   background-repeat: no-repeat;

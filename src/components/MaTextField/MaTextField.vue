@@ -17,7 +17,6 @@
         :id="id"
         v-model="lazyValue"
         v-bind="$attrs"
-        :class="inputClasses"
         class="ma-text-field__input"
         v-on="inputListeners"
         @keyup.enter="removeFocus"
@@ -116,12 +115,6 @@ export default {
     }
   },
   computed: {
-    inputClasses() {
-      return {
-        'ma-text-field__input--error': this.hasError,
-      }
-    },
-
     labelClasses() {
       return {
         'visually-hidden': this.$attrs['aria-label'],
@@ -131,6 +124,8 @@ export default {
     inputWrapperClasses() {
       return {
         'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
+        'ma-text-field__input--error': this.hasError,
+        'ma-text-field__input--error-icon': this.hasError && !this.suffix,
       }
     },
 
