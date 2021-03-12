@@ -65,7 +65,7 @@ export default {
      */
     tone: {
       type: String,
-      default: 'blue',
+      default: 'gray',
       validator: (val) => Object.keys(tones).includes(val),
     },
 
