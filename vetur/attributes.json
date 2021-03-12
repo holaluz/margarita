@@ -375,9 +375,5 @@
     "type": "string",
     "description": "Sets the icon of the items",
     "options": ["bullet", "check"]
-  },
-  "ma-text-list/listItems": {
-    "type": "array",
-    "description": "Sets the content of the items"
   }
 }

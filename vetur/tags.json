@@ -86,7 +86,7 @@
     "description": "Renders an input text field component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-textfield--text-field)"
   },
   "ma-text-list": {
-    "attributes": ["tag", "size", "tone", "icon", "listItems"],
+    "attributes": ["tag", "size", "tone", "icon"],
     "description": "Renders text-list following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-textlist--text-list)"
   }
 }
