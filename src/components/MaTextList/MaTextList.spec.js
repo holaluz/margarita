@@ -1,20 +1,22 @@
+/* eslint-disable no-console */
 import { render } from '@margarita/margarita-test-utils'
 import MaTextList from './MaTextList'
 
 describe('TextList', () => {
   test('renders item from list', () => {
-    const { getByText } = renderComponent()
+    const { getByText, getAllByRole } = renderComponent()
 
-    expect(getByText('Item 1')).toBeInTheDocument()
+    const item1 = getByText('Item 1')
+    expect(getAllByRole('listitem')[0]).toContainElement(item1)
   })
 
   test(`'tag' property renders the valid provided tag element`, () => {
-    const { getByText } = renderComponent({ tag: 'ol' })
+    const { getByRole } = renderComponent({ tag: 'ol' })
 
-    expect(getByText('Item 1').parentNode.parentNode.nodeName).toBe('OL')
+    expect(getByRole('list').nodeName).toBe('OL')
   })
 
-  test(`'size' property assigns the valid provided size styles to text`, () => {
+  test(`'size' property assigns the valid font size to list item`, () => {
     const { getByText } = renderComponent({
       size: 'medium',
     })
@@ -24,7 +26,7 @@ describe('TextList', () => {
     })
   })
 
-  test(`'tone' property assigns the provided style to text`, () => {
+  test(`'tone' property assigns the valid color to list item`, () => {
     const { getByText } = renderComponent({
       tone: 'gray',
     })
@@ -35,24 +37,36 @@ describe('TextList', () => {
   })
 
   test(`'icon' property assigns the provided icon to the ul list`, () => {
-    const { getByText } = renderComponent({
+    const { getByRole } = renderComponent({
       icon: 'bullet',
     })
-
-    expect(getByText('Item 1').parentNode.parentNode).toHaveClass('bullet')
+    expect(getByRole('list')).toHaveClass('bullet')
   })
 
   test(`icon is not shown in ol list`, () => {
-    const { getByText } = renderComponent({
+    const { getByRole } = renderComponent({
       tag: 'ol',
       icon: 'bullet',
     })
 
-    expect(getByText('Item 1').parentNode.parentNode).not.toHaveClass('bullet')
+    expect(getByRole('list')).not.toHaveClass('bullet')
+  })
+
+  test(`warns if no items have been defined`, () => {
+    jest.spyOn(console, 'error').mockImplementationOnce(() => {})
+    renderComponent(null, {
+      slots: {
+        default: [],
+      },
+    })
+
+    expect(console.error).toHaveBeenCalledWith(
+      '[TextList component] No list items found'
+    )
   })
 })
 
-function renderComponent(props = {}) {
+function renderComponent(props, params) {
   return render(MaTextList, {
     props: {
       ...props,
@@ -60,5 +74,6 @@ function renderComponent(props = {}) {
     slots: {
       default: ['<p>Item 1</p><p>Item 2</p>'],
     },
+    ...params,
   })
 }
