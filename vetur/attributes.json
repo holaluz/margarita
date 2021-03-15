@@ -346,10 +346,10 @@
     "type": "string|number",
     "description": "Component's model value"
   },
-  "ma-list/tag": {
+  "ma-list/type": {
     "type": "string",
-    "description": "Set the HTML element tag to ensure the document semantics are meaningful",
-    "options": ["ul", "ol"]
+    "description": "Sets the type of list",
+    "options": ["bullet", "check", "ordered"]
   },
   "ma-list/size": {
     "type": "string",
@@ -370,10 +370,5 @@
       "gray-dark",
       "gray"
     ]
-  },
-  "ma-list/icon": {
-    "type": "string",
-    "description": "Sets the icon of the items",
-    "options": ["bullet", "check"]
   }
 }

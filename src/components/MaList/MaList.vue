@@ -44,12 +44,14 @@ export default {
 
   props: {
     /**
-     * Set the HTML element tag to ensure the document semantics are meaningful
+     * Sets the type of list
+     * @values bullet, check, ordered
      */
-    tag: {
+
+    type: {
       type: String,
-      default: 'ul',
-      validator: (val) => ['ul', 'ol'].includes(val),
+      default: 'bullet',
+      validator: (val) => ['bullet', 'check', 'ordered'].includes(val),
     },
 
     /**
@@ -70,21 +72,15 @@ export default {
       default: 'gray',
       validator: (val) => Object.keys(tones).includes(val),
     },
-
-    /**
-     * Sets the icon of the items
-     * @values bullet, check
-     */
-    icon: {
-      type: String,
-      default: 'bullet',
-      validator: (val) => ['bullet', 'check'].includes(val),
-    },
   },
 
   computed: {
+    tag() {
+      return this.type === 'ordered' ? 'ol' : 'ul'
+    },
+
     iconClass() {
-      return this.tag === 'ul' ? this.icon : null
+      return this.tag === 'ul' ? this.type : null
     },
 
     responsiveTextSize() {

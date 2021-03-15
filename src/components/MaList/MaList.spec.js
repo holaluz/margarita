@@ -10,8 +10,8 @@ describe('List', () => {
     expect(getAllByRole('listitem')[0]).toContainElement(item1)
   })
 
-  test(`'tag' property renders the valid provided tag element`, () => {
-    const { getByRole } = renderComponent({ tag: 'ol' })
+  test(`'type' property renders the valid provided tag element`, () => {
+    const { getByRole } = renderComponent({ type: 'ordered' })
 
     expect(getByRole('list').nodeName).toBe('OL')
   })
@@ -36,17 +36,16 @@ describe('List', () => {
     }) //jest converts hex colors to rgb
   })
 
-  test(`'icon' property assigns the provided icon to the ul list`, () => {
+  test(`'type' property assigns the provided icon to the ul list`, () => {
     const { getByRole } = renderComponent({
-      icon: 'bullet',
+      type: 'bullet',
     })
     expect(getByRole('list')).toHaveClass('bullet')
   })
 
-  test(`icon is not shown in ol list`, () => {
+  test(`icon is not shown in ol list if the list type is ordered`, () => {
     const { getByRole } = renderComponent({
-      tag: 'ol',
-      icon: 'bullet',
+      type: 'ordered',
     })
 
     expect(getByRole('list')).not.toHaveClass('bullet')

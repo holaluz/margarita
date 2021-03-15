@@ -4,14 +4,14 @@ Lists are vertical groupings of related text content. List items begin with eith
 
 ## How to use it? (Controls)
 
-- **Tag:** Set the HTML element tag to ensure the document semantics are meaningful
-    - ul → To present content of equal status or value.
-    - ol → Imply sequence and order, and are commonly used when giving a set of instructions.
+- **Type:** Sets the type of list
+    - bullet → To present content of equal status or value with bullet point as icon (Default)
+    - check → To present content of equal status or value with checkmark as icon.
+    - ordered → Imply sequence and order, and are commonly used when giving a set of instructions.
 - **Size:** Sets the text element size according to our Design System
     - MaText-Medium, MaText-Small
     - The use of any MaHeading or MaText-xSmall is strictly forbidden.
 - **Tone:** Sets the text element color tone (check text-tones). This also applies to symbols of the bullet lists
-- **Icon:** Sets the icon used for ul element. Can be bullet point or checkmark.
 
 List items are HTML elements passed as slot. Each node is transformed in a list item.
 
@@ -20,7 +20,7 @@ List items are HTML elements passed as slot. Each node is transformed in a list 
 
 ## When to use it
 
-### ul (Unordered Lists or Bullet Lists)
+### Bullet or Check Lists  (Unordered Lists)
 
 → To present content of equal status or value.
 
@@ -28,7 +28,7 @@ List items are HTML elements passed as slot. Each node is transformed in a list 
 - Use bullets when is just a list of items.
 - Use checkmarks when the text is talking about things that are
 
-### ol (Ordered Lists or Numbered Lists)
+### Ordered Lists (or Numbered Lists)
 
 → Imply sequence and order, and are commonly used when giving a set of instructions.
 
