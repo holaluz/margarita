@@ -13,7 +13,7 @@ import { text, tones } from '../../tokens'
  * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-list--list)
  */
 export default {
-  name: 'MaIcon',
+  name: 'MaList',
 
   components: {
     items: {
