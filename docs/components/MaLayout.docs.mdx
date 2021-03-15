@@ -18,14 +18,14 @@ This prop is a string, which can have the following characters:
 
 ```js
 // Renders a single, full-width column
-<ma-layout="12">...</ma-layout>
+<ma-layout columns="12">...</ma-layout>
 
 // Renders a two-column layout: one with 11/12 of the total width, and the other with the remaining 1/12.
-<ma-layout="11 1">...</ma-layout>
+<ma-layout columns="11 1">...</ma-layout>
 
 // Renders a layout with two rows: the first one where the element has full width,
 // and the second one with the rest of the children in a single row.
-<ma-layout="12 - *">...</ma-layout>
+<ma-layout columns="12 - *">...</ma-layout>
 ```
 
 Since it's a bit hard to visualize by text, here are some examples and the value of `columns` used to achieve it.
