@@ -93,6 +93,7 @@ export default {
         gap: props.gap,
         justify: props.justify,
         verticalAlign: props.verticalAlign,
+        data,
       })
     }
 
@@ -100,7 +101,7 @@ export default {
       createElement,
       dom,
       gap: props.gap,
-      staticClass: data.staticClass || '',
+      data,
     })
   },
 }
@@ -110,8 +111,8 @@ function getGrid({ parent, columns }) {
   return responsiveColumns.split(' - ').map((row) => row.split(' '))
 }
 
-function renderStack({ createElement, dom, gap, staticClass }) {
-  return createElement(MaStack, { staticClass, props: { space: gap } }, dom)
+function renderStack({ createElement, dom, gap, data }) {
+  return createElement(MaStack, { props: { space: gap }, ...data }, dom)
 }
 
 function renderGrid({ createElement, dom, grid, gap, justify, verticalAlign }) {

@@ -1,4 +1,6 @@
 <script>
+/** @typedef {import('vue').VNodeData} VNodeData */
+import { mergeData } from 'vue-functional-data-merge'
 import { responsivePropValidator } from '@margarita/utils/responsivePropValidator'
 import { spacing } from '../../tokens'
 
@@ -66,22 +68,16 @@ export default {
     const space = spacing[responsiveSpace]
     const align = alignment[responsiveAlign]
 
-    return createElement(
-      'div',
-      {
-        class: {
-          stack: true,
-          ...data.class,
-        },
-        style: {
-          gap: space,
-          justifyItems: align,
-          ...data.style,
-        },
-        ...data,
+    /** @type {VNodeData} */
+    const componentData = {
+      staticClass: 'stack',
+      style: {
+        gap: space,
+        justifyItems: align,
       },
-      slots().default
-    )
+    }
+
+    return createElement('div', mergeData(data, componentData), slots().default)
   },
 }
 </script>

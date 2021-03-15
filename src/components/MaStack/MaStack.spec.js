@@ -32,6 +32,23 @@ describe('Stack', () => {
 
     expect(contentWrapper).toHaveStyle({ justifyItems: 'center' })
   })
+
+  test('keeps additional attributes', () => {
+    const { getByText } = render({
+      components: { MaStack },
+      template: `
+      <ma-stack space="small" :class="['custom-class']" id="123" random-attr>
+        content
+      </ma-stack>
+      `,
+    })
+
+    const content = getByText('content')
+
+    expect(content).toHaveAttribute('id', '123')
+    expect(content).toHaveAttribute('random-attr')
+    expect(content).toHaveClass('custom-class', 'stack')
+  })
 })
 
 function renderComponent(props) {

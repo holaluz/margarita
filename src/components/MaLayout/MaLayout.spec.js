@@ -22,12 +22,32 @@ describe('MaLayout', () => {
     expect(stacks).toHaveLength(1)
     expect(grids).toHaveLength(2)
   })
+
+  test('keeps additional attributes', () => {
+    const { getByTestId } = render({
+      components: { MaLayout },
+      template: `
+        <ma-layout data-testid="layout" gap="small" columns="12" id="123" :class="['class1', 'class2']">
+          <div data-testid="div" id="456" class="class"></div>
+        </ma-layout>
+      `,
+    })
+
+    const layout = getByTestId('layout')
+    expect(layout).toHaveAttribute('id', '123')
+    expect(layout).toHaveClass('stack', 'class1', 'class2')
+
+    const div = getByTestId('div')
+    expect(div).toHaveAttribute('id', '456')
+    expect(div).toHaveClass('class')
+  })
 })
 
-function renderComponent(props) {
+function renderComponent(props, attrs = {}) {
   const utils = render(MaLayout, {
     props: { gap: 'small', columns: '12', space: 'small', ...props },
     slots: { default: 'content' },
+    ...attrs,
   })
 
   const stacks = utils.baseElement.querySelectorAll('.stack')

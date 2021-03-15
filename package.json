@@ -39,7 +39,8 @@
     "@linusborg/vue-simple-portal": "^0.1.5",
     "sass-mq": "^5.0.0",
     "snarkdown": "^2.0.0",
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vue-functional-data-merge": "^3.1.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",

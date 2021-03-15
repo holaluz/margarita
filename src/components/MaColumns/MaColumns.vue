@@ -1,15 +1,12 @@
 <script>
+/** @typedef {import('vue').VNodeData} VNodeData */
+import { mergeData } from 'vue-functional-data-merge'
 import { spacing } from '../../tokens'
 import { responsivePropValidator } from '@margarita/utils/responsivePropValidator'
 
 const columnCount = 12
 const autoFlowOperator = '*'
 
-/**
- * Renders a list of columns following the Design System guidelines
- *
- * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-columns--columns)
- */
 export default {
   name: 'MaColumns',
 
@@ -80,7 +77,7 @@ export default {
     },
   },
 
-  render(createElement, { parent, props, slots }) {
+  render(createElement, { parent, props, slots, data }) {
     const gap = getResponsiveGap({ parent, gap: props.gap })
     const columns = getResponsiveColumns({ parent, columns: props.columns })
     const style = { gap }
@@ -90,18 +87,17 @@ export default {
       style.justifyContent = props.justify
     }
 
-    return createElement(
-      'div',
-      {
-        class: {
-          grid: true,
-          'has-auto-flow': hasAutoFlow({ columns }),
-          [`vertical-align-${props.verticalAlign}`]: true,
-        },
-        style,
+    /** @type {VNodeData} */
+    const componentData = {
+      staticClass: `grid`,
+      class: {
+        'has-auto-flow': hasAutoFlow({ columns }),
+        [`vertical-align-${props.verticalAlign}`]: true,
       },
-      slots().default
-    )
+      style,
+    }
+
+    return createElement('div', mergeData(data, componentData), slots().default)
   },
 }
 
