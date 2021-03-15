@@ -3,7 +3,6 @@ import './css/index.css'
 import MaAlert from './components/MaAlert'
 import MaButton from './components/MaButton'
 import MaCard from './components/MaCard'
-import MaColumns from './components/MaColumns'
 import MaDatagrid from './components/MaDatagrid'
 import MaHidden from './components/MaHidden'
 import MaIcon from './components/MaIcon'
@@ -25,7 +24,6 @@ export {
   MaAlert,
   MaButton,
   MaCard,
-  MaColumns,
   MaDatagrid,
   MaHidden,
   MaIcon,
@@ -51,7 +49,6 @@ function install(Vue) {
   Vue.component('MaAlert', MaAlert)
   Vue.component('MaButton', MaButton)
   Vue.component('MaCard', MaCard)
-  Vue.component('MaColumns', MaColumns)
   Vue.component('MaDatagrid', MaDatagrid)
   Vue.component('MaHidden', MaHidden)
   Vue.component('MaIcon', MaIcon)

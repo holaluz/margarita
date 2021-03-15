@@ -13,7 +13,7 @@
   },
   "ma-columns": {
     "attributes": ["columns", "gap", "justify", "verticalAlign"],
-    "description": "Renders a list of columns following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-columns--columns)"
+    "description": ""
   },
   "ma-datagrid": {
     "attributes": ["rows", "columns", "isLoading", "noResultsText"],
