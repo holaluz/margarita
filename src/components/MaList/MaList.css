@@ -45,13 +45,5 @@ ul.check li.small::before {
 }
 
 ol {
-  counter-reset: counter;
-}
-
-ol li::before {
-  counter-increment: counter;
-  content: counter(counter) '.';
-  position: absolute;
-  top: 0;
-  left: -1.25rem;
+  list-style-type: decimal;
 }
