@@ -12,24 +12,34 @@ const LayoutTemplate = ({
   verticalAlign = '',
 }) => () => ({
   components: { DemoBlock },
+  data() {
+    return {
+      childCount,
+      columns,
+      title,
+      justify,
+      verticalAlign,
+    }
+  },
   template: `
   <div>
-  <h3>${title} (columns='${columns}')</h3>
-  <div style='background-color: rgb(241, 241, 241); width: 400px;margin-bottom:2rem'>
-    <ma-layout
-      gap="small"
-      columns="${columns}"
-      justify="${justify}"
-      vertical-align="${verticalAlign || 'fill'}"
-    >
-      <demo-block
-        v-for="i in ${childCount}"
-        :key="i"
-        :height="${verticalAlign ? "i===5 ? '6rem' : 'auto'" : 'auto'}"
-      >{{ i }}</demo-block>
-    </ma-layout>
+    <h3>${title} (columns='${columns}')</h3>
+    <div style='background-color: rgb(241, 241, 241); width: 400px;margin-bottom:2rem'>
+      <ma-layout
+        gap="small"
+        columns="${columns}"
+        justify="${justify}"
+        vertical-align="${verticalAlign || 'fill'}"
+      >
+        <demo-block
+          v-for="i in ${childCount}"
+          :key="i"
+          :index="i"
+          :is-vertically-aligned="!!verticalAlign"
+        >{{i}}</demo-block>
+      </ma-layout>
+    </div>
   </div>
-  <div>
   `,
 })
 
@@ -129,16 +139,16 @@ export const Example15 = () => ({
   components: { DemoBlock },
   template: `
   <div>
-  <h3>Nested MaLayout:</h3>
-  <div style='background-color: rgb(241, 241, 241); width: 400px;margin-bottom:2rem'>
-    <ma-layout gap="small" columns="3 4 5">
-        <demo-block v-for="i in 5" :key="i">{{ i }}</demo-block>
-        <ma-layout gap="small" columns="12">
-          <demo-block>a</demo-block>
-          <demo-block>b</demo-block>
-        </ma-layout>
-    </ma-layout>
+    <h3>Nested MaLayout:</h3>
+    <div style='background-color: rgb(241, 241, 241); width: 400px;margin-bottom:2rem'>
+      <ma-layout gap="small" columns="3 4 5">
+          <demo-block v-for="i in 5" :key="i">{{ i }}</demo-block>
+          <ma-layout gap="small" columns="12">
+            <demo-block>a</demo-block>
+            <demo-block>b</demo-block>
+          </ma-layout>
+      </ma-layout>
+    </div>
   </div>
-  <div>
   `,
 })

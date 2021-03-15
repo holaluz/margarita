@@ -53,13 +53,15 @@ export default {
     /**
      * Defines how the space between and around content items is distributed. Defaults to start.
      *
-     * @values space-around, space-between, start, end
+     * @values space-around, space-between, start, end, center
      */
     justify: {
       type: String,
       default: 'start',
       validator: (value) =>
-        ['space-around', 'space-between', 'start', 'end'].includes(value),
+        ['space-around', 'space-between', 'start', 'end', 'center'].includes(
+          value
+        ),
     },
 
     /**
