@@ -8,18 +8,20 @@
 import { text, tones } from '../../tokens'
 
 /**
- * Renders text-list following the Design System guidelines
+ * Renders list following the Design System guidelines
  *
- * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-textlist--text-list)
+ * [Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-list--list)
  */
 export default {
+  name: 'MaIcon',
+
   components: {
     items: {
       functional: true,
       render(createElement, { slots, props, data }) {
         if (!slots().default) {
           // eslint-disable-next-line no-console
-          console.error(`[TextList component] No list items found`)
+          console.error(`[List component] No list items found`)
           return
         }
 
@@ -27,7 +29,7 @@ export default {
           if (item.componentOptions && item.componentOptions.propsData) {
             item.componentOptions.propsData = {
               ...props,
-              ...item.componentOptions.propsData,
+              ...item.componentOptions?.propsData,
             }
           }
           return createElement(
@@ -102,4 +104,4 @@ export default {
 }
 </script>
 
-<style scoped src="./MaTextList.css"></style>
+<style scoped src="./MaList.css"></style>

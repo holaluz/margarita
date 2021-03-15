@@ -346,17 +346,17 @@
     "type": "string|number",
     "description": "Component's model value"
   },
-  "ma-text-list/tag": {
+  "ma-list/tag": {
     "type": "string",
     "description": "Set the HTML element tag to ensure the document semantics are meaningful",
     "options": ["ul", "ol"]
   },
-  "ma-text-list/size": {
+  "ma-list/size": {
     "type": "string",
     "description": "Sets the text element size according to our Design System",
     "options": ["small", "medium"]
   },
-  "ma-text-list/tone": {
+  "ma-list/tone": {
     "type": "string",
     "description": "Sets the text element color tone",
     "options": [
@@ -371,7 +371,7 @@
       "gray"
     ]
   },
-  "ma-text-list/icon": {
+  "ma-list/icon": {
     "type": "string",
     "description": "Sets the icon of the items",
     "options": ["bullet", "check"]

@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import { render } from '@margarita/margarita-test-utils'
-import MaTextList from './MaTextList'
+import MaList from './MaList'
 
-describe('TextList', () => {
+describe('List', () => {
   test('renders item from list', () => {
     const { getByText, getAllByRole } = renderComponent()
 
@@ -61,13 +61,13 @@ describe('TextList', () => {
     })
 
     expect(console.error).toHaveBeenCalledWith(
-      '[TextList component] No list items found'
+      '[List component] No list items found'
     )
   })
 })
 
 function renderComponent(props, params) {
-  return render(MaTextList, {
+  return render(MaList, {
     props: {
       ...props,
     },

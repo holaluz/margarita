@@ -1,10 +1,10 @@
-import MaTextList from './MaTextList'
-import docs from '../../../docs/components/MaTextList.docs.mdx'
+import MaList from './MaList'
+import docs from '../../../docs/components/MaList.docs.mdx'
 import { tones } from '@margarita/tokens'
 
 export default {
-  title: 'Components/Textlist',
-  component: MaTextList,
+  title: 'Components/List',
+  component: MaList,
   argTypes: {
     tag: {
       control: {
@@ -39,8 +39,8 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `<div style="display: flex;">
-      <ma-text-list v-bind="$props"><ma-text tag="p">Item 1</ma-text><ma-text tag="span" tone="pink">Item 2</ma-text><ma-text tag="p">Item 3 <a href="">here</a></ma-text></ma-text-list>
+      <ma-list v-bind="$props"><ma-text tag="p">Item 1</ma-text><ma-text tag="span" tone="pink">Item 2</ma-text><ma-text tag="p">Item 3 <a href="">here</a></ma-text></ma-list>
   </div>`,
 })
 
-export const Textlist = Template.bind({})
+export const List = Template.bind({})
