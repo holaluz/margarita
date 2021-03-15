@@ -6,6 +6,12 @@ export default {
   title: 'Components/List',
   component: MaList,
   argTypes: {
+    type: {
+      control: {
+        type: 'select',
+        options: ['bullet', 'check', 'ordered'],
+      },
+    },
     tone: {
       control: {
         type: 'select',
@@ -16,12 +22,6 @@ export default {
       control: {
         type: 'select',
         options: ['small', 'medium'],
-      },
-    },
-    type: {
-      control: {
-        type: 'select',
-        options: ['bullet', 'check', 'ordered'],
       },
     },
   },
