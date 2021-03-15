@@ -29,7 +29,7 @@ export default {
           if (item.componentOptions && item.componentOptions.propsData) {
             item.componentOptions.propsData = {
               ...props,
-              ...item.componentOptions?.propsData,
+              ...item.componentOptions.propsData,
             }
           }
           return createElement(
