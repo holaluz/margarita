@@ -6,6 +6,7 @@ import MaCard from './components/MaCard'
 import MaDatagrid from './components/MaDatagrid'
 import MaHidden from './components/MaHidden'
 import MaIcon from './components/MaIcon'
+import MaLayout from './components/MaLayout'
 import MaModal from './components/MaModal'
 import MaOption from './components/MaOption'
 import MaPagination from './components/MaPagination'
@@ -27,6 +28,7 @@ export {
   MaDatagrid,
   MaHidden,
   MaIcon,
+  MaLayout,
   MaModal,
   MaOption,
   MaPagination,
@@ -52,6 +54,7 @@ function install(Vue) {
   Vue.component('MaDatagrid', MaDatagrid)
   Vue.component('MaHidden', MaHidden)
   Vue.component('MaIcon', MaIcon)
+  Vue.component('MaLayout', MaLayout)
   Vue.component('MaModal', MaModal)
   Vue.component('MaOption', MaOption)
   Vue.component('MaPagination', MaPagination)

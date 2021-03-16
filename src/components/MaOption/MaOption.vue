@@ -10,9 +10,9 @@
       v-bind="$attrs"
     />
     <span class="indicator" />
-    <span class="description">
+    <ma-text size="small" class="description">
       <slot />
-    </span>
+    </ma-text>
   </label>
 </template>
 

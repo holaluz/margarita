@@ -48,6 +48,37 @@
     "type": "boolean",
     "description": "Sets card's top padding"
   },
+  "ma-columns/columns": {
+    "type": "array|string",
+    "description": "Defines the columns layout.\n\n```ts\n<ma-column columns=\"6 6\">...</ma-column>\n<ma-column :columns=\"['12', '4 4 4', '6 6']\">...</ma-column>\n```"
+  },
+  "ma-columns/gap": {
+    "type": "array|string",
+    "description": "Sets the space gap between children.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply medium on all the different breakpoints\nspace = 'small'\n// This would apply none on mobile, small on tablet and large on desktop\n:space=\"['none', 'small', 'large']\"\n```\n\n[Spacing tokens documentation](https://holaluz.github.io/margarita/?path=/story/tokens-spacing--page)",
+    "options": [
+      "none",
+      "xsmall",
+      "small",
+      "medium",
+      "large",
+      "xlarge",
+      "2x-large",
+      "3x-large",
+      "4x-large",
+      "5x-large",
+      "6x-large"
+    ]
+  },
+  "ma-columns/justify": {
+    "type": "string",
+    "description": "Defines how the space between and around content items is distributed. Defaults to start.",
+    "options": ["space-around", "space-between", "start", "end"]
+  },
+  "ma-columns/verticalAlign": {
+    "type": "string",
+    "description": "Sets the children vertical alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply start on all the different breakpoints\nalign = 'start'\n// This would apply fill on mobile, center on tablet and start on desktop\n:align=\"['fill', 'center', 'start']\"\n```",
+    "options": ["start", "center", "fill", "end"]
+  },
   "ma-datagrid/rows": {
     "type": "array",
     "description": "Sets the datagrid rows"
@@ -141,6 +172,37 @@
   "ma-icon/title": {
     "type": "string",
     "description": "Sets icon's title"
+  },
+  "ma-layout/columns": {
+    "type": "array|string",
+    "description": "Defines the columns layout.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n<ma-layout columns=\"12\">...</ma-layout>\n<ma-layout :columns=\"['4', '4', '4']\">...</ma-layout>\n```\n[Layout documentation](https://holaluz.github.io/margarita/?path=/docs/layout-layout--layout)"
+  },
+  "ma-layout/gap": {
+    "type": "array|string",
+    "description": "Sets the space gap between child rows and columns.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply medium on all the different breakpoints\ngap = 'small'\n// This would apply none on mobile, small on tablet and large on desktop\n:gap=\"['none', 'small', 'large']\"\n```\n\n[Spacing tokens documentation](https://holaluz.github.io/margarita/?path=/story/tokens-spacing--page)",
+    "options": [
+      "none",
+      "xsmall",
+      "small",
+      "medium",
+      "large",
+      "xlarge",
+      "2x-large",
+      "3x-large",
+      "4x-large",
+      "5x-large",
+      "6x-large"
+    ]
+  },
+  "ma-layout/justify": {
+    "type": "string",
+    "description": "Defines how the space between and around content items is distributed. Defaults to start.",
+    "options": ["space-around", "space-between", "start", "end"]
+  },
+  "ma-layout/verticalAlign": {
+    "type": "string",
+    "description": "Sets the children vertical alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply start on all the different breakpoints\nalign = 'start'\n// This would apply fill on mobile, center on tablet and start on desktop\n:align=\"['fill', 'center', 'start']\"\n```",
+    "options": ["start", "center", "fill", "end"]
   },
   "ma-modal/title": {
     "type": "string",

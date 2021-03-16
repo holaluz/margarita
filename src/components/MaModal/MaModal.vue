@@ -9,17 +9,16 @@
     </div>
     <ma-modal-portal>
       <transition name="modal-transition" @after-leave="closeModal">
-        <div v-if="showModal" class="modal-wrapper">
+        <div
+          v-if="showModal"
+          class="modal-wrapper"
+          data-testid="overlay"
+          @click.self="closeModal"
+        >
           <div
-            class="modal-overlay"
-            data-testid="overlay"
-            @click="closeModal"
-          />
-          <ma-stack
             ref="modal"
             :aria-label="title"
             :class="`modal--width-${width}`"
-            space="medium"
             role="dialog"
             aria-modal="true"
             class="modal"
@@ -29,8 +28,15 @@
               class="modal-header"
               data-testid="modal-header"
             >
-              <span class="modal-title">{{ title }}</span>
+              <ma-heading
+                class="modal-title"
+                :tone="headerType === 'gradient' ? 'white' : 'gray-dark'"
+                size="xsmall"
+              >
+                {{ title }}
+              </ma-heading>
               <ma-button
+                ref="closeButton"
                 category="no-background"
                 data-testid="close-button"
                 class="icon-close"
@@ -46,7 +52,7 @@
                 -->
               <slot :closeModal="closeModal" name="content" />
             </div>
-          </ma-stack>
+          </div>
         </div>
       </transition>
     </ma-modal-portal>
@@ -55,9 +61,9 @@
 
 <script>
 import { Portal as MaModalPortal } from '@linusborg/vue-simple-portal/dist/index.umd'
-import MaStack from '@margarita/components/MaStack'
 import MaIcon from '@margarita/components/MaIcon'
 import MaButton from '@margarita/components/MaButton'
+import MaHeading from '@margarita/components/MaHeading'
 
 const FOCUSABLE_ELEMENTS = [
   'button',
@@ -71,6 +77,8 @@ const FOCUSABLE_ELEMENTS = [
 const TAB_KEY = 9
 const ESCAPE_KEY = 27
 
+const OVERFLOW_HIDDEN_CLASS = 'overflow-y-hidden'
+
 /**
  * Renders a modal component following the Design System guidelines
  *
@@ -80,10 +88,10 @@ export default {
   name: 'MaModal',
 
   components: {
-    MaStack,
     MaModalPortal,
     MaIcon,
     MaButton,
+    MaHeading,
   },
 
   props: {
@@ -150,6 +158,7 @@ export default {
        */
       this.$emit('open')
 
+      document.body.classList.add(OVERFLOW_HIDDEN_CLASS)
       await this.setFocusWithin('modal-content')
       await this.setFocusableElements()
     },
@@ -173,6 +182,7 @@ export default {
        */
       this.$emit('close')
 
+      document.body.classList.remove(OVERFLOW_HIDDEN_CLASS)
       await this.setFocusWithin('modal-trigger')
     },
 
@@ -191,6 +201,8 @@ export default {
 
       if (firstFocusableElement) {
         firstFocusableElement.focus()
+      } else if (this.$refs.closeButton) {
+        this.$refs.closeButton.$el.focus()
       }
     },
 
@@ -206,7 +218,7 @@ export default {
       // If we cannot find the modal let's fail gracefully.
       if (!modal) return
 
-      this.focusableElements = modal.$el.querySelectorAll(FOCUSABLE_ELEMENTS)
+      this.focusableElements = modal.querySelectorAll(FOCUSABLE_ELEMENTS)
     },
 
     handleTabKey(e) {
@@ -234,5 +246,12 @@ export default {
   },
 }
 </script>
+
+<style>
+/* unscoped style to affect <body> */
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+</style>
 
 <style src="./MaModal.css" scoped></style>

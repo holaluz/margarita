@@ -58,18 +58,26 @@ const NestedStackTemplate = (args, { argTypes }) => ({
   components: { DemoBlock },
   props: Object.keys(argTypes),
   template: `
-    <ma-stack space="2x-large" style="width: 400px;outline: 1px solid red;background-color:#f1f1f2;padding:1rem">
-      <ma-stack space="xlarge" align="center" style="outline: 1px solid red">
-        <span style="font-size: 2rem">Log In</span>
+    <div style="width: 400px;outline: 1px solid red;background-color:#f1f1f2;padding:1rem">
+      <ma-stack space="2x-large">
+        <div style="outline: 1px solid red">
+          <ma-stack space="xlarge" align="center">
+            <span style="font-size: 2rem">Log In</span>
+          </ma-stack>
+        </div>
+        <div style="outline: 1px solid red">
+          <ma-stack space="small">
+            <ma-text-field label="email" />
+            <ma-text-field label="password" />
+            <span>reset my password</span>
+            <ma-button>submit</ma-button>
+          </ma-stack>
+        </div>
+        <div style="outline: 1px solid red">
+          <ma-alert text="wrong password!" type="warning" />
+        </div>
       </ma-stack>
-      <ma-stack space="small" style="outline: 1px solid red">
-        <ma-text-field label="email" />
-        <ma-text-field label="password" />
-        <span>reset my password</span>
-        <ma-button>submit</ma-button>
-      </ma-stack>
-      <ma-alert text="wrong password!" type="warning" />
-    </ma-stack>
+    </div>
   `,
 })
 
