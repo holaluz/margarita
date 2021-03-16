@@ -1,6 +1,14 @@
 .modal-wrapper {
-  position: relative;
-
+  position: fixed;
+  background-color: var(--shadow-dark);
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
   /**
    * TODO: Normalize z-indexes values across HL. For instance, this one is set
    * to 101 to trump CMB's z-index of 100.
@@ -8,23 +16,12 @@
   z-index: 101;
 }
 
-.modal-overlay {
-  position: fixed;
-  background-color: var(--shadow-dark);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
 .modal {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 96vw; /* so that it doesn't reach end of viewport */
-
+  width: 100%;
+  max-height: 100%;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 2px 8px var(--shadow-dark);
   background-color: var(--color-white-base);
   word-break: break-word;
@@ -33,38 +30,36 @@
 .modal-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: var(--spacing-medium);
   border-radius: 4px 4px 0 0;
 }
 
 .modal-header--white {
   --modal-header-icon-color: var(--color-pink-base);
+  padding-bottom: 0;
 }
 
 .modal-header--gradient {
   --modal-header-icon-color: var(--color-white-base);
-
   background: linear-gradient(to right, var(--gradient-holaluz));
-  color: var(--color-white-base);
-}
 
-.modal-header--gradient .modal-title {
-  text-align: center;
+  & .modal-title {
+    text-align: center;
+  }
 }
 
 .modal-title {
   flex: 1;
-  font-weight: 700;
-  font-size: 1.5rem;
 }
 
 .icon-close {
   border-style: solid;
   border-width: 1px;
-  padding: 0.25rem;
+  padding: 0.4rem;
   margin-left: var(--spacing-medium);
   color: var(--modal-header-icon-color);
+  align-self: flex-start;
 }
 
 .icon-close--pink {
@@ -88,13 +83,10 @@
 }
 
 .modal-content {
-  /* because fuck standards, that's why: https://github.com/w3c/csswg-drafts/issues/129 */
-  margin-bottom: var(--spacing-medium);
+  margin: var(--spacing-medium) 0;
   padding: 0 var(--spacing-medium);
-  overflow-y: auto;
-
-  /* so that it doesn't reach end of viewport */
-  max-height: 85vh;
+  flex: 1;
+  overflow: auto;
 }
 
 .modal--width-small {
@@ -110,26 +102,15 @@
 .modal-transition-leave-to,
 .modal-transition-enter {
   opacity: 0;
+  & .modal {
+    transform: translateY(-10%);
+  }
 }
 
 .modal-transition-leave-active,
 .modal-transition-enter-active {
   transition: opacity 0.3s ease;
-}
-
-.modal-transition-enter-active .modal {
-  animation: slideFromTop 0.4s ease-in-out;
-}
-
-.modal-transition-leave-active .modal {
-  animation: slideFromTop 0.4s ease-in-out reverse;
-}
-
-@keyframes slideFromTop {
-  from {
-    top: 47%;
-  }
-  to {
-    top: 50%;
+  & .modal {
+    transition: transform 0.4s ease-in-out;
   }
 }

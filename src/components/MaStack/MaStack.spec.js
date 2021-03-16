@@ -18,19 +18,36 @@ describe('Stack', () => {
   test('adds alignment classes', () => {
     const { contentWrapper } = renderComponent({ align: 'right' })
 
-    expect(contentWrapper).toHaveClass('stack--align-right')
+    expect(contentWrapper).toHaveStyle({ justifyItems: 'flex-end' })
   })
 
   test(`alignment class defaults to 'fill'`, () => {
     const { contentWrapper } = renderComponent({ space: 'medium' })
 
-    expect(contentWrapper).toHaveClass('stack--align-fill')
+    expect(contentWrapper).toHaveStyle({ justifyItems: 'stretch' })
   })
 
   test('adds alignment classes from array', () => {
     const { contentWrapper } = renderComponent({ align: ['center', 'right'] })
 
-    expect(contentWrapper).toHaveClass('stack--align-center')
+    expect(contentWrapper).toHaveStyle({ justifyItems: 'center' })
+  })
+
+  test('keeps additional attributes', () => {
+    const { getByText } = render({
+      components: { MaStack },
+      template: `
+      <ma-stack space="small" :class="['custom-class']" id="123" random-attr>
+        content
+      </ma-stack>
+      `,
+    })
+
+    const content = getByText('content')
+
+    expect(content).toHaveAttribute('id', '123')
+    expect(content).toHaveAttribute('random-attr')
+    expect(content).toHaveClass('custom-class', 'stack')
   })
 })
 

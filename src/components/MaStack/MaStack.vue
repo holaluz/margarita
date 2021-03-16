@@ -1,18 +1,15 @@
-<template>
-  <div
-    :style="styles"
-    :class="[`stack--align-${responsiveAlign}`]"
-    class="stack"
-  >
-    <!-- @slot Stack content slot -->
-    <slot />
-  </div>
-</template>
-
 <script>
+/** @typedef {import('vue').VNodeData} VNodeData */
+import { mergeData } from 'vue-functional-data-merge'
 import { responsivePropValidator } from '@margarita/utils/responsivePropValidator'
 import { spacing } from '../../tokens'
-const alignment = ['left', 'center', 'right', 'fill']
+
+const alignment = {
+  fill: 'stretch',
+  left: 'flex-start',
+  center: 'center',
+  right: 'flex-end',
+}
 
 /**
  * Renders a stack component following the Design System guidelines
@@ -21,6 +18,8 @@ const alignment = ['left', 'center', 'right', 'fill']
  */
 export default {
   name: 'MaStack',
+
+  functional: true,
 
   props: {
     /**
@@ -58,22 +57,27 @@ export default {
     align: {
       type: [Array, String],
       default: 'fill',
-      validator: responsivePropValidator(alignment),
+      validator: responsivePropValidator(Object.keys(alignment)),
     },
   },
 
-  computed: {
-    responsiveSpace() {
-      return this.$layout.getResponsivePropValue(this.space)
-    },
+  render(createElement, { parent, props, slots, data }) {
+    const responsiveSpace = parent.$layout.getResponsivePropValue(props.space)
+    const responsiveAlign = parent.$layout.getResponsivePropValue(props.align)
 
-    responsiveAlign() {
-      return this.$layout.getResponsivePropValue(this.align)
-    },
+    const space = spacing[responsiveSpace]
+    const align = alignment[responsiveAlign]
 
-    styles() {
-      return { gap: spacing[this.responsiveSpace] }
-    },
+    /** @type {VNodeData} */
+    const componentData = {
+      staticClass: 'stack',
+      style: {
+        gap: space,
+        justifyItems: align,
+      },
+    }
+
+    return createElement('div', mergeData(data, componentData), slots().default)
   },
 }
 </script>
@@ -82,21 +86,5 @@ export default {
 .stack {
   display: grid;
   grid-auto-flow: row;
-}
-
-.stack--align-fill {
-  justify-items: stretch;
-}
-
-.stack--align-left {
-  justify-items: flex-start;
-}
-
-.stack--align-center {
-  justify-items: center;
-}
-
-.stack--align-right {
-  justify-items: flex-end;
 }
 </style>

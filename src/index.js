@@ -6,6 +6,7 @@ import MaCard from './components/MaCard'
 import MaDatagrid from './components/MaDatagrid'
 import MaHidden from './components/MaHidden'
 import MaIcon from './components/MaIcon'
+import MaLayout from './components/MaLayout'
 import MaModal from './components/MaModal'
 import MaOption from './components/MaOption'
 import MaPagination from './components/MaPagination'
@@ -14,6 +15,7 @@ import MaRange from './components/MaRange'
 import MaSelect from './components/MaSelect'
 import MaText from './components/MaText'
 import MaTextField from './components/MaTextField'
+import MaList from './components/MaList'
 import MaStack from './components/MaStack'
 import MaHeading from './components/MaHeading'
 import { markdown, markdownSSR } from './directives/markdown'
@@ -26,6 +28,7 @@ export {
   MaDatagrid,
   MaHidden,
   MaIcon,
+  MaLayout,
   MaModal,
   MaOption,
   MaPagination,
@@ -35,6 +38,7 @@ export {
   MaStack,
   MaText,
   MaTextField,
+  MaList,
   MaHeading,
   markdown,
   markdownSSR,
@@ -50,6 +54,7 @@ function install(Vue) {
   Vue.component('MaDatagrid', MaDatagrid)
   Vue.component('MaHidden', MaHidden)
   Vue.component('MaIcon', MaIcon)
+  Vue.component('MaLayout', MaLayout)
   Vue.component('MaModal', MaModal)
   Vue.component('MaOption', MaOption)
   Vue.component('MaPagination', MaPagination)
@@ -60,6 +65,7 @@ function install(Vue) {
   Vue.component('MaHeading', MaHeading)
   Vue.component('MaText', MaText)
   Vue.component('MaTextField', MaTextField)
+  Vue.component('MaList', MaList)
 
   Vue.directive('markdown', markdown)
 }

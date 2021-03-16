@@ -1,0 +1,45 @@
+ul,
+ol {
+  list-style: none;
+}
+
+li {
+  position: relative;
+}
+
+li:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+}
+
+ul.bullet li::before {
+  background: url('../../assets/icons/bullet.svg');
+  width: 0.625rem;
+  height: 0.625rem;
+  top: 0.5rem;
+  left: -1.375rem;
+}
+
+ul.bullet li.small::before {
+  top: 0.375rem;
+}
+
+ul.check li::before {
+  background: url('../../assets/icons/check.svg');
+  width: 1rem;
+  height: 0.75rem;
+  top: 0.5rem;
+  left: -1.5rem;
+}
+
+ul.check li.small::before {
+  top: 0.25rem;
+}
+
+ol {
+  list-style-type: decimal;
+}

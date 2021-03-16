@@ -1,0 +1,49 @@
+import { Story } from '@storybook/addon-docs/blocks'
+
+# Layout Component
+
+The Layout component is the fundamental piece to create UI layouts.
+
+## The columns prop
+
+The layout component generates a combination of columns an rows using the `columns` prop.
+
+This prop is a string, which can have the following characters:
+
+- **An integer from (1 to 12):** signifies the width that a column will fill in a 12-col layout.
+- **An hyphen (-):** signifies an end of a row.
+- **The autoflow operator (\*):** signifies that the rest of the elements of the div will all be fit in the same row.
+
+## Quick examples
+
+```js
+// Renders a single, full-width column
+<ma-layout columns="12">...</ma-layout>
+
+// Renders a two-column layout: one with 11/12 of the total width, and the other with the remaining 1/12.
+<ma-layout columns="11 1">...</ma-layout>
+
+// Renders a layout with two rows: the first one where the element has full width,
+// and the second one with the rest of the children in a single row.
+<ma-layout columns="12 - *">...</ma-layout>
+```
+
+Since it's a bit hard to visualize by text, here are some examples and the value of `columns` used to achieve it.
+
+## Full examples
+
+<Story id="layout-layout-examples--example-1" />
+<Story id="layout-layout-examples--example-2" />
+<Story id="layout-layout-examples--example-3" />
+<Story id="layout-layout-examples--example-4" />
+<Story id="layout-layout-examples--example-5" />
+<Story id="layout-layout-examples--example-6" />
+<Story id="layout-layout-examples--example-7" />
+<Story id="layout-layout-examples--example-8" />
+<Story id="layout-layout-examples--example-9" />
+<Story id="layout-layout-examples--example-10" />
+<Story id="layout-layout-examples--example-11" />
+<Story id="layout-layout-examples--example-12" />
+<Story id="layout-layout-examples--example-13" />
+<Story id="layout-layout-examples--example-14" />
+<Story id="layout-layout-examples--example-15" />
