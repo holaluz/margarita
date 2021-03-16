@@ -35,7 +35,7 @@ describe('MaLayout', () => {
 
     const layout = getByTestId('layout')
     expect(layout).toHaveAttribute('id', '123')
-    expect(layout).toHaveClass('stack', 'class1', 'class2')
+    expect(layout).toHaveClass('ma-stack', 'class1', 'class2')
 
     const div = getByTestId('div')
     expect(div).toHaveAttribute('id', '456')
@@ -50,8 +50,8 @@ function renderComponent(props, attrs = {}) {
     ...attrs,
   })
 
-  const stacks = utils.baseElement.querySelectorAll('.stack')
-  const grids = utils.baseElement.querySelectorAll('.grid')
+  const stacks = utils.baseElement.querySelectorAll('.ma-stack')
+  const grids = utils.baseElement.querySelectorAll('.ma-grid')
 
   return {
     ...utils,

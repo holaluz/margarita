@@ -47,7 +47,7 @@ describe('Stack', () => {
 
     expect(content).toHaveAttribute('id', '123')
     expect(content).toHaveAttribute('random-attr')
-    expect(content).toHaveClass('custom-class', 'stack')
+    expect(content).toHaveClass('custom-class', 'ma-stack')
   })
 })
 

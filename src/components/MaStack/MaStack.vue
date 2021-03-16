@@ -70,7 +70,7 @@ export default {
 
     /** @type {VNodeData} */
     const componentData = {
-      staticClass: 'stack',
+      staticClass: 'ma-stack',
       style: {
         gap: space,
         justifyItems: align,
@@ -82,8 +82,8 @@ export default {
 }
 </script>
 
-<style scoped>
-.stack {
+<style>
+.ma-stack {
   display: grid;
   grid-auto-flow: row;
 }
