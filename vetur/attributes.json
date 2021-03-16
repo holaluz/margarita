@@ -72,7 +72,7 @@
   "ma-columns/justify": {
     "type": "string",
     "description": "Defines how the space between and around content items is distributed. Defaults to start.",
-    "options": ["space-around", "space-between", "start", "end"]
+    "options": ["space-around", "space-between", "start", "end", "center"]
   },
   "ma-columns/verticalAlign": {
     "type": "string",
@@ -197,12 +197,37 @@
   "ma-layout/justify": {
     "type": "string",
     "description": "Defines how the space between and around content items is distributed. Defaults to start.",
-    "options": ["space-around", "space-between", "start", "end"]
+    "options": ["space-around", "space-between", "start", "end", "center"]
   },
   "ma-layout/verticalAlign": {
     "type": "string",
     "description": "Sets the children vertical alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply start on all the different breakpoints\nalign = 'start'\n// This would apply fill on mobile, center on tablet and start on desktop\n:align=\"['fill', 'center', 'start']\"\n```",
     "options": ["start", "center", "fill", "end"]
+  },
+  "ma-list/type": {
+    "type": "string",
+    "description": "Sets the type of list",
+    "options": ["bullet", "check", "ordered"]
+  },
+  "ma-list/size": {
+    "type": "string",
+    "description": "Sets the text element size according to our Design System",
+    "options": ["small", "medium"]
+  },
+  "ma-list/tone": {
+    "type": "string",
+    "description": "Sets the text element color tone",
+    "options": [
+      "white",
+      "red",
+      "pink",
+      "blue",
+      "green",
+      "yellow",
+      "gray-darker",
+      "gray-dark",
+      "gray"
+    ]
   },
   "ma-modal/title": {
     "type": "string",
@@ -411,29 +436,5 @@
   "ma-text-field/suffix": {
     "type": "string",
     "description": "Component's suffix inside the text field"
-  "ma-list/type": {
-    "type": "string",
-    "description": "Sets the type of list",
-    "options": ["bullet", "check", "ordered"]
-  },
-  "ma-list/size": {
-    "type": "string",
-    "description": "Sets the text element size according to our Design System",
-    "options": ["small", "medium"]
-  },
-  "ma-list/tone": {
-    "type": "string",
-    "description": "Sets the text element color tone",
-    "options": [
-      "white",
-      "red",
-      "pink",
-      "blue",
-      "green",
-      "yellow",
-      "gray-darker",
-      "gray-dark",
-      "gray"
-    ]
   }
 }
