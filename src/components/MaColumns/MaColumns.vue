@@ -91,7 +91,7 @@ export default {
 
     /** @type {VNodeData} */
     const componentData = {
-      staticClass: 'ma-grid',
+      staticClass: 'ma-columns',
       class: {
         'has-auto-flow': hasAutoFlow({ columns }),
         [`vertical-align-${props.verticalAlign}`]: true,
@@ -169,7 +169,7 @@ function validateColumnsProp(columns) {
 </script>
 
 <style lang="postcss">
-.ma-grid {
+.ma-columns {
   display: grid;
   &.has-auto-flow {
     grid-auto-flow: column;

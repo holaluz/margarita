@@ -51,7 +51,7 @@ function renderComponent(props, attrs = {}) {
   })
 
   const stacks = utils.baseElement.querySelectorAll('.ma-stack')
-  const grids = utils.baseElement.querySelectorAll('.ma-grid')
+  const grids = utils.baseElement.querySelectorAll('.ma-columns')
 
   return {
     ...utils,
