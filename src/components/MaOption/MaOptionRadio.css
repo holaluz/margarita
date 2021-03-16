@@ -5,7 +5,7 @@
 .ma-option--radio .indicator {
   position: relative;
   flex-shrink: 0;
-  top: 4px;
+  top: 0;
   border: 1px solid var(--color-gray-base);
   border-radius: 50%;
   background-color: var(--color-white-base);
@@ -16,6 +16,7 @@
 }
 
 .ma-option--radio .description {
+  margin-top: 2px;
   padding-left: 0.5rem;
 }
 
