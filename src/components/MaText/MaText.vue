@@ -4,6 +4,7 @@
     :style="computedStyle"
     :class="computedClass"
     class="ma-text"
+    :align="align"
   >
     <!-- @slot Text content slot -->
     <slot />
@@ -63,6 +64,14 @@ export default {
       type: String,
       default: 'gray-dark',
       validator: (val) => Object.keys(tones).includes(val),
+    },
+    /**
+     * Set an horitzontal alignment to the text
+     */
+    align: {
+      type: String,
+      default: 'left',
+      validator: (value) => ['left', 'center', 'right'].includes(value),
     },
   },
 

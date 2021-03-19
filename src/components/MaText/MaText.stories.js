@@ -24,6 +24,12 @@ export default {
         options: Object.keys(text.textSize.mobile),
       },
     },
+    align: {
+      control: {
+        type: 'select',
+        options: ['left', 'center', 'right'],
+      },
+    },
   },
   parameters: {
     docs: { page: docs },
@@ -32,11 +38,22 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  template: `<div style="display: flex;">
+  template: `
+  <div>
+  <div>
+  <div style="margin: 20px">
+      <ma-text v-bind="$props">I'M a text</ma-text>
+      <ma-text v-bind="$props" style="background-color:var(--color-blue-light)">
+        I'M a text
+      </ma-text>
+  </div>
+  </div>
+  <div style="display: flex; margin: 20px">
       <ma-text v-bind="$props">I'M a text</ma-text>
       <ma-text v-bind="$props" style="margin-left:4rem; background-color:var(--color-blue-light)">
         I'M a text
       </ma-text>
+  </div>
   </div>`,
 })
 
