@@ -112,7 +112,7 @@ TextFieldWithIcon.argTypes = {
 
 const TexFieldWithUnitTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  template: `<ma-text-field v-bind="$props" />`,
+  template: `<ma-text-field type="number" v-bind="$props" />`,
 })
 
 export const TextFieldWithUnit = TexFieldWithUnitTemplate.bind({})
