@@ -4,7 +4,6 @@
     :style="computedStyle"
     :class="computedClass"
     class="ma-text"
-    :align="align"
   >
     <!-- @slot Text content slot -->
     <slot />
@@ -96,6 +95,7 @@ export default {
         'line-height': sizeStyles['line-height'],
         '--top-crop': sizeStyles['top-crop'],
         '--bottom-crop': sizeStyles['bottom-crop'],
+        'text-align': this.align,
         color: tones[this.tone],
       }
     },
