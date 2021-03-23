@@ -46,6 +46,16 @@ describe('Text', () => {
 
     expect(getByText(slotText)).toHaveClass('ma-text--italic')
   })
+
+  test(`'align' property assigns provided align styles to text`, () => {
+    const { getByText } = renderComponent({
+      align: 'center',
+    })
+
+    expect(getByText(slotText)).toHaveStyle({
+      'text-align': 'center',
+    })
+  })
 })
 
 function renderComponent(props = {}) {
