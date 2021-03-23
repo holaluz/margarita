@@ -110,13 +110,13 @@ TextFieldWithIcon.argTypes = {
   ...hideComponentProperties,
 }
 
-const TexFieldWithUnitTemplate = (args, { argTypes }) => ({
+const TexFieldWithSuffixTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `<ma-text-field type="number" v-bind="$props" />`,
 })
 
-export const TextFieldWithUnit = TexFieldWithUnitTemplate.bind({})
-TextFieldWithUnit.argTypes = {
+export const TextFieldWithSuffix = TexFieldWithSuffixTemplate.bind({})
+TextFieldWithSuffix.argTypes = {
   ...hideComponentProperties,
   suffix: {
     name: 'Suffix',
