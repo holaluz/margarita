@@ -1,5 +1,6 @@
 import MaTextField from './MaTextField'
 import docs from '../../../docs/components/MaTextField.docs.mdx'
+import docsMaTextFieldWithSuffix from '../../../docs/components/MaTextFieldWithSuffix.docs.mdx'
 
 const hideComponentProperties = {
   blur: { table: { disable: true } },
@@ -123,4 +124,7 @@ TextFieldWithSuffix.argTypes = {
     defaultValue: '€',
     control: { type: 'text' },
   },
+}
+TextFieldWithSuffix.parameters = {
+  docs: { page: docsMaTextFieldWithSuffix },
 }
