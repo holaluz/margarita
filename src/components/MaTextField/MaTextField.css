@@ -51,6 +51,16 @@
   border: none;
 }
 
+.ma-text-field__input[type='number']::-webkit-inner-spin-button,
+.ma-text-field__input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ma-text-field__input[type='number'] {
+  -moz-appearance: textfield;
+}
+
 .ma-text-field__input:focus,
 .ma-text-field__input:disabled,
 .ma-text-field__input:active,
