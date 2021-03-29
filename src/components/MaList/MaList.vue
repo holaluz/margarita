@@ -1,6 +1,8 @@
 <template>
   <component :is="tag" :class="iconClass">
-    <items v-bind="$props" :style="computedStyle"><slot /></items>
+    <ma-stack space="xsmall">
+      <items v-bind="$props" :style="computedStyle"><slot /></items>
+    </ma-stack>
   </component>
 </template>
 
@@ -47,7 +49,6 @@ export default {
      * Sets the type of list
      * @values bullet, check, ordered
      */
-
     type: {
       type: String,
       default: 'bullet',
