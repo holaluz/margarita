@@ -99,6 +99,8 @@
       "id",
       "hasError",
       "label",
+      "labelTone",
+      "isLabelBold",
       "v-model",
       "suffix"
     ],
