@@ -59,6 +59,16 @@ export default {
       default: 'fill',
       validator: responsivePropValidator(Object.keys(alignment)),
     },
+
+    /**
+     * Set the HTML element tag that wraps the content.
+     * @values div, ul, ol
+     */
+    tag: {
+      type: String,
+      default: 'div',
+      validator: (t) => ['div', 'ul', 'ol'].includes(t),
+    },
   },
 
   render(createElement, { parent, props, slots, data }) {
@@ -77,7 +87,11 @@ export default {
       },
     }
 
-    return createElement('div', mergeData(data, componentData), slots().default)
+    return createElement(
+      props.tag,
+      mergeData(data, componentData),
+      slots().default
+    )
   },
 }
 </script>

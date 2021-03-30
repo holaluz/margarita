@@ -1,13 +1,12 @@
 <template>
-  <component :is="tag" :class="iconClass">
-    <ma-stack space="xsmall">
-      <items v-bind="$props" :style="computedStyle"><slot /></items>
-    </ma-stack>
-  </component>
+  <ma-stack space="xsmall" :tag="tag" :class="iconClass">
+    <items v-bind="$props" :style="computedStyle"><slot /></items>
+  </ma-stack>
 </template>
 
 <script>
 import { text, tones } from '../../tokens'
+import MaStack from '../MaStack/MaStack.vue'
 
 /**
  * Renders list following the Design System guidelines
@@ -27,20 +26,24 @@ export default {
           return
         }
 
-        return slots().default.map((item) => {
-          if (item.componentOptions && item.componentOptions.propsData) {
-            item.componentOptions.propsData = {
-              ...props,
-              ...item.componentOptions.propsData,
+        return slots()
+          .default.filter((c) => c.tag)
+          .map((item) => {
+            if (item.componentOptions && item.componentOptions.propsData) {
+              item.componentOptions.propsData = {
+                ...props,
+                ...item.componentOptions.propsData,
+              }
             }
-          }
-          return createElement(
-            'li',
-            { props, style: data.style, class: props.size },
-            [item]
-          )
-        })
+            return createElement(
+              'li',
+              { props, style: data.style, class: props.size },
+              [item]
+            )
+          })
       },
+
+      MaStack,
     },
   },
 
