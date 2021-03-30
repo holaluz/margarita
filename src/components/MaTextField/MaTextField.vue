@@ -99,7 +99,7 @@ export default {
      * Sets the label element color tone
      * @values white, red, pink, blue, green, yellow, gray-darker, gray-dark, gray
      */
-    labelTone: {
+    tone: {
       type: String,
       default: 'gray-dark',
       validator: (val) => Object.keys(tones).includes(val),
@@ -107,7 +107,7 @@ export default {
     /**
      * Applies bold weigth to label
      */
-    isLabelBold: {
+    bold: {
       type: Boolean,
       default: false,
     },

@@ -429,7 +429,7 @@
     "type": "string",
     "description": "Sets component's label\n\n⚠️ If attribute aria-label is defined, input's label will be 'visually' hidden"
   },
-  "ma-text-field/labelTone": {
+  "ma-text-field/tone": {
     "type": "string",
     "description": "Sets the label element color tone",
     "options": [
@@ -444,7 +444,7 @@
       "gray"
     ]
   },
-  "ma-text-field/isLabelBold": {
+  "ma-text-field/bold": {
     "type": "boolean",
     "description": "Applies bold weigth to label"
   },
