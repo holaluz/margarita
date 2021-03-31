@@ -64,6 +64,14 @@ export default {
       default: 'gray-dark',
       validator: (val) => Object.keys(tones).includes(val),
     },
+    /**
+     * Set an horitzontal alignment to the text
+     */
+    align: {
+      type: String,
+      default: 'left',
+      validator: (value) => ['left', 'center', 'right'].includes(value),
+    },
   },
 
   computed: {
@@ -87,6 +95,7 @@ export default {
         'line-height': sizeStyles['line-height'],
         '--top-crop': sizeStyles['top-crop'],
         '--bottom-crop': sizeStyles['bottom-crop'],
+        'text-align': this.align,
         color: tones[this.tone],
       }
     },

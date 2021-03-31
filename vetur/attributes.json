@@ -413,6 +413,11 @@
       "gray"
     ]
   },
+  "ma-text/align": {
+    "type": "string",
+    "description": "Set an horitzontal alignment to the text",
+    "options": ["left", "center", "right"]
+  },
   "ma-text-field/errorMessage": {
     "type": "string",
     "description": "Sets component's error message to display if `hasError === true`"

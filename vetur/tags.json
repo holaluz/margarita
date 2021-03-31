@@ -90,7 +90,7 @@
     "description": "Renders a stack component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-stack--stack)"
   },
   "ma-text": {
-    "attributes": ["tag", "size", "italic", "bold", "tone"],
+    "attributes": ["tag", "size", "italic", "bold", "tone", "align"],
     "description": "Renders text following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-text--text)"
   },
   "ma-text-field": {
