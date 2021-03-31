@@ -1,42 +1,14 @@
+.ma-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-xsmall);
+  font-variant-numeric: tabular-nums;
+}
+
 ul,
 ol {
   list-style: none;
   margin: 0;
-}
-
-li {
-  position: relative;
-}
-
-ul li::before {
-  content: '';
-  position: absolute;
-}
-
-ul.bullet li::before {
-  background: url('../../assets/icons/bullet.svg');
-  width: 0.625rem;
-  height: 0.625rem;
-  top: 0.15rem;
-  left: -1.375rem;
-}
-
-ul.bullet li.small::before {
-  top: 0;
-}
-
-ul.check li::before {
-  background: url('../../assets/icons/check.svg');
-  width: 1rem;
-  height: 0.75rem;
-  top: 0.1rem;
-  left: -1.5rem;
-}
-
-ul.check li.small::before {
-  top: 0;
-}
-
-ol {
-  list-style-type: decimal;
+  padding: 0;
 }

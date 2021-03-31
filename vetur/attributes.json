@@ -165,6 +165,10 @@
     "type": "number|string",
     "description": "Sets icon's view box width"
   },
+  "ma-icon/viewBoxHeight": {
+    "type": "number|string",
+    "description": "Sets icon's view box width"
+  },
   "ma-icon/iconColor": {
     "type": "string",
     "description": "Sets icon's color"
@@ -228,6 +232,18 @@
       "gray-dark",
       "gray"
     ]
+  },
+  "ma-list-marker/tone": {
+    "type": "string"
+  },
+  "ma-list-marker/size": {
+    "type": "string"
+  },
+  "ma-list-marker/type": {
+    "type": "string"
+  },
+  "ma-list-marker/index": {
+    "type": "number"
   },
   "ma-modal/title": {
     "type": "string",
@@ -379,6 +395,11 @@
     "type": "array|string",
     "description": "Sets the children alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply left on all the different breakpoints\nalign = 'left'\n// This would apply fill on mobile, center on tablet and left on desktop\n:align=\"['fill', 'center', 'left']\"\n```",
     "options": ["left", "center", "right", "fill"]
+  },
+  "ma-stack/tag": {
+    "type": "string",
+    "description": "Set the HTML element tag that wraps the content.",
+    "options": ["div", "ul", "ol"]
   },
   "ma-text/tag": {
     "type": "string",

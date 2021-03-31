@@ -30,6 +30,7 @@
       "width",
       "height",
       "viewBoxWidth",
+      "viewBoxHeight",
       "iconColor",
       "title"
     ],
@@ -42,6 +43,10 @@
   "ma-list": {
     "attributes": ["type", "size", "tone"],
     "description": "Renders list following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-list--list)"
+  },
+  "ma-list-marker": {
+    "attributes": ["tone", "size", "type", "index"],
+    "description": ""
   },
   "ma-modal": {
     "attributes": ["title", "width", "headerType"],
@@ -86,7 +91,7 @@
     "description": "Renders a select component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-select--select)"
   },
   "ma-stack": {
-    "attributes": ["space", "align"],
+    "attributes": ["space", "align", "tag"],
     "description": "Renders a stack component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-stack--stack)"
   },
   "ma-text": {

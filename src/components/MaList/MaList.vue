@@ -1,12 +1,6 @@
-<template>
-  <ma-stack space="xsmall" :tag="tag" :class="iconClass">
-    <items v-bind="$props" :style="computedStyle"><slot /></items>
-  </ma-stack>
-</template>
-
 <script>
-import { text, tones } from '../../tokens'
-import MaStack from '../MaStack/MaStack.vue'
+import { tones } from '../../tokens'
+import MaListMarker from './MaListMarker'
 
 /**
  * Renders list following the Design System guidelines
@@ -16,36 +10,7 @@ import MaStack from '../MaStack/MaStack.vue'
 export default {
   name: 'MaList',
 
-  components: {
-    items: {
-      functional: true,
-      render(createElement, { slots, props, data }) {
-        if (!slots().default) {
-          // eslint-disable-next-line no-console
-          console.error(`[List component] No list items found`)
-          return
-        }
-
-        return slots()
-          .default.filter((c) => c.tag)
-          .map((item) => {
-            if (item.componentOptions && item.componentOptions.propsData) {
-              item.componentOptions.propsData = {
-                ...props,
-                ...item.componentOptions.propsData,
-              }
-            }
-            return createElement(
-              'li',
-              { props, style: data.style, class: props.size },
-              [item]
-            )
-          })
-      },
-
-      MaStack,
-    },
-  },
+  functional: true,
 
   props: {
     /**
@@ -78,28 +43,46 @@ export default {
     },
   },
 
-  computed: {
-    tag() {
-      return this.type === 'ordered' ? 'ol' : 'ul'
-    },
+  render(createElement, { slots, props, data }) {
+    if (!slots().default) {
+      // eslint-disable-next-line no-console
+      console.warn(`[List component] No list items found`)
 
-    iconClass() {
-      return this.tag === 'ul' ? this.type : null
-    },
+      // Now, this should not happen, but setting a void (or null) return makes
+      // tests complain about a non-vue instance being created and removed.
+      // Thus, we simply set an empty div.
+      return createElement('div')
+    }
 
-    responsiveTextSize() {
-      return this.$layout.getResponsivePropValue(this.size)
-    },
+    const tag = props.type === 'ordered' ? 'ol' : 'ul'
 
-    computedStyle() {
-      const sizeStyles =
-        text.textSize[this.$layout.currentBreakpoint][this.responsiveTextSize]
+    return createElement(
+      'ma-stack',
+      { props: { space: 'small', tag } },
+      slots()
+        .default.filter((c) => c.tag)
+        .map(createListElement)
+    )
 
-      return {
-        color: tones[this.tone],
-        'font-size': sizeStyles['font-size'],
+    function createListElement(listItem, index) {
+      const naturalIndex = index + 1
+
+      // Pass MaList props down to each child. This way we can customize
+      // their tone and so on.
+      if (listItem.componentOptions?.propsData) {
+        listItem.componentOptions.propsData = {
+          ...props,
+          ...listItem.componentOptions.propsData,
+        }
       }
-    },
+
+      return createElement('li', { ...data, staticClass: 'ma-list-item' }, [
+        createElement(MaListMarker, {
+          props: { ...props, index: naturalIndex },
+        }),
+        listItem,
+      ])
+    }
   },
 }
 </script>

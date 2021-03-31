@@ -1,0 +1,28 @@
+<template>
+  <ma-text v-if="type === 'check'" tone="pink">
+    <ma-icon
+      icon="Checkmark"
+      width="16"
+      height="14"
+      viewBoxHeight="14"
+      title="Check icon"
+    />
+  </ma-text>
+  <ma-text v-else-if="type === 'bullet'" tone="pink">•</ma-text>
+  <ma-text v-else-if="type === 'ordered'" :tone="tone" :size="size">
+    {{ index }}.
+  </ma-text>
+</template>
+
+<script>
+export default {
+  name: 'MaListMarker',
+
+  props: {
+    tone: { type: String, default: null },
+    size: { type: String, default: null },
+    type: { type: String, required: true },
+    index: { type: Number, required: true },
+  },
+}
+</script>
