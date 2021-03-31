@@ -213,32 +213,6 @@
     "description": "Sets the type of list",
     "options": ["bullet", "check", "ordered"]
   },
-  "ma-list/size": {
-    "type": "string",
-    "description": "Sets the text element size according to our Design System",
-    "options": ["small", "medium"]
-  },
-  "ma-list/tone": {
-    "type": "string",
-    "description": "Sets the text element color tone",
-    "options": [
-      "white",
-      "red",
-      "pink",
-      "blue",
-      "green",
-      "yellow",
-      "gray-darker",
-      "gray-dark",
-      "gray"
-    ]
-  },
-  "ma-list-marker/tone": {
-    "type": "string"
-  },
-  "ma-list-marker/size": {
-    "type": "string"
-  },
   "ma-list-marker/type": {
     "type": "string"
   },
