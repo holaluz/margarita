@@ -66,8 +66,8 @@ export default {
   },
 
   render(createElement, { parent, props, slots, data }) {
-    const textSize = parent.$layout.getResponsivePropValue(props.size)
-    const sizeStyles = text.textSize[parent.$layout.currentBreakpoint][textSize]
+    const size = parent.$layout.getResponsivePropValue(props.size)
+    const sizeStyles = text.textSize[parent.$layout.currentBreakpoint][size]
     const componentData = {
       staticClass: 'ma-text',
       class: {
