@@ -119,19 +119,19 @@ function renderStack({ createElement, dom, gap, data }) {
 
 function renderGrid({ createElement, dom, grid, gap, justify, verticalAlign }) {
   let lastIdx = 0
+  const rows = []
 
-  return grid
-    .map((row, i) => {
-      const isLast = i === grid.length - 1
-      const children = dom.filter((c) => c.tag)
-
-      const rowChildren = children.slice(
-        lastIdx,
-        isLast ? children.length : lastIdx + row.length
-      )
-      lastIdx += row.length
-      if (!rowChildren.length) return
-      return renderColumns({
+  grid.forEach((row, i) => {
+    const isLast = i === grid.length - 1
+    const children = dom.filter((c) => c.tag)
+    const rowChildren = children.slice(
+      lastIdx,
+      isLast ? children.length : lastIdx + row.length
+    )
+    lastIdx += row.length
+    if (!rowChildren.length) return
+    rows.push(
+      renderColumns({
         createElement,
         columns: row.join(' '),
         children: rowChildren,
@@ -139,8 +139,9 @@ function renderGrid({ createElement, dom, grid, gap, justify, verticalAlign }) {
         justify,
         verticalAlign,
       })
-    })
-    .filter((a) => a)
+    )
+  })
+  return rows
 }
 
 function renderColumns({
