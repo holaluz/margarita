@@ -9,9 +9,7 @@
     />
   </ma-text>
   <ma-text v-else-if="type === 'bullet'" tone="pink">•</ma-text>
-  <ma-text v-else-if="type === 'ordered'" :tone="tone" :size="size">
-    {{ index }}.
-  </ma-text>
+  <ma-text v-else>{{ index }}.</ma-text>
 </template>
 
 <script>
@@ -19,8 +17,6 @@ export default {
   name: 'MaListMarker',
 
   props: {
-    tone: { type: String, default: null },
-    size: { type: String, default: null },
     type: { type: String, required: true },
     index: { type: Number, required: true },
   },

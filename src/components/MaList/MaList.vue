@@ -1,5 +1,4 @@
 <script>
-import { tones } from '../../tokens'
 import MaListMarker from './MaListMarker'
 
 /**
@@ -21,25 +20,6 @@ export default {
       type: String,
       default: 'bullet',
       validator: (val) => ['bullet', 'check', 'ordered'].includes(val),
-    },
-
-    /**
-     * Sets the text element size according to our Design System
-     */
-    size: {
-      type: String,
-      default: 'medium',
-      validator: (val) => ['small', 'medium'].includes(val),
-    },
-
-    /**
-     * Sets the text element color tone
-     * @values white, red, pink, blue, green, yellow, gray-darker, gray-dark, gray
-     */
-    tone: {
-      type: String,
-      default: 'gray',
-      validator: (val) => Object.keys(tones).includes(val),
     },
   },
 
@@ -65,20 +45,9 @@ export default {
     )
 
     function createListElement(listItem, index) {
-      const naturalIndex = index + 1
-
-      // Pass MaList props down to each child. This way we can customize
-      // their tone and so on.
-      if (listItem.componentOptions?.propsData) {
-        listItem.componentOptions.propsData = {
-          ...props,
-          ...listItem.componentOptions.propsData,
-        }
-      }
-
       return createElement('li', { ...data, staticClass: 'ma-list-item' }, [
         createElement(MaListMarker, {
-          props: { ...props, index: naturalIndex },
+          props: { type: props.type, index: index + 1 },
         }),
         listItem,
       ])

@@ -37,23 +37,6 @@ describe('List', () => {
     })
   })
 
-  test(`'size' property assigns the valid font size to list item`, () => {
-    const { getByText } = renderComponent({
-      size: 'small',
-    })
-
-    expect(getByText('Item 1')).toHaveStyle({ 'font-size': '1rem' })
-  })
-
-  test(`'tone' property assigns the valid color to list item`, () => {
-    const { getByText } = renderComponent({
-      tone: 'gray',
-    })
-
-    // jest converts hex colors to rgb
-    expect(getByText('Item 1')).toHaveStyle({ color: 'rgb(118, 118, 118)' })
-  })
-
   test(`warns if no items have been defined`, () => {
     jest.spyOn(console, 'warn').mockImplementationOnce(() => {})
     renderComponent(null, {
