@@ -4,7 +4,7 @@
       icon="Checkmark"
       width="16"
       height="14"
-      viewBoxHeight="14"
+      view-box-height="14"
       title="Check icon"
     />
   </ma-text>
