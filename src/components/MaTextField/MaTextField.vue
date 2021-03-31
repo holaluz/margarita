@@ -7,8 +7,8 @@
         size="small"
         tag="label"
         class="ma-text-field__label"
-        :tone="labelTone"
-        :bold="isLabelBold"
+        :tone="tone"
+        :bold="bold"
         v-text="label"
       />
       <!-- @slot Label's sibling content slot -->
