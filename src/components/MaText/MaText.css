@@ -18,12 +18,12 @@
   &::after {
     margin-top: var(--bottom-crop);
   }
-}
 
-.ma-text--italic {
-  font-style: italic;
-}
+  &.ma-text--italic {
+    font-style: italic;
+  }
 
-.ma-text--bold {
-  font-weight: bold;
+  &.ma-text--bold {
+    font-weight: bold;
+  }
 }
