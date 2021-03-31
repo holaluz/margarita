@@ -4,7 +4,7 @@ import MaList from './MaList'
 
 describe('List', () => {
   test('renders item from list', () => {
-    const { getByText, getAllByRole, debug } = renderComponent()
+    const { getByText, getAllByRole } = renderComponent()
 
     const firstItem = getByText('Item 1')
     const firstListItem = getAllByRole('listitem')[0]
