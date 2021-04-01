@@ -9,7 +9,11 @@
     & ~ .description {
       transition: border 0.2s ease;
     }
-
+    &:focus {
+      & ~ .description {
+        border-color: var(--color-pink-light);
+      }
+    }
     &:hover,
     &:checked {
       & ~ .description {
