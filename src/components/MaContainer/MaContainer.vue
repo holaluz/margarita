@@ -27,17 +27,18 @@ export default {
 .ma-container {
   margin: 0 auto;
   padding: 0 var(--spacing-small);
+  max-width: var(--container-size);
 }
 
 .ma-container--small {
-  max-width: 840px;
+  --container-size: 840px;
 }
 
 .ma-container--medium {
-  max-width: 1180px;
+  --container-size: 1180px;
 }
 
 .ma-container--large {
-  max-width: 1370px;
+  --container-size: 1370px;
 }
 </style>
