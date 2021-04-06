@@ -15,6 +15,10 @@
     "attributes": ["columns", "gap", "justify", "verticalAlign"],
     "description": ""
   },
+  "ma-container": {
+    "attributes": ["size"],
+    "description": "Centers and horizontally pads its children.\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-container--container)"
+  },
   "ma-datagrid": {
     "attributes": ["rows", "columns", "isLoading", "noResultsText"],
     "description": "Renders a datagrid component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-datagrid--datagrid)"
