@@ -167,7 +167,7 @@
   },
   "ma-icon/viewBoxHeight": {
     "type": "number|string",
-    "description": "Sets icon's view box width"
+    "description": "Sets icon's view box height"
   },
   "ma-icon/iconColor": {
     "type": "string",
