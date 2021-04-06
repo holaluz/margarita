@@ -13,7 +13,7 @@ describe('List', () => {
     expect(firstListItem).toContainElement(firstItem)
   })
 
-  describe('type', () => {
+  describe(`type component's property`, () => {
     test(`renders default list style`, () => {
       const { getByRole, getAllByText } = renderComponent()
 

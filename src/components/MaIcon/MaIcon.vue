@@ -77,7 +77,7 @@ export default {
     },
 
     /**
-     * Sets icon's view box width
+     * Sets icon's view box height
      */
     viewBoxHeight: {
       type: [Number, String],
