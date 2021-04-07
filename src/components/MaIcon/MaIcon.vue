@@ -3,7 +3,7 @@
     xmlns="http://www.w3.org/2000/svg"
     :width="width"
     :height="height"
-    :viewBox="`0 0 ${viewBoxWidth} 18`"
+    :viewBox="`0 0 ${viewBoxWidth} ${viewBoxHeight}`"
     class="ma-icon"
     :aria-labelledby="id"
     role="presentation"
@@ -72,6 +72,14 @@ export default {
      * Sets icon's view box width
      */
     viewBoxWidth: {
+      type: [Number, String],
+      default: 18,
+    },
+
+    /**
+     * Sets icon's view box height
+     */
+    viewBoxHeight: {
       type: [Number, String],
       default: 18,
     },
