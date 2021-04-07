@@ -1,13 +1,12 @@
 /** @typedef {typeof import('@testing-library/vue').render} Render */
 
 import { render as VTLrender } from '@testing-library/vue'
-import responsivePlugin from './plugins/responsivePlugin'
+import margarita from '.'
 
 /** @type {Render} */
 function render(component, options = {}, callbackFn = () => {}) {
   return VTLrender(component, options, (vue) => {
-    // this.$layout.currentBreakpoint will be 'mobile' by default
-    vue.use(responsivePlugin)
+    vue.use(margarita)
 
     callbackFn(vue)
   })

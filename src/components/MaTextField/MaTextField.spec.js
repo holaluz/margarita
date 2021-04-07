@@ -137,6 +137,22 @@ describe('TextField', () => {
     expect(getByText(suffix)).toBeInTheDocument()
     expect(input.parentNode).not.toHaveClass('ma-text-field__input--error-icon')
   })
+
+  test(`'bold' prop renders ma-text--bold class on label`, () => {
+    const { queryByText } = renderComponent({ bold: true })
+
+    expect(queryByText('input label')).toHaveClass('ma-text--bold')
+  })
+
+  test(`'tone' prop assigns the provided style to label`, () => {
+    const { queryByText } = renderComponent({
+      tone: 'gray',
+    })
+
+    expect(queryByText('input label')).toHaveStyle({
+      color: 'rgb(118, 118, 118)',
+    }) //jest converts hex colors to rgb
+  })
 })
 
 function renderComponent(customProps, customParams) {

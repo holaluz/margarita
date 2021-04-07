@@ -11,6 +11,8 @@ const hideComponentProperties = {
   errorMessage: { table: { disable: true } },
   hasError: { table: { disable: true } },
   label: { table: { disable: true } },
+  tone: { table: { disable: true } },
+  bold: { table: { disable: true } },
   id: { table: { disable: true } },
   labelSibling: { table: { disable: true } },
   inputSibling: { table: { disable: true } },

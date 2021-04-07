@@ -1,4 +1,5 @@
 import MaHeading from '../MaHeading'
+import { tones } from '@margarita/tokens'
 
 export default {
   title: 'Components/Heading',
@@ -14,6 +15,12 @@ export default {
       control: {
         type: 'select',
         options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
+      },
+    },
+    tone: {
+      control: {
+        type: 'select',
+        options: Object.keys(tones),
       },
     },
   },
