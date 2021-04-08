@@ -1,5 +1,6 @@
 import MaTextField from './MaTextField'
 import docs from '../../../docs/components/MaTextField.docs.mdx'
+import docsMaTextFieldWithSuffix from '../../../docs/components/MaTextFieldWithSuffix.docs.mdx'
 
 const hideComponentProperties = {
   blur: { table: { disable: true } },
@@ -112,17 +113,20 @@ TextFieldWithIcon.argTypes = {
   ...hideComponentProperties,
 }
 
-const TexFieldWithUnitTemplate = (args, { argTypes }) => ({
+const TexFieldWithSuffixTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `<ma-text-field type="number" v-bind="$props" />`,
 })
 
-export const TextFieldWithUnit = TexFieldWithUnitTemplate.bind({})
-TextFieldWithUnit.argTypes = {
+export const TextFieldWithSuffix = TexFieldWithSuffixTemplate.bind({})
+TextFieldWithSuffix.argTypes = {
   ...hideComponentProperties,
   suffix: {
     name: 'Suffix',
     defaultValue: '€',
     control: { type: 'text' },
   },
+}
+TextFieldWithSuffix.parameters = {
+  docs: { page: docsMaTextFieldWithSuffix },
 }
