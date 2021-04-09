@@ -57,7 +57,16 @@
     "description": "Renders a modal component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-modal--modal)"
   },
   "ma-option": {
-    "attributes": ["v-model", "id", "value", "disabled", "card", "type"],
+    "attributes": [
+      "v-model",
+      "id",
+      "value",
+      "disabled",
+      "card",
+      "type",
+      "tone",
+      "size"
+    ],
     "description": "Renders a radio or checkbox component following the Design System guidelines\n\n[Radio's component API documentation](https://holaluz.github.io/margarita/?path=/story/components-option--radio)\n[Checkbox's component API documentation](https://holaluz.github.io/margarita/?path=/story/components-option--checkbox)"
   },
   "ma-pagination": {

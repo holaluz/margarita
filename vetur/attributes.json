@@ -262,6 +262,26 @@
     "description": "Sets element's input type",
     "options": ["radio", "checkbox"]
   },
+  "ma-option/tone": {
+    "type": "string",
+    "description": "Sets the label element color tone",
+    "options": [
+      "white",
+      "red",
+      "pink",
+      "blue",
+      "green",
+      "yellow",
+      "gray-darker",
+      "gray-dark",
+      "gray"
+    ]
+  },
+  "ma-option/size": {
+    "type": "string",
+    "description": "Sets the size of the component",
+    "options": ["xsmall", "small", "medium"]
+  },
   "ma-pagination/buttonsNumber": {
     "type": "number",
     "description": "Sets the amount of page buttons' to be displayed"
