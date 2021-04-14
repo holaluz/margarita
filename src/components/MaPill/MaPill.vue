@@ -21,7 +21,9 @@ export default {
       type: String,
       default: 'green',
       validator: (color) =>
-        ['green', 'orange', 'red', 'gray', 'dark', 'blue'].includes(color),
+        ['green', 'orange', 'red', 'gray', 'dark', 'blue', 'pink'].includes(
+          color
+        ),
     },
 
     /**

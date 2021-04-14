@@ -8,7 +8,7 @@ export default {
     color: {
       control: {
         type: 'select',
-        options: ['green', 'orange', 'red', 'gray', 'dark', 'blue'],
+        options: ['green', 'orange', 'red', 'gray', 'dark', 'blue', 'pink'],
       },
     },
   },
