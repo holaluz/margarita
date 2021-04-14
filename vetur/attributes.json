@@ -293,7 +293,7 @@
   "ma-pill/color": {
     "type": "string",
     "description": "Sets component's styling color",
-    "options": ["green", "orange", "red", "gray", "dark", "blue"]
+    "options": ["green", "orange", "red", "gray", "dark", "blue", "pink"]
   },
   "ma-pill/text": {
     "type": "number|string",
