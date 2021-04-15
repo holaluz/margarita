@@ -16,8 +16,16 @@
 .ma-option--checkbox .description {
   /* .indicator is absolute-positioned. We need to make room for the text */
   padding-left: calc(var(--indicator-size) + 0.5rem);
-  margin-top: 2px;
   color: var(--color-gray-dark);
+}
+.ma-selector-xsmall.ma-option--checkbox .description {
+  margin-top: 4px;
+}
+.ma-selector-small.ma-option--checkbox .description {
+  margin-top: 3px;
+}
+.ma-selector-medium.ma-option--checkbox .description {
+  margin-top: 2px;
 }
 
 .ma-option--checkbox .input {

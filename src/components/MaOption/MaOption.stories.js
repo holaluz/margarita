@@ -1,5 +1,6 @@
 import MaOption from './MaOption'
 import docs from '../../../docs/components/MaOption.docs.mdx'
+import { tones } from '@margarita/tokens'
 
 export default {
   title: 'Components/Option',
@@ -12,6 +13,18 @@ export default {
       control: false,
     },
     change: { action: 'change' },
+    size: {
+      control: {
+        type: 'select',
+        options: ['xsmall', 'small', 'medium'],
+      },
+    },
+    tone: {
+      control: {
+        type: 'select',
+        options: Object.keys(tones),
+      },
+    },
   },
   parameters: {
     docs: { page: docs },
