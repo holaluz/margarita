@@ -1,17 +1,7 @@
-<template>
-  <component
-    :is="tag"
-    :style="computedStyle"
-    :class="computedClass"
-    class="ma-text"
-  >
-    <!-- @slot Text content slot -->
-    <slot />
-  </component>
-</template>
-
 <script>
 import { text, tones } from '../../tokens'
+import { mergeData } from 'vue-functional-data-merge'
+
 /**
  * Renders text following the Design System guidelines
  *
@@ -19,6 +9,7 @@ import { text, tones } from '../../tokens'
  */
 export default {
   name: 'MaText',
+  functional: true,
 
   props: {
     /**
@@ -74,33 +65,31 @@ export default {
     },
   },
 
-  computed: {
-    responsiveTextSize() {
-      return this.$layout.getResponsivePropValue(this.size)
-    },
-
-    computedClass() {
-      return {
-        'ma-text--italic': this.italic,
-        'ma-text--bold': this.bold,
-      }
-    },
-
-    computedStyle() {
-      const sizeStyles =
-        text.textSize[this.$layout.currentBreakpoint][this.responsiveTextSize]
-
-      return {
-        'font-size': sizeStyles['font-size'],
-        'line-height': sizeStyles['line-height'],
+  render(createElement, { parent, props, slots, data }) {
+    const size = parent.$layout.getResponsivePropValue(props.size)
+    const sizeStyles = text.textSize[parent.$layout.currentBreakpoint][size]
+    const componentData = {
+      staticClass: 'ma-text',
+      class: {
+        'ma-text--bold': props.bold,
+        'ma-text--italic': props.italic,
+      },
+      style: {
+        fontSize: sizeStyles['font-size'],
+        lineHeight: sizeStyles['line-height'],
         '--top-crop': sizeStyles['top-crop'],
         '--bottom-crop': sizeStyles['bottom-crop'],
-        'text-align': this.align,
-        color: tones[this.tone],
-      }
-    },
+        textAlign: props.align,
+        color: tones[props.tone],
+      },
+    }
+    return createElement(
+      props.tag,
+      mergeData(data, componentData),
+      slots().default
+    )
   },
 }
 </script>
 
-<style scoped src="./MaText.css"></style>
+<style src="./MaText.css"></style>

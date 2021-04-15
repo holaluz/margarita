@@ -7,6 +7,8 @@
         size="small"
         tag="label"
         class="ma-text-field__label"
+        :tone="tone"
+        :bold="bold"
         v-text="label"
       />
       <!-- @slot Label's sibling content slot -->
@@ -43,6 +45,7 @@
 <script>
 import MaText from '@margarita/components/MaText'
 import uuid from '@margarita/utils/uuid'
+import { tones } from '../../tokens'
 
 /**
  * Renders an input text field component following the Design System guidelines
@@ -91,6 +94,22 @@ export default {
     label: {
       type: String,
       required: true,
+    },
+    /**
+     * Sets the label element color tone
+     * @values white, red, pink, blue, green, yellow, gray-darker, gray-dark, gray
+     */
+    tone: {
+      type: String,
+      default: 'gray-dark',
+      validator: (val) => Object.keys(tones).includes(val),
+    },
+    /**
+     * Applies bold weigth to label
+     */
+    bold: {
+      type: Boolean,
+      default: false,
     },
     /**
      * Component's model value

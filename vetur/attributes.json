@@ -79,6 +79,10 @@
     "description": "Sets the children vertical alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply start on all the different breakpoints\nalign = 'start'\n// This would apply fill on mobile, center on tablet and start on desktop\n:align=\"['fill', 'center', 'start']\"\n```",
     "options": ["start", "center", "fill", "end"]
   },
+  "ma-container/size": {
+    "type": "string",
+    "options": ["small", "medium", "large"]
+  },
   "ma-datagrid/rows": {
     "type": "array",
     "description": "Sets the datagrid rows"
@@ -165,6 +169,10 @@
     "type": "number|string",
     "description": "Sets icon's view box width"
   },
+  "ma-icon/viewBoxHeight": {
+    "type": "number|string",
+    "description": "Sets icon's view box height"
+  },
   "ma-icon/iconColor": {
     "type": "string",
     "description": "Sets icon's color"
@@ -209,25 +217,11 @@
     "description": "Sets the type of list",
     "options": ["bullet", "check", "ordered"]
   },
-  "ma-list/size": {
-    "type": "string",
-    "description": "Sets the text element size according to our Design System",
-    "options": ["small", "medium"]
+  "ma-list-marker/type": {
+    "type": "string"
   },
-  "ma-list/tone": {
-    "type": "string",
-    "description": "Sets the text element color tone",
-    "options": [
-      "white",
-      "red",
-      "pink",
-      "blue",
-      "green",
-      "yellow",
-      "gray-darker",
-      "gray-dark",
-      "gray"
-    ]
+  "ma-list-marker/index": {
+    "type": "number"
   },
   "ma-modal/title": {
     "type": "string",
@@ -268,6 +262,26 @@
     "description": "Sets element's input type",
     "options": ["radio", "checkbox"]
   },
+  "ma-option/tone": {
+    "type": "string",
+    "description": "Sets the label element color tone",
+    "options": [
+      "white",
+      "red",
+      "pink",
+      "blue",
+      "green",
+      "yellow",
+      "gray-darker",
+      "gray-dark",
+      "gray"
+    ]
+  },
+  "ma-option/size": {
+    "type": "string",
+    "description": "Sets the size of the component",
+    "options": ["xsmall", "small", "medium"]
+  },
   "ma-pagination/buttonsNumber": {
     "type": "number",
     "description": "Sets the amount of page buttons' to be displayed"
@@ -299,7 +313,7 @@
   "ma-pill/color": {
     "type": "string",
     "description": "Sets component's styling color",
-    "options": ["green", "orange", "red", "gray", "dark", "blue"]
+    "options": ["green", "orange", "red", "gray", "dark", "blue", "pink"]
   },
   "ma-pill/text": {
     "type": "number|string",
@@ -380,6 +394,11 @@
     "description": "Sets the children alignment. Defaults to fill.\n\nIf an array is passed, values will target the design system breakpoints.\n```ts\n// This would apply left on all the different breakpoints\nalign = 'left'\n// This would apply fill on mobile, center on tablet and left on desktop\n:align=\"['fill', 'center', 'left']\"\n```",
     "options": ["left", "center", "right", "fill"]
   },
+  "ma-stack/tag": {
+    "type": "string",
+    "description": "Set the HTML element tag that wraps the content.",
+    "options": ["div", "ul", "ol"]
+  },
   "ma-text/tag": {
     "type": "string",
     "description": "Set the HTML element tag to ensure the document semantics are meaningful",
@@ -433,6 +452,25 @@
   "ma-text-field/label": {
     "type": "string",
     "description": "Sets component's label\n\n⚠️ If attribute aria-label is defined, input's label will be 'visually' hidden"
+  },
+  "ma-text-field/tone": {
+    "type": "string",
+    "description": "Sets the label element color tone",
+    "options": [
+      "white",
+      "red",
+      "pink",
+      "blue",
+      "green",
+      "yellow",
+      "gray-darker",
+      "gray-dark",
+      "gray"
+    ]
+  },
+  "ma-text-field/bold": {
+    "type": "boolean",
+    "description": "Applies bold weigth to label"
   },
   "ma-text-field/v-model": {
     "type": "string|number",

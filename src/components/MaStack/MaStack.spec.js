@@ -49,6 +49,12 @@ describe('Stack', () => {
     expect(content).toHaveAttribute('random-attr')
     expect(content).toHaveClass('custom-class', 'ma-stack')
   })
+
+  test('renders custom HTML tag', () => {
+    const { contentWrapper } = renderComponent({ tag: 'ol' })
+
+    expect(contentWrapper.tagName).toBe('OL')
+  })
 })
 
 function renderComponent(props) {

@@ -1,11 +1,6 @@
-<template>
-  <component :is="headingTag" :style="computedStyle" class="ma-heading">
-    <slot />
-  </component>
-</template>
-
 <script>
 import { headings, tones } from '../../tokens'
+import { mergeData } from 'vue-functional-data-merge'
 const { headingSize } = headings
 /**
  * Renders heading following the Design System guidelines
@@ -14,6 +9,7 @@ const { headingSize } = headings
  */
 export default {
   name: 'MaHeading',
+  functional: true,
 
   props: {
     /**
@@ -46,29 +42,23 @@ export default {
     },
   },
 
-  computed: {
-    headingTag() {
-      return this.level === 'none' ? 'div' : `h${this.level}`
-    },
-
-    responsiveHeadingSize() {
-      return this.$layout.getResponsivePropValue(this.size)
-    },
-
-    computedStyle() {
-      const sizeStyles =
-        headingSize[this.$layout.currentBreakpoint][this.responsiveHeadingSize]
-
-      return {
-        'font-size': sizeStyles['font-size'],
-        'line-height': sizeStyles['line-height'],
+  render(createElement, { parent, props, slots, data }) {
+    const tag = props.level === 'none' ? 'div' : `h${props.level}`
+    const size = parent.$layout.getResponsivePropValue(props.size)
+    const sizeStyles = headingSize[parent.$layout.currentBreakpoint][size]
+    const componentData = {
+      staticClass: 'ma-heading',
+      style: {
+        fontSize: sizeStyles['font-size'],
+        lineHeight: sizeStyles['line-height'],
         '--top-crop': sizeStyles['top-crop'],
         '--bottom-crop': sizeStyles['bottom-crop'],
-        color: tones[this.tone],
-      }
-    },
+        color: tones[props.tone],
+      },
+    }
+    return createElement(tag, mergeData(data, componentData), slots().default)
   },
 }
 </script>
 
-<style scoped src="./MaHeading.css"></style>
+<style src="./MaHeading.css"></style>

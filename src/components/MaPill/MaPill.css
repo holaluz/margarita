@@ -43,3 +43,8 @@
   --pill-background-color: var(--color-blue-light);
   --pill-color: var(--color-blue-base);
 }
+
+.ma-pill--pink {
+  --pill-background-color: var(--color-pink-base);
+  --pill-color: var(--color-white-base);
+}

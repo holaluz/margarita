@@ -115,6 +115,23 @@ describe('Option', () => {
       expect(emitted().change).toHaveLength(2)
       expect(emitted().change[1][0]).toStrictEqual(false)
     })
+    test(`'tone' property assigns the provided style to text`, () => {
+      const { getByText } = renderComponent({
+        tone: 'gray',
+      })
+
+      expect(getByText(SLOT_TEXT)).toHaveStyle({ color: 'rgb(118, 118, 118)' }) //jest converts hex colors to rgb
+    })
+    test(`'size' property assigns the valid provided size styles to text`, () => {
+      const { getByText } = renderComponent({
+        size: 'medium',
+      })
+
+      expect(getByText(SLOT_TEXT)).toHaveStyle({
+        'font-size': '1.125rem',
+        'line-height': '1.35',
+      })
+    })
   })
 })
 

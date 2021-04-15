@@ -15,6 +15,10 @@
     "attributes": ["columns", "gap", "justify", "verticalAlign"],
     "description": ""
   },
+  "ma-container": {
+    "attributes": ["size"],
+    "description": "Centers and horizontally pads its children.\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-container--container)"
+  },
   "ma-datagrid": {
     "attributes": ["rows", "columns", "isLoading", "noResultsText"],
     "description": "Renders a datagrid component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-datagrid--datagrid)"
@@ -30,6 +34,7 @@
       "width",
       "height",
       "viewBoxWidth",
+      "viewBoxHeight",
       "iconColor",
       "title"
     ],
@@ -40,15 +45,28 @@
     "description": "Renders a complex layout made of rows and columns following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-layout--layout)"
   },
   "ma-list": {
-    "attributes": ["type", "size", "tone"],
+    "attributes": ["type"],
     "description": "Renders list following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-list--list)"
+  },
+  "ma-list-marker": {
+    "attributes": ["type", "index"],
+    "description": ""
   },
   "ma-modal": {
     "attributes": ["title", "width", "headerType"],
     "description": "Renders a modal component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-modal--modal)"
   },
   "ma-option": {
-    "attributes": ["v-model", "id", "value", "disabled", "card", "type"],
+    "attributes": [
+      "v-model",
+      "id",
+      "value",
+      "disabled",
+      "card",
+      "type",
+      "tone",
+      "size"
+    ],
     "description": "Renders a radio or checkbox component following the Design System guidelines\n\n[Radio's component API documentation](https://holaluz.github.io/margarita/?path=/story/components-option--radio)\n[Checkbox's component API documentation](https://holaluz.github.io/margarita/?path=/story/components-option--checkbox)"
   },
   "ma-pagination": {
@@ -86,7 +104,7 @@
     "description": "Renders a select component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-select--select)"
   },
   "ma-stack": {
-    "attributes": ["space", "align"],
+    "attributes": ["space", "align", "tag"],
     "description": "Renders a stack component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-stack--stack)"
   },
   "ma-text": {
@@ -99,6 +117,8 @@
       "id",
       "hasError",
       "label",
+      "tone",
+      "bold",
       "v-model",
       "suffix"
     ],

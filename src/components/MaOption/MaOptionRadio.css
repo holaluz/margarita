@@ -10,9 +10,17 @@
   height: 1rem;
   user-select: none;
 }
+.ma-selector-xsmall.ma-option--radio .description {
+  margin-top: 4px;
+}
+.ma-selector-small.ma-option--radio .description {
+  margin-top: 3px;
+}
+.ma-selector-medium.ma-option--radio .description {
+  margin-top: 2px;
+}
 
 .ma-option--radio .description {
-  margin-top: 2px;
   padding-left: 0.5rem;
 }
 

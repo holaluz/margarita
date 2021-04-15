@@ -10,7 +10,7 @@
       v-bind="$attrs"
     />
     <span class="indicator" />
-    <ma-text size="small" class="description">
+    <ma-text class="description" :tone="tone" :size="size">
       <slot />
     </ma-text>
   </label>
@@ -18,6 +18,7 @@
 
 <script>
 import uuid from '@margarita/utils/uuid'
+import { tones } from '../../tokens'
 
 /**
  * Renders a radio or checkbox component following the Design System guidelines
@@ -82,6 +83,23 @@ export default {
       default: 'radio',
       validator: (v) => ['radio', 'checkbox'].includes(v),
     },
+    /**
+     * Sets the label element color tone
+     * @values white, red, pink, blue, green, yellow, gray-darker, gray-dark, gray
+     */
+    tone: {
+      type: String,
+      default: 'gray-dark',
+      validator: (val) => Object.keys(tones).includes(val),
+    },
+    /**
+     * Sets the size of the component
+     */
+    size: {
+      default: 'small',
+      type: String,
+      validator: (value) => ['xsmall', 'small', 'medium'].includes(value),
+    },
   },
 
   computed: {
@@ -104,6 +122,7 @@ export default {
 
     computedClass() {
       return {
+        [`ma-selector-${this.size}`]: this.size,
         'ma-selector-card': this.card,
         'ma-option': !this.card,
         [`ma-option--${this.type}`]: !this.card,
