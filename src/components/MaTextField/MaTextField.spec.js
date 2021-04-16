@@ -22,22 +22,21 @@ describe('TextField', () => {
       errorMessage,
     })
 
-    expect(input.parentNode).toHaveClass('ma-text-field__input-wrapper')
+    expect(input.parentNode).toHaveClass('ma-text-field__input--error')
+    expect(input).toHaveClass('ma-text-field__input--error-icon')
 
     expect(getByText(errorMessage)).toBeInTheDocument()
   })
 
-  test('renders error CSS class', () => {
+  test('doesn`t renders error icons when input have suffix', () => {
     const errorMessage = 'Something went wrong'
     const { getByText, input } = renderComponent({
       hasError: true,
       errorMessage,
+      suffix: '€',
     })
 
-    expect(input).toHaveClass(
-      'ma-text-field__input ma-text-field__input--error-icon'
-    )
-
+    expect(input).not.toHaveClass('ma-text-field__input--error-icon')
     expect(getByText(errorMessage)).toBeInTheDocument()
   })
 
