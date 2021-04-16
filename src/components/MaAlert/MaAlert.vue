@@ -1,6 +1,6 @@
 <template>
-  <div :class="['alert-banner', `alert-banner--${type}`]">
-    <span class="alert-banner__icon" />
+  <div :class="['alert', `alert--${type}`]">
+    <span class="icon" />
     <ma-stack space="xsmall">
       <ma-text v-if="title" bold size="medium" v-text="title" />
       <!-- @slot Alert content slot (Overwrites `text` when both are specified ) -->
