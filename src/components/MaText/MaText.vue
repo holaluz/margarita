@@ -17,7 +17,7 @@ export default {
      */
     tag: {
       type: String,
-      default: 'span',
+      default: 'p',
       validator: (val) => ['p', 'span', 'label'].includes(val),
     },
 
