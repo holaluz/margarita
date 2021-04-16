@@ -142,19 +142,15 @@ export default {
     },
 
     inputWrapperClasses() {
-      return this.suffix
-        ? {
-            'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
-            'ma-text-field__input--error': this.hasError && this.suffix,
-          }
-        : !this.suffix && this.hasError
-        ? 'ma-text-field__input--error'
-        : ''
+      return {
+        'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
+        'ma-text-field__input--error': this.hasError,
+      }
     },
 
     inputClasses() {
       return {
-        ' ma-text-field__input--error-icon': this.hasError && !this.suffix,
+        'ma-text-field__input--error-icon': this.hasError && !this.suffix,
       }
     },
     inputListeners() {
