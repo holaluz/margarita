@@ -108,9 +108,7 @@ const TextFieldWithIconTemplate = (args, { argTypes }) => ({
 })
 
 export const TextFieldWithIcon = TextFieldWithIconTemplate.bind({})
-TextFieldWithIcon.argTypes = {
-  ...hideComponentProperties,
-}
+TextFieldWithIcon.argTypes = {}
 
 const TexFieldWithSuffixTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
