@@ -14,7 +14,10 @@
       <!-- @slot Label's sibling content slot -->
       <slot name="labelSibling" />
     </div>
-    <div class="ma-text-field__input-wrapper" :class="inputWrapperClasses">
+    <div
+      class="ma-text-field__input-wrapper"
+      :class="suffix ? inputWrapperClasses : ''"
+    >
       <input
         :id="id"
         v-model="lazyValue"
@@ -144,13 +147,13 @@ export default {
     inputWrapperClasses() {
       return {
         'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
-        'ma-text-field__input--error-icon': this.hasError && !this.suffix,
+        'ma-text-field__input--error': this.hasError && this.suffix,
       }
     },
 
     inputClasses() {
       return {
-        'ma-text-field__input--error': this.hasError,
+        'ma-text-field__input--error-icon': this.hasError && !this.suffix,
       }
     },
     inputListeners() {

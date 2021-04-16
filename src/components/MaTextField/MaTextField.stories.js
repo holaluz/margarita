@@ -90,7 +90,6 @@ TextFieldWithSiblingLabel.argTypes = {
     defaultValue: 'Additional label',
     control: { type: 'text' },
   },
-  ...hideComponentProperties,
 }
 
 const TextFieldWithIconTemplate = (args, { argTypes }) => ({
@@ -120,7 +119,6 @@ const TexFieldWithSuffixTemplate = (args, { argTypes }) => ({
 
 export const TextFieldWithSuffix = TexFieldWithSuffixTemplate.bind({})
 TextFieldWithSuffix.argTypes = {
-  ...hideComponentProperties,
   suffix: {
     name: 'Suffix',
     defaultValue: '€',

@@ -22,9 +22,7 @@ describe('TextField', () => {
       errorMessage,
     })
 
-    expect(input.parentNode).toHaveClass(
-      'ma-text-field__input-wrapper ma-text-field__input--error-icon'
-    )
+    expect(input.parentNode).toHaveClass('ma-text-field__input-wrapper')
 
     expect(getByText(errorMessage)).toBeInTheDocument()
   })
@@ -36,7 +34,9 @@ describe('TextField', () => {
       errorMessage,
     })
 
-    expect(input).toHaveClass('ma-text-field__input--error')
+    expect(input).toHaveClass(
+      'ma-text-field__input ma-text-field__input--error-icon'
+    )
 
     expect(getByText(errorMessage)).toBeInTheDocument()
   })
