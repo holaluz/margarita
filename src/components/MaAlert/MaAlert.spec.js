@@ -50,6 +50,6 @@ describe('Alert', () => {
       props: { type: 'error' },
     })
 
-    expect(container.firstChild).toHaveClass('alert-banner--error')
+    expect(container.firstChild).toHaveClass('alert--error')
   })
 })
