@@ -2,23 +2,6 @@ import MaTextField from './MaTextField'
 import docs from '../../../docs/components/MaTextField.docs.mdx'
 import docsMaTextFieldWithSuffix from '../../../docs/components/MaTextFieldWithSuffix.docs.mdx'
 
-const hideComponentProperties = {
-  blur: { table: { disable: true } },
-  input: { table: { disable: true } },
-  change: { table: { disable: true } },
-  enter: { table: { disable: true } },
-  'v-model': { table: { disable: true } },
-  errorMessage: { table: { disable: true } },
-  hasError: { table: { disable: true } },
-  label: { table: { disable: true } },
-  tone: { table: { disable: true } },
-  bold: { table: { disable: true } },
-  id: { table: { disable: true } },
-  labelSibling: { table: { disable: true } },
-  inputSibling: { table: { disable: true } },
-  suffix: { table: { disable: true } },
-}
-
 export default {
   title: 'Components/TextField',
   component: MaTextField,
