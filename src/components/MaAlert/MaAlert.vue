@@ -31,14 +31,6 @@ export default {
 
   props: {
     /**
-     * Sets the size of the component
-     */
-    size: {
-      default: 'medium',
-      type: String,
-      validator: (value) => ['small', 'medium', 'large'].includes(value),
-    },
-    /**
      * Inner text of the component
      */
     text: {
