@@ -59,3 +59,33 @@
   --alert-background-color: var(--color-yellow-light);
   --alert-icon: url('../../assets/icons/warning.svg');
 }
+
+.alert-banner--error a,
+.alert-banner--info a,
+.alert-banner--success a,
+.alert-banner--warning a {
+  text-decoration: underline;
+}
+
+.alert-banner--error a:hover,
+.alert-banner--info a:hover,
+.alert-banner--success a:hover,
+.alert-banner--warning a:hover {
+  text-decoration: none;
+}
+
+.alert-banner--error a {
+  color: var(--color-red-base);
+}
+
+.alert-banner--info a {
+  color: var(--color-blue-base);
+}
+
+.alert-banner--success a {
+  color: var(--color-green-base);
+}
+
+.alert-banner--warning a {
+  color: var(--color-pink-base);
+}
