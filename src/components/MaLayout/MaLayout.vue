@@ -119,26 +119,29 @@ function renderStack({ createElement, dom, gap, data }) {
 
 function renderGrid({ createElement, dom, grid, gap, justify, verticalAlign }) {
   let lastIdx = 0
+  const rows = []
 
-  return grid.map((row, i) => {
+  grid.forEach((row, i) => {
     const isLast = i === grid.length - 1
     const children = dom.filter((c) => c.tag)
-
     const rowChildren = children.slice(
       lastIdx,
       isLast ? children.length : lastIdx + row.length
     )
     lastIdx += row.length
-
-    return renderColumns({
-      createElement,
-      columns: row.join(' '),
-      children: rowChildren,
-      gap,
-      justify,
-      verticalAlign,
-    })
+    if (!rowChildren.length) return
+    rows.push(
+      renderColumns({
+        createElement,
+        columns: row.join(' '),
+        children: rowChildren,
+        gap,
+        justify,
+        verticalAlign,
+      })
+    )
   })
+  return rows
 }
 
 function renderColumns({

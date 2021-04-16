@@ -10,17 +10,37 @@ describe('MaLayout', () => {
     expect(grids).toHaveLength(0)
   })
 
-  test('adds one stack and one grid if columns are provided', () => {
-    const { stacks, grids } = renderComponent({ columns: '1' })
+  test('adds one stack and one grid if columns and one slot children is provided', () => {
+    const { stacks, grids } = renderComponent(
+      {
+        columns: '1',
+      },
+      `<div>child 1</div>`
+    )
 
     expect(stacks).toHaveLength(1)
     expect(grids).toHaveLength(1)
   })
 
-  test('adds one stack and two grids if two rows are provided', () => {
-    const { stacks, grids } = renderComponent({ columns: '1 - 1' })
+  test('adds one stack and two grids if two rows and two slot children are provided', () => {
+    const { stacks, grids } = renderComponent(
+      {
+        columns: '1 - 1',
+      },
+      `
+        <div>child 1</div>
+        <div>child 2</div>
+      `
+    )
     expect(stacks).toHaveLength(1)
     expect(grids).toHaveLength(2)
+  })
+
+  test('adds one stack and no grids no slot children are provided', () => {
+    const { stacks, grids } = renderComponent({ columns: '1' })
+
+    expect(stacks).toHaveLength(1)
+    expect(grids).toHaveLength(0)
   })
 
   test('keeps additional attributes', () => {
@@ -43,11 +63,10 @@ describe('MaLayout', () => {
   })
 })
 
-function renderComponent(props, attrs = {}) {
+function renderComponent(props, slots) {
   const utils = render(MaLayout, {
     props: { gap: 'small', columns: '12', space: 'small', ...props },
-    slots: { default: 'content' },
-    ...attrs,
+    slots: { default: slots || 'content' },
   })
 
   const stacks = utils.baseElement.querySelectorAll('.ma-stack')
