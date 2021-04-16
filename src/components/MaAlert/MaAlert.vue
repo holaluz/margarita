@@ -1,5 +1,5 @@
 <template>
-  <div :class="['alert-banner', getClasses]">
+  <div :class="['alert-banner', `alert-banner--${type}`]">
     <span class="alert-banner__icon" />
     <ma-stack space="xsmall">
       <ma-text v-if="title" bold size="medium" v-text="title" />
@@ -60,12 +60,6 @@ export default {
       default: 'info',
       validator: (value) =>
         ['error', 'info', 'success', 'warning'].includes(value),
-    },
-  },
-
-  computed: {
-    getClasses() {
-      return [`alert-banner--${this.size}`, `alert-banner--${this.type}`]
     },
   },
 }
