@@ -109,6 +109,21 @@ describe('Modal', () => {
 
       await assertModalHasClosed()
     })
+
+    // eslint-disable-next-line jest/expect-expect
+    test('prevents from closing modal', async () => {
+      const { openModal, getByTestId, emitted } = renderComponent({
+        props: {
+          preventClose: true,
+        },
+      })
+
+      await openModal()
+
+      userEvent.click(getByTestId('close-button'))
+
+      expect(emitted()).not.toHaveProperty('close')
+    })
   })
 
   describe('focus management', () => {
