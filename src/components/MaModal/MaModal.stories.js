@@ -20,6 +20,11 @@ export default {
         options: ['white', 'gradient'],
       },
     },
+    preventClose: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   parameters: {
     docs: { page: docs },
