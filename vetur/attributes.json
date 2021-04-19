@@ -232,6 +232,10 @@
     "description": "Sets modal's header background color",
     "options": ["white", "gradient"]
   },
+  "ma-modal/preventClose": {
+    "type": "boolean",
+    "description": "Prevents modal from being closed"
+  },
   "ma-option/v-model": {
     "type": "string|number|boolean|array",
     "description": "Component's model value"

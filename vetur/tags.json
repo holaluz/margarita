@@ -53,7 +53,7 @@
     "description": ""
   },
   "ma-modal": {
-    "attributes": ["title", "width", "headerType"],
+    "attributes": ["title", "width", "headerType", "preventClose"],
     "description": "Renders a modal component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-modal--modal)"
   },
   "ma-option": {
