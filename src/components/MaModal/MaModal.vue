@@ -120,6 +120,14 @@ export default {
       default: 'white',
       validator: (h) => ['white', 'gradient'].includes(h),
     },
+
+    /**
+     * Prevents modal from being closed
+     */
+    preventClose: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   data() {
@@ -173,6 +181,8 @@ export default {
     // will disable the Portal through the `afterLeave` hook callback.
     // Otherwise no leaving transition happens.
     async closeModal() {
+      if (this.preventClose) return
+
       this.showModal = false
       /**
        * Close modal event
