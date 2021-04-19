@@ -1,9 +1,4 @@
 {
-  "ma-alert/size": {
-    "type": "string",
-    "description": "Sets the size of the component",
-    "options": ["small", "medium", "large"]
-  },
   "ma-alert/text": {
     "type": "string",
     "description": "Inner text of the component"
