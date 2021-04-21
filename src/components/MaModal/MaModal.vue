@@ -40,9 +40,10 @@
                 category="no-background"
                 data-testid="close-button"
                 class="icon-close"
+                :disabled="preventClose"
                 @click="closeModal"
               >
-                <ma-icon icon="Close"> </ma-icon>
+                <ma-icon icon="Close" />
               </ma-button>
             </div>
             <div ref="modal-content" class="modal-content">
