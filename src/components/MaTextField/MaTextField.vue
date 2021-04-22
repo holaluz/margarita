@@ -20,6 +20,7 @@
         v-model="lazyValue"
         v-bind="$attrs"
         class="ma-text-field__input"
+        :class="inputClasses"
         v-on="inputListeners"
         @keyup.enter="removeFocus"
       />
@@ -144,10 +145,14 @@ export default {
       return {
         'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
         'ma-text-field__input--error': this.hasError,
-        'ma-text-field__input--error-icon': this.hasError && !this.suffix,
       }
     },
 
+    inputClasses() {
+      return {
+        'ma-text-field__input--error-icon': this.hasError && !this.suffix,
+      }
+    },
     inputListeners() {
       return Object.assign({}, this.$listeners, {
         input: (e) => {

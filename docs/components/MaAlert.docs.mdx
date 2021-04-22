@@ -1,3 +1,68 @@
 # Alert
 
-This is the documentation section about Alert component
+## Description
+
+Alerts provide relevant information to the user without impeding their task. Alerts are system generated and may or may not result from a user’s action.
+
+## How to use it?
+
+### Placement
+
+- **Page-level:** Place an alert at the top of a page, directly below the navigation bar and above the breadcrumbs, when it refers to something that happened at the page level.
+- **In-page:** Place an alert within a section of the page when the message is specific to that content.
+
+### Content
+
+The hierarchy of information for all kind of alerts should be:
+
+- What is happening
+- The scope and/or seriousness
+- Which actions have to be taken
+
+The alert's anatomy is formed by: 
+
+- **Title** is important, but not mandatory. Nevertheless, if you use a title ensure that this is the most important information you can give to a user (people scan, don't read).
+- **Text** is always mandatory. Try to be short, use plain language, and stick to the point. When possible, research which message is the most important for your user when using alerts.
+- **Icon** is always mandatory and it's defined by the alert type. It gives the user a visual clue of the meaning, and it's especially important for users with visual impairments.
+
+## When to use it
+
+Use an alert component when we need to inform the user about something thats happening in the system or as a result of his/her actions.
+
+When using this component always select the type of alert with a «user-first» approach. For example, something can be a success for the system and a warning for the user.
+
+
+- ### Warning:
+    Caution the user that their attention or action may be needed within the current context. Use when they're about to do something destructive or when the result of an action is unexpected (but isn't an error).
+
+
+- ### Success:
+    This alert make it obvious to the user that their interaction (sometimes in a different location within the application) with the system has been successful.
+
+    **Example:**
+    When a sign-up has been successful or a form has been sent.
+
+
+- ### Info:
+    It lets the user know that something happened in the system. It provides the user with supplemental information  in regards to the current context or action they are about to take.
+
+    **Example:**
+    When we remind the user that she can access Zona Clientes to get his MGM (/el-efecto-cadena/).
+
+
+- ### Error:
+    Inform the user that their attention is needed to address or be aware of a critical issue in the system that relates to the current context. The message should help them out and give directions to solve the error (if possible).
+
+    **Example:**
+    When a form input (for example, postcode or e-mail) is filled incorrectly. 
+
+
+## Behavior
+
+### Overflow and Resizing
+
+Alert component width is defined by its parent. The responsiveness of the component is managed by its parent.
+
+### Trigger
+
+Alerts can be triggered as a result of an action or can be placed as a fixed element in the page.

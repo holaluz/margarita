@@ -1,11 +1,11 @@
 <template>
-  <div :class="['alert-banner', getClasses]">
-    <span class="alert-banner__icon" />
+  <div :class="['alert', `alert--${type}`]">
+    <span class="icon" />
     <ma-stack space="xsmall">
-      <ma-heading v-if="title" size="xsmall" v-text="title" />
+      <ma-text v-if="title" bold size="medium" v-text="title" />
       <!-- @slot Alert content slot (Overwrites `text` when both are specified ) -->
       <slot>
-        <ma-text tag="p" v-text="text" />
+        <ma-text size="small" v-text="text" />
       </slot>
     </ma-stack>
   </div>
@@ -13,7 +13,6 @@
 
 <script>
 import MaStack from '@margarita/components/MaStack'
-import MaHeading from '@margarita/components/MaHeading'
 import MaText from '@margarita/components/MaText'
 
 /**
@@ -27,19 +26,10 @@ export default {
 
   components: {
     MaStack,
-    MaHeading,
     MaText,
   },
 
   props: {
-    /**
-     * Sets the size of the component
-     */
-    size: {
-      default: 'medium',
-      type: String,
-      validator: (value) => ['small', 'medium', 'large'].includes(value),
-    },
     /**
      * Inner text of the component
      */
@@ -62,12 +52,6 @@ export default {
       default: 'info',
       validator: (value) =>
         ['error', 'info', 'success', 'warning'].includes(value),
-    },
-  },
-
-  computed: {
-    getClasses() {
-      return [`alert-banner--${this.size}`, `alert-banner--${this.type}`]
     },
   },
 }

@@ -1,6 +1,6 @@
 {
   "ma-alert": {
-    "attributes": ["size", "text", "title", "type"],
+    "attributes": ["text", "title", "type"],
     "description": "Renders an alert component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-alert--alert)"
   },
   "ma-button": {

@@ -23,12 +23,6 @@ export default {
         options: ['success', 'info', 'warning', 'error'],
       },
     },
-    size: {
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
-      },
-    },
   },
   parameters: {
     docs: { page: docs },
@@ -37,7 +31,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
-    <ma-alert v-bind="$props"/>
+    <ma-alert v-bind="$props" />
   `,
 })
 
