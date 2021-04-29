@@ -1,8 +1,6 @@
 <template>
-  <div :class="{ 'ma-card--has-padding-top': hasPaddingTop }">
-    <div :class="`ma-card--${color}`" class="ma-card">
-      <slot />
-    </div>
+  <div :class="`ma-card--${color}`" class="ma-card">
+    <slot />
   </div>
 </template>
 
@@ -24,14 +22,6 @@ export default {
       type: String,
       default: 'gray',
       validator: (val) => ['white', 'gray'].includes(val),
-    },
-
-    /**
-     * Sets card's top padding
-     */
-    hasPaddingTop: {
-      type: Boolean,
-      default: false,
     },
   },
 }

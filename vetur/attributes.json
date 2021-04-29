@@ -39,10 +39,6 @@
     "description": "Sets card background color",
     "options": ["white", "gray"]
   },
-  "ma-card/hasPaddingTop": {
-    "type": "boolean",
-    "description": "Sets card's top padding"
-  },
   "ma-columns/columns": {
     "type": "array|string",
     "description": "Defines the columns layout.\n\n```ts\n<ma-column columns=\"6 6\">...</ma-column>\n<ma-column :columns=\"['12', '4 4 4', '6 6']\">...</ma-column>\n```"
