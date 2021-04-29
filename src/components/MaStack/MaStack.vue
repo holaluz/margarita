@@ -82,7 +82,7 @@ export default {
     const componentData = {
       staticClass: 'ma-stack',
       style: {
-        gap: space,
+        '--stack-gap': space,
         justifyItems: align,
       },
     }
@@ -100,5 +100,6 @@ export default {
 .ma-stack {
   display: grid;
   grid-auto-flow: row;
+  gap: var(--stack-gap);
 }
 </style>

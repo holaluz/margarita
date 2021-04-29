@@ -6,13 +6,13 @@ describe('Stack', () => {
   test('adds spacing classes', () => {
     const { contentWrapper } = renderComponent({ space: 'large' })
 
-    expect(contentWrapper).toHaveStyle({ gap: spacing.large })
+    expect(contentWrapper).toHaveStyle({ '--stack-gap': spacing.large })
   })
 
   test('adds spacing classes from array', () => {
     const { contentWrapper } = renderComponent({ space: ['small', 'large'] })
 
-    expect(contentWrapper).toHaveStyle({ gap: spacing.small })
+    expect(contentWrapper).toHaveStyle({ '--stack-gap': spacing.small })
   })
 
   test('adds alignment classes', () => {

@@ -82,7 +82,7 @@ export default {
   render(createElement, { parent, props, slots, data }) {
     const gap = getResponsiveGap({ parent, gap: props.gap })
     const columns = getResponsiveColumns({ parent, columns: props.columns })
-    const style = { gap }
+    const style = { '--column-gap': gap }
 
     if (!hasAutoFlow({ columns })) {
       style.gridTemplateColumns = getGridTemplateColumns({ gap, columns })
@@ -171,6 +171,8 @@ function validateColumnsProp(columns) {
 <style lang="postcss">
 .ma-columns {
   display: grid;
+  gap: var(--column-gap);
+
   &.has-auto-flow {
     grid-auto-flow: column;
   }

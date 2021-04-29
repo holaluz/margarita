@@ -10,12 +10,12 @@ describe('MaColumns', () => {
 
   test('adds spacing styles', () => {
     const { contentWrapper } = renderComponent({ gap: 'large' })
-    expect(contentWrapper).toHaveStyle({ gap: spacing.large })
+    expect(contentWrapper).toHaveStyle({ '--column-gap': spacing.large })
   })
 
   test('adds spacing styles from array', () => {
     const { contentWrapper } = renderComponent({ gap: ['small', 'large'] })
-    expect(contentWrapper).toHaveStyle({ gap: spacing.small })
+    expect(contentWrapper).toHaveStyle({ '--column-gap': spacing.small })
   })
 
   test('adds justify styles', () => {
