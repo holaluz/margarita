@@ -12,7 +12,7 @@ export const parameters = {
     storySort: {
       order: [
         'Introduction',
-        ['Welcome', 'Getting Started', 'Design System'],
+        ['Welcome', 'Getting Started', 'Design Principles', 'Color System'],
         'Tokens',
         'Layout',
         'Components',
