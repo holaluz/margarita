@@ -1,6 +1,5 @@
 import MaList from './MaList'
 import docs from '../../../docs/components/MaList.docs.mdx'
-import { tones } from '@margarita/tokens'
 
 export default {
   title: 'Components/List',
