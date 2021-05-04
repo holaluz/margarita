@@ -57,4 +57,4 @@ export default {
 }
 </script>
 
-<style src="./MaAlert.css"></style>
+<style scoped src="./MaAlert.css"></style>
