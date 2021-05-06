@@ -10,7 +10,3 @@
   box-shadow: 0 0 6px 2px var(--shadow-light);
   background-color: var(--color-white-base);
 }
-
-.ma-card--has-padding-top {
-  padding-top: 1.5rem;
-}
