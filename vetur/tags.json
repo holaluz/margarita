@@ -8,7 +8,7 @@
     "description": "Renders a button or link element following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-button--button)"
   },
   "ma-card": {
-    "attributes": ["color"],
+    "attributes": ["color", "hasPaddingTop"],
     "description": "Renders a card component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-card--card)"
   },
   "ma-columns": {
