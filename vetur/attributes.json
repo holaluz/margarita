@@ -388,7 +388,7 @@
   "ma-stack/tag": {
     "type": "string",
     "description": "Set the HTML element tag that wraps the content.",
-    "options": ["div", "ul", "ol"]
+    "options": ["div", "section", "ul", "ol"]
   },
   "ma-text/tag": {
     "type": "string",

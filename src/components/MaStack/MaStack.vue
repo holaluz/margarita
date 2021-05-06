@@ -62,12 +62,12 @@ export default {
 
     /**
      * Set the HTML element tag that wraps the content.
-     * @values div, ul, ol
+     * @values div, section, ul, ol
      */
     tag: {
       type: String,
       default: 'div',
-      validator: (t) => ['div', 'ul', 'ol'].includes(t),
+      validator: (t) => ['div', 'section', 'ul', 'ol'].includes(t),
     },
   },
 
