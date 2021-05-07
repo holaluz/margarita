@@ -26,6 +26,12 @@ export default {
       description:
         'If an array is passed, values will target the design system breakpoints',
     },
+    tag: {
+      control: {
+        type: 'select',
+        options: ['div', 'section', 'ul', 'ol'],
+      },
+    },
   },
   parameters: {
     docs: { page: docs },

@@ -388,7 +388,7 @@
   "ma-stack/tag": {
     "type": "string",
     "description": "Set the HTML element tag that wraps the content.",
-    "options": ["div", "ul", "ol"]
+    "options": ["div", "section", "ul", "ol"]
   },
   "ma-text/tag": {
     "type": "string",
@@ -462,6 +462,10 @@
   "ma-text-field/bold": {
     "type": "boolean",
     "description": "Applies bold weigth to label"
+  },
+  "ma-text-field/disabled": {
+    "type": "boolean",
+    "description": "Disables the input element"
   },
   "ma-text-field/v-model": {
     "type": "string|number",

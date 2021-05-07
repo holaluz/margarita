@@ -119,6 +119,7 @@
       "label",
       "tone",
       "bold",
+      "disabled",
       "v-model",
       "suffix"
     ],
