@@ -463,6 +463,10 @@
     "type": "boolean",
     "description": "Applies bold weigth to label"
   },
+  "ma-text-field/disabled": {
+    "type": "boolean",
+    "description": "Disables the input element"
+  },
   "ma-text-field/v-model": {
     "type": "string|number",
     "description": "Component's model value"
