@@ -21,6 +21,7 @@
         v-bind="$attrs"
         class="ma-text-field__input"
         :class="inputClasses"
+        :disabled="disabled"
         v-on="inputListeners"
         @keyup.enter="removeFocus"
       />
@@ -113,6 +114,13 @@ export default {
       default: false,
     },
     /**
+     * Disables the input element
+     */
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    /**
      * Component's model value
      * @model
      */
@@ -143,7 +151,7 @@ export default {
 
     inputWrapperClasses() {
       return {
-        'ma-text-field__input-wrapper--disabled': this.$attrs.disabled,
+        'ma-text-field__input-wrapper--disabled': this.disabled,
         'ma-text-field__input--error': this.hasError,
       }
     },

@@ -45,9 +45,11 @@
   padding: 0;
   width: auto;
   color: var(--color-pink-base);
+  text-decoration: underline;
 
   &:hover:not(:disabled),
   &:active:not(:disabled) {
+    text-decoration: none;
     color: var(--color-pink-dark);
   }
 }
@@ -96,11 +98,13 @@
   border-color: var(--color-white-base);
   background-color: transparent;
   color: var(--color-white-base);
+  text-decoration: underline;
 
   &:hover:not(:disabled),
   &:active:not(:disabled) {
     background-color: var(--color-orange-base);
     color: var(--color-white-base);
+    text-decoration: none;
   }
 
   &.ma-button--rounded {

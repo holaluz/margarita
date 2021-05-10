@@ -39,10 +39,6 @@
     "description": "Sets card background color",
     "options": ["white", "gray"]
   },
-  "ma-card/hasPaddingTop": {
-    "type": "boolean",
-    "description": "Sets card's top padding"
-  },
   "ma-columns/columns": {
     "type": "array|string",
     "description": "Defines the columns layout.\n\n```ts\n<ma-column columns=\"6 6\">...</ma-column>\n<ma-column :columns=\"['12', '4 4 4', '6 6']\">...</ma-column>\n```"
@@ -392,7 +388,7 @@
   "ma-stack/tag": {
     "type": "string",
     "description": "Set the HTML element tag that wraps the content.",
-    "options": ["div", "ul", "ol"]
+    "options": ["div", "section", "ul", "ol"]
   },
   "ma-text/tag": {
     "type": "string",
@@ -466,6 +462,10 @@
   "ma-text-field/bold": {
     "type": "boolean",
     "description": "Applies bold weigth to label"
+  },
+  "ma-text-field/disabled": {
+    "type": "boolean",
+    "description": "Disables the input element"
   },
   "ma-text-field/v-model": {
     "type": "string|number",
