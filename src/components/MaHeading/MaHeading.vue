@@ -40,6 +40,14 @@ export default {
       default: 'gray-dark',
       validator: (val) => Object.keys(tones).includes(val),
     },
+    /**
+     * Set an horitzontal alignment to the heading
+     */
+    align: {
+      type: String,
+      default: 'left',
+      validator: (value) => ['left', 'center', 'right'].includes(value),
+    },
   },
 
   render(createElement, { parent, props, slots, data }) {
@@ -54,6 +62,7 @@ export default {
         '--top-crop': sizeStyles['top-crop'],
         '--bottom-crop': sizeStyles['bottom-crop'],
         color: tones[props.tone],
+        textAlign: props.align,
       },
     }
     return createElement(tag, mergeData(data, componentData), slots().default)
