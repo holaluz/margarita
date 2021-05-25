@@ -34,9 +34,9 @@
     "description": "Sets the component displaying style",
     "options": ["primary", "secondary", "white", "gradient", "no-background"]
   },
-  "ma-card/color": {
+  "ma-card/tone": {
     "type": "string",
-    "description": "Sets card background color",
+    "description": "Sets card background color tone",
     "options": ["white", "gray"]
   },
   "ma-columns/columns": {
@@ -164,9 +164,9 @@
     "type": "number|string",
     "description": "Sets icon's view box height"
   },
-  "ma-icon/iconColor": {
+  "ma-icon/tone": {
     "type": "string",
-    "description": "Sets icon's color"
+    "description": "Sets icon's color tone"
   },
   "ma-icon/title": {
     "type": "string",
@@ -301,9 +301,9 @@
     "type": "number",
     "description": "Sets initial page number"
   },
-  "ma-pill/color": {
+  "ma-pill/tone": {
     "type": "string",
-    "description": "Sets component's styling color",
+    "description": "Sets component's styling color tone",
     "options": ["green", "orange", "red", "gray", "dark", "blue", "pink"]
   },
   "ma-pill/text": {

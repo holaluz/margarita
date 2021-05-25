@@ -8,7 +8,7 @@
     "description": "Renders a button or link element following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-button--button)"
   },
   "ma-card": {
-    "attributes": ["color"],
+    "attributes": ["tone"],
     "description": "Renders a card component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-card--card)"
   },
   "ma-columns": {
@@ -35,7 +35,7 @@
       "height",
       "viewBoxWidth",
       "viewBoxHeight",
-      "iconColor",
+      "tone",
       "title"
     ],
     "description": "Renders an icon component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-icon--icon)"
@@ -82,7 +82,7 @@
     "description": "Renders a pagination component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-pagination--pagination)"
   },
   "ma-pill": {
-    "attributes": ["color", "text"],
+    "attributes": ["tone", "text"],
     "description": "Renders a pill component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-pill--pill)"
   },
   "ma-range": {

@@ -5,7 +5,7 @@ export default {
   title: 'Components/Card',
   component: MaCard,
   argTypes: {
-    color: {
+    tone: {
       control: {
         type: 'select',
         options: ['white', 'gray'],

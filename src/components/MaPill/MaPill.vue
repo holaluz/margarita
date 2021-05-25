@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="`ma-pill--${color}`" class="ma-pill" v-text="text" />
+    <div :class="`ma-pill--${tone}`" class="ma-pill" v-text="text" />
   </div>
 </template>
 
@@ -15,14 +15,14 @@ export default {
 
   props: {
     /**
-     * Sets component's styling color
+     * Sets component's styling color tone
      */
-    color: {
+    tone: {
       type: String,
       default: 'green',
-      validator: (color) =>
+      validator: (value) =>
         ['green', 'orange', 'red', 'gray', 'dark', 'blue', 'pink'].includes(
-          color
+          value
         ),
     },
 

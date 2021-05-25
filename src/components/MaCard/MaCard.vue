@@ -1,5 +1,5 @@
 <template>
-  <div :class="`ma-card--${color}`" class="ma-card">
+  <div :class="`ma-card--${tone}`" class="ma-card">
     <slot />
   </div>
 </template>
@@ -15,10 +15,10 @@ export default {
 
   props: {
     /**
-     * Sets card background color
+     * Sets card background color tone
      * @values white, gray
      */
-    color: {
+    tone: {
       type: String,
       default: 'gray',
       validator: (val) => ['white', 'gray'].includes(val),

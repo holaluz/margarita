@@ -5,7 +5,7 @@ export default {
   title: 'Components/Pill',
   component: MaPill,
   argTypes: {
-    color: {
+    tone: {
       control: {
         type: 'select',
         options: ['green', 'orange', 'red', 'gray', 'dark', 'blue', 'pink'],

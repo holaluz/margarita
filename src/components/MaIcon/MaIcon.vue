@@ -11,7 +11,7 @@
     <title :id="id">
       {{ iconName }}
     </title>
-    <g :fill="iconColor">
+    <g :fill="tone">
       <component :is="componentLoader" />
     </g>
   </svg>
@@ -85,9 +85,9 @@ export default {
     },
 
     /**
-     * Sets icon's color
+     * Sets icon's color tone
      */
-    iconColor: {
+    tone: {
       type: String,
       default: 'currentColor',
     },
