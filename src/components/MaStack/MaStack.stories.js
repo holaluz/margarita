@@ -1,6 +1,6 @@
 import { spacing } from '@margarita/tokens'
 import MaStack from './MaStack'
-import docs from '../../../docs/components/MaStack.docs.mdx'
+import docs from '../../../docs/components/layout/MaStack.docs.mdx'
 
 export default {
   title: 'Layout/Stack',
