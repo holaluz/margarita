@@ -1,9 +1,10 @@
 import MaOption from './MaOption'
-import docs from '../../../docs/components/MaOption.docs.mdx'
+import docsRadio from '../../../docs/components/form-elements/MaOption/Radio.docs.mdx'
+import docsCheckbox from '../../../docs/components/form-elements/MaOption/Checkbox.docs.mdx'
 import { tones } from '@margarita/tokens'
 
 export default {
-  title: 'Components/Option',
+  title: 'Components/Form Elements/Option',
   component: MaOption,
   argTypes: {
     type: {
@@ -25,9 +26,6 @@ export default {
         options: Object.keys(tones),
       },
     },
-  },
-  parameters: {
-    docs: { page: docs },
   },
 }
 
@@ -54,6 +52,9 @@ export const Radio = RadioTemplate.bind({})
 Radio.args = {
   type: 'radio',
 }
+Radio.parameters = {
+  docs: { page: docsRadio },
+}
 
 const CheckboxTemplate = (args, { argTypes }) => {
   return {
@@ -77,4 +78,8 @@ const CheckboxTemplate = (args, { argTypes }) => {
 export const Checkbox = CheckboxTemplate.bind({})
 Checkbox.args = {
   type: 'checkbox',
+}
+
+Checkbox.parameters = {
+  docs: { page: docsCheckbox },
 }

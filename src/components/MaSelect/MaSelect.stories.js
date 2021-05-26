@@ -1,5 +1,5 @@
 import MaSelect from './MaSelect'
-import docs from '../../../docs/components/MaSelect.docs.mdx'
+import docs from '../../../docs/components/form-elements/MaSelect.docs.mdx'
 
 const DEFAULT_OPTIONS = [
   { label: 'Placeholder text', text: 'Placeholder text', disabled: true },
@@ -10,7 +10,7 @@ const DEFAULT_OPTIONS = [
 ]
 
 export default {
-  title: 'Components/Select',
+  title: 'Components/Form Elements/Select',
   component: MaSelect,
   args: {
     options: DEFAULT_OPTIONS,

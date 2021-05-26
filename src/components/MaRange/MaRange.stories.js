@@ -1,5 +1,5 @@
 import MaRange from './MaRange'
-import docs from '../../../docs/components/MaRange.docs.mdx'
+import docs from '../../../docs/components/form-elements/MaRange.docs.mdx'
 
 const defaultSteps = [
   { text: 'Special', value: 'special' },
@@ -9,7 +9,7 @@ const defaultSteps = [
 ]
 
 export default {
-  title: 'Components/Range',
+  title: 'Components/Form Elements/Range',
   component: MaRange,
   decorators: [
     () => ({
