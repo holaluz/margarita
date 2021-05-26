@@ -1,8 +1,9 @@
 import MaHeading from '../MaHeading'
 import { tones } from '@margarita/tokens'
+import docs from '../../../docs/components/text-components/MaHeading.docs.mdx'
 
 export default {
-  title: 'Components/Heading',
+  title: 'Components/Text Components/Heading',
   component: MaHeading,
   argTypes: {
     level: {
@@ -23,6 +24,9 @@ export default {
         options: Object.keys(tones),
       },
     },
+  },
+  parameters: {
+    docs: { page: docs },
   },
 }
 

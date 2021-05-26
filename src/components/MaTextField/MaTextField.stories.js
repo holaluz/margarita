@@ -1,9 +1,8 @@
 import MaTextField from './MaTextField'
-import docs from '../../../docs/components/MaTextField.docs.mdx'
-import docsMaTextFieldWithSuffix from '../../../docs/components/MaTextFieldWithSuffix.docs.mdx'
+import docs from '../../../docs/components/form-elements/MaTextField.docs.mdx'
 
 export default {
-  title: 'Components/TextField',
+  title: 'Components/Form Elements/TextField',
   component: MaTextField,
   args: {
     label: 'Label',
@@ -105,7 +104,4 @@ TextFieldWithSuffix.argTypes = {
     defaultValue: '€',
     control: { type: 'text' },
   },
-}
-TextFieldWithSuffix.parameters = {
-  docs: { page: docsMaTextFieldWithSuffix },
 }

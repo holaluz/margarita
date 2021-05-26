@@ -1,9 +1,9 @@
 import MaText from './MaText'
-import docs from '../../../docs/components/MaText.docs.mdx'
+import docs from '../../../docs/components/text-components/MaText.docs.mdx'
 import { text, tones } from '@margarita/tokens'
 
 export default {
-  title: 'Components/Text',
+  title: 'Components/Text Components/Text',
   component: MaText,
   argTypes: {
     tag: {
