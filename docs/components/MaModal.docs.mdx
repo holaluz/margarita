@@ -1,35 +1,9 @@
-# Modal
-Modals focus the user’s attention exclusively on one task or piece of information via a window that sits on top of the page content.
+import { Meta } from '@storybook/addon-docs/blocks';
 
-# How to use it?
+<Meta title="Components/Modal" />
 
-There are 3 responsive modal sizes: small, medium and large.
-- Choose a size that works best for the amount of modal content you have. Modals with short messages should use a small modal to avoid long single lines; for complex components, like data tables, the default or large modal will be more accommodating. When the size is not specified, the default prop will be medium.
-- There is no case scenario that allows to use a modal without a title. Title is probably the most important element in a modal because the users scan first of all this info.
-
-
-# When to use it?
-
-### To give additional information
-Use a modal dialog to give more information to our users. This type of modal doesn’t include an action button, only the option to close it.
-
-### To notify the user of urgent information
-Use a modal dialog to notify the user of urgent information concerning their current work. Modal dialogs are commonly used to report system errors or convey a consequence of a user’s action.
-
-### To confirm a user decision
-Use a modal dialog to confirm user decisions. Clearly describe the action being confirmed and explain any potential consequences that it may cause. Both the title and the button should reflect the action that will occur. If the action is destructive or irreversible then use a transactional danger modal.
-
-
-# Behavior
-
-### Triggering
-- Modals are triggered as a result of a user’s action and are not system generated. Common components that can trigger a modal include, button, link, or icon. On a keyboard, selecting Enter or Space should launch the modal.
-- We shall not open a new modal when a modal is open.
-
-### Overflow and Resizing
-- Every modal size have a max-width set. The modal resizes fluidly when the viewport width is lower than this value.
-- In terms of height, the component grows to wrap its content, and overflow (with scroll) if content grows higher than available vertical space.
-- Modal heading renders the provided title value and also a close button which will close the modal. The heading will remain visible even when vertical overflow is present.
-- Modal content should never scroll horizontally; instead, use a larger size modal.
-- The modal, in every screen size, has to be centered horizontal and vertically.
-- The modal should be on top of every other element visible on the screen.
+<iframe
+    width="100%"
+    height= "100%"
+    src="https://www.figma.com/proto/7RhweKibaUnxX6WYBl7zKW/%E2%9A%A1%EF%B8%8F-Watt-Design-System?embed_host=share&hotspot-hints=0&kind=&node-id=6188%3A4973&page-id=5314%3A1403&scaling=scale-down-width&viewport=1084%2C674%2C0.3212003707885742&hide-ui=1">
+</iframe>
