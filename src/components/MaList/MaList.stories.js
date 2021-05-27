@@ -1,8 +1,8 @@
 import MaList from './MaList'
-import docs from '../../../docs/components/MaList.docs.mdx'
+import docs from '../../../docs/components/text-components/MaList.docs.mdx'
 
 export default {
-  title: 'Components/List',
+  title: 'Components/Text Components/List',
   component: MaList,
   argTypes: {
     type: {

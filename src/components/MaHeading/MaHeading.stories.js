@@ -1,8 +1,9 @@
 import MaHeading from '../MaHeading'
 import { tones } from '@margarita/tokens'
+import docs from '../../../docs/components/text-components/MaHeading.docs.mdx'
 
 export default {
-  title: 'Components/Heading',
+  title: 'Components/Text Components/Heading',
   component: MaHeading,
   argTypes: {
     level: {
@@ -17,6 +18,12 @@ export default {
         options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       },
     },
+    align: {
+      control: {
+        type: 'select',
+        options: ['left', 'center', 'right'],
+      },
+    },
     tone: {
       control: {
         type: 'select',
@@ -24,13 +31,16 @@ export default {
       },
     },
   },
+  parameters: {
+    docs: { page: docs },
+  },
 }
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `<div style="display: flex;">
-      <ma-heading v-bind="$props">I'M a heading</ma-heading>
-      <ma-heading v-bind="$props" style="margin-left:4rem; background-color:var(--color-blue-light)">
+      <ma-heading v-bind="$props" style=" width: 30rem" >I'M a heading</ma-heading>
+      <ma-heading v-bind="$props" style="width: 30rem; margin-left:4rem; background-color:var(--color-blue-light)">
         I'M a heading
       </ma-heading>
   </div>`,

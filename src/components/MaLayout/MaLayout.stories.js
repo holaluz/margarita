@@ -1,7 +1,7 @@
 import { spacing } from '@margarita/tokens'
 import DemoBlock from './examples/DemoBlock'
 import MaLayout from './MaLayout'
-import docs from '../../../docs/components/MaLayout.docs.mdx'
+import docs from '../../../docs/components/layout/MaLayout.docs.mdx'
 
 export default {
   title: 'Layout/Layout',

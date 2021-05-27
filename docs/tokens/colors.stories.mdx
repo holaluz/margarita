@@ -1,76 +1,9 @@
-import { Meta } from '@storybook/addon-docs/blocks'
-import { color } from '../../src/tokens/'
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Tokens/Colors" />
 
-# Colors
-
-This is the documentation section about Colors
-
----
-
-<div
-  style={{
-    display: 'grid',
-    gap: '2rem',
-    marginTop: '1.5rem',
-  }}
->
-  {Object.entries(color).map(([tokenName, tokenValue]) => (
-    <div>
-      <h2
-        style={{
-          borderBottom: 'none',
-        }}
-      >
-        {tokenName}
-      </h2>
-      <div
-        style={{
-          display: 'flex',
-          gap: '1rem',
-        }}
-      >
-        {Object.entries(tokenValue).map(([tone, hexadecimal]) => (
-          <div
-            style={{
-              display: 'grid',
-              gap: '0.5rem',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '150px',
-                height: '70px',
-                borderRadius: '4px',
-                fontSize: '1rem',
-                boxShadow: '3px 2px 12px rgba(0,0,0,0.15)',
-                background: hexadecimal,
-              }}
-            />
-            <span>{tone}</span>
-            <span
-              style={{
-                fontSize: '0.75rem',
-                fontFamily: 'monospace',
-              }}
-            >
-              {hexadecimal}
-            </span>
-            <span
-              style={{
-                fontSize: '0.75rem',
-                fontFamily: 'monospace',
-              }}
-            >
-              --color-{tokenName}-{tone}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  ))}
-</div>
+<iframe
+    width="100%"
+    height= "100%"
+    src="https://www.figma.com/proto/7RhweKibaUnxX6WYBl7zKW/?embed_host=share&hotspot-hints=0&kind=&node-id=5315%3A10889&page-id=5314%3A0&scaling=scale-down-width&viewport=1148%2C968%2C0.23001505434513092&hide-ui=1">
+</iframe>

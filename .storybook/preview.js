@@ -12,10 +12,12 @@ export const parameters = {
     storySort: {
       order: [
         'Introduction',
-        ['Welcome', 'Getting Started', 'Design Principles', 'Color System'],
+        ['Welcome', 'Getting Started', 'Design Principles'],
         'Tokens',
+        ['Colors', 'Spacing', 'Breakpoints', 'Shadows'],
         'Layout',
         'Components',
+        ['Form Elements', 'Text Components'],
         'Plugins',
       ],
       method: 'alphabetical',

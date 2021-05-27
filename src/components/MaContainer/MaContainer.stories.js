@@ -1,7 +1,8 @@
 import MaContainer from '../MaContainer'
+import docs from '../../../docs/components/layout/MaContainer.docs.mdx'
 
 export default {
-  title: 'Components/Container',
+  title: 'Layout/Container',
   component: MaContainer,
   argTypes: {
     size: {
@@ -10,6 +11,9 @@ export default {
         options: ['small', 'medium', 'large'],
       },
     },
+  },
+  parameters: {
+    docs: { page: docs },
   },
 }
 

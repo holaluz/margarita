@@ -1,5 +1,5 @@
 import MaHidden from './MaHidden'
-import docs from '../../../docs/components/MaHidden.docs.mdx'
+import docs from '../../../docs/components/layout/MaHidden.docs.mdx'
 
 export default {
   title: 'Layout/Hidden',
