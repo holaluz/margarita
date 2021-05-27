@@ -24,7 +24,7 @@
     "description": "Renders a datagrid component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-datagrid--datagrid)"
   },
   "ma-heading": {
-    "attributes": ["level", "size", "tone"],
+    "attributes": ["level", "size", "tone", "align"],
     "description": "Renders heading following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-heading--heading)"
   },
   "ma-icon": {

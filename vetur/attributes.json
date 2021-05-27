@@ -115,6 +115,11 @@
       "gray"
     ]
   },
+  "ma-heading/align": {
+    "type": "string",
+    "description": "Set an horitzontal alignment to the heading",
+    "options": ["left", "center", "right"]
+  },
   "ma-icon/icon": {
     "type": "string",
     "description": "Sets which icon should be displayed",

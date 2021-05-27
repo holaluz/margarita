@@ -31,6 +31,16 @@ describe('MaHeading', () => {
 
     expect(getByText(slotText)).toHaveStyle({ color: 'rgb(118, 118, 118)' }) //jest converts hex colors to rgb
   })
+
+  test(`'align' property assigns provided align styles to heading`, () => {
+    const { getByText } = renderComponent({
+      align: 'center',
+    })
+
+    expect(getByText(slotText)).toHaveStyle({
+      'text-align': 'center',
+    })
+  })
 })
 
 function renderComponent(props = {}) {

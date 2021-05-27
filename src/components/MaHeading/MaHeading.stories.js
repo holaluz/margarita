@@ -17,6 +17,12 @@ export default {
         options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       },
     },
+    align: {
+      control: {
+        type: 'select',
+        options: ['left', 'center', 'right'],
+      },
+    },
     tone: {
       control: {
         type: 'select',
@@ -29,8 +35,8 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `<div style="display: flex;">
-      <ma-heading v-bind="$props">I'M a heading</ma-heading>
-      <ma-heading v-bind="$props" style="margin-left:4rem; background-color:var(--color-blue-light)">
+      <ma-heading v-bind="$props" style=" width: 30rem" >I'M a heading</ma-heading>
+      <ma-heading v-bind="$props" style="width: 30rem; margin-left:4rem; background-color:var(--color-blue-light)">
         I'M a heading
       </ma-heading>
   </div>`,
