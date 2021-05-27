@@ -22,9 +22,9 @@ describe('Card', () => {
   })
 })
 
-function renderComponent(props) {
+function renderComponent(props = {}) {
   const utils = render(MaCard, {
-    props: { ...props },
+    props,
     slots: { default: 'content' },
   })
   const contentWrapper = utils.getByText('content')
