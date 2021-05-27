@@ -15,7 +15,7 @@ describe('Card', () => {
 
   test('renders the white variant when we specify the white prop color', () => {
     const { contentWrapper } = renderComponent({
-      color: 'white',
+      tone: 'white',
     })
 
     expect(contentWrapper).toHaveClass('ma-card--white')
