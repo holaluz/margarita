@@ -21,10 +21,10 @@ const columns = [
 
     // …or we can provide a `component` which receives the whole row as props
     component: {
-      template: `<ma-pill :text="status" :color="color" />`,
+      template: `<ma-pill :text="status" :tone="tone" />`,
       props: ['status'],
       computed: {
-        color() {
+        tone() {
           const options = { success: 'green', error: 'red', warning: 'orange' }
           return options[this.status]
         },
