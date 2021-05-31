@@ -21,56 +21,56 @@
   background-image: var(--alert-icon);
 }
 
-.alert--error {
+.alert--red {
   --alert-border-color: var(--color-red-base);
   --alert-background-color: var(--color-red-light);
   --alert-icon: url('../../assets/icons/alert-error.svg');
 }
 
-.alert--info {
+.alert--blue {
   --alert-border-color: var(--color-blue-base);
   --alert-background-color: var(--color-blue-light);
   --alert-icon: url('../../assets/icons/info.svg');
 }
 
-.alert--success {
+.alert--green {
   --alert-border-color: var(--color-green-base);
   --alert-background-color: var(--color-green-light);
   --alert-icon: url('../../assets/icons/rounded-tick.svg');
 }
 
-.alert--warning {
+.alert--yellow {
   --alert-border-color: var(--color-yellow-dark);
   --alert-background-color: var(--color-yellow-light);
   --alert-icon: url('../../assets/icons/warning.svg');
 }
 
-.alert--error a,
-.alert--info a,
-.alert--success a,
-.alert--warning a {
+.alert--red a,
+.alert--blue a,
+.alert--green a,
+.alert--yellow a {
   text-decoration: underline;
 }
 
-.alert--error a:hover,
-.alert--info a:hover,
-.alert--success a:hover,
-.alert--warning a:hover {
+.alert--red a:hover,
+.alert--blue a:hover,
+.alert--green a:hover,
+.alert--yellow a:hover {
   text-decoration: none;
 }
 
-.alert--error a {
+.alert--red a {
   color: var(--color-red-base);
 }
 
-.alert--info a {
+.alert--blue a {
   color: var(--color-blue-base);
 }
 
-.alert--success a {
+.alert--green a {
   color: var(--color-green-base);
 }
 
-.alert--warning a {
+.alert--yellow a {
   color: var(--color-pink-base);
 }

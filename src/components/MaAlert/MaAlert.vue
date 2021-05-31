@@ -1,5 +1,5 @@
 <template>
-  <div :class="['alert', `alert--${type}`]">
+  <div :class="['alert', `alert--${tone}`]">
     <span class="icon" />
     <ma-stack space="xsmall">
       <ma-text v-if="title" bold size="medium" v-text="title" />
@@ -47,11 +47,10 @@ export default {
     /**
      * Sets the type of component
      */
-    type: {
+    tone: {
       type: String,
       default: 'info',
-      validator: (value) =>
-        ['error', 'info', 'success', 'warning'].includes(value),
+      validator: (value) => ['red', 'blue', 'green', 'yellow'].includes(value),
     },
   },
 }

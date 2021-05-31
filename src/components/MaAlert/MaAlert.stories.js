@@ -20,7 +20,7 @@ export default {
     type: {
       control: {
         type: 'select',
-        options: ['success', 'info', 'warning', 'error'],
+        options: ['green', 'blue', 'yellow', 'red'],
       },
     },
   },

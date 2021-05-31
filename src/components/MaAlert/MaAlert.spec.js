@@ -45,11 +45,11 @@ describe('Alert', () => {
     expect(queryByText(text)).not.toBeInTheDocument()
   })
 
-  test('renders type modifier', () => {
+  test('renders tone modifier', () => {
     const { container } = render(MaAlert, {
-      props: { type: 'error' },
+      props: { tone: 'red' },
     })
 
-    expect(container.firstChild).toHaveClass('alert--error')
+    expect(container.firstChild).toHaveClass('alert--red')
   })
 })

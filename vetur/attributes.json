@@ -7,10 +7,10 @@
     "type": "string",
     "description": "Title of the component"
   },
-  "ma-alert/type": {
+  "ma-alert/tone": {
     "type": "string",
     "description": "Sets the type of component",
-    "options": ["error", "info", "success", "warning"]
+    "options": ["red", "blue", "green", "yellow"]
   },
   "ma-button/tag": {
     "type": "string",
