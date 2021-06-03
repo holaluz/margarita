@@ -49,7 +49,7 @@ export default {
      */
     tone: {
       type: String,
-      default: 'info',
+      default: 'blue',
       validator: (value) => ['red', 'blue', 'green', 'yellow'].includes(value),
     },
   },

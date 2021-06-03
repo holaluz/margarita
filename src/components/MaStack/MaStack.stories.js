@@ -80,7 +80,7 @@ const NestedStackTemplate = (args, { argTypes }) => ({
           </ma-stack>
         </div>
         <div style="outline: 1px solid red">
-          <ma-alert text="wrong password!" type="warning" />
+          <ma-alert text="wrong password!" tone="yellow" />
         </div>
       </ma-stack>
     </div>
