@@ -1,6 +1,5 @@
 .ma-list-item {
   display: flex;
-  align-items: center;
   justify-content: flex-start;
   gap: var(--spacing-xsmall);
   font-variant-numeric: tabular-nums;
