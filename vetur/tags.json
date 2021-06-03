@@ -45,7 +45,7 @@
     "description": "Renders a complex layout made of rows and columns following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-layout--layout)"
   },
   "ma-list": {
-    "attributes": ["type"],
+    "attributes": ["type", "space"],
     "description": "Renders list following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-list--list)"
   },
   "ma-list-marker": {
