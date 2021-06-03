@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { render } from '@margarita/margarita-test-utils'
 import MaList from './MaList'
+import { spacing } from '../../tokens'
 
 describe('List', () => {
   test('renders item from list', () => {
@@ -48,6 +49,14 @@ describe('List', () => {
     expect(console.warn).toHaveBeenCalledWith(
       '[List component] No list items found'
     )
+  })
+
+  test('renders space from prop', () => {
+    const { getByRole } = renderComponent({ space: 'medium' })
+
+    expect(getByRole('list')).toHaveStyle({
+      '--stack-gap': spacing.medium,
+    })
   })
 })
 
