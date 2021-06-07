@@ -11,6 +11,12 @@ export default {
         options: ['bullet', 'check', 'ordered'],
       },
     },
+    space: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium'],
+      },
+    },
   },
   parameters: {
     docs: { page: docs },

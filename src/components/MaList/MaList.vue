@@ -21,6 +21,12 @@ export default {
       default: 'bullet',
       validator: (val) => ['bullet', 'check', 'ordered'].includes(val),
     },
+
+    space: {
+      type: String,
+      default: 'small',
+      validator: (val) => ['small', 'medium'].includes(val),
+    },
   },
 
   render(createElement, { slots, props, data }) {
@@ -35,10 +41,11 @@ export default {
     }
 
     const tag = props.type === 'ordered' ? 'ol' : 'ul'
+    const space = props.space
 
     return createElement(
       'ma-stack',
-      { props: { space: 'small', tag } },
+      { props: { space, tag } },
       slots()
         .default.filter((c) => c.tag)
         .map(createListElement)

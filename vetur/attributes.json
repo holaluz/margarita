@@ -213,6 +213,10 @@
     "description": "Sets the type of list",
     "options": ["bullet", "check", "ordered"]
   },
+  "ma-list/space": {
+    "type": "string",
+    "options": ["small", "medium"]
+  },
   "ma-list-marker/type": {
     "type": "string"
   },
