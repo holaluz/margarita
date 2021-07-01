@@ -402,7 +402,7 @@
   "ma-stepper/size": {
     "type": "string",
     "description": "Sets the size of the number",
-    "options": ["big", "small"]
+    "options": ["large", "small"]
   },
   "ma-text/tag": {
     "type": "string",

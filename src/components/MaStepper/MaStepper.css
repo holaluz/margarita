@@ -24,7 +24,7 @@
   color: var(--color-pink-base);
 }
 
-.ma-stepper-number-big > *:after {
+.ma-stepper-number-large > *:after {
   font-size: 2rem;
   left: -2.75rem;
   top: -0.9rem;
