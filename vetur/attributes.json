@@ -399,6 +399,11 @@
     "description": "Set the HTML element tag that wraps the content.",
     "options": ["div", "section", "ul", "ol"]
   },
+  "ma-stepper/size": {
+    "type": "string",
+    "description": "Sets the size of the number",
+    "options": ["big", "small"]
+  },
   "ma-text/tag": {
     "type": "string",
     "description": "Set the HTML element tag to ensure the document semantics are meaningful",

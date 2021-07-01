@@ -19,6 +19,7 @@ import MaTextField from './components/MaTextField'
 import MaList from './components/MaList'
 import MaStack from './components/MaStack'
 import MaHeading from './components/MaHeading'
+import MaStepper from './components/MaStepper'
 import { markdown, markdownSSR } from './directives/markdown'
 import responsivePlugin from './plugins/responsivePlugin'
 
@@ -42,6 +43,7 @@ export {
   MaTextField,
   MaList,
   MaHeading,
+  MaStepper,
   markdown,
   markdownSSR,
   responsivePlugin,
@@ -69,6 +71,7 @@ function install(Vue) {
   Vue.component('MaText', MaText)
   Vue.component('MaTextField', MaTextField)
   Vue.component('MaList', MaList)
+  Vue.component('MaStepper', MaStepper)
 
   Vue.directive('markdown', markdown)
 }
