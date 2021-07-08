@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 15 Feb 2021 14:56:40 GMT
+ * Generated on Thu, 08 Jul 2021 13:55:48 GMT
  */
 
 :root {
@@ -41,9 +41,11 @@
   --spacing-4x-large: 6rem;
   --spacing-5x-large: 8rem;
   --spacing-6x-large: 11rem;
-  --shadow-light: rgba(0, 0, 0, 0.027451);
-  --shadow-medium: rgba(0, 0, 0, 0.0980392);
-  --shadow-dark: rgba(0, 0, 0, 0.498);
+  --shadow-xsmall: 0 0 6px 0 rgba(33, 33, 33, 0.05);
+  --shadow-small: 0 3px 17px 0 rgba(33, 33, 33, 0.1);
+  --shadow-medium: 0 3px 17px 0 rgba(33, 33, 33, 0.25);
+  --shadow-large: 0 8px 19px 0 rgba(33, 33, 33, 0.25);
+  --shadow-fancy: 0 9px 18px 0 rgba(200, 192, 171, 1);
   --breakpoint-tablet: 900;
   --breakpoint-desktop: 1440;
 }

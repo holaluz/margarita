@@ -1,6 +1,6 @@
 /*
   Do not edit directly
-  Generated on Mon, 15 Feb 2021 14:56:40 GMT
+  Generated on Thu, 08 Jul 2021 13:55:48 GMT
 */
 
 $color-pink-light: #f8b0cb !default;
@@ -40,9 +40,11 @@ $spacing-3x-large: 5rem !default;
 $spacing-4x-large: 6rem !default;
 $spacing-5x-large: 8rem !default;
 $spacing-6x-large: 11rem !default;
-$shadow-light: rgba(0, 0, 0, 0.027451) !default;
-$shadow-medium: rgba(0, 0, 0, 0.0980392) !default;
-$shadow-dark: rgba(0, 0, 0, 0.498) !default;
+$shadow-xsmall: 0 0 6px 0 rgba(33, 33, 33, 0.05) !default;
+$shadow-small: 0 3px 17px 0 rgba(33, 33, 33, 0.1) !default;
+$shadow-medium: 0 3px 17px 0 rgba(33, 33, 33, 0.25) !default;
+$shadow-large: 0 8px 19px 0 rgba(33, 33, 33, 0.25) !default;
+$shadow-fancy: 0 9px 18px 0 rgba(200, 192, 171, 1) !default;
 $breakpoint-tablet: 900 !default;
 $breakpoint-desktop: 1440 !default;
 
@@ -113,9 +115,11 @@ $tokens: (
     '6x-large': $spacing-6x-large,
   ),
   'shadow': (
-    'light': $shadow-light,
+    'xsmall': $shadow-xsmall,
+    'small': $shadow-small,
     'medium': $shadow-medium,
-    'dark': $shadow-dark,
+    'large': $shadow-large,
+    'fancy': $shadow-fancy,
   ),
   'breakpoint': (
     'tablet': $breakpoint-tablet,
