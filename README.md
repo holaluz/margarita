@@ -63,18 +63,9 @@ And finally, add the following config on the Nuxt Config file:
 // nuxt.config.js
 
 export default {
-  // Install the plugin
   plugins: [
     './plugins/margarita.js',
   ],
-
-  // Register style-resources module
-  modules: ['@nuxtjs/style-resources'],
-
-  // Add Margarita tokens to each SFC style block
-  styleResources: {
-    scss: ['@holaluz/margarita/dist/scss/_margarita-tokens.scss'],
-  },
 }
 ```
 

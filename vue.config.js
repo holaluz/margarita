@@ -1,5 +1,4 @@
 const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   configureWebpack: {
@@ -8,10 +7,5 @@ module.exports = {
         '@margarita': path.resolve(__dirname, 'src/'),
       },
     },
-    plugins: [
-      new CopyWebpackPlugin({
-        patterns: [{ from: 'src/scss', to: 'scss' }],
-      }),
-    ],
   },
 }

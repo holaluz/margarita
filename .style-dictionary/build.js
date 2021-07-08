@@ -25,23 +25,5 @@ StyleDictionary.extend({
         },
       ],
     },
-    scss: {
-      transforms: [
-        'attribute/cti',
-        'name/dashed',
-        'time/seconds',
-        'content/icon',
-        'size/rem',
-        'color/css',
-      ],
-      buildPath: './src/scss/',
-      files: [
-        {
-          destination: '_tokens.scss',
-          format: 'scss/map-deep',
-          mapName: 'tokens',
-        },
-      ],
-    },
   },
 }).buildAllPlatforms()

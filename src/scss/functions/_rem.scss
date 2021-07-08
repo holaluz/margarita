@@ -1,3 +1,0 @@
-@function rem($px: 0) {
-  @return $px / $rem-baseline * 1rem;
-}

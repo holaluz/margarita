@@ -3,7 +3,7 @@ const jestConfig = require('@holaluz/npm-scripts').jest
 
 module.exports = merge(jestConfig, {
   transform: {
-    '.+\\.(css|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
+    '.+\\.(css|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
   moduleNameMapper: {
     '^@margarita/(.*)$': '<rootDir>/src/$1',
