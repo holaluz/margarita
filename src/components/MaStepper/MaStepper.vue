@@ -15,15 +15,13 @@ export default {
     size: {
       type: String,
       default: 'large',
-      validator: (val) => ['large', 'small'].includes(val),
+      validator: (val) => ['xsmall', 'small', 'medium', 'large'].includes(val),
     },
   },
 
   computed: {
     numberSize() {
-      return this.size === 'large'
-        ? 'ma-stepper-number-large'
-        : 'ma-stepper-number-small'
+      return `ma-stepper-number-${this.size}`
     },
   },
 }

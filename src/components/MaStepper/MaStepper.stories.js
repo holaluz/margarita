@@ -8,7 +8,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['big', 'small'],
+        options: ['xsmall', 'small', 'medium', 'large'],
       },
     },
   },
@@ -39,12 +39,12 @@ const Template = (args, { argTypes }) => ({
             </ma-text>
         </ma-card>
         <section>
-            <ma-text size="small">
+            <ma-text size="medium">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Suspendisse non ante eget nisi sagittis ultrices a id sem. 
                 Vivamus euismod varius maximus.
             </ma-text>
-        </section>
+        </section> 
     </ma-stepper>
     `,
 })

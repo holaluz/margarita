@@ -9,11 +9,9 @@
 
 .ma-stepper > *:before {
   position: absolute;
-  top: 2rem;
   left: -2.25rem;
   background-color: var(--color-gray-light);
   width: 1px;
-  height: 85%;
   content: '';
 }
 
@@ -25,16 +23,48 @@
   color: var(--color-pink-base);
 }
 
+.ma-stepper-number-large > *:before {
+  top: 2rem;
+  height: 80%;
+}
+
 .ma-stepper-number-large > *:after {
   font-size: 2rem;
   left: -2.75rem;
   top: -0.9rem;
 }
 
+.ma-stepper-number-medium > *:before {
+  top: 1.5rem;
+  height: 85%;
+}
+
+.ma-stepper-number-medium > *:after {
+  font-size: 1.25rem;
+  left: -2.5rem;
+  top: -0.5rem;
+}
+
+.ma-stepper-number-small > *:before {
+  top: 1.2rem;
+  height: 100%;
+}
+
 .ma-stepper-number-small > *:after {
   font-size: 1rem;
   left: -2.5rem;
   top: -0.4rem;
+}
+
+.ma-stepper-number-xsmall > *:before {
+  top: 1rem;
+  height: 100%;
+}
+
+.ma-stepper-number-xsmall > *:after {
+  font-size: 0.75rem;
+  left: -2.45rem;
+  top: -0.3rem;
 }
 
 .ma-stepper > *:last-child:before {
