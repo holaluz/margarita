@@ -1,5 +1,6 @@
 .ma-stepper {
   counter-reset: section;
+  margin-left: 3rem;
 }
 
 .ma-stepper > * {
