@@ -399,6 +399,22 @@
     "description": "Set the HTML element tag that wraps the content.",
     "options": ["div", "section", "ul", "ol"]
   },
+  "ma-tab/title": {
+    "type": "string"
+  },
+  "ma-tab/icon": {
+    "type": "string"
+  },
+  "ma-tab/pill": {
+    "type": "string|number"
+  },
+  "ma-tabs/value": {
+    "type": "number"
+  },
+  "ma-tabs/variant": {
+    "type": "string",
+    "options": ["underline", "gradient"]
+  },
   "ma-text/tag": {
     "type": "string",
     "description": "Set the HTML element tag to ensure the document semantics are meaningful",

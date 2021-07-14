@@ -18,6 +18,8 @@ import MaText from './components/MaText'
 import MaTextField from './components/MaTextField'
 import MaList from './components/MaList'
 import MaStack from './components/MaStack'
+import MaTab from './components/MaTab'
+import MaTabs from './components/MaTabs'
 import MaHeading from './components/MaHeading'
 import { markdown, markdownSSR } from './directives/markdown'
 import responsivePlugin from './plugins/responsivePlugin'
@@ -38,6 +40,8 @@ export {
   MaRange,
   MaSelect,
   MaStack,
+  MaTab,
+  MaTabs,
   MaText,
   MaTextField,
   MaList,
@@ -66,6 +70,8 @@ function install(Vue) {
   Vue.component('MaSelect', MaSelect)
   Vue.component('MaStack', MaStack)
   Vue.component('MaHeading', MaHeading)
+  Vue.component('MaTab', MaTab)
+  Vue.component('MaTabs', MaTabs)
   Vue.component('MaText', MaText)
   Vue.component('MaTextField', MaTextField)
   Vue.component('MaList', MaList)

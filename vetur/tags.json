@@ -107,6 +107,14 @@
     "attributes": ["space", "align", "tag"],
     "description": "Renders a stack component following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/layout-stack--stack)"
   },
+  "ma-tab": {
+    "attributes": ["title", "icon", "pill"],
+    "description": ""
+  },
+  "ma-tabs": {
+    "attributes": ["value", "variant"],
+    "description": ""
+  },
   "ma-text": {
     "attributes": ["tag", "size", "italic", "bold", "tone", "align"],
     "description": "Renders text following the Design System guidelines\n\n[Component's API documentation](https://holaluz.github.io/margarita/?path=/story/components-text--text)"
